@@ -50,3 +50,6 @@ P90 Latency: 0.0010243 s
 P95 Latency: 0.0010686 s
 P99 Latency: 0.0012057 s
 P999 Latency: 0.00136 s
+
+
+https://github.com/gim-home/chwarr-basic-winml-cmake-selfcontained
