@@ -4,7 +4,16 @@ onnxruntime_add_executable(onnxruntime_perf_test
 
 ```bash
 
-build --config RelWithDebInfo --update
+"C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.44.35207\bin\Hostx86\x86\dumpbin.exe" G:\onnxruntime-chrisd\build\RelWithDebInfo\onnxruntime_perf_test.exe
+
+"C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.44.35207\bin\Hostx86\x86\dumpbin.exe" G:\onnxruntime-chrisd\build\__nuget\Microsoft.WindowsAppSDK.Foundation.1.8.250701000-experimental\runtimes\win-x64\native\Microsoft.WindowsAppRuntime.Bootstrap.dll
+
+
+
+python "G:\onnxruntime-chrisd\\tools\ci_build\build.py" --build_dir "G:\onnxruntime-chrisd\\build\Windows" --build_shared_lib --config RelWithDebInfo
+
+build --update
+build --build_shared_lib --config RelWithDebInfo  --update
 
 ```
 
@@ -12,7 +21,7 @@ build --config RelWithDebInfo --update
 
 ```bash
 
-cmake --build G:\onnxruntime\build\Windows\RelWithDebInfo --config RelWithDebInfo --target onnxruntime_perf_test
+cmake --build build\Windows\RelWithDebInfo --config RelWithDebInfo --target onnxruntime_perf_test
 
 ```
 build\Windows\RelWithDebInfo\RelWithDebInfo\onnxruntime_perf_test.exe --help
@@ -27,9 +36,9 @@ cmake --build G:\onnxruntime\build\Windows\RelWithDebInfo --config RelWithDebInf
 
 include/onnxruntime/core/session/onnxruntime_ep_device_ep_metadata_keys.h
 
+RelWithDebInfo\onnxruntime_perf_test.exe -r 100 "X:\onnxruntime-testdata\modelzoo\test_squeezenet\model.onnx"
 
-
-G:\onnxruntime\build\Windows\RelWithDebInfo\RelWithDebInfo\onnxruntime_perf_test -r 10000 "X:\onnxruntime-testdata\modelzoo\test_squeezenet\model.onnx"
+build\Windows\RelWithDebInfo\RelWithDebInfo\onnxruntime_perf_test -r 100 "X:\onnxruntime-testdata\modelzoo\test_squeezenet\model.onnx"
 
 Session creation time cost: 0.0183481 s
 First inference time cost: 2 ms

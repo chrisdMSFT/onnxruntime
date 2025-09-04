@@ -1,7 +1,6 @@
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 
-// onnxruntime dependencies
 #include <core/session/onnxruntime_c_api.h>
 #include <random>
 #include "command_args_parser.h"
@@ -9,6 +8,18 @@
 #include "utils.h"
 #include "strings_helper.h"
 #include <google/protobuf/stubs/common.h>
+
+#include <winrt/Windows.Foundation.Collections.h>
+#include <winrt/Microsoft.Windows.AI.MachineLearning.h>
+
+// #include <MddBootstrap.h>
+
+// #include <WindowsAppSDK-VersionInfo.h>
+// #include <MddBootstrap.h>
+
+// namespace MddBootstrap { using namespace ::Microsoft::Windows::ApplicationModel::DynamicDependency::Bootstrap; }
+
+using namespace winrt::Windows::Foundation::Collections;
 
 using namespace onnxruntime;
 const OrtApi* g_ort = NULL;
@@ -18,12 +29,31 @@ int real_main(int argc, wchar_t* argv[]) {
 #else
 int real_main(int argc, char* argv[]) {
 #endif
+
+  std::wcout << "init_apartment" << std::endl;
+  winrt::init_apartment();
+
+  std::wcout << "catalog" << std::endl;
+  auto catalog = winrt::Microsoft::Windows::AI::MachineLearning::ExecutionProviderCatalog::GetDefault();
+
+  std::wcout << "providers" << std::endl;
+  auto providers = catalog.FindAllProviders();
+  for (const auto& provider : providers)
+  {
+      std::wcout << "Provider: " << provider.Name().c_str() << std::endl;
+      provider.EnsureReadyAsync().get();
+      provider.TryRegister();
+  }
+
+  std::wcout << "g_ort" << std::endl;
   g_ort = OrtGetApiBase()->GetApi(ORT_API_VERSION);
+
   perftest::PerformanceTestConfig test_config;
   if (!perftest::CommandLineParser::ParseArguments(test_config, argc, argv)) {
     fprintf(stderr, "%s", "See 'onnxruntime_perf_test --help'.");
     return -1;
   }
+
   Ort::Env env{nullptr};
   {
     bool failed = false;
@@ -43,6 +73,14 @@ int real_main(int argc, char* argv[]) {
     if (failed)
       return -1;
   }
+
+  auto devices = env.GetEpDevices();
+  std::cout << "ONNX providers registered: " << std::endl;
+  for (const auto& device : devices)
+  {
+      std::cout << device.EpName() << " " << std::endl;
+  }
+
 
   if (!test_config.plugin_ep_names_and_libs.empty()) {
     perftest::utils::RegisterExecutionProviderLibrary(env, test_config);
