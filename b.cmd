@@ -1,1 +1,1 @@
- cmake --build build --target onnxruntime_perf_test
+cmake --build build --config Release --target onnxruntime_perf_test
