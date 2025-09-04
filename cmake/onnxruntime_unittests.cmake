@@ -1412,15 +1412,10 @@ if(NOT onnxruntime_ENABLE_TRAINING_TORCH_INTEROP)
     file(
       COPY
       "${onnxruntime_perf_test_src_dir}/windows/onnxruntime_perf_test.exe.manifest"
+      "${NUGET_MICROSOFT_WINDOWS_COPILOTRUNTIME_ROOT}/runtimes-framework/win-x64/native/Microsoft.Windows.AI.MachineLearning.dll"
       DESTINATION
       "${CMAKE_BINARY_DIR}/${CMAKE_BUILD_TYPE}"
     )
-
-    # add_custom_command(TARGET onnxruntime_perf_test POST_BUILD
-    #     COMMAND ${CMAKE_COMMAND} -E copy_if_different
-    #     "${TEST_SRC_DIR}/perftest/windows/onnxruntime_perf_test.exe.manifest"
-    #     $<TARGET_FILE_DIR:onnxruntime_perf_test>/onnxruntime_perf_test.exe.manifest
-    #   )
 
   endif()
 

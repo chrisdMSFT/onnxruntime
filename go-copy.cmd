@@ -1,1 +1,0 @@
-copy G:\onnxruntime-chrisd\build\__nuget\Microsoft.WindowsAppSDK.Foundation.1.8.250701000-experimental\runtimes\win-x64\native\Microsoft.WindowsAppRuntime.Bootstrap.dll G:\onnxruntime-chrisd\build\Debug 
