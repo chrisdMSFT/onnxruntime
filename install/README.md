@@ -26,6 +26,14 @@ copy build\Windows\RelWithDebInfo\__nuget\Microsoft.WindowsAppSDK.ML.1.8.2088\ru
 copy build\Windows\RelWithDebInfo\__nuget\Microsoft.WindowsAppSDK.ML.1.8.2088\runtimes-framework\win-x64\native\onnxruntime_providers_shared.dll install
 ```
 
+## Prerequisites
+
+You need winappsdk installed and probaly a good idea to side-load the EP packages as needed.
+Current verison is: Microsoft.WindowsAppSDK.Runtime.1.8.250909001
+
+[2509-11](https://microsoft.sharepoint-df.com/teams/WINPD-AIPlatformTools-AIPlatform-WindowsML/Shared%20Documents/Forms/AllItems.aspx?id=%2Fteams%2FWINPD%2DAIPlatformTools%2DAIPlatform%2DWindowsML%2FShared%20Documents%2FDrops%2F2509%2D11&p=true&ga=1&gaS=17)
+[EP for 2509-11](https://microsoft.sharepoint-df.com/teams/WINPD-AIPlatformTools-AIPlatform-WindowsML/Shared%20Documents/Forms/AllItems.aspx?id=%2Fteams%2FWINPD%2DAIPlatformTools%2DAIPlatform%2DWindowsML%2FShared%20Documents%2FDrops%2F2509%2D11%2FEP%20MSIX&viewid=6b9efec1%2D4d2c%2D42e8%2Db2d9%2D6024d3d172e1&p=true&ga=1&gaS=17)
+
 ## Test
 
 ```bash
