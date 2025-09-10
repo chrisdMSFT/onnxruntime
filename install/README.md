@@ -34,19 +34,22 @@ Current verison is: Microsoft.WindowsAppSDK.Runtime.1.8.250909001
 [2509-11](https://microsoft.sharepoint-df.com/teams/WINPD-AIPlatformTools-AIPlatform-WindowsML/Shared%20Documents/Forms/AllItems.aspx?id=%2Fteams%2FWINPD%2DAIPlatformTools%2DAIPlatform%2DWindowsML%2FShared%20Documents%2FDrops%2F2509%2D11&p=true&ga=1&gaS=17)
 [EP for 2509-11](https://microsoft.sharepoint-df.com/teams/WINPD-AIPlatformTools-AIPlatform-WindowsML/Shared%20Documents/Forms/AllItems.aspx?id=%2Fteams%2FWINPD%2DAIPlatformTools%2DAIPlatform%2DWindowsML%2FShared%20Documents%2FDrops%2F2509%2D11%2FEP%20MSIX&viewid=6b9efec1%2D4d2c%2D42e8%2Db2d9%2D6024d3d172e1&p=true&ga=1&gaS=17)
 
+
 ## Test
 
+This folder contains a single model for testing purposes, please consule the docs in the ORT repo for more detials on the model inputs.
+
 ```bash
-install\onnxruntime_perf_test.exe --list_ep_devices
+onnxruntime_perf_test --list_ep_devices
 
 echo CPU
-install\onnxruntime_perf_test.exe -r 10000 "C:\Users\chrisd\OneDrive - Microsoft\onnxruntime_perf_test\test_squeezenet\model.onnx" --use_winml_ep --select_ep_devices 4 --plugin_eps OpenVINOExecutionProvider
+onnxruntime_perf_test  -r 10000 "test_squeezenet\model.onnx" --use_winml_ep --select_ep_devices 4 --plugin_eps OpenVINOExecutionProvider
 
 echo NPU
-install\onnxruntime_perf_test.exe -r 10000 "C:\Users\chrisd\OneDrive - Microsoft\onnxruntime_perf_test\test_squeezenet\model.onnx" --use_winml_ep --select_ep_devices 2 --plugin_eps OpenVINOExecutionProvider
+onnxruntime_perf_test  -r 10000 "test_squeezenet\model.onnx" --use_winml_ep --select_ep_devices 2 --plugin_eps OpenVINOExecutionProvider
 
 echo GPU
-install\onnxruntime_perf_test.exe -r 10000 "C:\Users\chrisd\OneDrive - Microsoft\onnxruntime_perf_test\test_squeezenet\model.onnx" --use_winml_ep --select_ep_devices 3 --plugin_eps OpenVINOExecutionProvider
+onnxruntime_perf_test  -r 10000 "test_squeezenet\model.onnx" --use_winml_ep --select_ep_devices 3 --plugin_eps OpenVINOExecutionProvider
 ```
 
 ### Example: onnxruntime_perf_test.exe --list_ep_devices
