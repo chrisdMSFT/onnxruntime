@@ -171,6 +171,7 @@ ABSL_FLAG(std::string, plugin_ep_options, "",
           "--plugin_ep_options \"ep_1_option_1_key|ep_1_option_1_value ...;;ep_3_option_1_key|ep_3_option_1_value ...;... \"");
 ABSL_FLAG(bool, list_ep_devices, false, "Prints all available device indices and their properties (including metadata). This option makes the program exit early without performing inference.\n");
 ABSL_FLAG(std::string, select_ep_devices, "", "Specifies a semicolon-separated list of device indices to add to the session and run with.");
+ABSL_FLAG(bool, use_winml_ep, false, "Use the WinML provided plugin EPs.\n");
 ABSL_FLAG(bool, h, false, "Print program usage.");
 
 namespace onnxruntime {
@@ -485,6 +486,11 @@ bool CommandLineParser::ParseArguments(PerformanceTestConfig& test_config, int a
   {
     const auto& select_ep_devices = absl::GetFlag(FLAGS_select_ep_devices);
     if (!select_ep_devices.empty()) test_config.selected_ep_device_indices = select_ep_devices;
+  }
+
+  // --use_winml_ep
+  if (absl::GetFlag(FLAGS_use_winml_ep)) {
+    test_config.use_winml_ep = true;
   }
 
   if (positional.size() == 2) {

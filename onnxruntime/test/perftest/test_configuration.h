@@ -79,6 +79,7 @@ struct PerformanceTestConfig {
   std::vector<std::string> registered_plugin_eps;
   std::string selected_ep_device_indices;
   bool list_available_ep_devices = false;
+  bool use_winml_ep = false;
 };
 
 }  // namespace perftest

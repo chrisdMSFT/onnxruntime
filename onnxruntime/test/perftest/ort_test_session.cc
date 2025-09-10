@@ -62,9 +62,13 @@ OnnxRuntimeTestSession::OnnxRuntimeTestSession(Ort::Env& env, std::random_device
     : rand_engine_(rd()), input_names_(m.GetInputCount()), input_names_str_(m.GetInputCount()), input_length_(m.GetInputCount()) {
   Ort::SessionOptions session_options;
 
-  // Add EP devices if any (created by plugin EP)
-  if (!performance_test_config.registered_plugin_eps.empty()) {
+  fprintf(stdout, "[OnnxRuntimeTestSession].\n");
+
+  if (performance_test_config.use_winml_ep || !performance_test_config.registered_plugin_eps.empty()) {
+    fprintf(stdout, "[Plugin EP] Add EP devices if any (created by plugin EP).\n");
+
     std::vector<Ort::ConstEpDevice> ep_devices = env.GetEpDevices();
+
     // EP -> associated EP devices (All OrtEpDevice instances must be from the same execution provider)
     std::unordered_map<std::string, std::vector<Ort::ConstEpDevice>> added_ep_devices;
     std::unordered_set<int> added_ep_device_index_set;
@@ -74,9 +78,12 @@ OnnxRuntimeTestSession::OnnxRuntimeTestSession(Ort::Env& env, std::random_device
 
     // Select EP devices by provided device index
     if (!performance_test_config.selected_ep_device_indices.empty()) {
+      fprintf(stdout, "[Plugin EP] Select EP devices by provided device index.\n");
+
       std::vector<int> device_list;
       device_list.reserve(performance_test_config.selected_ep_device_indices.size());
       ParseEpDeviceIndexList(performance_test_config.selected_ep_device_indices, device_list);
+
       for (auto index : device_list) {
         if (static_cast<size_t>(index) > (ep_devices.size() - 1)) {
           fprintf(stderr, "%s", "The device index provided is not correct. Will skip this device id.");
@@ -84,11 +91,13 @@ OnnxRuntimeTestSession::OnnxRuntimeTestSession(Ort::Env& env, std::random_device
         }
 
         Ort::ConstEpDevice& device = ep_devices[index];
-        if (ep_set.find(std::string(device.EpName())) != ep_set.end()) {
+        fprintf(stdout, "[Plugin EP] 1. EP Device [Index: %d, Name: %s] has been added to session.\n", index, device.EpName());
+
+        if (performance_test_config.use_winml_ep || ep_set.find(std::string(device.EpName())) != ep_set.end()) {
           if (added_ep_device_index_set.find(index) == added_ep_device_index_set.end()) {
             added_ep_devices[device.EpName()].push_back(device);
             added_ep_device_index_set.insert(index);
-            fprintf(stdout, "[Plugin EP] EP Device [Index: %d, Name: %s] has been added to session.\n", index, device.EpName());
+            fprintf(stdout, "[Plugin EP] 2. EP Device [Index: %d, Name: %s] has been added to session.\n", index, device.EpName());
           }
         } else {
           std::string err_msg = "[Plugin EP] [WARNING] : The EP device index and its corresponding OrtEpDevice is not created from " +
@@ -97,7 +106,7 @@ OnnxRuntimeTestSession::OnnxRuntimeTestSession(Ort::Env& env, std::random_device
         }
       }
     } else {
-      // Find and select the OrtEpDevice associated with the EP in "--plugin_eps".
+      fprintf(stdout, "[Plugin EP]  Find and select the OrtEpDevice associated with the EP in '--plugin_eps'.\n");
       for (size_t index = 0; index < ep_devices.size(); ++index) {
         Ort::ConstEpDevice& device = ep_devices[index];
         if (ep_set.find(std::string(device.EpName())) != ep_set.end()) {
@@ -119,6 +128,8 @@ OnnxRuntimeTestSession::OnnxRuntimeTestSession(Ort::Env& env, std::random_device
 
     // If user only provide the EPs' provider option lists for the first several EPs,
     // add empty provider option lists for the rest EPs.
+    fprintf(stdout, "ep_options_list: %d ep_list: %d.\n", static_cast<int>(ep_options_list.size()), static_cast<int>(ep_list.size()));
+
     if (ep_options_list.size() < ep_list.size()) {
       for (size_t i = ep_options_list.size(); i < ep_list.size(); ++i) {
         ep_options_list.emplace_back();  // Adds a new empty map
@@ -136,6 +147,7 @@ OnnxRuntimeTestSession::OnnxRuntimeTestSession(Ort::Env& env, std::random_device
     for (auto& ep_and_devices : added_ep_devices) {
       auto& ep = ep_and_devices.first;
       auto& devices = ep_and_devices.second;
+      fprintf(stdout, "AppendExecutionProvider_V2|%s|%d|\n", ep.c_str(), static_cast<int>(devices.size()));
       session_options.AppendExecutionProvider_V2(env, devices, ep_options_map[ep]);
     }
   }
