@@ -20,9 +20,7 @@
 #include "TestCase.h"
 #include "strings_helper.h"
 
-#ifdef USE_OPENVINO
 #include "nlohmann/json.hpp"
-#endif
 
 #ifdef USE_DML
 #include "core/providers/dml/dml_provider_factory.h"
@@ -77,50 +75,70 @@ OnnxRuntimeTestSession::OnnxRuntimeTestSession(Ort::Env& env, std::random_device
                                                const PerformanceTestConfig& performance_test_config,
                                                const TestModelInfo& m)
     : rand_engine_(rd()), input_names_(m.GetInputCount()), input_names_str_(m.GetInputCount()), input_length_(m.GetInputCount()) {
+
   Ort::SessionOptions session_options;
 
+  bool ep_already_added = false;
+
+  provider_name_ = performance_test_config.machine_config.provider_type_name;
+
   // Add EP devices if any (created by plugin EP)
-  if (!performance_test_config.registered_plugin_eps.empty()) {
+  if (performance_test_config.has_required_device_type || !performance_test_config.selected_ep_device_indices.empty() || !performance_test_config.registered_plugin_eps.empty()) {
+
+    provider_name_.clear();
     std::vector<Ort::ConstEpDevice> ep_devices = env.GetEpDevices();
+
+    std::vector<std::string> ep_list = performance_test_config.machine_config.plugin_provider_type_list;
+
     // EP -> associated EP devices (All OrtEpDevice instances must be from the same execution provider)
     std::unordered_map<std::string, std::vector<Ort::ConstEpDevice>> added_ep_devices;
-    std::unordered_set<int> added_ep_device_index_set;
-
-    auto& ep_list = performance_test_config.machine_config.plugin_provider_type_list;
-    std::unordered_set<std::string> ep_set(ep_list.begin(), ep_list.end());
 
     // Select EP devices by provided device index
-    if (!performance_test_config.selected_ep_device_indices.empty()) {
+    if (performance_test_config.has_required_device_type) {
+
+      for (int index = 0; index < ep_devices.size(); ++index) {
+        Ort::ConstEpDevice& device = ep_devices[index];
+
+        fprintf(stdout, "[WinML EP] EP Device [Index: %d, Name: %s]\n", static_cast<int>(index), device.EpName());
+
+        if (device.Device().Type() == performance_test_config.required_device_type && performance_test_config.machine_config.provider_type_name == device.EpName()) {
+          ep_already_added = true;
+          added_ep_devices[device.EpName()].push_back(device);
+          provider_name_.append(device.EpName());
+          provider_name_.append("|");
+          ep_list.push_back(device.EpName());
+
+          fprintf(stdout, "[WinML EP] EP Device [Index: %d, Name: %s] has been added to session.\n", index, device.EpName());
+        }
+      }
+    }
+    else if (!performance_test_config.selected_ep_device_indices.empty()) {
+
       std::vector<int> device_list;
-      device_list.reserve(performance_test_config.selected_ep_device_indices.size());
       ParseEpDeviceIndexList(performance_test_config.selected_ep_device_indices, device_list);
+
       for (auto index : device_list) {
         if (static_cast<size_t>(index) > (ep_devices.size() - 1)) {
-          fprintf(stderr, "%s", "The device index provided is not correct. Will skip this device id.");
-          continue;
+          ORT_THROW("[ERROR] [WinML EP]: Invalid Index: ", index,
+                    ". The device index should be between 0 and ", ep_devices.size() - 1, ".\n");
         }
 
         Ort::ConstEpDevice& device = ep_devices[index];
-        if (ep_set.find(std::string(device.EpName())) != ep_set.end()) {
-          if (added_ep_device_index_set.find(index) == added_ep_device_index_set.end()) {
-            added_ep_devices[device.EpName()].push_back(device);
-            added_ep_device_index_set.insert(index);
-            fprintf(stdout, "[Plugin EP] EP Device [Index: %d, Name: %s] has been added to session.\n", index, device.EpName());
-          }
-        } else {
-          std::string err_msg = "[Plugin EP] [WARNING] : The EP device index and its corresponding OrtEpDevice is not created from " +
-                                performance_test_config.machine_config.provider_type_name + ". Will skip adding this device.\n";
-          fprintf(stderr, "%s", err_msg.c_str());
-        }
+        ep_already_added = true;
+        added_ep_devices[device.EpName()].push_back(device);
+        provider_name_.append(device.EpName());
+        provider_name_.append("|");
+        ep_list.push_back(device.EpName());
+
+        fprintf(stdout, "[WinML EP] EP Device [Index: %d, Name: %s] has been added to session.\n", index, device.EpName());
       }
+
     } else {
       // Find and select the OrtEpDevice associated with the EP in "--plugin_eps".
       for (size_t index = 0; index < ep_devices.size(); ++index) {
         Ort::ConstEpDevice& device = ep_devices[index];
-        if (ep_set.find(std::string(device.EpName())) != ep_set.end()) {
-          added_ep_devices[device.EpName()].push_back(device);
-          fprintf(stdout, "EP Device [Index: %d, Name: %s] has been added to session.\n", static_cast<int>(index), device.EpName());
-        }
+        added_ep_devices[device.EpName()].push_back(device);
+        fprintf(stdout, "EP Device [Index: %d, Name: %s] has been added to session.\n", static_cast<int>(index), device.EpName());
       }
     }
 
@@ -128,7 +146,11 @@ OnnxRuntimeTestSession::OnnxRuntimeTestSession(Ort::Env& env, std::random_device
       ORT_THROW("[ERROR] [Plugin EP]: No matching EP devices found.");
     }
 
-    std::string ep_option_string = ToUTF8String(performance_test_config.run_config.ep_runtime_config_string);
+    #if defined(_MSC_VER)
+        std::string ep_option_string = ToUTF8String(performance_test_config.run_config.ep_runtime_config_string);
+    #else
+        std::string ep_option_string = performance_test_config.run_config.ep_runtime_config_string;
+    #endif  // defined(_MSC_VER)
 
     // EP's associated provider option lists
     std::vector<std::unordered_map<std::string, std::string>> ep_options_list;
@@ -144,6 +166,12 @@ OnnxRuntimeTestSession::OnnxRuntimeTestSession(Ort::Env& env, std::random_device
       ORT_THROW("[ERROR] [Plugin EP]: Too many EP provider option lists provided.");
     }
 
+    for (int i=0; i < static_cast<int>(ep_options_list.size()); ++i){
+      for (const auto& o : ep_options_list[i]) {
+        fprintf(stdout, "[ep_options_list][%d] [%s] [%s] -> [%s]\n", i, ep_list[i].c_str(), o.first.c_str(), o.second.c_str());
+      }
+    }
+
     // EP -> associated provider options
     std::unordered_map<std::string, std::unordered_map<std::string, std::string>> ep_options_map;
     for (size_t i = 0; i < ep_list.size(); ++i) {
@@ -157,9 +185,12 @@ OnnxRuntimeTestSession::OnnxRuntimeTestSession(Ort::Env& env, std::random_device
     }
   }
 
-  provider_name_ = performance_test_config.machine_config.provider_type_name;
   std::unordered_map<std::string, std::string> provider_options;
-  if (provider_name_ == onnxruntime::kDnnlExecutionProvider) {
+
+  if (ep_already_added){
+    // EP already added from plugin EP
+  }
+  else if (provider_name_ == onnxruntime::kDnnlExecutionProvider) {
 #ifdef USE_DNNL
     // Generate provider options
     OrtDnnlProviderOptions dnnl_options;
@@ -247,11 +278,6 @@ OnnxRuntimeTestSession::OnnxRuntimeTestSession(Ort::Env& env, std::random_device
       cuda_options.user_compute_stream = reinterpret_cast<void*>(stream_);
       provider_options["user_compute_stream"] = stream_str;
     }
-#ifdef _MSC_VER
-    std::string ov_string = ToUTF8String(performance_test_config.run_config.ep_runtime_config_string);
-#else
-    std::string ov_string = performance_test_config.run_config.ep_runtime_config_string;
-#endif
     ParseSessionConfigs(ov_string, provider_options);
     tensorrt_options.Update(provider_options);
     session_options.AppendExecutionProvider_TensorRT_V2(*tensorrt_options);
@@ -747,8 +773,8 @@ select from 'TF8', 'TF16', 'UINT8', 'FLOAT', 'ITENSOR'. \n)");
       }
     }
   }
-  if (provider_name_ == onnxruntime::kOpenVINOExecutionProvider) {
-#ifdef USE_OPENVINO
+
+  if (!ep_already_added && provider_name_ == onnxruntime::kOpenVINOExecutionProvider) {
 #ifdef _MSC_VER
     std::string ov_string = ToUTF8String(performance_test_config.run_config.ep_runtime_config_string);
 #else
@@ -918,10 +944,12 @@ select from 'TF8', 'TF16', 'UINT8', 'FLOAT', 'ITENSOR'. \n)");
             " 'enable_causallm', 'reshape_input', 'layout', 'model_priority'] \n");
       }
     }
+
+    for (const auto& it : ov_options) {
+      fprintf(stdout, "[OpenVINO EP] [%s] -> [%s]\n", it.first.c_str(), it.second.c_str());
+    }
+
     session_options.AppendExecutionProvider_OpenVINO_V2(ov_options);
-#else
-    ORT_THROW("OpenVINO is not supported in this build\n");
-#endif
   }
 
   if (performance_test_config.run_config.use_extensions) {
@@ -993,6 +1021,8 @@ select from 'TF8', 'TF16', 'UINT8', 'FLOAT', 'ITENSOR'. \n)");
     std::transform(output_shape.begin(), output_shape.end(), output_shape.begin(), transform_fcn);
     outputs_.emplace_back(new_value(allocator_, output_shape, tensor_info));
   }
+
+  fprintf(stdout, "[WinML][provider_names: %s]\n", provider_name_.c_str());
 }
 
 template <typename T>

@@ -1,1 +1,1 @@
-cmake --build build --config Release --target onnxruntime_perf_test
+cmake --build build --config RelWithDebInfo --target onnxruntime_perf_test

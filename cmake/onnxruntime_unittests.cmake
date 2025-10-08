@@ -10,6 +10,15 @@ if(onnxruntime_ENABLE_TRAINING)
   list(APPEND TEST_INC_DIR ${ORTTRAINING_ROOT})
 endif()
 
+macro(post_build_runtime_dll_copy target_name)
+    if(WIN32)
+        add_custom_command(TARGET ${target_name} POST_BUILD
+            COMMAND "${CMAKE_COMMAND};-E;$<IF:$<BOOL:$<TARGET_RUNTIME_DLLS:${target_name}>>,copy;$<TARGET_RUNTIME_DLLS:${target_name}>;$<TARGET_FILE_DIR:${target_name}>,true>"
+            COMMAND_EXPAND_LISTS
+        )
+    endif()
+endmacro()
+
 # Exclude files based on CMake options.
 function(filter_test_srcs test_srcs_var)
   set(excluded_path_prefixes)
@@ -35,7 +44,7 @@ function(filter_test_srcs test_srcs_var)
 
         cmake_path(IS_PREFIX excluded_path_prefix ${test_src_absolute} NORMALIZE is_excluded)
 
-        if (is_excluded)
+        if(is_excluded)
           break()
         endif()
       endforeach()
@@ -308,7 +317,7 @@ endfunction(AddTest)
 # - onnxruntime/test/contrib_ops
 # - onnxruntime/test/providers
 function(partition_provider_test_srcs
-         all_srcs_var provider_test_srcs_var other_srcs_var)
+  all_srcs_var provider_test_srcs_var other_srcs_var)
   set(provider_test_src_roots
     ${TEST_SRC_DIR}/contrib_ops
     ${TEST_SRC_DIR}/providers
@@ -849,48 +858,48 @@ source_group(TREE ${TEST_SRC_DIR} FILES ${onnxruntime_test_utils_src})
 # libraries.
 block()
 
-file(GLOB onnxruntime_unittest_utils_src CONFIGURE_DEPENDS
+  file(GLOB onnxruntime_unittest_utils_src CONFIGURE_DEPENDS
     "${TEST_SRC_DIR}/unittest_util/*.h"
     "${TEST_SRC_DIR}/unittest_util/*.cc")
 
-if(onnxruntime_MINIMAL_BUILD OR onnxruntime_REDUCED_OPS_BUILD)
-  # some exclusions from a minimal or reduced ops build
-  list(REMOVE_ITEM onnxruntime_unittest_utils_src
-    "${TEST_SRC_DIR}/unittest_util/base_tester.cc"
-    "${TEST_SRC_DIR}/unittest_util/base_tester.h"
-    "${TEST_SRC_DIR}/unittest_util/function_test_util.cc"
-    "${TEST_SRC_DIR}/unittest_util/function_test_util.h"
-    "${TEST_SRC_DIR}/unittest_util/graph_transform_test_builder.cc"
-    "${TEST_SRC_DIR}/unittest_util/graph_transform_test_builder.h"
-    "${TEST_SRC_DIR}/unittest_util/model_tester.h"
-    "${TEST_SRC_DIR}/unittest_util/op_tester.cc"
-    "${TEST_SRC_DIR}/unittest_util/op_tester.h"
-    "${TEST_SRC_DIR}/unittest_util/qdq_test_utils.cc"
-    "${TEST_SRC_DIR}/unittest_util/qdq_test_utils.h"
+  if(onnxruntime_MINIMAL_BUILD OR onnxruntime_REDUCED_OPS_BUILD)
+    # some exclusions from a minimal or reduced ops build
+    list(REMOVE_ITEM onnxruntime_unittest_utils_src
+      "${TEST_SRC_DIR}/unittest_util/base_tester.cc"
+      "${TEST_SRC_DIR}/unittest_util/base_tester.h"
+      "${TEST_SRC_DIR}/unittest_util/function_test_util.cc"
+      "${TEST_SRC_DIR}/unittest_util/function_test_util.h"
+      "${TEST_SRC_DIR}/unittest_util/graph_transform_test_builder.cc"
+      "${TEST_SRC_DIR}/unittest_util/graph_transform_test_builder.h"
+      "${TEST_SRC_DIR}/unittest_util/model_tester.h"
+      "${TEST_SRC_DIR}/unittest_util/op_tester.cc"
+      "${TEST_SRC_DIR}/unittest_util/op_tester.h"
+      "${TEST_SRC_DIR}/unittest_util/qdq_test_utils.cc"
+      "${TEST_SRC_DIR}/unittest_util/qdq_test_utils.h"
+    )
+
+    if(onnxruntime_MINIMAL_BUILD)
+      list(REMOVE_ITEM onnxruntime_unittest_utils_src
+        "${TEST_SRC_DIR}/unittest_util/test_dynamic_plugin_ep.cc"
+        "${TEST_SRC_DIR}/unittest_util/test_dynamic_plugin_ep.h"
+      )
+    endif()
+  endif()
+
+  onnxruntime_add_static_library(onnxruntime_unittest_utils ${onnxruntime_unittest_utils_src})
+
+  target_link_libraries(onnxruntime_unittest_utils PUBLIC
+    onnx
+    GTest::gtest
+    GTest::gmock
+    onnxruntime_test_utils
+    ${ONNXRUNTIME_TEST_LIBS}
+    ${onnxruntime_EXTERNAL_LIBRARIES}
   )
 
-  if (onnxruntime_MINIMAL_BUILD)
-    list(REMOVE_ITEM onnxruntime_unittest_utils_src
-      "${TEST_SRC_DIR}/unittest_util/test_dynamic_plugin_ep.cc"
-      "${TEST_SRC_DIR}/unittest_util/test_dynamic_plugin_ep.h"
-    )
-  endif()
-endif()
+  set_target_properties(onnxruntime_unittest_utils PROPERTIES FOLDER "ONNXRuntimeTest")
 
-onnxruntime_add_static_library(onnxruntime_unittest_utils ${onnxruntime_unittest_utils_src})
-
-target_link_libraries(onnxruntime_unittest_utils PUBLIC
-                      onnx
-                      GTest::gtest
-                      GTest::gmock
-                      onnxruntime_test_utils
-                      ${ONNXRUNTIME_TEST_LIBS}
-                      ${onnxruntime_EXTERNAL_LIBRARIES}
-                      )
-
-set_target_properties(onnxruntime_unittest_utils PROPERTIES FOLDER "ONNXRuntimeTest")
-
-source_group(TREE ${TEST_SRC_DIR} FILES ${onnxruntime_unittest_utils_src})
+  source_group(TREE ${TEST_SRC_DIR} FILES ${onnxruntime_unittest_utils_src})
 
 endblock()
 
@@ -924,19 +933,19 @@ if(NOT IOS)
 endif()
 
 set(all_tests
-    ${onnxruntime_test_common_src}
-    ${onnxruntime_test_ir_src}
-    ${onnxruntime_test_optimizer_src}
-    ${onnxruntime_test_framework_src}
-    ${onnxruntime_test_providers_src}
-    ${onnxruntime_test_internal_testing_ep_src}
-    ${onnxruntime_test_quantization_src}
-    ${onnxruntime_test_flatbuffers_src}
-    ${onnxruntime_test_lora_src}
+  ${onnxruntime_test_common_src}
+  ${onnxruntime_test_ir_src}
+  ${onnxruntime_test_optimizer_src}
+  ${onnxruntime_test_framework_src}
+  ${onnxruntime_test_providers_src}
+  ${onnxruntime_test_internal_testing_ep_src}
+  ${onnxruntime_test_quantization_src}
+  ${onnxruntime_test_flatbuffers_src}
+  ${onnxruntime_test_lora_src}
 )
 
 if(onnxruntime_ENABLE_CUDA_EP_INTERNAL_TESTS)
-  if (NOT onnxruntime_MINIMAL_BUILD AND NOT onnxruntime_REDUCED_OPS_BUILD)
+  if(NOT onnxruntime_MINIMAL_BUILD AND NOT onnxruntime_REDUCED_OPS_BUILD)
     set(onnxruntime_test_cuda_kernels_src_patterns "${TEST_SRC_DIR}/contrib_ops/cuda_kernels/*.cc")
   endif()
 
@@ -1001,7 +1010,7 @@ endif()
 if(CMAKE_SYSTEM_NAME STREQUAL "Emscripten" OR IOS)
   # Because we do not run these model tests in our web or iOS CI build pipelines, and some test code uses C++17
   # filesystem functions that are not available in the iOS version we target.
-   message("Disable model tests")
+  message("Disable model tests")
   list(REMOVE_ITEM all_tests
     "${TEST_SRC_DIR}/providers/cpu/model_tests.cc"
   )
@@ -1199,80 +1208,80 @@ endif()
 # onnxruntime_provider_test
 # Execution provider-related tests.
 # These also have some support for dynamically specified plugin EPs.
-if (NOT onnxruntime_MINIMAL_BUILD AND NOT onnxruntime_REDUCED_OPS_BUILD)
-block()
-  set(supporting_test_srcs
-    ${TEST_SRC_DIR}/common/cuda_op_test_utils.cc
-    ${TEST_SRC_DIR}/common/cuda_op_test_utils.h
-    ${TEST_SRC_DIR}/common/tensor_op_test_utils.cc
-    ${TEST_SRC_DIR}/common/tensor_op_test_utils.h
-  )
+if(NOT onnxruntime_MINIMAL_BUILD AND NOT onnxruntime_REDUCED_OPS_BUILD)
+  block()
+    set(supporting_test_srcs
+      ${TEST_SRC_DIR}/common/cuda_op_test_utils.cc
+      ${TEST_SRC_DIR}/common/cuda_op_test_utils.h
+      ${TEST_SRC_DIR}/common/tensor_op_test_utils.cc
+      ${TEST_SRC_DIR}/common/tensor_op_test_utils.h
+    )
 
-  list(APPEND onnxruntime_provider_test_srcs
-    ${supporting_test_srcs}
-    ${onnxruntime_unittest_main_src}
-  )
+    list(APPEND onnxruntime_provider_test_srcs
+      ${supporting_test_srcs}
+      ${onnxruntime_unittest_main_src}
+    )
 
-  set(onnxruntime_provider_test_libs
-    ${onnx_test_runner_common_lib}
-    ${onnxruntime_test_providers_libs}
-    ${onnxruntime_test_common_libs}
-    onnx_test_data_proto
-  )
+    set(onnxruntime_provider_test_libs
+      ${onnx_test_runner_common_lib}
+      ${onnxruntime_test_providers_libs}
+      ${onnxruntime_test_common_libs}
+      onnx_test_data_proto
+    )
 
-  set(onnxruntime_provider_test_deps ${onnxruntime_test_providers_dependencies})
+    set(onnxruntime_provider_test_deps ${onnxruntime_test_providers_dependencies})
 
-  AddTest(
-    TARGET onnxruntime_provider_test
-    SOURCES ${onnxruntime_provider_test_srcs}
-    LIBS ${onnxruntime_provider_test_libs}
-    DEPENDS ${onnxruntime_provider_test_deps}
-  )
+    AddTest(
+      TARGET onnxruntime_provider_test
+      SOURCES ${onnxruntime_provider_test_srcs}
+      LIBS ${onnxruntime_provider_test_libs}
+      DEPENDS ${onnxruntime_provider_test_deps}
+    )
   if (UNIX AND (onnxruntime_USE_TENSORRT OR onnxruntime_USE_NV))
     # The test_main.cc includes NvInfer.h where it has many deprecated declarations
     # simply ignore them for TensorRT EP build
     set_property(TARGET onnxruntime_provider_test APPEND_STRING PROPERTY COMPILE_FLAGS "-Wno-deprecated-declarations")
   endif()
 
-  # enable dynamic plugin EP usage
-  target_compile_definitions(onnxruntime_provider_test PRIVATE ORT_UNIT_TEST_ENABLE_DYNAMIC_PLUGIN_EP_USAGE)
+    # enable dynamic plugin EP usage
+    target_compile_definitions(onnxruntime_provider_test PRIVATE ORT_UNIT_TEST_ENABLE_DYNAMIC_PLUGIN_EP_USAGE)
 
-  # TODO fix shorten-64-to-32 warnings
-  # there are some in builds where sizeof(size_t) != sizeof(int64_t), e.g., in 'ONNX Runtime Web CI Pipeline'
-  if (HAS_SHORTEN_64_TO_32 AND NOT CMAKE_SIZEOF_VOID_P EQUAL 8)
-    target_compile_options(onnxruntime_provider_test PRIVATE -Wno-error=shorten-64-to-32)
-  endif()
-
-  # copied from onnxruntime_test_all
-  # TODO reuse instead of copy?
-  if (CMAKE_SYSTEM_NAME STREQUAL "Emscripten")
-    set_target_properties(onnxruntime_provider_test PROPERTIES LINK_DEPENDS ${TEST_SRC_DIR}/wasm/onnxruntime_test_adapter.js)
-    set_target_properties(onnxruntime_provider_test PROPERTIES LINK_DEPENDS ${ONNXRUNTIME_ROOT}/wasm/pre.js)
-    set_target_properties(onnxruntime_provider_test PROPERTIES LINK_FLAGS "-s STACK_SIZE=5242880 -s INITIAL_MEMORY=536870912 -s ALLOW_MEMORY_GROWTH=1 -s MAXIMUM_MEMORY=4294967296 -s INCOMING_MODULE_JS_API=[preRun,locateFile,arguments,onExit,wasmMemory,buffer,instantiateWasm] --pre-js \"${TEST_SRC_DIR}/wasm/onnxruntime_test_adapter.js\" --pre-js \"${ONNXRUNTIME_ROOT}/wasm/pre.js\" -s \"EXPORTED_RUNTIME_METHODS=['FS']\" --preload-file ${CMAKE_CURRENT_BINARY_DIR}/testdata@/testdata -s EXIT_RUNTIME=1")
-    if (onnxruntime_ENABLE_WEBASSEMBLY_THREADS)
-      set_property(TARGET onnxruntime_provider_test APPEND_STRING PROPERTY LINK_FLAGS " -s DEFAULT_PTHREAD_STACK_SIZE=131072 -s PROXY_TO_PTHREAD=1")
-    endif()
-    if (onnxruntime_USE_JSEP)
-      set_target_properties(onnxruntime_provider_test PROPERTIES LINK_DEPENDS ${ONNXRUNTIME_ROOT}/wasm/pre-jsep.js)
-      set_property(TARGET onnxruntime_provider_test APPEND_STRING PROPERTY LINK_FLAGS " --pre-js \"${ONNXRUNTIME_ROOT}/wasm/pre-jsep.js\"")
+    # TODO fix shorten-64-to-32 warnings
+    # there are some in builds where sizeof(size_t) != sizeof(int64_t), e.g., in 'ONNX Runtime Web CI Pipeline'
+    if(HAS_SHORTEN_64_TO_32 AND NOT CMAKE_SIZEOF_VOID_P EQUAL 8)
+      target_compile_options(onnxruntime_provider_test PRIVATE -Wno-error=shorten-64-to-32)
     endif()
 
-    ###
-    ### if you want to investigate or debug a test failure in onnxruntime_provider_test, replace the following line.
-    ### those flags slow down the CI test significantly, so we don't use them by default.
-    ###
-    #   set_property(TARGET onnxruntime_provider_test APPEND_STRING PROPERTY LINK_FLAGS " -s ASSERTIONS=2 -s SAFE_HEAP=1 -s STACK_OVERFLOW_CHECK=2")
-    set_property(TARGET onnxruntime_provider_test APPEND_STRING PROPERTY LINK_FLAGS " -s ASSERTIONS=0 -s SAFE_HEAP=0 -s STACK_OVERFLOW_CHECK=1")
-  endif()
+    # copied from onnxruntime_test_all
+    # TODO reuse instead of copy?
+    if(CMAKE_SYSTEM_NAME STREQUAL "Emscripten")
+      set_target_properties(onnxruntime_provider_test PROPERTIES LINK_DEPENDS ${TEST_SRC_DIR}/wasm/onnxruntime_test_adapter.js)
+      set_target_properties(onnxruntime_provider_test PROPERTIES LINK_DEPENDS ${ONNXRUNTIME_ROOT}/wasm/pre.js)
+      set_target_properties(onnxruntime_provider_test PROPERTIES LINK_FLAGS "-s STACK_SIZE=5242880 -s INITIAL_MEMORY=536870912 -s ALLOW_MEMORY_GROWTH=1 -s MAXIMUM_MEMORY=4294967296 -s INCOMING_MODULE_JS_API=[preRun,locateFile,arguments,onExit,wasmMemory,buffer,instantiateWasm] --pre-js \"${TEST_SRC_DIR}/wasm/onnxruntime_test_adapter.js\" --pre-js \"${ONNXRUNTIME_ROOT}/wasm/pre.js\" -s \"EXPORTED_RUNTIME_METHODS=['FS']\" --preload-file ${CMAKE_CURRENT_BINARY_DIR}/testdata@/testdata -s EXIT_RUNTIME=1")
+      if(onnxruntime_ENABLE_WEBASSEMBLY_THREADS)
+        set_property(TARGET onnxruntime_provider_test APPEND_STRING PROPERTY LINK_FLAGS " -s DEFAULT_PTHREAD_STACK_SIZE=131072 -s PROXY_TO_PTHREAD=1")
+      endif()
+      if(onnxruntime_USE_JSEP)
+        set_target_properties(onnxruntime_provider_test PROPERTIES LINK_DEPENDS ${ONNXRUNTIME_ROOT}/wasm/pre-jsep.js)
+        set_property(TARGET onnxruntime_provider_test APPEND_STRING PROPERTY LINK_FLAGS " --pre-js \"${ONNXRUNTIME_ROOT}/wasm/pre-jsep.js\"")
+      endif()
 
-  if (IOS)
-    add_custom_command(
-      TARGET onnxruntime_provider_test POST_BUILD
-      COMMAND ${CMAKE_COMMAND} -E copy_directory
-      ${TEST_DATA_SRC}
-      $<TARGET_FILE_DIR:onnxruntime_provider_test>/testdata)
-  endif()
-endblock()
+      ###
+      ### if you want to investigate or debug a test failure in onnxruntime_provider_test, replace the following line.
+      ### those flags slow down the CI test significantly, so we don't use them by default.
+      ###
+      #   set_property(TARGET onnxruntime_provider_test APPEND_STRING PROPERTY LINK_FLAGS " -s ASSERTIONS=2 -s SAFE_HEAP=1 -s STACK_OVERFLOW_CHECK=2")
+      set_property(TARGET onnxruntime_provider_test APPEND_STRING PROPERTY LINK_FLAGS " -s ASSERTIONS=0 -s SAFE_HEAP=0 -s STACK_OVERFLOW_CHECK=1")
+    endif()
+
+    if(IOS)
+      add_custom_command(
+        TARGET onnxruntime_provider_test POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_directory
+        ${TEST_DATA_SRC}
+        $<TARGET_FILE_DIR:onnxruntime_provider_test>/testdata)
+    endif()
+  endblock()
 endif()
 
 set(onnx_test_libs
@@ -1403,9 +1412,7 @@ if(NOT onnxruntime_ENABLE_TRAINING_TORCH_INTEROP)
     if(WIN32)
       list(APPEND onnxruntime_perf_test_src_patterns
         "${onnxruntime_perf_test_src_dir}/windows/*.cc"
-        "${onnxruntime_perf_test_src_dir}/windows/*.h"
-        "${NUGET_MICROSOFT_WINDOWS_COPILOTRUNTIME_ROOT}/include/WindowsMLAutoInitializer.SelfContained.cpp"
-      )
+        "${onnxruntime_perf_test_src_dir}/windows/*.h" )
     else()
       list(APPEND onnxruntime_perf_test_src_patterns
         "${onnxruntime_perf_test_src_dir}/posix/*.cc"
@@ -1419,7 +1426,10 @@ if(NOT onnxruntime_ENABLE_TRAINING_TORCH_INTEROP)
     onnxruntime_add_executable(onnxruntime_perf_test
       ${onnxruntime_perf_test_src}
       ${ONNXRUNTIME_ROOT}/core/platform/path_lib.cc
+      ${onnxruntime_perf_test_src_dir}/windows/app.manifest
     )
+
+    post_build_runtime_dll_copy(onnxruntime_perf_test)
 
     # ABSL_FLAGS_STRIP_NAMES is set to 1 by default to disable flag registration when building for Android, iPhone, and "embedded devices".
     # See the issue: https://github.com/abseil/abseil-cpp/issues/1875
@@ -1444,104 +1454,33 @@ if(NOT onnxruntime_ENABLE_TRAINING_TORCH_INTEROP)
     endif()
 
     if(onnxruntime_BUILD_SHARED_LIB)
+      message(STATUS "------------------- onnxruntime_BUILD_SHARED_LIB-MARK-1  CPPWINRT_VERSION -------------------")
 
-      message(STATUS "------------------- onnxruntime_BUILD_SHARED_LIB-4 -------------------")
+      message(STATUS "CPPWINRT_VERSION: ${CPPWINRT_VERSION}")
 
-      include(nuget.cmake)
+      include(FetchContent)
 
-      # https://microsoft.visualstudio.com/ProrjectOxford/_artifacts/feed/windows-aifabric-input/NuGet/Microsoft.WindowsAppSDK/overview/1.8.250821001-experimental
-      install_nuget_package(Microsoft.WindowsAppSDK.ML 1.8.1058-experimental NUGET_MICROSOFT_WINDOWS_COPILOTRUNTIME_ROOT)
-      message(STATUS "NUGET_MICROSOFT_WINDOWS_COPILOTRUNTIME_ROOT: ${NUGET_MICROSOFT_WINDOWS_COPILOTRUNTIME_ROOT}")
-
-      install_nuget_package(Microsoft.WindowsAppSDK 1.8.250812004-experimental NUGET_MICROSOFT_WINDOWS_APPSDK_ROOT)
-      message(STATUS "NUGET_MICROSOFT_WINDOWS_APPSDK_ROOT: ${NUGET_MICROSOFT_WINDOWS_APPSDK_ROOT}")
-
-      install_nuget_package(Microsoft.WindowsAppSDK.Base 1.8.250509001-experimental NUGET_MICROSOFT_WINDOWS_APPSDK_BASE_ROOT)
-      message(STATUS "NUGET_MICROSOFT_WINDOWS_APPSDK_BASE_ROOT: ${NUGET_MICROSOFT_WINDOWS_APPSDK_BASE_ROOT}")
-
-      include(winrt.cmake)
-
-      # 'Microsoft.Windows.CppWinRT' = '2.0.250303.1';
-      # 'Microsoft.WindowsAppSDK' = '1.8.250821001-experimental';
-
-      enable_cppwinrt(onnxruntime_perf_test
-        REFERENCES
-        "${NUGET_MICROSOFT_WINDOWS_COPILOTRUNTIME_ROOT}/metadata/Microsoft.Windows.AI.MachineLearning.winmd"
+      FetchContent_Declare(
+        CMakeNuGetPackage
+        GIT_REPOSITORY https://github.com/mschofie/NuGetCMakePackage
+        GIT_TAG 47f603ef27f876c9132db81ba3c2895b3059c90c
       )
 
-      set(WinAppSdkRuntimePackageDirectory "${NUGET_MICROSOFT_WINDOWS_COPILOTRUNTIME_ROOT}/../Microsoft.WindowsAppSDK.Runtime.1.8.250812004-experimental")
-      find_path(WinAppSdkRuntime_INCLUDE_DIR
-        "WindowsAppSDK-VersionInfo.h"
-        PATHS
-        "${WinAppSdkRuntimePackageDirectory}/include"
-        NO_DEFAULT_PATH
-        REQUIRED)
+      FetchContent_MakeAvailable(CMakeNuGetPackage)
 
-      find_file(WinAppSdkRuntime_VERSIONINFO_FILE
-        "WindowsAppSDK-VersionInfo.h"
-        PATHS
-        "${WinAppSdkRuntimePackageDirectory}/include"
-        NO_DEFAULT_PATH
-        REQUIRED)
-
-      include(FindPackageHandleStandardArgs)
-      find_package_handle_standard_args(WindowsAppSdkRuntime
-        REQUIRED_VARS
-        WinAppSdkRuntime_INCLUDE_DIR
+      add_nuget_packages(
+        PACKAGES
+        Microsoft.Windows.ImplementationLibrary 1.0.240803.1
+        Microsoft.Windows.CppWinRT 2.0.240405.15
+        Microsoft.WindowsAppSDK.Runtime 1.8.250916003
+        Microsoft.WindowsAppSDK.ML 1.8.2091
       )
 
-      if(WindowsAppSdkRuntime_FOUND AND NOT TARGET WindowsAppSdk::Runtime)
-        add_library(WindowsAppSdk::Runtime INTERFACE IMPORTED)
-        target_include_directories(WindowsAppSdk::Runtime
-          INTERFACE
-          "${WinAppSdkRuntime_INCLUDE_DIR}"
-        )
-      endif()
+      find_package(Microsoft.Windows.ImplementationLibrary CONFIG REQUIRED)
+      find_package(Microsoft.WindowsAppSDK.Runtime CONFIG REQUIRED)
+      find_package(Microsoft.WindowsAppSDK.ML CONFIG REQUIRED)
 
-      set(WinAppSdkFoundationPackageDirectory "${NUGET_MICROSOFT_WINDOWS_COPILOTRUNTIME_ROOT}/../Microsoft.WindowsAppSDK.Foundation.1.8.250701000-experimental")
-
-      find_library(WinAppSdkFoundation_Bootstrap_LIBRARY
-        "Microsoft.WindowsAppRuntime.Bootstrap"
-        PATHS
-        "${WinAppSdkFoundationPackageDirectory}/lib/native/x64"
-        NO_DEFAULT_PATH
-        REQUIRED)
-
-      find_file(WinAppSdkFoundation_Bootstrap_RUNTIME_DLL
-        "Microsoft.WindowsAppRuntime.Bootstrap.dll"
-        PATHS
-        "${WinAppSdkFoundationPackageDirectory}/runtimes/win-x64/native"
-        NO_DEFAULT_PATH
-        REQUIRED)
-
-      find_path(WinAppSdkFoundation_INCLUDE_DIR
-        "MddBootstrap.h"
-        PATHS
-        "${WinAppSdkFoundationPackageDirectory}/include"
-        NO_DEFAULT_PATH
-        REQUIRED)
-
-      include(FindPackageHandleStandardArgs)
-      find_package_handle_standard_args(WindowsAppSdkFoundation
-        REQUIRED_VARS
-        WinAppSdkFoundation_Bootstrap_LIBRARY
-        WinAppSdkFoundation_Bootstrap_RUNTIME_DLL
-        WinAppSdkFoundation_INCLUDE_DIR
-      )
-
-      if(WindowsAppSdkFoundation_FOUND AND NOT TARGET WindowsAppSdk::Bootstrap)
-        add_library(WindowsAppSdk::Bootstrap SHARED IMPORTED)
-        set_target_properties(WindowsAppSdk::Bootstrap
-          PROPERTIES
-          IMPORTED_IMPLIB "${WinAppSdkFoundation_Bootstrap_LIBRARY}"
-          IMPORTED_LOCATION "${WinAppSdkFoundation_Bootstrap_RUNTIME_DLL}"
-          RUNTIME_DLLS "${WinAppSdkFoundation_Bootstrap_RUNTIME_DLL}"
-        )
-        target_include_directories(WindowsAppSdk::Bootstrap
-          INTERFACE
-          "${WinAppSdkFoundation_INCLUDE_DIR}"
-        )
-      endif()
+      message(STATUS "------------------- onnxruntime_  -------------------")
 
       #It will dynamically link to onnxruntime. So please don't add onxruntime_graph/onxruntime_framework/... here.
       #onnxruntime_common is kind of ok because it is thin, tiny and totally stateless.
@@ -1566,11 +1505,15 @@ if(NOT onnxruntime_ENABLE_TRAINING_TORCH_INTEROP)
       endif()
 
       message(STATUS "------------------- ${onnxruntime_perf_test_libs} -------------------")
+
       target_link_libraries(onnxruntime_perf_test
-        PRIVATE ${onnxruntime_perf_test_libs}
+        PRIVATE
+        ${onnxruntime_perf_test_libs}
         Threads::Threads
-        WindowsAppSdk::Runtime
-        WindowsAppSdk::Bootstrap)
+        Microsoft.WindowsAppSDK.ML_SelfContained # Use 'self-contained' mode.
+        Microsoft.Windows.ImplementationLibrary
+        nlohmann_json::nlohmann_json
+      )
 
       message(STATUS "------------------- DELAYLOAD -------------------")
       target_link_options(onnxruntime_perf_test PRIVATE "/DELAYLOAD:onnxruntime.dll")
@@ -1589,14 +1532,6 @@ if(NOT onnxruntime_ENABLE_TRAINING_TORCH_INTEROP)
 
     set_target_properties(onnxruntime_perf_test PROPERTIES FOLDER "ONNXRuntimeTest")
 
-    # Copy manifest file next to the executable on Windows
-    file(
-      COPY
-      "${onnxruntime_perf_test_src_dir}/windows/onnxruntime_perf_test.exe.manifest"
-      "${NUGET_MICROSOFT_WINDOWS_COPILOTRUNTIME_ROOT}/runtimes-framework/win-x64/native/Microsoft.Windows.AI.MachineLearning.dll"
-      DESTINATION
-      "${CMAKE_BINARY_DIR}/${CMAKE_BUILD_TYPE}"
-    )
 
   endif()
 
@@ -1945,10 +1880,10 @@ if(NOT CMAKE_SYSTEM_NAME STREQUAL "Emscripten")
           add_custom_command(TARGET onnxruntime_providers_qnn POST_BUILD
             COMMAND ${CMAKE_COMMAND} -E copy ${QNN_LIB_FILES} ${JAVA_NATIVE_TEST_DIR})
         endif()
-	if (WIN32)
+        if(WIN32)
           set(EXAMPLE_PLUGIN_EP_DST_FILE_NAME $<IF:$<BOOL:${WIN32}>,$<TARGET_FILE_NAME:example_plugin_ep>,$<TARGET_LINKER_FILE_NAME:example_plugin_ep>>)
           add_custom_command(TARGET custom_op_library POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:example_plugin_ep> ${JAVA_NATIVE_TEST_DIR}/${EXAMPLE_PLUGIN_EP_DST_FILE_NAME})
-	endif()
+        endif()
 
         # delegate to gradle's test runner
 
