@@ -4,11 +4,8 @@
 
 ```bash
 
-mkdir build && cd build
-cmake .. -DONNXRUNTIME_ROOT=/path/to/onnxruntime
-cmake --build .
+cmake chrisd -B build -DCPPWINRT_VERSION=2.0.250303.1
 
-# With options
-cmake .. -DONNXRUNTIME_ROOT=/path/to/onnxruntime -DUSE_CUDA=ON -DBUILD_SHARED_LIBS=OFF
+cmake -B build
 
 ```
