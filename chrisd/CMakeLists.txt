@@ -13,9 +13,9 @@ endif()
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-
 # NuGet package integration (simplified)
 include(FetchContent)
+
 FetchContent_Declare(
     CMakeNuGetPackage
     GIT_REPOSITORY https://github.com/mschofie/NuGetCMakePackage
@@ -31,6 +31,9 @@ if(NOT onnxruntime_FOUND)
     find_path(ONNXRUNTIME_INCLUDE onnxruntime_cxx_api.h
         PATHS ${ONNXRUNTIME_ROOT}/include)
 endif()
+
+include(external/onnxruntime_external_deps.cmake)
+include(external/abseil-cpp.cmake)
 
 # Find essential third-party libraries
 find_package(absl REQUIRED)
