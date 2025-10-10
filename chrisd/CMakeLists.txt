@@ -24,7 +24,8 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(CMakeNuGetPackage)
 
 # Find ONNX Runtime installation -  This comes from the ML package...
-find_package(onnxruntime QUIET)
+# find_package(onnxruntime QUIET)
+
 if(NOT onnxruntime_FOUND)
     find_library(ONNXRUNTIME_LIB onnxruntime
         PATHS ${ONNXRUNTIME_ROOT}/lib)
