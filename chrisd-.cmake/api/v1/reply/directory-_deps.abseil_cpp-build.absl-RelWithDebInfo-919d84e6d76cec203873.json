@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "_deps/abseil_cpp-build/absl",
+		"source" : "G:/onnxruntime-chrisd/build/_deps/abseil_cpp-src/absl"
+	}
+}

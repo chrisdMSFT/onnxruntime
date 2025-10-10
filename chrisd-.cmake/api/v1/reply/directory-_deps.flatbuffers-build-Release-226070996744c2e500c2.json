@@ -1,0 +1,161 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"install"
+		],
+		"files" : 
+		[
+			"G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 608,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 613,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 622,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 628,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 636,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 641,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 668,
+				"parent" : 0
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "include",
+			"paths" : 
+			[
+				"G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/include/flatbuffers"
+			],
+			"type" : "directory"
+		},
+		{
+			"backtrace" : 2,
+			"component" : "Unspecified",
+			"destination" : "lib/cmake/flatbuffers",
+			"paths" : 
+			[
+				"G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/CMake/flatbuffers-config.cmake",
+				"G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/CMake/BuildFlatBuffers.cmake",
+				"G:/onnxruntime-chrisd/build/_deps/flatbuffers-build/flatbuffers-config-version.cmake"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 3,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"_deps/flatbuffers-build/Release/flatbuffers.lib"
+			],
+			"targetId" : "flatbuffers::@62cadad892676421df77",
+			"targetIndex" : 57,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 4,
+			"component" : "Unspecified",
+			"destination" : "lib/cmake/flatbuffers",
+			"exportName" : "FlatBuffersTargets",
+			"exportTargets" : 
+			[
+				{
+					"id" : "flatbuffers::@62cadad892676421df77",
+					"index" : 57
+				}
+			],
+			"paths" : 
+			[
+				""
+			],
+			"type" : "export"
+		},
+		{
+			"backtrace" : 5,
+			"component" : "Unspecified",
+			"destination" : "bin",
+			"paths" : 
+			[
+				"_deps/flatbuffers-build/Release/flatc.exe"
+			],
+			"targetId" : "flatc::@62cadad892676421df77",
+			"targetIndex" : 58,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 6,
+			"component" : "Unspecified",
+			"destination" : "lib/cmake/flatbuffers",
+			"exportName" : "FlatcTargets",
+			"exportTargets" : 
+			[
+				{
+					"id" : "flatc::@62cadad892676421df77",
+					"index" : 58
+				}
+			],
+			"paths" : 
+			[
+				""
+			],
+			"type" : "export"
+		},
+		{
+			"backtrace" : 7,
+			"component" : "Unspecified",
+			"destination" : "lib/pkgconfig",
+			"paths" : 
+			[
+				"G:/onnxruntime-chrisd/build/_deps/flatbuffers-build/flatbuffers.pc"
+			],
+			"type" : "file"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "_deps/flatbuffers-build",
+		"source" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src"
+	}
+}

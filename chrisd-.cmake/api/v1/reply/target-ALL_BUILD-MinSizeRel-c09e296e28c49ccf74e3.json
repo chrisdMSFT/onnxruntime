@@ -1,0 +1,37 @@
+{
+	"backtrace" : 0,
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : 
+		[
+			"G:/onnxruntime-chrisd/build/_deps/eigen3-src/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			}
+		]
+	},
+	"dependencies" : 
+	[
+		{
+			"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df"
+		}
+	],
+	"folder" : 
+	{
+		"name" : "CMakePredefinedTargets"
+	},
+	"id" : "ALL_BUILD::@a7f6cda76e36d828b47e",
+	"isGeneratorProvided" : true,
+	"name" : "ALL_BUILD",
+	"paths" : 
+	{
+		"build" : "_deps/eigen3-build",
+		"source" : "G:/onnxruntime-chrisd/build/_deps/eigen3-src"
+	},
+	"sources" : [],
+	"type" : "UTILITY"
+}

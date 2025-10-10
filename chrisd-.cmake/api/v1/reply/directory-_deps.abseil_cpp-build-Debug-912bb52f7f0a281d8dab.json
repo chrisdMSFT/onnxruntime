@@ -1,0 +1,894 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"install"
+		],
+		"files" : 
+		[
+			"G:/onnxruntime-chrisd/build/_deps/abseil_cpp-src/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 176,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 186,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 199,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 205,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 266,
+				"parent" : 0
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "lib/cmake/absl",
+			"exportName" : "abslTargets",
+			"exportTargets" : 
+			[
+				{
+					"id" : "atomic_hook::@18401c87f508700aa1d1",
+					"index" : 0
+				},
+				{
+					"id" : "errno_saver::@18401c87f508700aa1d1",
+					"index" : 0
+				},
+				{
+					"id" : "log_severity::@18401c87f508700aa1d1",
+					"index" : 85
+				},
+				{
+					"id" : "no_destructor::@18401c87f508700aa1d1",
+					"index" : 0
+				},
+				{
+					"id" : "nullability::@18401c87f508700aa1d1",
+					"index" : 0
+				},
+				{
+					"id" : "raw_logging_internal::@18401c87f508700aa1d1",
+					"index" : 137
+				},
+				{
+					"id" : "spinlock_wait::@18401c87f508700aa1d1",
+					"index" : 140
+				},
+				{
+					"id" : "config::@18401c87f508700aa1d1",
+					"index" : 0
+				},
+				{
+					"id" : "dynamic_annotations::@18401c87f508700aa1d1",
+					"index" : 0
+				},
+				{
+					"id" : "core_headers::@18401c87f508700aa1d1",
+					"index" : 0
+				},
+				{
+					"id" : "malloc_internal::@18401c87f508700aa1d1",
+					"index" : 88
+				},
+				{
+					"id" : "base_internal::@18401c87f508700aa1d1",
+					"index" : 0
+				},
+				{
+					"id" : "base::@18401c87f508700aa1d1",
+					"index" : 18
+				},
+				{
+					"id" : "throw_delegate::@18401c87f508700aa1d1",
+					"index" : 152
+				},
+				{
+					"id" : "pretty_function::@18401c87f508700aa1d1",
+					"index" : 0
+				},
+				{
+					"id" : "endian::@18401c87f508700aa1d1",
+					"index" : 0
+				},
+				{
+					"id" : "scoped_set_env::@18401c87f508700aa1d1",
+					"index" : 139
+				},
+				{
+					"id" : "strerror::@18401c87f508700aa1d1",
+					"index" : 145
+				},
+				{
+					"id" : "fast_type_id::@18401c87f508700aa1d1",
+					"index" : 0
+				},
+				{
+					"id" : "prefetch::@18401c87f508700aa1d1",
+					"index" : 0
+				},
+				{
+					"id" : "poison::@18401c87f508700aa1d1",
+					"index" : 123
+				},
+				{
+					"id" : "tracing_internal::@18401c87f508700aa1d1",
+					"index" : 155
+				},
+				{
+					"id" : "iterator_traits_internal::@18401c87f508700aa1d1",
+					"index" : 0
+				},
+				{
+					"id" : "iterator_traits_test_helper_internal::@18401c87f508700aa1d1",
+					"index" : 0
+				},
+				{
+					"id" : "algorithm::@afeda8a365bd9f8cd6fe",
+					"index" : 0
+				},
+				{
+					"id" : "algorithm_container::@afeda8a365bd9f8cd6fe",
+					"index" : 0
+				},
+				{
+					"id" : "cleanup_internal::@9ec46badf5e75eb59f30",
+					"index" : 0
+				},
+				{
+					"id" : "cleanup::@9ec46badf5e75eb59f30",
+					"index" : 0
+				},
+				{
+					"id" : "btree::@a1b91549426d0bbcd0a9",
+					"index" : 0
+				},
+				{
+					"id" : "compressed_tuple::@a1b91549426d0bbcd0a9",
+					"index" : 0
+				},
+				{
+					"id" : "fixed_array::@a1b91549426d0bbcd0a9",
+					"index" : 0
+				},
+				{
+					"id" : "inlined_vector_internal::@a1b91549426d0bbcd0a9",
+					"index" : 0
+				},
+				{
+					"id" : "inlined_vector::@a1b91549426d0bbcd0a9",
+					"index" : 0
+				},
+				{
+					"id" : "flat_hash_map::@a1b91549426d0bbcd0a9",
+					"index" : 0
+				},
+				{
+					"id" : "flat_hash_set::@a1b91549426d0bbcd0a9",
+					"index" : 0
+				},
+				{
+					"id" : "node_hash_map::@a1b91549426d0bbcd0a9",
+					"index" : 0
+				},
+				{
+					"id" : "node_hash_set::@a1b91549426d0bbcd0a9",
+					"index" : 0
+				},
+				{
+					"id" : "hash_container_defaults::@a1b91549426d0bbcd0a9",
+					"index" : 0
+				},
+				{
+					"id" : "container_memory::@a1b91549426d0bbcd0a9",
+					"index" : 0
+				},
+				{
+					"id" : "hash_function_defaults::@a1b91549426d0bbcd0a9",
+					"index" : 0
+				},
+				{
+					"id" : "hash_policy_traits::@a1b91549426d0bbcd0a9",
+					"index" : 0
+				},
+				{
+					"id" : "common_policy_traits::@a1b91549426d0bbcd0a9",
+					"index" : 0
+				},
+				{
+					"id" : "hashtablez_sampler::@a1b91549426d0bbcd0a9",
+					"index" : 65
+				},
+				{
+					"id" : "hashtable_debug::@a1b91549426d0bbcd0a9",
+					"index" : 0
+				},
+				{
+					"id" : "hashtable_debug_hooks::@a1b91549426d0bbcd0a9",
+					"index" : 0
+				},
+				{
+					"id" : "node_slot_policy::@a1b91549426d0bbcd0a9",
+					"index" : 0
+				},
+				{
+					"id" : "raw_hash_map::@a1b91549426d0bbcd0a9",
+					"index" : 0
+				},
+				{
+					"id" : "container_common::@a1b91549426d0bbcd0a9",
+					"index" : 0
+				},
+				{
+					"id" : "hashtable_control_bytes::@a1b91549426d0bbcd0a9",
+					"index" : 0
+				},
+				{
+					"id" : "raw_hash_set::@a1b91549426d0bbcd0a9",
+					"index" : 136
+				},
+				{
+					"id" : "raw_hash_set_resize_impl::@a1b91549426d0bbcd0a9",
+					"index" : 0
+				},
+				{
+					"id" : "layout::@a1b91549426d0bbcd0a9",
+					"index" : 0
+				},
+				{
+					"id" : "crc_cpu_detect::@6d1d60f19ea6cadf4aea",
+					"index" : 31
+				},
+				{
+					"id" : "crc_internal::@6d1d60f19ea6cadf4aea",
+					"index" : 32
+				},
+				{
+					"id" : "crc32c::@6d1d60f19ea6cadf4aea",
+					"index" : 29
+				},
+				{
+					"id" : "non_temporal_arm_intrinsics::@6d1d60f19ea6cadf4aea",
+					"index" : 0
+				},
+				{
+					"id" : "non_temporal_memcpy::@6d1d60f19ea6cadf4aea",
+					"index" : 0
+				},
+				{
+					"id" : "crc_cord_state::@6d1d60f19ea6cadf4aea",
+					"index" : 30
+				},
+				{
+					"id" : "stacktrace::@94c14ff9c15ae511da2e",
+					"index" : 141
+				},
+				{
+					"id" : "symbolize::@94c14ff9c15ae511da2e",
+					"index" : 149
+				},
+				{
+					"id" : "examine_stack::@94c14ff9c15ae511da2e",
+					"index" : 42
+				},
+				{
+					"id" : "failure_signal_handler::@94c14ff9c15ae511da2e",
+					"index" : 45
+				},
+				{
+					"id" : "debugging_internal::@94c14ff9c15ae511da2e",
+					"index" : 37
+				},
+				{
+					"id" : "demangle_internal::@94c14ff9c15ae511da2e",
+					"index" : 39
+				},
+				{
+					"id" : "bounded_utf8_length_sequence::@94c14ff9c15ae511da2e",
+					"index" : 0
+				},
+				{
+					"id" : "decode_rust_punycode::@94c14ff9c15ae511da2e",
+					"index" : 38
+				},
+				{
+					"id" : "demangle_rust::@94c14ff9c15ae511da2e",
+					"index" : 40
+				},
+				{
+					"id" : "utf8_for_code_point::@94c14ff9c15ae511da2e",
+					"index" : 157
+				},
+				{
+					"id" : "leak_check::@94c14ff9c15ae511da2e",
+					"index" : 68
+				},
+				{
+					"id" : "debugging::@94c14ff9c15ae511da2e",
+					"index" : 0
+				},
+				{
+					"id" : "flags_path_util::@9cf8d36eb874758e84c5",
+					"index" : 0
+				},
+				{
+					"id" : "flags_program_name::@9cf8d36eb874758e84c5",
+					"index" : 53
+				},
+				{
+					"id" : "flags_config::@9cf8d36eb874758e84c5",
+					"index" : 48
+				},
+				{
+					"id" : "flags_marshalling::@9cf8d36eb874758e84c5",
+					"index" : 50
+				},
+				{
+					"id" : "flags_commandlineflag_internal::@9cf8d36eb874758e84c5",
+					"index" : 47
+				},
+				{
+					"id" : "flags_commandlineflag::@9cf8d36eb874758e84c5",
+					"index" : 46
+				},
+				{
+					"id" : "flags_private_handle_accessor::@9cf8d36eb874758e84c5",
+					"index" : 52
+				},
+				{
+					"id" : "flags_reflection::@9cf8d36eb874758e84c5",
+					"index" : 54
+				},
+				{
+					"id" : "flags_internal::@9cf8d36eb874758e84c5",
+					"index" : 49
+				},
+				{
+					"id" : "flags::@9cf8d36eb874758e84c5",
+					"index" : 0
+				},
+				{
+					"id" : "flags_usage_internal::@9cf8d36eb874758e84c5",
+					"index" : 56
+				},
+				{
+					"id" : "flags_usage::@9cf8d36eb874758e84c5",
+					"index" : 55
+				},
+				{
+					"id" : "flags_parse::@9cf8d36eb874758e84c5",
+					"index" : 51
+				},
+				{
+					"id" : "any_invocable::@0c46961b6108a55e02f7",
+					"index" : 0
+				},
+				{
+					"id" : "bind_front::@0c46961b6108a55e02f7",
+					"index" : 0
+				},
+				{
+					"id" : "function_ref::@0c46961b6108a55e02f7",
+					"index" : 0
+				},
+				{
+					"id" : "overload::@0c46961b6108a55e02f7",
+					"index" : 0
+				},
+				{
+					"id" : "hash::@9b910e87353eb23c0901",
+					"index" : 64
+				},
+				{
+					"id" : "city::@9b910e87353eb23c0901",
+					"index" : 19
+				},
+				{
+					"id" : "low_level_hash::@9b910e87353eb23c0901",
+					"index" : 87
+				},
+				{
+					"id" : "weakly_mixed_integer::@9b910e87353eb23c0901",
+					"index" : 0
+				},
+				{
+					"id" : "log_internal_check_impl::@a3c7b106284a8b5f8235",
+					"index" : 0
+				},
+				{
+					"id" : "log_internal_check_op::@a3c7b106284a8b5f8235",
+					"index" : 75
+				},
+				{
+					"id" : "log_internal_conditions::@a3c7b106284a8b5f8235",
+					"index" : 76
+				},
+				{
+					"id" : "log_internal_config::@a3c7b106284a8b5f8235",
+					"index" : 0
+				},
+				{
+					"id" : "log_internal_flags::@a3c7b106284a8b5f8235",
+					"index" : 0
+				},
+				{
+					"id" : "log_internal_format::@a3c7b106284a8b5f8235",
+					"index" : 78
+				},
+				{
+					"id" : "log_internal_globals::@a3c7b106284a8b5f8235",
+					"index" : 79
+				},
+				{
+					"id" : "log_internal_log_impl::@a3c7b106284a8b5f8235",
+					"index" : 0
+				},
+				{
+					"id" : "log_internal_proto::@a3c7b106284a8b5f8235",
+					"index" : 83
+				},
+				{
+					"id" : "log_internal_message::@a3c7b106284a8b5f8235",
+					"index" : 81
+				},
+				{
+					"id" : "log_internal_log_sink_set::@a3c7b106284a8b5f8235",
+					"index" : 80
+				},
+				{
+					"id" : "log_internal_nullguard::@a3c7b106284a8b5f8235",
+					"index" : 82
+				},
+				{
+					"id" : "log_internal_nullstream::@a3c7b106284a8b5f8235",
+					"index" : 0
+				},
+				{
+					"id" : "log_internal_strip::@a3c7b106284a8b5f8235",
+					"index" : 0
+				},
+				{
+					"id" : "log_internal_voidify::@a3c7b106284a8b5f8235",
+					"index" : 0
+				},
+				{
+					"id" : "log_internal_append_truncated::@a3c7b106284a8b5f8235",
+					"index" : 0
+				},
+				{
+					"id" : "absl_check::@a3c7b106284a8b5f8235",
+					"index" : 0
+				},
+				{
+					"id" : "absl_log::@a3c7b106284a8b5f8235",
+					"index" : 0
+				},
+				{
+					"id" : "check::@a3c7b106284a8b5f8235",
+					"index" : 0
+				},
+				{
+					"id" : "die_if_null::@a3c7b106284a8b5f8235",
+					"index" : 41
+				},
+				{
+					"id" : "log_flags::@a3c7b106284a8b5f8235",
+					"index" : 72
+				},
+				{
+					"id" : "log_globals::@a3c7b106284a8b5f8235",
+					"index" : 73
+				},
+				{
+					"id" : "log_initialize::@a3c7b106284a8b5f8235",
+					"index" : 74
+				},
+				{
+					"id" : "log::@a3c7b106284a8b5f8235",
+					"index" : 0
+				},
+				{
+					"id" : "log_entry::@a3c7b106284a8b5f8235",
+					"index" : 0
+				},
+				{
+					"id" : "log_sink::@a3c7b106284a8b5f8235",
+					"index" : 86
+				},
+				{
+					"id" : "log_sink_registry::@a3c7b106284a8b5f8235",
+					"index" : 0
+				},
+				{
+					"id" : "log_streamer::@a3c7b106284a8b5f8235",
+					"index" : 0
+				},
+				{
+					"id" : "log_internal_structured::@a3c7b106284a8b5f8235",
+					"index" : 0
+				},
+				{
+					"id" : "log_internal_structured_proto::@a3c7b106284a8b5f8235",
+					"index" : 84
+				},
+				{
+					"id" : "log_structured::@a3c7b106284a8b5f8235",
+					"index" : 0
+				},
+				{
+					"id" : "vlog_config_internal::@a3c7b106284a8b5f8235",
+					"index" : 158
+				},
+				{
+					"id" : "absl_vlog_is_on::@a3c7b106284a8b5f8235",
+					"index" : 0
+				},
+				{
+					"id" : "vlog_is_on::@a3c7b106284a8b5f8235",
+					"index" : 0
+				},
+				{
+					"id" : "log_internal_fnmatch::@a3c7b106284a8b5f8235",
+					"index" : 77
+				},
+				{
+					"id" : "memory::@0d2a3a10817442e4ff9d",
+					"index" : 0
+				},
+				{
+					"id" : "type_traits::@2690392e37cd79d6c072",
+					"index" : 0
+				},
+				{
+					"id" : "meta::@2690392e37cd79d6c072",
+					"index" : 0
+				},
+				{
+					"id" : "bits::@1220ce8925b613a29c62",
+					"index" : 0
+				},
+				{
+					"id" : "int128::@1220ce8925b613a29c62",
+					"index" : 66
+				},
+				{
+					"id" : "numeric::@1220ce8925b613a29c62",
+					"index" : 0
+				},
+				{
+					"id" : "numeric_representation::@1220ce8925b613a29c62",
+					"index" : 0
+				},
+				{
+					"id" : "sample_recorder::@93243b0a9b5d800ddcf2",
+					"index" : 0
+				},
+				{
+					"id" : "exponential_biased::@93243b0a9b5d800ddcf2",
+					"index" : 44
+				},
+				{
+					"id" : "periodic_sampler::@93243b0a9b5d800ddcf2",
+					"index" : 122
+				},
+				{
+					"id" : "random_random::@e8ed6617af291b558b4d",
+					"index" : 0
+				},
+				{
+					"id" : "random_bit_gen_ref::@e8ed6617af291b558b4d",
+					"index" : 0
+				},
+				{
+					"id" : "random_internal_mock_helpers::@e8ed6617af291b558b4d",
+					"index" : 0
+				},
+				{
+					"id" : "random_distributions::@e8ed6617af291b558b4d",
+					"index" : 125
+				},
+				{
+					"id" : "random_seed_gen_exception::@e8ed6617af291b558b4d",
+					"index" : 134
+				},
+				{
+					"id" : "random_seed_sequences::@e8ed6617af291b558b4d",
+					"index" : 135
+				},
+				{
+					"id" : "random_internal_traits::@e8ed6617af291b558b4d",
+					"index" : 0
+				},
+				{
+					"id" : "random_internal_distribution_caller::@e8ed6617af291b558b4d",
+					"index" : 0
+				},
+				{
+					"id" : "random_internal_fast_uniform_bits::@e8ed6617af291b558b4d",
+					"index" : 0
+				},
+				{
+					"id" : "random_internal_seed_material::@e8ed6617af291b558b4d",
+					"index" : 133
+				},
+				{
+					"id" : "random_internal_entropy_pool::@e8ed6617af291b558b4d",
+					"index" : 127
+				},
+				{
+					"id" : "random_internal_salted_seed_seq::@e8ed6617af291b558b4d",
+					"index" : 0
+				},
+				{
+					"id" : "random_internal_iostream_state_saver::@e8ed6617af291b558b4d",
+					"index" : 0
+				},
+				{
+					"id" : "random_internal_generate_real::@e8ed6617af291b558b4d",
+					"index" : 0
+				},
+				{
+					"id" : "random_internal_wide_multiply::@e8ed6617af291b558b4d",
+					"index" : 0
+				},
+				{
+					"id" : "random_internal_fastmath::@e8ed6617af291b558b4d",
+					"index" : 0
+				},
+				{
+					"id" : "random_internal_nonsecure_base::@e8ed6617af291b558b4d",
+					"index" : 0
+				},
+				{
+					"id" : "random_internal_pcg_engine::@e8ed6617af291b558b4d",
+					"index" : 0
+				},
+				{
+					"id" : "random_internal_randen_engine::@e8ed6617af291b558b4d",
+					"index" : 0
+				},
+				{
+					"id" : "random_internal_platform::@e8ed6617af291b558b4d",
+					"index" : 128
+				},
+				{
+					"id" : "random_internal_randen::@e8ed6617af291b558b4d",
+					"index" : 129
+				},
+				{
+					"id" : "random_internal_randen_slow::@e8ed6617af291b558b4d",
+					"index" : 132
+				},
+				{
+					"id" : "random_internal_randen_hwaes::@e8ed6617af291b558b4d",
+					"index" : 130
+				},
+				{
+					"id" : "random_internal_randen_hwaes_impl::@e8ed6617af291b558b4d",
+					"index" : 131
+				},
+				{
+					"id" : "random_internal_distribution_test_util::@e8ed6617af291b558b4d",
+					"index" : 126
+				},
+				{
+					"id" : "random_internal_uniform_helper::@e8ed6617af291b558b4d",
+					"index" : 0
+				},
+				{
+					"id" : "status::@1f3dbb3ed897fe60f6f3",
+					"index" : 142
+				},
+				{
+					"id" : "statusor::@1f3dbb3ed897fe60f6f3",
+					"index" : 143
+				},
+				{
+					"id" : "string_view::@8955f3cd09d951c40c30",
+					"index" : 146
+				},
+				{
+					"id" : "strings::@8955f3cd09d951c40c30",
+					"index" : 147
+				},
+				{
+					"id" : "charset::@8955f3cd09d951c40c30",
+					"index" : 0
+				},
+				{
+					"id" : "has_ostream_operator::@8955f3cd09d951c40c30",
+					"index" : 0
+				},
+				{
+					"id" : "strings_internal::@8955f3cd09d951c40c30",
+					"index" : 148
+				},
+				{
+					"id" : "str_format::@8955f3cd09d951c40c30",
+					"index" : 0
+				},
+				{
+					"id" : "str_format_internal::@8955f3cd09d951c40c30",
+					"index" : 144
+				},
+				{
+					"id" : "cord_internal::@8955f3cd09d951c40c30",
+					"index" : 22
+				},
+				{
+					"id" : "cordz_update_tracker::@8955f3cd09d951c40c30",
+					"index" : 0
+				},
+				{
+					"id" : "cordz_functions::@8955f3cd09d951c40c30",
+					"index" : 23
+				},
+				{
+					"id" : "cordz_statistics::@8955f3cd09d951c40c30",
+					"index" : 0
+				},
+				{
+					"id" : "cordz_handle::@8955f3cd09d951c40c30",
+					"index" : 24
+				},
+				{
+					"id" : "cordz_info::@8955f3cd09d951c40c30",
+					"index" : 25
+				},
+				{
+					"id" : "cordz_sample_token::@8955f3cd09d951c40c30",
+					"index" : 26
+				},
+				{
+					"id" : "cordz_update_scope::@8955f3cd09d951c40c30",
+					"index" : 0
+				},
+				{
+					"id" : "cord::@8955f3cd09d951c40c30",
+					"index" : 21
+				},
+				{
+					"id" : "graphcycles_internal::@a1dbec9fadd4142423ea",
+					"index" : 61
+				},
+				{
+					"id" : "kernel_timeout_internal::@a1dbec9fadd4142423ea",
+					"index" : 67
+				},
+				{
+					"id" : "synchronization::@a1dbec9fadd4142423ea",
+					"index" : 150
+				},
+				{
+					"id" : "time::@711c77cdfbd1ce1c9f75",
+					"index" : 153
+				},
+				{
+					"id" : "civil_time::@711c77cdfbd1ce1c9f75",
+					"index" : 20
+				},
+				{
+					"id" : "time_zone::@711c77cdfbd1ce1c9f75",
+					"index" : 154
+				},
+				{
+					"id" : "any::@e665f6da5a6a5ae0ab89",
+					"index" : 0
+				},
+				{
+					"id" : "span::@e665f6da5a6a5ae0ab89",
+					"index" : 0
+				},
+				{
+					"id" : "optional::@e665f6da5a6a5ae0ab89",
+					"index" : 0
+				},
+				{
+					"id" : "variant::@e665f6da5a6a5ae0ab89",
+					"index" : 0
+				},
+				{
+					"id" : "compare::@e665f6da5a6a5ae0ab89",
+					"index" : 0
+				},
+				{
+					"id" : "bad_any_cast::@e665f6da5a6a5ae0ab89",
+					"index" : 0
+				},
+				{
+					"id" : "bad_optional_access::@e665f6da5a6a5ae0ab89",
+					"index" : 0
+				},
+				{
+					"id" : "bad_variant_access::@e665f6da5a6a5ae0ab89",
+					"index" : 0
+				},
+				{
+					"id" : "utility::@456d9c792f85a76ab745",
+					"index" : 0
+				}
+			],
+			"paths" : 
+			[
+				""
+			],
+			"type" : "export"
+		},
+		{
+			"backtrace" : 2,
+			"component" : "Unspecified",
+			"destination" : "lib/cmake/absl",
+			"paths" : 
+			[
+				"G:/onnxruntime-chrisd/build/_deps/abseil_cpp-build/abslConfig.cmake"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 3,
+			"component" : "Unspecified",
+			"destination" : "lib/cmake/absl",
+			"paths" : 
+			[
+				"G:/onnxruntime-chrisd/build/_deps/abseil_cpp-build/abslConfigVersion.cmake"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 4,
+			"component" : "Unspecified",
+			"destination" : "include",
+			"paths" : 
+			[
+				"G:/onnxruntime-chrisd/build/_deps/abseil_cpp-src/absl"
+			],
+			"type" : "directory"
+		},
+		{
+			"backtrace" : 5,
+			"component" : "Unspecified",
+			"destination" : "include/absl/base",
+			"paths" : 
+			[
+				{
+					"from" : "G:/onnxruntime-chrisd/build/options-pinned.h",
+					"to" : "options.h"
+				}
+			],
+			"type" : "file"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "_deps/abseil_cpp-build",
+		"source" : "G:/onnxruntime-chrisd/build/_deps/abseil_cpp-src"
+	}
+}

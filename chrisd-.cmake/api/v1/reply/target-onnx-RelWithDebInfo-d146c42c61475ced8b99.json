@@ -1,0 +1,1355 @@
+{
+	"archive" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "/machine:x64",
+				"role" : "flags"
+			}
+		]
+	},
+	"artifacts" : 
+	[
+		{
+			"path" : "_deps/onnx-build/RelWithDebInfo/onnx.lib"
+		}
+	],
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_library",
+			"install",
+			"target_link_libraries",
+			"set_property",
+			"set_msvc_c_cpp_compiler_warning_level",
+			"add_compile_options",
+			"include",
+			"target_compile_options",
+			"add_msvc_runtime_flag",
+			"add_compile_definitions",
+			"add_definitions",
+			"target_compile_definitions",
+			"add_onnx_global_defines"
+		],
+		"files" : 
+		[
+			"G:/onnxruntime-chrisd/build/_deps/onnx-src/CMakeLists.txt",
+			"CMakeLists.txt",
+			"adjust_global_compile_flags.cmake",
+			"G:/onnxruntime-chrisd/build/_deps/onnx-src/cmake/Utils.cmake",
+			"external/onnxruntime_external_deps.cmake"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 462,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 589,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 467,
+				"parent" : 0
+			},
+			{
+				"file" : 1
+			},
+			{
+				"command" : 4,
+				"file" : 1,
+				"line" : 318,
+				"parent" : 4
+			},
+			{
+				"command" : 3,
+				"file" : 1,
+				"line" : 308,
+				"parent" : 5
+			},
+			{
+				"command" : 6,
+				"file" : 1,
+				"line" : 433,
+				"parent" : 4
+			},
+			{
+				"file" : 2,
+				"parent" : 7
+			},
+			{
+				"command" : 5,
+				"file" : 2,
+				"line" : 142,
+				"parent" : 8
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 120,
+				"parent" : 0
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 121,
+				"parent" : 0
+			},
+			{
+				"command" : 8,
+				"file" : 0,
+				"line" : 502,
+				"parent" : 0
+			},
+			{
+				"command" : 7,
+				"file" : 3,
+				"line" : 8,
+				"parent" : 12
+			},
+			{
+				"command" : 6,
+				"file" : 1,
+				"line" : 573,
+				"parent" : 4
+			},
+			{
+				"file" : 4,
+				"parent" : 14
+			},
+			{
+				"command" : 9,
+				"file" : 4,
+				"line" : 354,
+				"parent" : 15
+			},
+			{
+				"command" : 10,
+				"file" : 2,
+				"line" : 180,
+				"parent" : 8
+			},
+			{
+				"command" : 10,
+				"file" : 2,
+				"line" : 178,
+				"parent" : 8
+			},
+			{
+				"command" : 12,
+				"file" : 0,
+				"line" : 468,
+				"parent" : 0
+			},
+			{
+				"command" : 11,
+				"file" : 3,
+				"line" : 16,
+				"parent" : 19
+			},
+			{
+				"command" : 11,
+				"file" : 3,
+				"line" : 13,
+				"parent" : 19
+			},
+			{
+				"command" : 11,
+				"file" : 3,
+				"line" : 20,
+				"parent" : 19
+			},
+			{
+				"command" : 11,
+				"file" : 4,
+				"line" : 594,
+				"parent" : 15
+			},
+			{
+				"command" : 11,
+				"file" : 4,
+				"line" : 596,
+				"parent" : 15
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "/DWIN32 /D_WINDOWS /EHsc /Zc:__cplusplus /EHsc /wd26812 -DEIGEN_HAS_C99_MATH /EHsc /wd26812 /O2 /Ob1 /DNDEBUG -std:c++17 -MD -Zi"
+				},
+				{
+					"backtrace" : 6,
+					"fragment" : "/W3"
+				},
+				{
+					"backtrace" : 9,
+					"fragment" : "/GR"
+				},
+				{
+					"backtrace" : 10,
+					"fragment" : "/MP"
+				},
+				{
+					"backtrace" : 10,
+					"fragment" : "/utf-8"
+				},
+				{
+					"backtrace" : 10,
+					"fragment" : "/nologo"
+				},
+				{
+					"backtrace" : 11,
+					"fragment" : "/wd5287"
+				},
+				{
+					"backtrace" : 11,
+					"fragment" : "/Zc:lambda"
+				},
+				{
+					"backtrace" : 13,
+					"fragment" : "/MD"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 16,
+					"define" : "CPUINFO_SUPPORTED"
+				},
+				{
+					"backtrace" : 17,
+					"define" : "EIGEN_HAS_CONSTEXPR"
+				},
+				{
+					"backtrace" : 17,
+					"define" : "EIGEN_HAS_CXX11_ATOMIC"
+				},
+				{
+					"backtrace" : 17,
+					"define" : "EIGEN_HAS_CXX11_MATH"
+				},
+				{
+					"backtrace" : 17,
+					"define" : "EIGEN_HAS_VARIADIC_TEMPLATES"
+				},
+				{
+					"backtrace" : 18,
+					"define" : "EIGEN_MPL2_ONLY"
+				},
+				{
+					"backtrace" : 17,
+					"define" : "EIGEN_STRONG_INLINE=inline"
+				},
+				{
+					"backtrace" : 20,
+					"define" : "ONNX_ML=1"
+				},
+				{
+					"backtrace" : 21,
+					"define" : "ONNX_NAMESPACE=onnx"
+				},
+				{
+					"backtrace" : 22,
+					"define" : "ONNX_USE_LITE_PROTO=1"
+				},
+				{
+					"backtrace" : 23,
+					"define" : "__ONNX_DISABLE_STATIC_REGISTRATION"
+				},
+				{
+					"backtrace" : 24,
+					"define" : "__ONNX_NO_DOC_STRINGS"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 3,
+					"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src"
+				},
+				{
+					"backtrace" : 3,
+					"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-build"
+				},
+				{
+					"backtrace" : 3,
+					"path" : "G:/onnxruntime-chrisd/build/_deps/protobuf-src/src"
+				}
+			],
+			"language" : "CXX",
+			"languageStandard" : 
+			{
+				"backtraces" : 
+				[
+					1
+				],
+				"standard" : "17"
+			},
+			"sourceIndexes" : 
+			[
+				0,
+				3,
+				9,
+				12,
+				14,
+				19,
+				24,
+				26,
+				27,
+				28,
+				31,
+				33,
+				35,
+				36,
+				37,
+				39,
+				40,
+				41,
+				42,
+				43,
+				44,
+				46,
+				47,
+				48,
+				49,
+				54,
+				55,
+				56,
+				58,
+				60,
+				61,
+				62,
+				63,
+				64,
+				66,
+				67,
+				68,
+				70,
+				71,
+				72,
+				74,
+				76,
+				77,
+				78,
+				80,
+				82,
+				84,
+				85,
+				86,
+				88,
+				89,
+				96,
+				143,
+				145
+			]
+		}
+	],
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 3,
+			"id" : "libprotobuf-lite::@ae0d5a95a4776c73bb4e"
+		},
+		{
+			"backtrace" : 3,
+			"id" : "onnx_proto::@59fb6457570dc9f0863e"
+		},
+		{
+			"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df"
+		}
+	],
+	"id" : "onnx::@59fb6457570dc9f0863e",
+	"install" : 
+	{
+		"destinations" : 
+		[
+			{
+				"backtrace" : 2,
+				"path" : "lib"
+			}
+		],
+		"prefix" : 
+		{
+			"path" : "C:/Program Files/onnxruntime"
+		}
+	},
+	"name" : "onnx",
+	"nameOnDisk" : "onnx.lib",
+	"paths" : 
+	{
+		"build" : "_deps/onnx-build",
+		"source" : "G:/onnxruntime-chrisd/build/_deps/onnx-src"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0,
+				3,
+				9,
+				12,
+				14,
+				19,
+				24,
+				26,
+				27,
+				28,
+				31,
+				33,
+				35,
+				36,
+				37,
+				39,
+				40,
+				41,
+				42,
+				43,
+				44,
+				46,
+				47,
+				48,
+				49,
+				54,
+				55,
+				56,
+				58,
+				60,
+				61,
+				62,
+				63,
+				64,
+				66,
+				67,
+				68,
+				70,
+				71,
+				72,
+				74,
+				76,
+				77,
+				78,
+				80,
+				82,
+				84,
+				85,
+				86,
+				88,
+				89,
+				96,
+				143,
+				145
+			]
+		},
+		{
+			"name" : "Header Files",
+			"sourceIndexes" : 
+			[
+				1,
+				2,
+				4,
+				5,
+				6,
+				7,
+				8,
+				10,
+				11,
+				13,
+				15,
+				16,
+				17,
+				18,
+				20,
+				21,
+				22,
+				23,
+				25,
+				29,
+				30,
+				32,
+				34,
+				38,
+				45,
+				50,
+				51,
+				52,
+				53,
+				57,
+				59,
+				65,
+				69,
+				73,
+				75,
+				79,
+				81,
+				83,
+				87,
+				90,
+				91,
+				92,
+				93,
+				94,
+				95,
+				97,
+				98,
+				99,
+				100,
+				101,
+				102,
+				103,
+				104,
+				105,
+				106,
+				107,
+				108,
+				109,
+				110,
+				111,
+				112,
+				113,
+				114,
+				115,
+				116,
+				117,
+				118,
+				119,
+				120,
+				121,
+				122,
+				123,
+				124,
+				125,
+				126,
+				127,
+				128,
+				129,
+				130,
+				131,
+				132,
+				133,
+				134,
+				135,
+				136,
+				137,
+				138,
+				139,
+				140,
+				141,
+				142,
+				144,
+				146
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/checker.cc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/checker.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/common/array_ref.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/common/assertions.cc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/common/assertions.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/common/common.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/common/constants.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/common/file_utils.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/common/graph_node_list.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/common/interned_strings.cc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/common/interned_strings.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/common/ir.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/common/ir_pb_converter.cc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/common/ir_pb_converter.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/common/model_helpers.cc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/common/model_helpers.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/common/path.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/common/platform_helpers.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/common/proto_util.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/common/status.cc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/common/status.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/common/tensor.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/common/version.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/common/visitor.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/defs/attr_proto_util.cc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/defs/attr_proto_util.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/defs/controlflow/defs.cc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/defs/controlflow/old.cc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/defs/controlflow/utils.cc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/defs/controlflow/utils.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/defs/data_propagators.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/defs/data_type_utils.cc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/defs/data_type_utils.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/defs/function.cc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/defs/function.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/defs/generator/defs.cc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/defs/generator/old.cc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/defs/generator/utils.cc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/defs/generator/utils.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/defs/image/defs.cc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/defs/logical/defs.cc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/defs/logical/old.cc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/defs/math/defs.cc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/defs/math/old.cc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/defs/math/utils.cc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/defs/math/utils.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/defs/nn/defs.cc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/defs/nn/old.cc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/defs/object_detection/defs.cc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/defs/object_detection/old.cc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/defs/operator_sets.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/defs/operator_sets_ml.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/defs/operator_sets_preview.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/defs/operator_sets_training.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/defs/optional/defs.cc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/defs/optional/old.cc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/defs/parser.cc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/defs/parser.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/defs/printer.cc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/defs/printer.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/defs/quantization/defs.cc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/defs/quantization/old.cc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/defs/reduction/defs.cc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/defs/reduction/old.cc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/defs/reduction/utils.cc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/defs/reduction/utils.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/defs/rnn/defs.cc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/defs/rnn/old.cc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/defs/schema.cc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/defs/schema.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/defs/sequence/defs.cc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/defs/sequence/old.cc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/defs/sequence/utils.cc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/defs/sequence/utils.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/defs/shape_inference.cc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/defs/shape_inference.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/defs/tensor/defs.cc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/defs/tensor/old.cc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/defs/tensor/utils.cc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/defs/tensor/utils.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/defs/tensor_proto_util.cc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/defs/tensor_proto_util.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/defs/tensor_util.cc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/defs/tensor_util.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/defs/text/defs.cc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/defs/traditionalml/defs.cc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/defs/traditionalml/old.cc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/defs/traditionalml/utils.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/defs/training/defs.cc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/inliner/inliner.cc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/inliner/inliner.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/onnx-operators_pb.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/onnx_pb.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/proto_utils.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/py_utils.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/shape_inference/attribute_binder.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/shape_inference/implementation.cc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/shape_inference/implementation.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/string_utils.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/version_converter/BaseConverter.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/version_converter/adapters/Attention_24_23.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/version_converter/adapters/adapter.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/version_converter/adapters/axes_attribute_to_input.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/version_converter/adapters/axes_input_to_attribute.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/version_converter/adapters/axis_attribute_to_input.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/version_converter/adapters/axis_input_to_attribute.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/version_converter/adapters/batch_normalization_13_14.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/version_converter/adapters/broadcast_backward_compatibility.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/version_converter/adapters/broadcast_forward_compatibility.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/version_converter/adapters/cast_9_8.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/version_converter/adapters/clip_10_11.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/version_converter/adapters/compatible.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/version_converter/adapters/dropout_11_12.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/version_converter/adapters/extend_supported_types.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/version_converter/adapters/gemm_6_7.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/version_converter/adapters/gemm_7_6.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/version_converter/adapters/gridsample_19_20.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/version_converter/adapters/group_normalization_20_21.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/version_converter/adapters/maxpool_8_7.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/version_converter/adapters/no_previous_version.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/version_converter/adapters/pad_10_11.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/version_converter/adapters/q_dq_21_20.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/version_converter/adapters/remove_consumed_inputs.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/version_converter/adapters/reshape_4_5.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/version_converter/adapters/reshape_5_4.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/version_converter/adapters/resize_10_11.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/version_converter/adapters/scan_8_9.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/version_converter/adapters/scan_9_8.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/version_converter/adapters/scatter_10_11.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/version_converter/adapters/slice_9_10.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/version_converter/adapters/softmax_12_13.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/version_converter/adapters/softmax_13_12.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/version_converter/adapters/split_12_13.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/version_converter/adapters/split_13_12.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/version_converter/adapters/split_17_18.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/version_converter/adapters/sum_8_7.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/version_converter/adapters/topk_9_10.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/version_converter/adapters/transformers.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/version_converter/adapters/type_restriction.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/version_converter/adapters/upsample_6_7.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/version_converter/adapters/upsample_8_9.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/version_converter/adapters/upsample_9_10.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/version_converter/adapters/upsample_9_8.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/version_converter/convert.cc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/version_converter/convert.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/version_converter/helper.cc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src/onnx/version_converter/helper.h",
+			"sourceGroupIndex" : 1
+		}
+	],
+	"type" : "STATIC_LIBRARY"
+}

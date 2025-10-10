@@ -1,0 +1,43 @@
+{
+	"backtrace" : 0,
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : 
+		[
+			"G:/onnxruntime-chrisd/build/_deps/onnx-src/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			}
+		]
+	},
+	"dependencies" : 
+	[
+		{
+			"id" : "onnx_proto::@59fb6457570dc9f0863e"
+		},
+		{
+			"id" : "onnx::@59fb6457570dc9f0863e"
+		},
+		{
+			"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df"
+		}
+	],
+	"folder" : 
+	{
+		"name" : "CMakePredefinedTargets"
+	},
+	"id" : "ALL_BUILD::@59fb6457570dc9f0863e",
+	"isGeneratorProvided" : true,
+	"name" : "ALL_BUILD",
+	"paths" : 
+	{
+		"build" : "_deps/onnx-build",
+		"source" : "G:/onnxruntime-chrisd/build/_deps/onnx-src"
+	},
+	"sources" : [],
+	"type" : "UTILITY"
+}

@@ -1,0 +1,1700 @@
+{
+	"archive" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "/machine:x64",
+				"role" : "flags"
+			}
+		]
+	},
+	"artifacts" : 
+	[
+		{
+			"path" : "Debug/onnxruntime_common.lib"
+		}
+	],
+	"backtrace" : 4,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_library",
+			"onnxruntime_add_static_library",
+			"include",
+			"target_link_libraries",
+			"add_dependencies",
+			"set_property",
+			"set_msvc_c_cpp_compiler_warning_level",
+			"target_compile_options",
+			"onnxruntime_set_compile_flags",
+			"onnxruntime_configure_target",
+			"add_compile_definitions",
+			"target_compile_definitions",
+			"onnxruntime_add_include_to_target",
+			"add_definitions",
+			"include_directories",
+			"target_include_directories",
+			"target_sources"
+		],
+		"files" : 
+		[
+			"CMakeLists.txt",
+			"onnxruntime_common.cmake",
+			"external/onnxruntime_external_deps.cmake",
+			"adjust_global_compile_flags.cmake"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 1733,
+				"parent" : 0
+			},
+			{
+				"file" : 1,
+				"parent" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 125,
+				"parent" : 2
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 1226,
+				"parent" : 3
+			},
+			{
+				"command" : 3,
+				"file" : 1,
+				"line" : 175,
+				"parent" : 2
+			},
+			{
+				"command" : 4,
+				"file" : 1,
+				"line" : 177,
+				"parent" : 2
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 1343,
+				"parent" : 0
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 308,
+				"parent" : 7
+			},
+			{
+				"command" : 9,
+				"file" : 0,
+				"line" : 1227,
+				"parent" : 3
+			},
+			{
+				"command" : 8,
+				"file" : 0,
+				"line" : 1191,
+				"parent" : 9
+			},
+			{
+				"command" : 7,
+				"file" : 0,
+				"line" : 1105,
+				"parent" : 10
+			},
+			{
+				"command" : 7,
+				"file" : 0,
+				"line" : 1105,
+				"parent" : 10
+			},
+			{
+				"command" : 7,
+				"file" : 0,
+				"line" : 1109,
+				"parent" : 10
+			},
+			{
+				"command" : 7,
+				"file" : 0,
+				"line" : 1105,
+				"parent" : 10
+			},
+			{
+				"command" : 7,
+				"file" : 0,
+				"line" : 1105,
+				"parent" : 10
+			},
+			{
+				"command" : 7,
+				"file" : 0,
+				"line" : 1105,
+				"parent" : 10
+			},
+			{
+				"command" : 7,
+				"file" : 0,
+				"line" : 1105,
+				"parent" : 10
+			},
+			{
+				"command" : 7,
+				"file" : 0,
+				"line" : 1105,
+				"parent" : 10
+			},
+			{
+				"command" : 7,
+				"file" : 0,
+				"line" : 1109,
+				"parent" : 10
+			},
+			{
+				"command" : 7,
+				"file" : 0,
+				"line" : 1105,
+				"parent" : 10
+			},
+			{
+				"command" : 7,
+				"file" : 0,
+				"line" : 1105,
+				"parent" : 10
+			},
+			{
+				"command" : 7,
+				"file" : 0,
+				"line" : 1105,
+				"parent" : 10
+			},
+			{
+				"command" : 7,
+				"file" : 0,
+				"line" : 1105,
+				"parent" : 10
+			},
+			{
+				"command" : 7,
+				"file" : 0,
+				"line" : 1105,
+				"parent" : 10
+			},
+			{
+				"command" : 7,
+				"file" : 0,
+				"line" : 1118,
+				"parent" : 10
+			},
+			{
+				"command" : 7,
+				"file" : 0,
+				"line" : 1119,
+				"parent" : 10
+			},
+			{
+				"command" : 7,
+				"file" : 0,
+				"line" : 1123,
+				"parent" : 10
+			},
+			{
+				"command" : 7,
+				"file" : 0,
+				"line" : 1124,
+				"parent" : 10
+			},
+			{
+				"command" : 7,
+				"file" : 0,
+				"line" : 1128,
+				"parent" : 10
+			},
+			{
+				"command" : 7,
+				"file" : 0,
+				"line" : 1129,
+				"parent" : 10
+			},
+			{
+				"command" : 7,
+				"file" : 0,
+				"line" : 1162,
+				"parent" : 10
+			},
+			{
+				"command" : 7,
+				"file" : 0,
+				"line" : 1162,
+				"parent" : 10
+			},
+			{
+				"command" : 7,
+				"file" : 0,
+				"line" : 1162,
+				"parent" : 10
+			},
+			{
+				"command" : 7,
+				"file" : 0,
+				"line" : 1162,
+				"parent" : 10
+			},
+			{
+				"command" : 7,
+				"file" : 0,
+				"line" : 1162,
+				"parent" : 10
+			},
+			{
+				"command" : 7,
+				"file" : 1,
+				"line" : 129,
+				"parent" : 2
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 573,
+				"parent" : 0
+			},
+			{
+				"file" : 2,
+				"parent" : 37
+			},
+			{
+				"command" : 10,
+				"file" : 2,
+				"line" : 354,
+				"parent" : 38
+			},
+			{
+				"command" : 12,
+				"file" : 0,
+				"line" : 1025,
+				"parent" : 10
+			},
+			{
+				"command" : 11,
+				"file" : 0,
+				"line" : 1273,
+				"parent" : 40
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 433,
+				"parent" : 0
+			},
+			{
+				"file" : 3,
+				"parent" : 42
+			},
+			{
+				"command" : 13,
+				"file" : 3,
+				"line" : 180,
+				"parent" : 43
+			},
+			{
+				"command" : 13,
+				"file" : 3,
+				"line" : 178,
+				"parent" : 43
+			},
+			{
+				"command" : 11,
+				"file" : 0,
+				"line" : 1049,
+				"parent" : 10
+			},
+			{
+				"command" : 11,
+				"file" : 0,
+				"line" : 1114,
+				"parent" : 10
+			},
+			{
+				"command" : 12,
+				"file" : 1,
+				"line" : 167,
+				"parent" : 2
+			},
+			{
+				"command" : 11,
+				"file" : 0,
+				"line" : 1273,
+				"parent" : 48
+			},
+			{
+				"command" : 11,
+				"file" : 0,
+				"line" : 1116,
+				"parent" : 10
+			},
+			{
+				"command" : 11,
+				"file" : 0,
+				"line" : 1032,
+				"parent" : 10
+			},
+			{
+				"command" : 14,
+				"file" : 0,
+				"line" : 1347,
+				"parent" : 0
+			},
+			{
+				"command" : 15,
+				"file" : 0,
+				"line" : 1272,
+				"parent" : 40
+			},
+			{
+				"command" : 15,
+				"file" : 0,
+				"line" : 1196,
+				"parent" : 9
+			},
+			{
+				"command" : 15,
+				"file" : 0,
+				"line" : 1272,
+				"parent" : 48
+			},
+			{
+				"command" : 15,
+				"file" : 0,
+				"line" : 1272,
+				"parent" : 48
+			},
+			{
+				"command" : 15,
+				"file" : 0,
+				"line" : 1272,
+				"parent" : 48
+			},
+			{
+				"command" : 16,
+				"file" : 0,
+				"line" : 1274,
+				"parent" : 48
+			},
+			{
+				"command" : 16,
+				"file" : 0,
+				"line" : 1274,
+				"parent" : 48
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "/DWIN32 /D_WINDOWS /EHsc /Zc:__cplusplus /EHsc /wd26812 -DEIGEN_HAS_C99_MATH /Ob0 /Od /RTC1 -std:c++latest -MDd -Zi"
+				},
+				{
+					"backtrace" : 8,
+					"fragment" : "/GR"
+				},
+				{
+					"backtrace" : 8,
+					"fragment" : "/W4"
+				},
+				{
+					"backtrace" : 11,
+					"fragment" : "/external:IG:\\onnxruntime-chrisd\\build\\_deps\\microsoft_wil-src\\include"
+				},
+				{
+					"backtrace" : 12,
+					"fragment" : "/external:IG:\\onnxruntime-chrisd\\build\\_deps\\nlohmann_json-src\\include\\"
+				},
+				{
+					"backtrace" : 13,
+					"fragment" : "/external:Ionnxruntime_external_lib_include_dirs-NOTFOUND"
+				},
+				{
+					"backtrace" : 14,
+					"fragment" : "/external:IG:\\onnxruntime-chrisd\\build\\_deps\\onnx-src"
+				},
+				{
+					"backtrace" : 15,
+					"fragment" : "/external:IG:\\onnxruntime-chrisd\\build\\_deps\\onnx-build"
+				},
+				{
+					"backtrace" : 16,
+					"fragment" : "/external:IG:\\onnxruntime-chrisd\\build\\_deps\\protobuf-src\\src"
+				},
+				{
+					"backtrace" : 17,
+					"fragment" : "/external:IG:\\onnxruntime-chrisd\\build\\_deps\\re2-src"
+				},
+				{
+					"backtrace" : 18,
+					"fragment" : "/external:IG:\\onnxruntime-chrisd\\build\\_deps\\mp11-src\\include"
+				},
+				{
+					"backtrace" : 19,
+					"fragment" : "/external:IG:\\onnxruntime-chrisd\\build\\_deps\\safeint-src"
+				},
+				{
+					"backtrace" : 20,
+					"fragment" : "/external:IG:\\onnxruntime-chrisd\\build\\_deps\\flatbuffers-src\\include"
+				},
+				{
+					"backtrace" : 21,
+					"fragment" : "/external:IG:\\onnxruntime-chrisd\\build\\_deps\\gsl-src\\include"
+				},
+				{
+					"backtrace" : 22,
+					"fragment" : "/external:IG:\\onnxruntime-chrisd\\build\\_deps\\abseil_cpp-src"
+				},
+				{
+					"backtrace" : 23,
+					"fragment" : "/external:IG:\\onnxruntime-chrisd\\build\\_deps\\date-src\\include"
+				},
+				{
+					"backtrace" : 24,
+					"fragment" : "/external:IG:\\onnxruntime-chrisd\\build\\_deps\\eigen3-src"
+				},
+				{
+					"backtrace" : 25,
+					"fragment" : "/utf-8"
+				},
+				{
+					"backtrace" : 26,
+					"fragment" : "/sdl"
+				},
+				{
+					"backtrace" : 27,
+					"fragment" : "/experimental:external"
+				},
+				{
+					"backtrace" : 28,
+					"fragment" : "/external:W0"
+				},
+				{
+					"backtrace" : 29,
+					"fragment" : "/external:IG:/onnxruntime-chrisd/cmake"
+				},
+				{
+					"backtrace" : 30,
+					"fragment" : "/external:IG:/onnxruntime-chrisd/build"
+				},
+				{
+					"backtrace" : 31,
+					"fragment" : "/wd4251"
+				},
+				{
+					"backtrace" : 32,
+					"fragment" : "/wd4201"
+				},
+				{
+					"backtrace" : 33,
+					"fragment" : "/wd4324"
+				},
+				{
+					"backtrace" : 34,
+					"fragment" : "/wd5054"
+				},
+				{
+					"backtrace" : 35,
+					"fragment" : "/w15038"
+				},
+				{
+					"backtrace" : 36,
+					"fragment" : "/Zc:char8_t-"
+				},
+				{
+					"fragment" : "-WX"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 39,
+					"define" : "CPUINFO_SUPPORTED"
+				},
+				{
+					"backtrace" : 41,
+					"define" : "CPUINFO_SUPPORTED_PLATFORM=1"
+				},
+				{
+					"backtrace" : 44,
+					"define" : "EIGEN_HAS_CONSTEXPR"
+				},
+				{
+					"backtrace" : 44,
+					"define" : "EIGEN_HAS_CXX11_ATOMIC"
+				},
+				{
+					"backtrace" : 44,
+					"define" : "EIGEN_HAS_CXX11_MATH"
+				},
+				{
+					"backtrace" : 44,
+					"define" : "EIGEN_HAS_VARIADIC_TEMPLATES"
+				},
+				{
+					"backtrace" : 45,
+					"define" : "EIGEN_MPL2_ONLY"
+				},
+				{
+					"backtrace" : 44,
+					"define" : "EIGEN_STRONG_INLINE=inline"
+				},
+				{
+					"backtrace" : 46,
+					"define" : "EIGEN_USE_THREADS"
+				},
+				{
+					"backtrace" : 47,
+					"define" : "NOGDI"
+				},
+				{
+					"backtrace" : 47,
+					"define" : "NOMINMAX"
+				},
+				{
+					"backtrace" : 49,
+					"define" : "ONLY_C_LOCALE=0"
+				},
+				{
+					"backtrace" : 50,
+					"define" : "ONNXRUNTIME_ENABLE_MEMLEAK_CHECK"
+				},
+				{
+					"backtrace" : 51,
+					"define" : "ORT_ENABLE_STREAM"
+				},
+				{
+					"backtrace" : 47,
+					"define" : "PLATFORM_WINDOWS"
+				},
+				{
+					"backtrace" : 47,
+					"define" : "_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS"
+				},
+				{
+					"backtrace" : 47,
+					"define" : "_USE_MATH_DEFINES"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 52,
+					"path" : "G:/onnxruntime-chrisd/include/onnxruntime"
+				},
+				{
+					"backtrace" : 52,
+					"path" : "G:/onnxruntime-chrisd/include/onnxruntime/core/session"
+				},
+				{
+					"backtrace" : 53,
+					"path" : "G:/onnxruntime-chrisd/build/_deps/pytorch_cpuinfo-src/include"
+				},
+				{
+					"backtrace" : 54,
+					"path" : "G:/onnxruntime-chrisd/build"
+				},
+				{
+					"backtrace" : 54,
+					"path" : "G:/onnxruntime-chrisd/onnxruntime"
+				},
+				{
+					"backtrace" : 55,
+					"path" : "G:/onnxruntime-chrisd/build/_deps/date-src/include"
+				},
+				{
+					"backtrace" : 56,
+					"path" : "G:/onnxruntime-chrisd/build/_deps/microsoft_wil-src/include"
+				},
+				{
+					"backtrace" : 57,
+					"path" : "G:/onnxruntime-chrisd/build/_deps/eigen3-src"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "G:/onnxruntime-chrisd/build/_deps/abseil_cpp-src"
+				},
+				{
+					"backtrace" : 5,
+					"isSystem" : true,
+					"path" : "G:/onnxruntime-chrisd/build/_deps/safeint-src"
+				},
+				{
+					"backtrace" : 5,
+					"isSystem" : true,
+					"path" : "G:/onnxruntime-chrisd/build/_deps/gsl-src/include"
+				}
+			],
+			"language" : "CXX",
+			"languageStandard" : 
+			{
+				"backtraces" : 
+				[
+					5
+				],
+				"standard" : "23"
+			},
+			"sourceIndexes" : 
+			[
+				32,
+				34,
+				35,
+				37,
+				39,
+				40,
+				41,
+				46,
+				50,
+				52,
+				54,
+				56,
+				57,
+				59,
+				64,
+				67,
+				68,
+				70,
+				72,
+				74,
+				77,
+				79,
+				81,
+				82,
+				84,
+				86,
+				87,
+				89,
+				91,
+				92
+			]
+		}
+	],
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 5,
+			"id" : "raw_logging_internal::@18401c87f508700aa1d1"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "log_severity::@18401c87f508700aa1d1"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "base::@18401c87f508700aa1d1"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "malloc_internal::@18401c87f508700aa1d1"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "throw_delegate::@18401c87f508700aa1d1"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "spinlock_wait::@18401c87f508700aa1d1"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "strerror::@18401c87f508700aa1d1"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "tracing_internal::@18401c87f508700aa1d1"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "hashtablez_sampler::@a1b91549426d0bbcd0a9"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "raw_hash_set::@a1b91549426d0bbcd0a9"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "crc_internal::@6d1d60f19ea6cadf4aea"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "crc32c::@6d1d60f19ea6cadf4aea"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "crc_cord_state::@6d1d60f19ea6cadf4aea"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "crc_cpu_detect::@6d1d60f19ea6cadf4aea"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "demangle_rust::@94c14ff9c15ae511da2e"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "symbolize::@94c14ff9c15ae511da2e"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "debugging_internal::@94c14ff9c15ae511da2e"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "examine_stack::@94c14ff9c15ae511da2e"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "stacktrace::@94c14ff9c15ae511da2e"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "demangle_internal::@94c14ff9c15ae511da2e"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "decode_rust_punycode::@94c14ff9c15ae511da2e"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "utf8_for_code_point::@94c14ff9c15ae511da2e"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "leak_check::@94c14ff9c15ae511da2e"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "flags_config::@9cf8d36eb874758e84c5"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "flags_marshalling::@9cf8d36eb874758e84c5"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "flags_program_name::@9cf8d36eb874758e84c5"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "flags_commandlineflag::@9cf8d36eb874758e84c5"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "flags_commandlineflag_internal::@9cf8d36eb874758e84c5"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "flags_reflection::@9cf8d36eb874758e84c5"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "flags_private_handle_accessor::@9cf8d36eb874758e84c5"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "flags_internal::@9cf8d36eb874758e84c5"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "city::@9b910e87353eb23c0901"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "low_level_hash::@9b910e87353eb23c0901"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "hash::@9b910e87353eb23c0901"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "log_internal_conditions::@a3c7b106284a8b5f8235"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "log_internal_check_op::@a3c7b106284a8b5f8235"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "log_internal_format::@a3c7b106284a8b5f8235"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "log_internal_globals::@a3c7b106284a8b5f8235"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "log_internal_message::@a3c7b106284a8b5f8235"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "log_internal_log_sink_set::@a3c7b106284a8b5f8235"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "log_internal_proto::@a3c7b106284a8b5f8235"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "log_internal_nullguard::@a3c7b106284a8b5f8235"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "log_globals::@a3c7b106284a8b5f8235"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "log_sink::@a3c7b106284a8b5f8235"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "log_internal_structured_proto::@a3c7b106284a8b5f8235"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "log_internal_fnmatch::@a3c7b106284a8b5f8235"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "vlog_config_internal::@a3c7b106284a8b5f8235"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "exponential_biased::@93243b0a9b5d800ddcf2"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "int128::@1220ce8925b613a29c62"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "cord_internal::@8955f3cd09d951c40c30"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "string_view::@8955f3cd09d951c40c30"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "strings::@8955f3cd09d951c40c30"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "strings_internal::@8955f3cd09d951c40c30"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "str_format_internal::@8955f3cd09d951c40c30"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "cordz_functions::@8955f3cd09d951c40c30"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "cordz_info::@8955f3cd09d951c40c30"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "time::@711c77cdfbd1ce1c9f75"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "cordz_handle::@8955f3cd09d951c40c30"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "synchronization::@a1dbec9fadd4142423ea"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "cord::@8955f3cd09d951c40c30"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "graphcycles_internal::@a1dbec9fadd4142423ea"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "kernel_timeout_internal::@a1dbec9fadd4142423ea"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "time_zone::@711c77cdfbd1ce1c9f75"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "civil_time::@711c77cdfbd1ce1c9f75"
+		},
+		{
+			"backtrace" : 6,
+			"id" : "flatbuffers::@62cadad892676421df77"
+		},
+		{
+			"backtrace" : 6,
+			"id" : "onnx_proto::@59fb6457570dc9f0863e"
+		},
+		{
+			"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df"
+		}
+	],
+	"folder" : 
+	{
+		"name" : "ONNXRuntime"
+	},
+	"id" : "onnxruntime_common::@6890427a1f51a3e7e1df",
+	"name" : "onnxruntime_common",
+	"nameOnDisk" : "onnxruntime_common.lib",
+	"paths" : 
+	{
+		"build" : ".",
+		"source" : "."
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "include\\onnxruntime\\core\\common",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				17,
+				18,
+				19,
+				20,
+				21,
+				22,
+				23,
+				24,
+				25
+			]
+		},
+		{
+			"name" : "include\\onnxruntime\\core\\common\\logging",
+			"sourceIndexes" : 
+			[
+				11,
+				12,
+				13,
+				14,
+				15,
+				16
+			]
+		},
+		{
+			"name" : "include\\onnxruntime\\core\\platform",
+			"sourceIndexes" : 
+			[
+				26,
+				27,
+				28,
+				29,
+				30
+			]
+		},
+		{
+			"name" : "onnxruntime\\core\\common",
+			"sourceIndexes" : 
+			[
+				31,
+				32,
+				33,
+				34,
+				35,
+				36,
+				37,
+				38,
+				39,
+				48,
+				49,
+				50,
+				51,
+				52,
+				53,
+				54,
+				55,
+				56,
+				57,
+				58,
+				59,
+				60,
+				61,
+				62,
+				63
+			]
+		},
+		{
+			"name" : "onnxruntime\\core\\common\\logging",
+			"sourceIndexes" : 
+			[
+				40,
+				41
+			]
+		},
+		{
+			"name" : "onnxruntime\\core\\common\\logging\\sinks",
+			"sourceIndexes" : 
+			[
+				42,
+				43,
+				44,
+				45,
+				46,
+				47
+			]
+		},
+		{
+			"name" : "onnxruntime\\core\\platform",
+			"sourceIndexes" : 
+			[
+				64,
+				65,
+				66,
+				67,
+				68,
+				69,
+				70,
+				71,
+				74,
+				75,
+				76,
+				77,
+				78
+			]
+		},
+		{
+			"name" : "onnxruntime\\core\\platform\\logging",
+			"sourceIndexes" : 
+			[
+				72,
+				73
+			]
+		},
+		{
+			"name" : "onnxruntime\\core\\platform\\windows",
+			"sourceIndexes" : 
+			[
+				79,
+				80,
+				81,
+				82,
+				83,
+				84,
+				85,
+				86,
+				87,
+				88,
+				91,
+				92,
+				93
+			]
+		},
+		{
+			"name" : "onnxruntime\\core\\platform\\windows\\logging",
+			"sourceIndexes" : 
+			[
+				89,
+				90
+			]
+		},
+		{
+			"name" : "onnxruntime\\core\\quantization",
+			"sourceIndexes" : 
+			[
+				94
+			]
+		},
+		{
+			"name" : "Header Files",
+			"sourceIndexes" : 
+			[
+				95,
+				96,
+				97,
+				98,
+				99
+			]
+		},
+		{
+			"name" : "",
+			"sourceIndexes" : 
+			[
+				100,
+				101
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/include/onnxruntime/core/common/basic_types.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/include/onnxruntime/core/common/code_location.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/include/onnxruntime/core/common/common.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/include/onnxruntime/core/common/const_pointer_container.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/include/onnxruntime/core/common/denormal.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/include/onnxruntime/core/common/eigen_common_wrapper.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/include/onnxruntime/core/common/exceptions.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/include/onnxruntime/core/common/gpu_profiler_common.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/include/onnxruntime/core/common/hash_combine.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/include/onnxruntime/core/common/inlined_containers.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/include/onnxruntime/core/common/inlined_containers_fwd.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/include/onnxruntime/core/common/logging/capture.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/include/onnxruntime/core/common/logging/isink.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/include/onnxruntime/core/common/logging/logging.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/include/onnxruntime/core/common/logging/macros.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/include/onnxruntime/core/common/logging/severity.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/include/onnxruntime/core/common/logging/sink_types.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/include/onnxruntime/core/common/make_string.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/include/onnxruntime/core/common/narrow.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/include/onnxruntime/core/common/optional.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/include/onnxruntime/core/common/parse_string.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/include/onnxruntime/core/common/profiler_common.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/include/onnxruntime/core/common/span_utils.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/include/onnxruntime/core/common/spin_pause.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/include/onnxruntime/core/common/status.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/include/onnxruntime/core/common/string_helper.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/include/onnxruntime/core/platform/Barrier.h",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/include/onnxruntime/core/platform/EigenNonBlockingThreadPool.h",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/include/onnxruntime/core/platform/ort_spin_lock.h",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/include/onnxruntime/core/platform/threadpool.h",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/include/onnxruntime/core/platform/tracing.h",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/common/cpuid_arch_definition.h",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/common/cpuid_info.cc",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/common/cpuid_info.h",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/common/cpuid_info_vendor.cc",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/common/cpuid_uarch.cc",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/common/cpuid_uarch.h",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/common/denormal.cc",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/common/flatbuffers.h",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/common/helper.cc",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/common/logging/capture.cc",
+			"sourceGroupIndex" : 4
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/common/logging/logging.cc",
+			"sourceGroupIndex" : 4
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/common/logging/sinks/cerr_sink.h",
+			"sourceGroupIndex" : 5
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/common/logging/sinks/clog_sink.h",
+			"sourceGroupIndex" : 5
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/common/logging/sinks/composite_sink.h",
+			"sourceGroupIndex" : 5
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/common/logging/sinks/file_sink.h",
+			"sourceGroupIndex" : 5
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/common/logging/sinks/ostream_sink.cc",
+			"sourceGroupIndex" : 5
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/common/logging/sinks/ostream_sink.h",
+			"sourceGroupIndex" : 5
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/common/path_string.h",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/common/path_utils.h",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/common/profiler.cc",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/common/profiler.h",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/common/profiler_common.cc",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/common/safeint.h",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/common/semver.cc",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/common/semver.h",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/common/spin_pause.cc",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/common/status.cc",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/common/string_utils.h",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/common/threadpool.cc",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/common/type_list.h",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/common/type_set_utils.h",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/common/type_utils.h",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/common/utf8_util.h",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/platform/check_intel.cc",
+			"sourceGroupIndex" : 6
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/platform/check_intel.h",
+			"sourceGroupIndex" : 6
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/platform/device_discovery.h",
+			"sourceGroupIndex" : 6
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/platform/device_discovery_common.cc",
+			"sourceGroupIndex" : 6
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/platform/env.cc",
+			"sourceGroupIndex" : 6
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/platform/env.h",
+			"sourceGroupIndex" : 6
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/platform/env_time.cc",
+			"sourceGroupIndex" : 6
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/platform/env_time.h",
+			"sourceGroupIndex" : 6
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/platform/logging/make_platform_default_log_sink.cc",
+			"sourceGroupIndex" : 7
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/platform/logging/make_platform_default_log_sink.h",
+			"sourceGroupIndex" : 7
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/platform/path_lib.cc",
+			"sourceGroupIndex" : 6
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/platform/path_lib.h",
+			"sourceGroupIndex" : 6
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/platform/scoped_resource.h",
+			"sourceGroupIndex" : 6
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/platform/telemetry.cc",
+			"sourceGroupIndex" : 6
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/platform/telemetry.h",
+			"sourceGroupIndex" : 6
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/platform/windows/debug_alloc.cc",
+			"sourceGroupIndex" : 8
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/platform/windows/debug_alloc.h",
+			"sourceGroupIndex" : 8
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/platform/windows/device_discovery.cc",
+			"sourceGroupIndex" : 8
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/platform/windows/dll_load_error.cc",
+			"sourceGroupIndex" : 8
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/platform/windows/dll_load_error.h",
+			"sourceGroupIndex" : 8
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/platform/windows/env.cc",
+			"sourceGroupIndex" : 8
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/platform/windows/env.h",
+			"sourceGroupIndex" : 8
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/platform/windows/env_time.cc",
+			"sourceGroupIndex" : 8
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/platform/windows/hardware_core_enumerator.cc",
+			"sourceGroupIndex" : 8
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/platform/windows/hardware_core_enumerator.h",
+			"sourceGroupIndex" : 8
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/platform/windows/logging/etw_sink.cc",
+			"sourceGroupIndex" : 9
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/platform/windows/logging/etw_sink.h",
+			"sourceGroupIndex" : 9
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/platform/windows/stacktrace.cc",
+			"sourceGroupIndex" : 8
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/platform/windows/telemetry.cc",
+			"sourceGroupIndex" : 8
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/platform/windows/telemetry.h",
+			"sourceGroupIndex" : 8
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/quantization/quantization.h",
+			"sourceGroupIndex" : 10
+		},
+		{
+			"backtrace" : 58,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/date-src/include/date/date.h",
+			"sourceGroupIndex" : 11
+		},
+		{
+			"backtrace" : 58,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/date-src/include/date/solar_hijri.h",
+			"sourceGroupIndex" : 11
+		},
+		{
+			"backtrace" : 58,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/date-src/include/date/islamic.h",
+			"sourceGroupIndex" : 11
+		},
+		{
+			"backtrace" : 58,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/date-src/include/date/iso_week.h",
+			"sourceGroupIndex" : 11
+		},
+		{
+			"backtrace" : 58,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/date-src/include/date/julian.h",
+			"sourceGroupIndex" : 11
+		},
+		{
+			"backtrace" : 59,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/microsoft_wil-src/natvis/wil.natvis",
+			"sourceGroupIndex" : 12
+		},
+		{
+			"backtrace" : 5,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/gsl-src/GSL.natvis",
+			"sourceGroupIndex" : 12
+		}
+	],
+	"type" : "STATIC_LIBRARY"
+}

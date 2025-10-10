@@ -1,0 +1,43 @@
+{
+	"backtrace" : 0,
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : 
+		[
+			"G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			}
+		]
+	},
+	"dependencies" : 
+	[
+		{
+			"id" : "flatbuffers::@62cadad892676421df77"
+		},
+		{
+			"id" : "flatc::@62cadad892676421df77"
+		},
+		{
+			"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df"
+		}
+	],
+	"folder" : 
+	{
+		"name" : "CMakePredefinedTargets"
+	},
+	"id" : "ALL_BUILD::@62cadad892676421df77",
+	"isGeneratorProvided" : true,
+	"name" : "ALL_BUILD",
+	"paths" : 
+	{
+		"build" : "_deps/flatbuffers-build",
+		"source" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src"
+	},
+	"sources" : [],
+	"type" : "UTILITY"
+}

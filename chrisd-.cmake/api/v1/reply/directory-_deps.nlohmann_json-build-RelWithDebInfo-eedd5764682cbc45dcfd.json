@@ -1,0 +1,119 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"install"
+		],
+		"files" : 
+		[
+			"G:/onnxruntime-chrisd/build/_deps/nlohmann_json-src/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 176,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 180,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 185,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 200,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 205,
+				"parent" : 0
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "include",
+			"paths" : 
+			[
+				{
+					"from" : "G:/onnxruntime-chrisd/build/_deps/nlohmann_json-src/include",
+					"to" : "."
+				}
+			],
+			"type" : "directory"
+		},
+		{
+			"backtrace" : 2,
+			"component" : "Unspecified",
+			"destination" : "share/cmake/nlohmann_json",
+			"paths" : 
+			[
+				"G:/onnxruntime-chrisd/build/_deps/nlohmann_json-build/nlohmann_jsonConfig.cmake",
+				"G:/onnxruntime-chrisd/build/_deps/nlohmann_json-build/nlohmann_jsonConfigVersion.cmake"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 3,
+			"component" : "Unspecified",
+			"destination" : ".",
+			"paths" : 
+			[
+				"G:/onnxruntime-chrisd/build/_deps/nlohmann_json-src/nlohmann_json.natvis"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 4,
+			"component" : "Unspecified",
+			"destination" : "share/cmake/nlohmann_json",
+			"exportName" : "nlohmann_jsonTargets",
+			"exportTargets" : 
+			[
+				{
+					"id" : "nlohmann_json::@7ad6b70f65d238af1bcf",
+					"index" : 0
+				}
+			],
+			"paths" : 
+			[
+				""
+			],
+			"type" : "export"
+		},
+		{
+			"backtrace" : 5,
+			"component" : "Unspecified",
+			"destination" : "share/pkgconfig",
+			"paths" : 
+			[
+				"G:/onnxruntime-chrisd/build/_deps/nlohmann_json-build/nlohmann_json.pc"
+			],
+			"type" : "file"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "_deps/nlohmann_json-build",
+		"source" : "G:/onnxruntime-chrisd/build/_deps/nlohmann_json-src"
+	}
+}

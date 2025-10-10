@@ -1,0 +1,115 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"install"
+		],
+		"files" : 
+		[
+			"G:/onnxruntime-chrisd/build/_deps/re2-src/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 240,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 248,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 259,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 267,
+				"parent" : 0
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"_deps/re2-build/Release/re2.lib"
+			],
+			"targetId" : "re2::@8091ef369240a0bad874",
+			"targetIndex" : 138,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "include/re2",
+			"paths" : 
+			[
+				"G:/onnxruntime-chrisd/build/_deps/re2-src/re2/filtered_re2.h",
+				"G:/onnxruntime-chrisd/build/_deps/re2-src/re2/re2.h",
+				"G:/onnxruntime-chrisd/build/_deps/re2-src/re2/set.h",
+				"G:/onnxruntime-chrisd/build/_deps/re2-src/re2/stringpiece.h"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 2,
+			"component" : "Unspecified",
+			"destination" : "lib/cmake/re2",
+			"exportName" : "re2Targets",
+			"exportTargets" : 
+			[
+				{
+					"id" : "re2::@8091ef369240a0bad874",
+					"index" : 138
+				}
+			],
+			"paths" : 
+			[
+				""
+			],
+			"type" : "export"
+		},
+		{
+			"backtrace" : 3,
+			"component" : "Unspecified",
+			"destination" : "lib/cmake/re2",
+			"paths" : 
+			[
+				"G:/onnxruntime-chrisd/build/_deps/re2-build/re2Config.cmake",
+				"G:/onnxruntime-chrisd/build/_deps/re2-build/re2ConfigVersion.cmake"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 4,
+			"component" : "Unspecified",
+			"destination" : "lib/pkgconfig",
+			"paths" : 
+			[
+				"G:/onnxruntime-chrisd/build/_deps/re2-build/re2.pc"
+			],
+			"type" : "file"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "_deps/re2-build",
+		"source" : "G:/onnxruntime-chrisd/build/_deps/re2-src"
+	}
+}

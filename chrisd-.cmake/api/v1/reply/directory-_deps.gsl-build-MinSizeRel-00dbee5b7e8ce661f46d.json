@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "_deps/gsl-build",
+		"source" : "G:/onnxruntime-chrisd/build/_deps/gsl-src"
+	}
+}

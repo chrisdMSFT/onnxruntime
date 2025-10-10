@@ -1,0 +1,2267 @@
+{
+	"archive" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "/machine:x64",
+				"role" : "flags"
+			}
+		]
+	},
+	"artifacts" : 
+	[
+		{
+			"path" : "MinSizeRel/onnxruntime_optimizer.lib"
+		}
+	],
+	"backtrace" : 4,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_library",
+			"onnxruntime_add_static_library",
+			"include",
+			"add_dependencies",
+			"set_property",
+			"set_msvc_c_cpp_compiler_warning_level",
+			"target_compile_options",
+			"onnxruntime_set_compile_flags",
+			"onnxruntime_configure_target",
+			"add_compile_definitions",
+			"target_compile_definitions",
+			"onnxruntime_add_include_to_target",
+			"add_definitions",
+			"include_directories",
+			"target_include_directories",
+			"target_sources"
+		],
+		"files" : 
+		[
+			"CMakeLists.txt",
+			"onnxruntime_optimizer.cmake",
+			"external/onnxruntime_external_deps.cmake",
+			"adjust_global_compile_flags.cmake"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 1733,
+				"parent" : 0
+			},
+			{
+				"file" : 1,
+				"parent" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 114,
+				"parent" : 2
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 1226,
+				"parent" : 3
+			},
+			{
+				"command" : 3,
+				"file" : 1,
+				"line" : 129,
+				"parent" : 2
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 1343,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 308,
+				"parent" : 6
+			},
+			{
+				"command" : 8,
+				"file" : 0,
+				"line" : 1227,
+				"parent" : 3
+			},
+			{
+				"command" : 7,
+				"file" : 0,
+				"line" : 1191,
+				"parent" : 8
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 1105,
+				"parent" : 9
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 1105,
+				"parent" : 9
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 1109,
+				"parent" : 9
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 1105,
+				"parent" : 9
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 1105,
+				"parent" : 9
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 1105,
+				"parent" : 9
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 1105,
+				"parent" : 9
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 1105,
+				"parent" : 9
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 1109,
+				"parent" : 9
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 1105,
+				"parent" : 9
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 1105,
+				"parent" : 9
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 1105,
+				"parent" : 9
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 1105,
+				"parent" : 9
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 1105,
+				"parent" : 9
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 1105,
+				"parent" : 9
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 1118,
+				"parent" : 9
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 1119,
+				"parent" : 9
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 1123,
+				"parent" : 9
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 1124,
+				"parent" : 9
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 1128,
+				"parent" : 9
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 1129,
+				"parent" : 9
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 1162,
+				"parent" : 9
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 1162,
+				"parent" : 9
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 1162,
+				"parent" : 9
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 1162,
+				"parent" : 9
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 1162,
+				"parent" : 9
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 573,
+				"parent" : 0
+			},
+			{
+				"file" : 2,
+				"parent" : 36
+			},
+			{
+				"command" : 9,
+				"file" : 2,
+				"line" : 354,
+				"parent" : 37
+			},
+			{
+				"command" : 11,
+				"file" : 0,
+				"line" : 1025,
+				"parent" : 9
+			},
+			{
+				"command" : 10,
+				"file" : 0,
+				"line" : 1273,
+				"parent" : 39
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 433,
+				"parent" : 0
+			},
+			{
+				"file" : 3,
+				"parent" : 41
+			},
+			{
+				"command" : 12,
+				"file" : 3,
+				"line" : 180,
+				"parent" : 42
+			},
+			{
+				"command" : 12,
+				"file" : 3,
+				"line" : 178,
+				"parent" : 42
+			},
+			{
+				"command" : 10,
+				"file" : 0,
+				"line" : 1049,
+				"parent" : 9
+			},
+			{
+				"command" : 10,
+				"file" : 0,
+				"line" : 1114,
+				"parent" : 9
+			},
+			{
+				"command" : 11,
+				"file" : 1,
+				"line" : 116,
+				"parent" : 2
+			},
+			{
+				"command" : 10,
+				"file" : 0,
+				"line" : 1273,
+				"parent" : 47
+			},
+			{
+				"command" : 10,
+				"file" : 0,
+				"line" : 1116,
+				"parent" : 9
+			},
+			{
+				"command" : 10,
+				"file" : 0,
+				"line" : 1273,
+				"parent" : 47
+			},
+			{
+				"command" : 10,
+				"file" : 0,
+				"line" : 1032,
+				"parent" : 9
+			},
+			{
+				"command" : 13,
+				"file" : 0,
+				"line" : 1347,
+				"parent" : 0
+			},
+			{
+				"command" : 14,
+				"file" : 0,
+				"line" : 1272,
+				"parent" : 39
+			},
+			{
+				"command" : 14,
+				"file" : 0,
+				"line" : 1196,
+				"parent" : 8
+			},
+			{
+				"command" : 14,
+				"file" : 0,
+				"line" : 1272,
+				"parent" : 47
+			},
+			{
+				"command" : 14,
+				"file" : 0,
+				"line" : 1272,
+				"parent" : 47
+			},
+			{
+				"command" : 14,
+				"file" : 0,
+				"line" : 1272,
+				"parent" : 47
+			},
+			{
+				"command" : 14,
+				"file" : 0,
+				"line" : 1272,
+				"parent" : 47
+			},
+			{
+				"command" : 15,
+				"file" : 0,
+				"line" : 1274,
+				"parent" : 47
+			},
+			{
+				"command" : 15,
+				"file" : 0,
+				"line" : 1274,
+				"parent" : 47
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "/DWIN32 /D_WINDOWS /EHsc /Zc:__cplusplus /EHsc /wd26812 -DEIGEN_HAS_C99_MATH /O1 /Ob1 /DNDEBUG -std:c++17 -MD -Zi"
+				},
+				{
+					"backtrace" : 7,
+					"fragment" : "/GR"
+				},
+				{
+					"backtrace" : 7,
+					"fragment" : "/W4"
+				},
+				{
+					"backtrace" : 10,
+					"fragment" : "/external:IG:\\onnxruntime-chrisd\\build\\_deps\\microsoft_wil-src\\include"
+				},
+				{
+					"backtrace" : 11,
+					"fragment" : "/external:IG:\\onnxruntime-chrisd\\build\\_deps\\nlohmann_json-src\\include\\"
+				},
+				{
+					"backtrace" : 12,
+					"fragment" : "/external:Ionnxruntime_external_lib_include_dirs-NOTFOUND"
+				},
+				{
+					"backtrace" : 13,
+					"fragment" : "/external:IG:\\onnxruntime-chrisd\\build\\_deps\\onnx-src"
+				},
+				{
+					"backtrace" : 14,
+					"fragment" : "/external:IG:\\onnxruntime-chrisd\\build\\_deps\\onnx-build"
+				},
+				{
+					"backtrace" : 15,
+					"fragment" : "/external:IG:\\onnxruntime-chrisd\\build\\_deps\\protobuf-src\\src"
+				},
+				{
+					"backtrace" : 16,
+					"fragment" : "/external:IG:\\onnxruntime-chrisd\\build\\_deps\\re2-src"
+				},
+				{
+					"backtrace" : 17,
+					"fragment" : "/external:IG:\\onnxruntime-chrisd\\build\\_deps\\mp11-src\\include"
+				},
+				{
+					"backtrace" : 18,
+					"fragment" : "/external:IG:\\onnxruntime-chrisd\\build\\_deps\\safeint-src"
+				},
+				{
+					"backtrace" : 19,
+					"fragment" : "/external:IG:\\onnxruntime-chrisd\\build\\_deps\\flatbuffers-src\\include"
+				},
+				{
+					"backtrace" : 20,
+					"fragment" : "/external:IG:\\onnxruntime-chrisd\\build\\_deps\\gsl-src\\include"
+				},
+				{
+					"backtrace" : 21,
+					"fragment" : "/external:IG:\\onnxruntime-chrisd\\build\\_deps\\abseil_cpp-src"
+				},
+				{
+					"backtrace" : 22,
+					"fragment" : "/external:IG:\\onnxruntime-chrisd\\build\\_deps\\date-src\\include"
+				},
+				{
+					"backtrace" : 23,
+					"fragment" : "/external:IG:\\onnxruntime-chrisd\\build\\_deps\\eigen3-src"
+				},
+				{
+					"backtrace" : 24,
+					"fragment" : "/external:IG:\\onnxruntime-chrisd\\build\\_deps\\pytorch_cpuinfo-src\\include"
+				},
+				{
+					"backtrace" : 25,
+					"fragment" : "/utf-8"
+				},
+				{
+					"backtrace" : 26,
+					"fragment" : "/sdl"
+				},
+				{
+					"backtrace" : 27,
+					"fragment" : "/experimental:external"
+				},
+				{
+					"backtrace" : 28,
+					"fragment" : "/external:W0"
+				},
+				{
+					"backtrace" : 29,
+					"fragment" : "/external:IG:/onnxruntime-chrisd/cmake"
+				},
+				{
+					"backtrace" : 30,
+					"fragment" : "/external:IG:/onnxruntime-chrisd/build"
+				},
+				{
+					"backtrace" : 31,
+					"fragment" : "/wd4251"
+				},
+				{
+					"backtrace" : 32,
+					"fragment" : "/wd4201"
+				},
+				{
+					"backtrace" : 33,
+					"fragment" : "/wd4324"
+				},
+				{
+					"backtrace" : 34,
+					"fragment" : "/wd5054"
+				},
+				{
+					"backtrace" : 35,
+					"fragment" : "/w15038"
+				},
+				{
+					"fragment" : "-WX"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 38,
+					"define" : "CPUINFO_SUPPORTED"
+				},
+				{
+					"backtrace" : 40,
+					"define" : "CPUINFO_SUPPORTED_PLATFORM=1"
+				},
+				{
+					"backtrace" : 43,
+					"define" : "EIGEN_HAS_CONSTEXPR"
+				},
+				{
+					"backtrace" : 43,
+					"define" : "EIGEN_HAS_CXX11_ATOMIC"
+				},
+				{
+					"backtrace" : 43,
+					"define" : "EIGEN_HAS_CXX11_MATH"
+				},
+				{
+					"backtrace" : 43,
+					"define" : "EIGEN_HAS_VARIADIC_TEMPLATES"
+				},
+				{
+					"backtrace" : 44,
+					"define" : "EIGEN_MPL2_ONLY"
+				},
+				{
+					"backtrace" : 43,
+					"define" : "EIGEN_STRONG_INLINE=inline"
+				},
+				{
+					"backtrace" : 45,
+					"define" : "EIGEN_USE_THREADS"
+				},
+				{
+					"backtrace" : 46,
+					"define" : "NOGDI"
+				},
+				{
+					"backtrace" : 46,
+					"define" : "NOMINMAX"
+				},
+				{
+					"backtrace" : 48,
+					"define" : "ONLY_C_LOCALE=0"
+				},
+				{
+					"backtrace" : 49,
+					"define" : "ONNXRUNTIME_ENABLE_MEMLEAK_CHECK"
+				},
+				{
+					"backtrace" : 50,
+					"define" : "ONNX_ML=1"
+				},
+				{
+					"backtrace" : 50,
+					"define" : "ONNX_NAMESPACE=onnx"
+				},
+				{
+					"backtrace" : 50,
+					"define" : "ONNX_USE_LITE_PROTO=1"
+				},
+				{
+					"backtrace" : 51,
+					"define" : "ORT_ENABLE_STREAM"
+				},
+				{
+					"backtrace" : 46,
+					"define" : "PLATFORM_WINDOWS"
+				},
+				{
+					"backtrace" : 46,
+					"define" : "_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS"
+				},
+				{
+					"backtrace" : 46,
+					"define" : "_USE_MATH_DEFINES"
+				},
+				{
+					"backtrace" : 50,
+					"define" : "__ONNX_NO_DOC_STRINGS"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 52,
+					"path" : "G:/onnxruntime-chrisd/include/onnxruntime"
+				},
+				{
+					"backtrace" : 52,
+					"path" : "G:/onnxruntime-chrisd/include/onnxruntime/core/session"
+				},
+				{
+					"backtrace" : 53,
+					"path" : "G:/onnxruntime-chrisd/build/_deps/pytorch_cpuinfo-src/include"
+				},
+				{
+					"backtrace" : 54,
+					"path" : "G:/onnxruntime-chrisd/build"
+				},
+				{
+					"backtrace" : 54,
+					"path" : "G:/onnxruntime-chrisd/onnxruntime"
+				},
+				{
+					"backtrace" : 55,
+					"path" : "G:/onnxruntime-chrisd/build/_deps/safeint-src"
+				},
+				{
+					"backtrace" : 55,
+					"path" : "G:/onnxruntime-chrisd/build/_deps/gsl-src/include"
+				},
+				{
+					"backtrace" : 55,
+					"path" : "G:/onnxruntime-chrisd/build/_deps/abseil_cpp-src"
+				},
+				{
+					"backtrace" : 55,
+					"path" : "G:/onnxruntime-chrisd/build/_deps/date-src/include"
+				},
+				{
+					"backtrace" : 56,
+					"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src"
+				},
+				{
+					"backtrace" : 56,
+					"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-build"
+				},
+				{
+					"backtrace" : 56,
+					"path" : "G:/onnxruntime-chrisd/build/_deps/protobuf-src/src"
+				},
+				{
+					"backtrace" : 57,
+					"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/include"
+				},
+				{
+					"backtrace" : 58,
+					"path" : "G:/onnxruntime-chrisd/build/_deps/mp11-src/include"
+				}
+			],
+			"language" : "CXX",
+			"languageStandard" : 
+			{
+				"backtraces" : 
+				[
+					4
+				],
+				"standard" : "17"
+			},
+			"sourceIndexes" : 
+			[
+				6,
+				9,
+				11,
+				13,
+				15,
+				17,
+				19,
+				21,
+				23,
+				25,
+				27,
+				29,
+				31,
+				33,
+				35,
+				37,
+				39,
+				41,
+				43,
+				45,
+				47,
+				49,
+				51,
+				53,
+				55,
+				57,
+				59,
+				61,
+				63,
+				65,
+				67,
+				69,
+				71,
+				73,
+				75,
+				77,
+				79,
+				81,
+				82,
+				84,
+				85,
+				87,
+				89,
+				91,
+				93,
+				95,
+				97,
+				99,
+				101,
+				104,
+				106,
+				108,
+				110,
+				112,
+				114,
+				116,
+				118,
+				120,
+				122,
+				124,
+				126,
+				128,
+				130,
+				132,
+				134,
+				136,
+				138,
+				140,
+				142,
+				144,
+				146,
+				148,
+				150,
+				152,
+				154,
+				156,
+				158,
+				160,
+				162,
+				164,
+				166,
+				168,
+				170,
+				172,
+				174,
+				175,
+				177,
+				179,
+				181,
+				184,
+				186,
+				188,
+				190,
+				192,
+				195,
+				197,
+				199,
+				201,
+				203
+			]
+		}
+	],
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 5,
+			"id" : "flatbuffers::@62cadad892676421df77"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "onnx_proto::@59fb6457570dc9f0863e"
+		},
+		{
+			"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df"
+		}
+	],
+	"folder" : 
+	{
+		"name" : "ONNXRuntime"
+	},
+	"id" : "onnxruntime_optimizer::@6890427a1f51a3e7e1df",
+	"name" : "onnxruntime_optimizer",
+	"nameOnDisk" : "onnxruntime_optimizer.lib",
+	"paths" : 
+	{
+		"build" : ".",
+		"source" : "."
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "include\\onnxruntime\\core\\optimizer",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				3,
+				4,
+				5
+			]
+		},
+		{
+			"name" : "onnxruntime\\core\\optimizer",
+			"sourceIndexes" : 
+			[
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14,
+				15,
+				16,
+				17,
+				18,
+				19,
+				20,
+				33,
+				34,
+				35,
+				36,
+				37,
+				38,
+				39,
+				40,
+				41,
+				42,
+				43,
+				44,
+				45,
+				46,
+				47,
+				48,
+				49,
+				50,
+				51,
+				52,
+				53,
+				54,
+				55,
+				56,
+				57,
+				58,
+				59,
+				60,
+				61,
+				62,
+				63,
+				64,
+				65,
+				66,
+				67,
+				68,
+				69,
+				70,
+				71,
+				72,
+				73,
+				74,
+				75,
+				76,
+				77,
+				78,
+				79,
+				80,
+				81,
+				82,
+				83,
+				84,
+				85,
+				86,
+				87,
+				88,
+				89,
+				90,
+				91,
+				92,
+				93,
+				94,
+				95,
+				96,
+				97,
+				98,
+				99,
+				100,
+				104,
+				105,
+				106,
+				107,
+				108,
+				109,
+				110,
+				111,
+				112,
+				113,
+				114,
+				115,
+				116,
+				117,
+				118,
+				119,
+				120,
+				121,
+				122,
+				123,
+				124,
+				125,
+				126,
+				127,
+				128,
+				129,
+				130,
+				131,
+				132,
+				133,
+				166,
+				167,
+				168,
+				169,
+				170,
+				171,
+				172,
+				173,
+				174,
+				175,
+				176,
+				184,
+				185,
+				186,
+				187,
+				188,
+				189,
+				190,
+				191,
+				199,
+				200,
+				201,
+				202,
+				203,
+				204
+			]
+		},
+		{
+			"name" : "onnxruntime\\core\\optimizer\\compute_optimizer",
+			"sourceIndexes" : 
+			[
+				21,
+				22,
+				23,
+				24,
+				25,
+				26,
+				27,
+				28,
+				29,
+				30,
+				31,
+				32
+			]
+		},
+		{
+			"name" : "onnxruntime\\core\\optimizer\\layout_transformation",
+			"sourceIndexes" : 
+			[
+				101,
+				102,
+				103
+			]
+		},
+		{
+			"name" : "onnxruntime\\core\\optimizer\\qdq_transformer",
+			"sourceIndexes" : 
+			[
+				134,
+				135,
+				136,
+				137,
+				138,
+				139,
+				140,
+				141,
+				142,
+				143,
+				144,
+				145,
+				146,
+				147,
+				148,
+				149,
+				150,
+				151,
+				152,
+				153,
+				162,
+				163,
+				164,
+				165
+			]
+		},
+		{
+			"name" : "onnxruntime\\core\\optimizer\\qdq_transformer\\selectors_actions",
+			"sourceIndexes" : 
+			[
+				154,
+				155,
+				156,
+				157,
+				158,
+				159
+			]
+		},
+		{
+			"name" : "onnxruntime\\core\\optimizer\\qdq_transformer\\selectors_actions\\shared",
+			"sourceIndexes" : 
+			[
+				160,
+				161
+			]
+		},
+		{
+			"name" : "onnxruntime\\core\\optimizer\\selectors_actions",
+			"sourceIndexes" : 
+			[
+				177,
+				178,
+				179,
+				180,
+				181,
+				182,
+				183
+			]
+		},
+		{
+			"name" : "onnxruntime\\core\\optimizer\\transpose_optimization",
+			"sourceIndexes" : 
+			[
+				192,
+				193,
+				194,
+				195,
+				196,
+				197,
+				198
+			]
+		},
+		{
+			"name" : "",
+			"sourceIndexes" : 
+			[
+				205,
+				206,
+				212
+			]
+		},
+		{
+			"name" : "Header Files",
+			"sourceIndexes" : 
+			[
+				207,
+				208,
+				209,
+				210,
+				211
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/include/onnxruntime/core/optimizer/graph_transformer.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/include/onnxruntime/core/optimizer/graph_transformer_config.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/include/onnxruntime/core/optimizer/graph_transformer_level.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/include/onnxruntime/core/optimizer/graph_transformer_utils.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/include/onnxruntime/core/optimizer/rewrite_rule.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/include/onnxruntime/core/optimizer/rule_based_graph_transformer.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/attention_fusion.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/attention_fusion.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/attention_fusion_helper.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/bias_dropout_fusion.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/bias_dropout_fusion.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/bias_gelu_fusion.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/bias_gelu_fusion.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/bias_softmax_fusion.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/bias_softmax_fusion.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/cast_chain_elimination.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/cast_chain_elimination.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/cast_elimination.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/cast_elimination.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/common_subexpression_elimination.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/common_subexpression_elimination.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/compute_optimizer/shared_utils.cc",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/compute_optimizer/shared_utils.h",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/compute_optimizer/upstream_gather.cc",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/compute_optimizer/upstream_gather.h",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/compute_optimizer/upstream_gather_actors.cc",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/compute_optimizer/upstream_gather_actors.h",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/compute_optimizer/upstream_reshape.cc",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/compute_optimizer/upstream_reshape.h",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/compute_optimizer/upstream_reshape_actors.cc",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/compute_optimizer/upstream_reshape_actors.h",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/compute_optimizer/upstream_transformer_base.cc",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/compute_optimizer/upstream_transformer_base.h",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/concat_slice_elimination.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/concat_slice_elimination.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/constant_folding.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/constant_folding.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/constant_sharing.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/constant_sharing.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/conv_activation_fusion.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/conv_activation_fusion.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/conv_add_act_fusion.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/conv_add_act_fusion.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/conv_add_fusion.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/conv_add_fusion.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/conv_bn_fusion.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/conv_bn_fusion.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/conv_mul_fusion.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/conv_mul_fusion.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/div_mul_fusion.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/div_mul_fusion.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/double_qdq_pairs_remover.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/double_qdq_pairs_remover.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/dropout_elimination.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/dropout_elimination.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/dynamic_quantize_matmul_fusion.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/dynamic_quantize_matmul_fusion.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/embed_layer_norm_fusion.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/embed_layer_norm_fusion.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/expand_elimination.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/expand_elimination.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/fast_gelu_fusion.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/fast_gelu_fusion.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/free_dim_override_transformer.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/free_dim_override_transformer.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/fuse_initializers_transformer.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/fuse_initializers_transformer.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/gather_fusion.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/gather_fusion.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/gelu_approximation.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/gelu_approximation.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/gelu_fusion.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/gelu_fusion.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/gemm_activation_fusion.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/gemm_activation_fusion.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/gemm_sum_fusion.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/gemm_sum_fusion.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/gemm_transpose_fusion.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/gemm_transpose_fusion.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/graph_optimizer_registry.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/graph_optimizer_registry.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/graph_transformer.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/graph_transformer_mgr.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/graph_transformer_mgr.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/graph_transformer_utils.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/group_query_attention_fusion.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/group_query_attention_fusion.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/identical_children_consolidation.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/identical_children_consolidation.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/identity_elimination.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/identity_elimination.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/initializer.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/initializer.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/insert_cast_transformer.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/insert_cast_transformer.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/isinf_reducesum_fusion.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/isinf_reducesum_fusion.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/label_encoder_fusion.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/label_encoder_fusion.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/layer_norm_fusion.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/layer_norm_fusion.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/layout_transformation/layout_transformation.cc",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/layout_transformation/layout_transformation.h",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/layout_transformation/layout_transformation_potentially_added_ops.h",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/matmul_activation_fusion.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/matmul_activation_fusion.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/matmul_add_fusion.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/matmul_add_fusion.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/matmul_bn_fusion.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/matmul_bn_fusion.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/matmul_integer_to_float.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/matmul_integer_to_float.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/matmul_nbits_fusion.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/matmul_nbits_fusion.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/matmul_scale_fusion.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/matmul_scale_fusion.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/matmul_transpose_fusion.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/matmul_transpose_fusion.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/nchwc_transformer.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/nchwc_transformer.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/nhwc_transformer.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/nhwc_transformer.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/noop_elimination.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/noop_elimination.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/not_where_fusion.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/not_where_fusion.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/optimizer_execution_frame.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/optimizer_execution_frame.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/pad_fusion.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/pad_fusion.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/pre_shape_node_elimination.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/pre_shape_node_elimination.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/propagate_cast_ops.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/propagate_cast_ops.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/qdq_transformer/avx2_weight_s8_to_u8.cc",
+			"sourceGroupIndex" : 4
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/qdq_transformer/avx2_weight_s8_to_u8.h",
+			"sourceGroupIndex" : 4
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/qdq_transformer/clip_quantizelinear.cc",
+			"sourceGroupIndex" : 4
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/qdq_transformer/clip_quantizelinear.h",
+			"sourceGroupIndex" : 4
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/qdq_transformer/constant_folding_dq_node.cc",
+			"sourceGroupIndex" : 4
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/qdq_transformer/constant_folding_dq_node.h",
+			"sourceGroupIndex" : 4
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/qdq_transformer/ensure_unique_dq_for_node_unit.cc",
+			"sourceGroupIndex" : 4
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/qdq_transformer/ensure_unique_dq_for_node_unit.h",
+			"sourceGroupIndex" : 4
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/qdq_transformer/qdq_final_cleanup.cc",
+			"sourceGroupIndex" : 4
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/qdq_transformer/qdq_final_cleanup.h",
+			"sourceGroupIndex" : 4
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/qdq_transformer/qdq_propagation.cc",
+			"sourceGroupIndex" : 4
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/qdq_transformer/qdq_propagation.h",
+			"sourceGroupIndex" : 4
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/qdq_transformer/qdq_s8_to_u8.cc",
+			"sourceGroupIndex" : 4
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/qdq_transformer/qdq_s8_to_u8.h",
+			"sourceGroupIndex" : 4
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/qdq_transformer/qdq_util.cc",
+			"sourceGroupIndex" : 4
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/qdq_transformer/qdq_util.h",
+			"sourceGroupIndex" : 4
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/qdq_transformer/relu_quantizelinear.cc",
+			"sourceGroupIndex" : 4
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/qdq_transformer/relu_quantizelinear.h",
+			"sourceGroupIndex" : 4
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/qdq_transformer/s8_to_u8.cc",
+			"sourceGroupIndex" : 4
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/qdq_transformer/s8_to_u8.h",
+			"sourceGroupIndex" : 4
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/qdq_transformer/selectors_actions/qdq_actions.cc",
+			"sourceGroupIndex" : 5
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/qdq_transformer/selectors_actions/qdq_actions.h",
+			"sourceGroupIndex" : 5
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/qdq_transformer/selectors_actions/qdq_selector_action_transformer.cc",
+			"sourceGroupIndex" : 5
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/qdq_transformer/selectors_actions/qdq_selector_action_transformer.h",
+			"sourceGroupIndex" : 5
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/qdq_transformer/selectors_actions/qdq_selectors.cc",
+			"sourceGroupIndex" : 5
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/qdq_transformer/selectors_actions/qdq_selectors.h",
+			"sourceGroupIndex" : 5
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/qdq_transformer/selectors_actions/shared/utils.cc",
+			"sourceGroupIndex" : 6
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/qdq_transformer/selectors_actions/shared/utils.h",
+			"sourceGroupIndex" : 6
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/qdq_transformer/weight_bias_quantization.cc",
+			"sourceGroupIndex" : 4
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/qdq_transformer/weight_bias_quantization.h",
+			"sourceGroupIndex" : 4
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/qdq_transformer/where_dummy_dq.cc",
+			"sourceGroupIndex" : 4
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/qdq_transformer/where_dummy_dq.h",
+			"sourceGroupIndex" : 4
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/quick_gelu_fusion.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/quick_gelu_fusion.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/relu_clip_fusion.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/relu_clip_fusion.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/reshape_fusion.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/reshape_fusion.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/rocm_blas_alt_impl.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/rocm_blas_alt_impl.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/rule_based_graph_transformer.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/selection_and_optimization_func.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/selection_and_optimization_func.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/selectors_actions/actions.cc",
+			"sourceGroupIndex" : 7
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/selectors_actions/actions.h",
+			"sourceGroupIndex" : 7
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/selectors_actions/helpers.cc",
+			"sourceGroupIndex" : 7
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/selectors_actions/helpers.h",
+			"sourceGroupIndex" : 7
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/selectors_actions/selector_action_transformer.cc",
+			"sourceGroupIndex" : 7
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/selectors_actions/selector_action_transformer.h",
+			"sourceGroupIndex" : 7
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/selectors_actions/selector_action_transformer_apply_contexts.h",
+			"sourceGroupIndex" : 7
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/skip_layer_norm_fusion.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/skip_layer_norm_fusion.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/slice_elimination.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/slice_elimination.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/stft_decomposition.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/stft_decomposition.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/transformer_memcpy.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/transformer_memcpy.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/transpose_optimization/onnx_transpose_optimization.cc",
+			"sourceGroupIndex" : 8
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/transpose_optimization/onnx_transpose_optimization.h",
+			"sourceGroupIndex" : 8
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/transpose_optimization/optimizer_api.h",
+			"sourceGroupIndex" : 8
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/transpose_optimization/ort_optimizer_api_impl.cc",
+			"sourceGroupIndex" : 8
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/transpose_optimization/ort_optimizer_utils.h",
+			"sourceGroupIndex" : 8
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/transpose_optimization/ort_transpose_optimization.cc",
+			"sourceGroupIndex" : 8
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/transpose_optimization/ort_transpose_optimization.h",
+			"sourceGroupIndex" : 8
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/transpose_optimizer.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/transpose_optimizer.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/unsqueeze_elimination.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/unsqueeze_elimination.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/utils.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/core/optimizer/utils.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 59,
+			"path" : "external/abseil-cpp.natvis",
+			"sourceGroupIndex" : 9
+		},
+		{
+			"backtrace" : 59,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/gsl-src/GSL.natvis",
+			"sourceGroupIndex" : 9
+		},
+		{
+			"backtrace" : 59,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/date-src/include/date/date.h",
+			"sourceGroupIndex" : 10
+		},
+		{
+			"backtrace" : 59,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/date-src/include/date/solar_hijri.h",
+			"sourceGroupIndex" : 10
+		},
+		{
+			"backtrace" : 59,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/date-src/include/date/islamic.h",
+			"sourceGroupIndex" : 10
+		},
+		{
+			"backtrace" : 59,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/date-src/include/date/iso_week.h",
+			"sourceGroupIndex" : 10
+		},
+		{
+			"backtrace" : 59,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/date-src/include/date/julian.h",
+			"sourceGroupIndex" : 10
+		},
+		{
+			"backtrace" : 60,
+			"path" : "onnxruntime_framework.natvis",
+			"sourceGroupIndex" : 9
+		}
+	],
+	"type" : "STATIC_LIBRARY"
+}
