@@ -1,6 +1,15 @@
 /DWIN32 /D_WINDOWS /EHsc /Zc:__cplusplus /EHsc /wd26812 -DEIGEN_HAS_C99_MATH /O2 /Ob1 /DNDEBUG -std:c++17 -MD -Zi
+/utf-8
+/sdl
 /GR
 /W4
+/wd4251
+/wd4201
+/wd4324
+/wd5054
+/w15038
+-WX
+
 /external:IG:\onnxruntime-chrisd\build\_deps\microsoft_wil-src\include
 /external:IG:\onnxruntime-chrisd\build\_deps\nlohmann_json-src\include\
 /external:Ionnxruntime_external_lib_include_dirs-NOTFOUND
@@ -16,15 +25,7 @@
 /external:IG:\onnxruntime-chrisd\build\_deps\date-src\include
 /external:IG:\onnxruntime-chrisd\build\_deps\eigen3-src
 /external:IG:\onnxruntime-chrisd\build\_deps\pytorch_cpuinfo-src\include
-/utf-8
-/sdl
 /experimental:external
 /external:W0
 /external:IG:/onnxruntime-chrisd/cmake
 /external:IG:/onnxruntime-chrisd/build
-/wd4251
-/wd4201
-/wd4324
-/wd5054
-/w15038
--WX
