@@ -1,0 +1,43 @@
+{
+	"backtrace" : 0,
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : 
+		[
+			"G:/onnxruntime-chrisd/build/_deps/pytorch_cpuinfo-src/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			}
+		]
+	},
+	"dependencies" : 
+	[
+		{
+			"id" : "cpuinfo_internals::@24d739ede7b8a2cb4fba"
+		},
+		{
+			"id" : "cpuinfo::@24d739ede7b8a2cb4fba"
+		},
+		{
+			"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df"
+		}
+	],
+	"folder" : 
+	{
+		"name" : "CMakePredefinedTargets"
+	},
+	"id" : "ALL_BUILD::@24d739ede7b8a2cb4fba",
+	"isGeneratorProvided" : true,
+	"name" : "ALL_BUILD",
+	"paths" : 
+	{
+		"build" : "_deps/pytorch_cpuinfo-build",
+		"source" : "G:/onnxruntime-chrisd/build/_deps/pytorch_cpuinfo-src"
+	},
+	"sources" : [],
+	"type" : "UTILITY"
+}
