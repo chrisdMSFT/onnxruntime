@@ -265,6 +265,8 @@ try {
         $targetInfo.IncludeDirectories | ForEach-Object { Write-Host "  $_" }
     }
 
+    $UseCompiler = $true
+
     # Perform dependency analysis
     if ($UseCompiler) {
         Write-Host "`nUsing compiler for dependency analysis..."
