@@ -11,12 +11,12 @@ if(onnxruntime_ENABLE_TRAINING)
 endif()
 
 macro(post_build_runtime_dll_copy target_name)
-    if(WIN32)
-        add_custom_command(TARGET ${target_name} POST_BUILD
-            COMMAND "${CMAKE_COMMAND};-E;$<IF:$<BOOL:$<TARGET_RUNTIME_DLLS:${target_name}>>,copy;$<TARGET_RUNTIME_DLLS:${target_name}>;$<TARGET_FILE_DIR:${target_name}>,true>"
-            COMMAND_EXPAND_LISTS
-        )
-    endif()
+  if(WIN32)
+    add_custom_command(TARGET ${target_name} POST_BUILD
+      COMMAND "${CMAKE_COMMAND};-E;$<IF:$<BOOL:$<TARGET_RUNTIME_DLLS:${target_name}>>,copy;$<TARGET_RUNTIME_DLLS:${target_name}>;$<TARGET_FILE_DIR:${target_name}>,true>"
+      COMMAND_EXPAND_LISTS
+    )
+  endif()
 endmacro()
 
 # Exclude files based on CMake options.
@@ -1237,11 +1237,11 @@ if(NOT onnxruntime_MINIMAL_BUILD AND NOT onnxruntime_REDUCED_OPS_BUILD)
       LIBS ${onnxruntime_provider_test_libs}
       DEPENDS ${onnxruntime_provider_test_deps}
     )
-  if (UNIX AND (onnxruntime_USE_TENSORRT OR onnxruntime_USE_NV))
-    # The test_main.cc includes NvInfer.h where it has many deprecated declarations
-    # simply ignore them for TensorRT EP build
-    set_property(TARGET onnxruntime_provider_test APPEND_STRING PROPERTY COMPILE_FLAGS "-Wno-deprecated-declarations")
-  endif()
+    if(UNIX AND (onnxruntime_USE_TENSORRT OR onnxruntime_USE_NV))
+      # The test_main.cc includes NvInfer.h where it has many deprecated declarations
+      # simply ignore them for TensorRT EP build
+      set_property(TARGET onnxruntime_provider_test APPEND_STRING PROPERTY COMPILE_FLAGS "-Wno-deprecated-declarations")
+    endif()
 
     # enable dynamic plugin EP usage
     target_compile_definitions(onnxruntime_provider_test PRIVATE ORT_UNIT_TEST_ENABLE_DYNAMIC_PLUGIN_EP_USAGE)
@@ -1412,7 +1412,7 @@ if(NOT onnxruntime_ENABLE_TRAINING_TORCH_INTEROP)
     if(WIN32)
       list(APPEND onnxruntime_perf_test_src_patterns
         "${onnxruntime_perf_test_src_dir}/windows/*.cc"
-        "${onnxruntime_perf_test_src_dir}/windows/*.h" )
+        "${onnxruntime_perf_test_src_dir}/windows/*.h")
     else()
       list(APPEND onnxruntime_perf_test_src_patterns
         "${onnxruntime_perf_test_src_dir}/posix/*.cc"
@@ -1461,26 +1461,26 @@ if(NOT onnxruntime_ENABLE_TRAINING_TORCH_INTEROP)
       include(FetchContent)
 
       FetchContent_Declare(
-        CMakeNuGetPackage
+        NuGetCMakePackage
         GIT_REPOSITORY https://github.com/mschofie/NuGetCMakePackage
-        GIT_TAG 47f603ef27f876c9132db81ba3c2895b3059c90c
+        GIT_TAG 601ad6dfb1a08d06267d8202aaf70c55a37965da
       )
-
-      FetchContent_MakeAvailable(CMakeNuGetPackage)
+      FetchContent_MakeAvailable(NuGetCMakePackage)
 
       add_nuget_packages(
         PACKAGES
+        Microsoft.Windows.CppWinRT ${CPPWINRT_VERSION}
         Microsoft.Windows.ImplementationLibrary 1.0.240803.1
-        Microsoft.Windows.CppWinRT 2.0.240405.15
-        Microsoft.WindowsAppSDK.Runtime 1.8.250916003
-        Microsoft.WindowsAppSDK.ML 1.8.2091
+        Microsoft.WindowsAppSDK.Foundation 1.8.251104000
+        Microsoft.WindowsAppSDK.InteractiveExperiences 1.8.251104001
+        Microsoft.WindowsAppSDK.ML 1.8.2109
+        Microsoft.WindowsAppSDK.Runtime 1.8.251106002
       )
 
       find_package(Microsoft.Windows.ImplementationLibrary CONFIG REQUIRED)
-      find_package(Microsoft.WindowsAppSDK.Runtime CONFIG REQUIRED)
       find_package(Microsoft.WindowsAppSDK.ML CONFIG REQUIRED)
 
-      message(STATUS "------------------- onnxruntime_  -------------------")
+      message(STATUS "------------------- onnxruntime -------------------")
 
       #It will dynamically link to onnxruntime. So please don't add onxruntime_graph/onxruntime_framework/... here.
       #onnxruntime_common is kind of ok because it is thin, tiny and totally stateless.
@@ -1511,6 +1511,7 @@ if(NOT onnxruntime_ENABLE_TRAINING_TORCH_INTEROP)
         ${onnxruntime_perf_test_libs}
         Threads::Threads
         Microsoft.WindowsAppSDK.ML_SelfContained # Use 'self-contained' mode.
+        # Microsoft.WindowsAppSDK.ML_Framework # Use 'framework' mode.
         Microsoft.Windows.ImplementationLibrary
         nlohmann_json::nlohmann_json
       )
