@@ -1434,9 +1434,7 @@ if(NOT onnxruntime_ENABLE_TRAINING_TORCH_INTEROP)
     # ABSL_FLAGS_STRIP_NAMES is set to 1 by default to disable flag registration when building for Android, iPhone, and "embedded devices".
     # See the issue: https://github.com/abseil/abseil-cpp/issues/1875
     # We set it to 0 for all builds to be able to use ABSL flags for onnxruntime_perf_test.
-    target_compile_definitions(onnxruntime_perf_test PRIVATE
-      ABSL_FLAGS_STRIP_NAMES=0
-      MICROSOFT_WINDOWSAPPSDK_SELFCONTAINED=1)
+    target_compile_definitions(onnxruntime_perf_test PRIVATE ABSL_FLAGS_STRIP_NAMES=0)
 
     if(MSVC)
       target_compile_options(onnxruntime_perf_test PRIVATE "$<$<COMPILE_LANGUAGE:CUDA>:SHELL:--compiler-options /utf-8>"
@@ -1482,27 +1480,15 @@ if(NOT onnxruntime_ENABLE_TRAINING_TORCH_INTEROP)
 
       message(STATUS "------------------- onnxruntime -------------------")
 
+      message(STATUS "------------------- ${onnxruntime_EXTERNAL_LIBRARIES} -------------------")
+
       #It will dynamically link to onnxruntime. So please don't add onxruntime_graph/onxruntime_framework/... here.
       #onnxruntime_common is kind of ok because it is thin, tiny and totally stateless.
       set(onnxruntime_perf_test_libs
-        onnx_test_runner_common onnxruntime_test_utils onnxruntime_common
+        onnx_test_runner_common onnxruntime_test_utils
         onnxruntime onnxruntime_flatbuffers onnx_test_data_proto
         ${onnxruntime_EXTERNAL_LIBRARIES}
         absl::flags absl::flags_parse ${SYS_PATH_LIB} ${CMAKE_DL_LIBS})
-
-      if(NOT WIN32)
-        if(onnxruntime_USE_SNPE)
-          list(APPEND onnxruntime_perf_test_libs onnxruntime_providers_snpe)
-        endif()
-      endif()
-
-      if(CMAKE_SYSTEM_NAME STREQUAL "Android")
-        list(APPEND onnxruntime_perf_test_libs ${android_shared_libs})
-      endif()
-
-      if(CMAKE_SYSTEM_NAME MATCHES "AIX")
-        list(APPEND onnxruntime_perf_test_libs onnxruntime_graph onnxruntime_session onnxruntime_providers onnxruntime_framework onnxruntime_util onnxruntime_mlas onnxruntime_optimizer onnxruntime_flatbuffers iconv re2 gtest absl_failure_signal_handler absl_examine_stack absl_flags_parse absl_flags_usage absl_flags_usage_internal)
-      endif()
 
       message(STATUS "------------------- ${onnxruntime_perf_test_libs} -------------------")
 
@@ -1510,8 +1496,8 @@ if(NOT onnxruntime_ENABLE_TRAINING_TORCH_INTEROP)
         PRIVATE
         ${onnxruntime_perf_test_libs}
         Threads::Threads
-        Microsoft.WindowsAppSDK.ML_SelfContained # Use 'self-contained' mode.
-        # Microsoft.WindowsAppSDK.ML_Framework # Use 'framework' mode.
+        # Microsoft.WindowsAppSDK.ML_SelfContained # Use 'self-contained' mode.
+        Microsoft.WindowsAppSDK.ML_Framework # Use 'framework' mode.
         Microsoft.Windows.ImplementationLibrary
         nlohmann_json::nlohmann_json
       )
