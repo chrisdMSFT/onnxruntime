@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TargetConfig Name="G:\onnxruntime-chrisd\build\Debug\onnxruntime_perf_test.exe" LastUsed="2025-10-01T19:19:14.0531751Z">
+  <EngineConfig />
+  <EngineOptions>
+    <Property name="DebugChildProcesses" value="false" />
+    <Property name="StartDirectory" value="G:\onnxruntime-chrisd" />
+  </EngineOptions>
+  <TargetOptions>
+    <Option name="LaunchProcess">
+      <Property name="Executable" value="G:\onnxruntime-chrisd\build\Debug\onnxruntime_perf_test.exe" />
+      <Property name="Arguments" value=" -r 10 -I x:\PSD\PSD1.quant.onnx --select_ep_devices 2" />
+    </Option>
+  </TargetOptions>
+</TargetConfig>

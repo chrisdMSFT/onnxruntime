@@ -1,0 +1,17 @@
+G:/onnxruntime-chrisd/onnxruntime/test/perftest/command_args_parser.cc
+G:/onnxruntime-chrisd/onnxruntime/test/perftest/command_args_parser.h
+G:/onnxruntime-chrisd/onnxruntime/test/perftest/common_utils.cc
+G:/onnxruntime-chrisd/onnxruntime/test/perftest/main.cc
+G:/onnxruntime-chrisd/onnxruntime/test/perftest/ort_test_session.cc
+G:/onnxruntime-chrisd/onnxruntime/test/perftest/ort_test_session.h
+G:/onnxruntime-chrisd/onnxruntime/test/perftest/performance_runner.cc
+G:/onnxruntime-chrisd/onnxruntime/test/perftest/performance_runner.h
+G:/onnxruntime-chrisd/onnxruntime/test/perftest/strings_helper.cc
+G:/onnxruntime-chrisd/onnxruntime/test/perftest/strings_helper.h
+G:/onnxruntime-chrisd/onnxruntime/test/perftest/test_configuration.h
+G:/onnxruntime-chrisd/onnxruntime/test/perftest/test_session.h
+G:/onnxruntime-chrisd/onnxruntime/test/perftest/tf_test_session.h
+G:/onnxruntime-chrisd/onnxruntime/test/perftest/utils.h
+G:/onnxruntime-chrisd/onnxruntime/test/perftest/windows/utils.cc
+G:/onnxruntime-chrisd/onnxruntime/core/platform/path_lib.cc
+G:/onnxruntime-chrisd/onnxruntime/test/perftest/windows/app.manifest
