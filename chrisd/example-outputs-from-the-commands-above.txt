@@ -1,0 +1,210 @@
+
+C:\git\onnxruntime>rmdir C:\models\out /s /q 
+
+C:\git\onnxruntime>mkdir C:\models\out 
+
+C:\git\onnxruntime>echo "List available EP devices" 
+"List available EP devices"
+
+C:\git\onnxruntime>build\Debug\onnxruntime_perf_test.exe --list_ep_devices 
+[WinML] Provider: QNNExecutionProvider[WinML]  Ready state: NotReady
+[WinML]  ensure_ready_result:Success DiagnosticText:
+[WinML]  registration_result:true
+===== device id 0 ======
+name: CPUExecutionProvider
+vendor: Microsoft
+metadata:
+  version: 1.23.0
+
+===== device id 1 ======
+name: DmlExecutionProvider
+vendor: Microsoft
+metadata:
+  version: 1.23.0
+
+===== device id 2 ======
+name: QNNExecutionProvider
+vendor: Microsoft
+metadata:
+  version: 1.23.0
+  library_path: C:\Program Files\WindowsApps\MicrosoftCorporationII.WinML.Qualcomm.QNN.EP.1.8_1.8.13.0_arm64__8wekyb3d8bbwe\ExecutionProvider\onnxruntime_providers_qnn.dll
+
+No plugin execution provider libraries are registered. Please specify them using "--plugin_ep_libs"; otherwise, only CPU may be available.
+
+C:\git\onnxruntime>echo "[extreme_power_saver] Step 1: Create cache file" 
+"[extreme_power_saver] Step 1: Create cache file"
+
+C:\git\onnxruntime>build\Debug\onnxruntime_perf_test.exe --select_ep_devices "2" -i "htp_performance_mode|extreme_power_saver soc_model|60 htp_graph_finalization_optimization_mode|3" -C "ep.context_enable|1 ep.context_file_path|C:\models\out\PSD1.quant.onnx.cache.onnx" -r 1 -I "C:\models\in\PSD1.quant.onnx" 
+[WinML] Provider: QNNExecutionProvider[WinML]  Ready state: NotReady
+[WinML]  ensure_ready_result:Success DiagnosticText:
+[WinML]  registration_result:true
+Starting stage: Graph Preparation Initializing
+Completed stage: Graph Preparation Initializing (211 us)
+Starting stage: Graph Transformations and Optimizations
+Completed stage: Graph Transformations and Optimizations (1422878 us)
+Starting stage: Graph Sequencing for Target
+ [                                                  ]   0% [#                                                 ]   2% [##                                                ]   4% [###                                               ]   6% [####                                              ]   8% [#####                                             ]  10% [######                                            ]  12% [#######                                           ]  14% [########                                          ]  16% [#########                                         ]  18% [##########                                        ]  20% [###########                                       ]  22% [############                                      ]  24% [#############                                     ]  26% [##############                                    ]  28% [###############                                   ]  30% [################                                  ]  32% [#################                                 ]  34% [##################                                ]  36% [###################                               ]  38% [####################                              ]  40% [#####################                             ]  42% [######################                            ]  44% [#######################                           ]  46% [########################                          ]  48% [#########################                         ]  50% [##########################                        ]  52% [###########################                       ]  54% [############################                      ]  56% [#############################                     ]  58% [##############################                    ]  60% [###############################                   ]  62% [################################                  ]  64% [#################################                 ]  66% [##################################                ]  68% [###################################               ]  70% [####################################              ]  72% [#####################################             ]  74% [######################################            ]  76% [#######################################           ]  78% [########################################          ]  80% [#########################################         ]  82% [##########################################        ]  84% [###########################################       ]  86% [############################################      ]  88% [#############################################     ]  90% [##############################################    ]  92% [###############################################   ]  94% [################################################  ]  96% [################################################# ]  98% [##################################################] 100%
+Completed stage: Graph Sequencing for Target (606921 us)
+Starting stage: VTCM Allocation
+Completed stage: VTCM Allocation (67919 us)
+Starting stage: Parallelization Optimization
+ [                                                  ]   0% [#                                                 ]   2% [##                                                ]   4% [###                                               ]   6% [####                                              ]   8% [#####                                             ]  10% [######                                            ]  12% [#######                                           ]  14% [########                                          ]  16% [#########                                         ]  18% [##########                                        ]  20% [###########                                       ]  22% [############                                      ]  24% [#############                                     ]  26% [##############                                    ]  28% [###############                                   ]  30% [################                                  ]  32% [#################                                 ]  34% [##################                                ]  36% [###################                               ]  38% [####################                              ]  40% [#####################                             ]  42% [######################                            ]  44% [#######################                           ]  46% [########################                          ]  48% [#########################                         ]  50% [##########################                        ]  52% [###########################                       ]  54% [############################                      ]  56% [#############################                     ]  58% [##############################                    ]  60% [###############################                   ]  62% [################################                  ]  64% [#################################                 ]  66% [##################################                ]  68% [###################################               ]  70% [####################################              ]  72% [#####################################             ]  74% [######################################            ]  76% [#######################################           ]  78% [########################################          ]  80% [#########################################         ]  82% [##########################################        ]  84% [###########################################       ]  86% [############################################      ]  88% [#############################################     ]  90% [##############################################    ]  92% [###############################################   ]  94% [################################################  ]  96% [################################################# ]  98% [##################################################] 100%
+Completed stage: Parallelization Optimization (319074 us)
+Starting stage: Finalizing Graph Sequence
+
+====== DDR bandwidth summary ======
+spill_bytes=0
+fill_bytes=0
+write_total_bytes=983040
+read_total_bytes=93184000
+
+Completed stage: Finalizing Graph Sequence (30598 us)
+Starting stage: Completion
+Completed stage: Completion (910 us)
+[WinML EP] EP Device [Index: 2, Name: QNNExecutionProvider] has been added to session.
+[ep_options_list][0] [QNNExecutionProvider] [htp_performance_mode] -> [extreme_power_saver]
+[ep_options_list][0] [QNNExecutionProvider] [soc_model] -> [60]
+[ep_options_list][0] [QNNExecutionProvider] [htp_graph_finalization_optimization_mode] -> [3]
+[WinML][provider_names: QNNExecutionProvider|]
+Session creation time cost: 4.40253 s
+First inference time cost: 20 ms
+Total inference time cost: 0.0150365 s
+Total inference requests: 1
+Average inference time cost total: 15.036500 ms
+Total inference run time: 0.0150921 s
+Number of inferences per second: 66.2598 
+Avg CPU usage: 0 %
+Peak working set size: 1007775744 bytes
+Avg CPU usage:0
+Peak working set size:1007775744
+Runs:1
+Min Latency: 0.0150365 s
+Max Latency: 0.0150365 s
+P50 Latency: 0.0150365 s
+P90 Latency: 0.0150365 s
+P95 Latency: 0.0150365 s
+P99 Latency: 0.0150365 s
+P999 Latency: 0.0150365 s
+
+C:\git\onnxruntime>echo "[extreme_power_saver] Step 2: Use cache file" 
+"[extreme_power_saver] Step 2: Use cache file"
+
+C:\git\onnxruntime>build\Debug\onnxruntime_perf_test.exe --select_ep_devices "2" -i "htp_performance_mode|extreme_power_saver soc_model|60 htp_graph_finalization_optimization_mode|3" -C "ep.context_enable|1" -t 60 -I "C:\models\out\PSD1.quant.onnx.cache.onnx" 
+[WinML] Provider: QNNExecutionProvider[WinML]  Ready state: NotReady
+[WinML]  ensure_ready_result:Success DiagnosticText:
+[WinML]  registration_result:true
+[WinML EP] EP Device [Index: 2, Name: QNNExecutionProvider] has been added to session.
+[ep_options_list][0] [QNNExecutionProvider] [htp_performance_mode] -> [extreme_power_saver]
+[ep_options_list][0] [QNNExecutionProvider] [soc_model] -> [60]
+[ep_options_list][0] [QNNExecutionProvider] [htp_graph_finalization_optimization_mode] -> [3]
+[WinML][provider_names: QNNExecutionProvider|]
+Session creation time cost: 0.378418 s
+First inference time cost: 18 ms
+Total inference time cost: 60.011 s
+Total inference requests: 3851
+Average inference time cost total: 15.583216 ms
+Total inference run time: 60.132 s
+Number of inferences per second: 64.0424 
+Avg CPU usage: 0 %
+Peak working set size: 251281408 bytes
+Avg CPU usage:0
+Peak working set size:251281408
+Runs:3851
+Min Latency: 0.0148693 s
+Max Latency: 0.0329778 s
+P50 Latency: 0.0153768 s
+P90 Latency: 0.0163333 s
+P95 Latency: 0.016578 s
+P99 Latency: 0.0178408 s
+P999 Latency: 0.0207417 s
+
+C:\git\onnxruntime>rmdir C:\models\out /s /q 
+
+C:\git\onnxruntime>mkdir C:\models\out 
+
+C:\git\onnxruntime>echo "[burst] Step 1: Create cache file" 
+"[burst] Step 1: Create cache file"
+
+C:\git\onnxruntime>build\Debug\onnxruntime_perf_test.exe --select_ep_devices "2" -i "htp_performance_mode|burst soc_model|60 htp_graph_finalization_optimization_mode|3" -C "ep.context_enable|1 ep.context_file_path|C:\models\out\PSD1.quant.onnx.cache.onnx" -r 1 -I "C:\models\in\PSD1.quant.onnx" 
+[WinML] Provider: QNNExecutionProvider[WinML]  Ready state: NotReady
+[WinML]  ensure_ready_result:Success DiagnosticText:
+[WinML]  registration_result:true
+Starting stage: Graph Preparation Initializing
+Completed stage: Graph Preparation Initializing (228 us)
+Starting stage: Graph Transformations and Optimizations
+Completed stage: Graph Transformations and Optimizations (1548760 us)
+Starting stage: Graph Sequencing for Target
+ [                                                  ]   0% [#                                                 ]   2% [##                                                ]   4% [###                                               ]   6% [####                                              ]   8% [#####                                             ]  10% [######                                            ]  12% [#######                                           ]  14% [########                                          ]  16% [#########                                         ]  18% [##########                                        ]  20% [###########                                       ]  22% [############                                      ]  24% [#############                                     ]  26% [##############                                    ]  28% [###############                                   ]  30% [################                                  ]  32% [#################                                 ]  34% [##################                                ]  36% [###################                               ]  38% [####################                              ]  40% [#####################                             ]  42% [######################                            ]  44% [#######################                           ]  46% [########################                          ]  48% [#########################                         ]  50% [##########################                        ]  52% [###########################                       ]  54% [############################                      ]  56% [#############################                     ]  58% [##############################                    ]  60% [###############################                   ]  62% [################################                  ]  64% [#################################                 ]  66% [##################################                ]  68% [###################################               ]  70% [####################################              ]  72% [#####################################             ]  74% [######################################            ]  76% [#######################################           ]  78% [########################################          ]  80% [#########################################         ]  82% [##########################################        ]  84% [###########################################       ]  86% [############################################      ]  88% [#############################################     ]  90% [##############################################    ]  92% [###############################################   ]  94% [################################################  ]  96% [################################################# ]  98% [##################################################] 100%
+Completed stage: Graph Sequencing for Target (734771 us)
+Starting stage: VTCM Allocation
+Completed stage: VTCM Allocation (77798 us)
+Starting stage: Parallelization Optimization
+ [                                                  ]   0% [#                                                 ]   2% [##                                                ]   4% [###                                               ]   6% [####                                              ]   8% [#####                                             ]  10% [######                                            ]  12% [#######                                           ]  14% [########                                          ]  16% [#########                                         ]  18% [##########                                        ]  20% [###########                                       ]  22% [############                                      ]  24% [#############                                     ]  26% [##############                                    ]  28% [###############                                   ]  30% [################                                  ]  32% [#################                                 ]  34% [##################                                ]  36% [###################                               ]  38% [####################                              ]  40% [#####################                             ]  42% [######################                            ]  44% [#######################                           ]  46% [########################                          ]  48% [#########################                         ]  50% [##########################                        ]  52% [###########################                       ]  54% [############################                      ]  56% [#############################                     ]  58% [##############################                    ]  60% [###############################                   ]  62% [################################                  ]  64% [#################################                 ]  66% [##################################                ]  68% [###################################               ]  70% [####################################              ]  72% [#####################################             ]  74% [######################################            ]  76% [#######################################           ]  78% [########################################          ]  80% [#########################################         ]  82% [##########################################        ]  84% [###########################################       ]  86% [############################################      ]  88% [#############################################     ]  90% [##############################################    ]  92% [###############################################   ]  94% [################################################  ]  96% [################################################# ]  98% [##################################################] 100%
+Completed stage: Parallelization Optimization (322978 us)
+Starting stage: Finalizing Graph Sequence
+
+====== DDR bandwidth summary ======
+spill_bytes=0
+fill_bytes=0
+write_total_bytes=983040
+read_total_bytes=93184000
+
+Completed stage: Finalizing Graph Sequence (29202 us)
+Starting stage: Completion
+Completed stage: Completion (881 us)
+[WinML EP] EP Device [Index: 2, Name: QNNExecutionProvider] has been added to session.
+[ep_options_list][0] [QNNExecutionProvider] [htp_performance_mode] -> [burst]
+[ep_options_list][0] [QNNExecutionProvider] [soc_model] -> [60]
+[ep_options_list][0] [QNNExecutionProvider] [htp_graph_finalization_optimization_mode] -> [3]
+[WinML][provider_names: QNNExecutionProvider|]
+Session creation time cost: 4.6702 s
+First inference time cost: 6 ms
+Total inference time cost: 0.0051931 s
+Total inference requests: 1
+Average inference time cost total: 5.193100 ms
+Total inference run time: 0.0052805 s
+Number of inferences per second: 189.376 
+Avg CPU usage: 0 %
+Peak working set size: 1044852736 bytes
+Avg CPU usage:0
+Peak working set size:1044852736
+Runs:1
+Min Latency: 0.0051931 s
+Max Latency: 0.0051931 s
+P50 Latency: 0.0051931 s
+P90 Latency: 0.0051931 s
+P95 Latency: 0.0051931 s
+P99 Latency: 0.0051931 s
+P999 Latency: 0.0051931 s
+
+C:\git\onnxruntime>echo "[burst] Step 2: Use cache file" 
+"[burst] Step 2: Use cache file"
+
+C:\git\onnxruntime>build\Debug\onnxruntime_perf_test.exe --select_ep_devices "2" -i "htp_performance_mode|burst soc_model|60 htp_graph_finalization_optimization_mode|3" -C "ep.context_enable|1" -t 60 -I "C:\models\out\PSD1.quant.onnx.cache.onnx" 
+[WinML] Provider: QNNExecutionProvider[WinML]  Ready state: NotReady
+[WinML]  ensure_ready_result:Success DiagnosticText:
+[WinML]  registration_result:true
+[WinML EP] EP Device [Index: 2, Name: QNNExecutionProvider] has been added to session.
+[ep_options_list][0] [QNNExecutionProvider] [htp_performance_mode] -> [burst]
+[ep_options_list][0] [QNNExecutionProvider] [soc_model] -> [60]
+[ep_options_list][0] [QNNExecutionProvider] [htp_graph_finalization_optimization_mode] -> [3]
+[WinML][provider_names: QNNExecutionProvider|]
+Session creation time cost: 0.338877 s
+First inference time cost: 6 ms
+Total inference time cost: 60.004 s
+Total inference requests: 11473
+Average inference time cost total: 5.230016 ms
+Total inference run time: 60.1788 s
+Number of inferences per second: 190.649 
+Avg CPU usage: 0 %
+Peak working set size: 251088896 bytes
+Avg CPU usage:0
+Peak working set size:251088896
+Runs:11473
+Min Latency: 0.0049251 s
+Max Latency: 0.0193563 s
+P50 Latency: 0.0051248 s
+P90 Latency: 0.0055239 s
+P95 Latency: 0.0057319 s
+P99 Latency: 0.0070731 s
+P999 Latency: 0.0096456 s
