@@ -1,7 +1,6 @@
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 
-// onnxruntime dependencies
 #include <core/session/onnxruntime_c_api.h>
 #include <random>
 #include "command_args_parser.h"
@@ -10,23 +9,80 @@
 #include "strings_helper.h"
 #include <google/protobuf/stubs/common.h>
 
+#include <winrt/Windows.Foundation.Collections.h>
+#include <winrt/Microsoft.Windows.AI.MachineLearning.h>
+
+// #include <MddBootstrap.h>
+
+// #include <WindowsAppSDK-VersionInfo.h>
+// #include <MddBootstrap.h>
+
+// namespace MddBootstrap { using namespace ::Microsoft::Windows::ApplicationModel::DynamicDependency::Bootstrap; }
+
+using namespace winrt::Windows::Foundation::Collections;
+
 using namespace onnxruntime;
 const OrtApi* g_ort = NULL;
 
 int RunPerfTest(Ort::Env& env, const perftest::PerformanceTestConfig& test_config);
 Ort::Status CompileEpContextModel(const Ort::Env& env, const perftest::PerformanceTestConfig& test_config);
 
+const char* ensure_ready_result_string[] = {
+    "InProgress",
+    "Success",
+    "Failure"
+};
+
+const char* execution_provider_ready_state_string[] = {
+    "Ready",
+    "NotReady",
+    "NotPresent"
+};
+
 #ifdef _WIN32
 int real_main(int argc, wchar_t* argv[]) {
 #else
 int real_main(int argc, char* argv[]) {
 #endif
+
+  // std::wcout << "init_apartment" << std::endl;
+  winrt::init_apartment();
+
+  // std::wcout << "catalog" << std::endl;
+  auto catalog = winrt::Microsoft::Windows::AI::MachineLearning::ExecutionProviderCatalog::GetDefault();
+
+  // std::wcout << "FindAllProviders/EnsureReadyAsync" << std::endl;
+  auto providers = catalog.FindAllProviders();
+  for (const auto& provider : providers)
+  {
+      std::wcout << "[WinML] Provider: " << provider.Name().c_str();
+      auto readyState = provider.ReadyState();
+      std::wcout << "[WinML]  Ready state: " << execution_provider_ready_state_string[static_cast<int>(readyState)] << std::endl;
+
+      auto ensure_ready_result = provider.EnsureReadyAsync().get();
+      std::wcout << "[WinML]  ensure_ready_result:" << ensure_ready_result_string[static_cast<int>(ensure_ready_result.Status())];
+      std::wcout << " DiagnosticText:" << ensure_ready_result.DiagnosticText().c_str() << std::endl;
+
+      auto registration_result = provider.TryRegister();
+      std::wcout << "[WinML]  registration_result:" << (registration_result ? "true" : "false") << std::endl;
+  }
+
   g_ort = OrtGetApiBase()->GetApi(ORT_API_VERSION);
+
   perftest::PerformanceTestConfig test_config;
-  if (!perftest::CommandLineParser::ParseArguments(test_config, argc, argv)) {
+  if (!perftest::CommandLineParser::ParseArguments(test_config, argc, argv))
+  {
     fprintf(stderr, "%s", "See 'onnxruntime_perf_test --help'.");
+
+    std::wcout << std::endl;
+    for(int i=0; i < argc; ++i) {
+      std::wcerr << "[" << i << "][" << argv[i] << "]" << std::endl;
+    }
+
+    std::wcout << std::endl;
     return -1;
   }
+
   Ort::Env env{nullptr};
   {
     bool failed = false;
@@ -46,6 +102,20 @@ int real_main(int argc, char* argv[]) {
     if (failed)
       return -1;
   }
+
+  auto devices = env.GetEpDevices();
+
+//   typedef enum OrtHardwareDeviceType {
+//   OrtHardwareDeviceType_CPU,
+//   OrtHardwareDeviceType_GPU,
+//   OrtHardwareDeviceType_NPU
+// } OrtHardwareDeviceType;
+
+  std::cout << "-------------------------------------------" << std::endl;
+  std::cout << "provider_Type_Name:" << test_config.machine_config.provider_type_name << std::endl;
+  std::cout << "has_Required_Device_Type:" << test_config.has_required_device_type << std::endl;
+  std::cout << "required_Device_Type:" << test_config.required_device_type << std::endl;
+  std::cout << "-------------------------------------------" << std::endl;
 
   if (!test_config.plugin_ep_names_and_libs.empty()) {
     perftest::utils::RegisterExecutionProviderLibrary(env, test_config);
