@@ -187,6 +187,7 @@ ABSL_FLAG(bool, compile_ep_context, DefaultPerformanceTestConfig().run_config.co
 ABSL_FLAG(std::string, compile_model_path, "model_ctx.onnx", "The compiled model path for saving EP context model. Overwrites if already exists");
 ABSL_FLAG(bool, compile_binary_embed, DefaultPerformanceTestConfig().run_config.compile_binary_embed, "Embed binary blob within EP context node");
 ABSL_FLAG(bool, h, false, "Print program usage.");
+ABSL_FLAG(std::string, required_device_type, "", "Specifies the device type, e.g. cpu, gpu, npu.");
 
 namespace onnxruntime {
 namespace perftest {
@@ -542,17 +543,19 @@ bool CommandLineParser::ParseArguments(PerformanceTestConfig& test_config, int a
     if (!select_ep_devices.empty()) test_config.selected_ep_device_indices = select_ep_devices;
   }
 
-  // --filter_ep_devices
   {
-    const auto& filter_ep_devices = absl::GetFlag(FLAGS_filter_ep_devices);
-    if (!filter_ep_devices.empty()) {
+
+      test_config.has_required_device_type = true;
       ORT_TRY {
-        ParseEpDeviceFilterKeyValuePairs(filter_ep_devices, test_config.filter_ep_device_kv_pairs);
+      if (required_device_type == "cpu") {
+      } else if (required_device_type == "gpu") {
+        test_config.required_device_type = OrtHardwareDeviceType::OrtHardwareDeviceType_GPU;
+      } else if (required_device_type == "npu") {
+        test_config.required_device_type = OrtHardwareDeviceType::OrtHardwareDeviceType_NPU;
       }
       ORT_CATCH(const std::exception& ex) {
         ORT_HANDLE_EXCEPTION([&]() {
           fprintf(stderr, "Error parsing filter_ep_devices: %s\n", ex.what());
-        });
         return false;
       }
     }

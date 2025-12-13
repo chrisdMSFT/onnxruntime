@@ -1,0 +1,51 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"INSTALL",
+			"absl_cc_library"
+		],
+		"files" : 
+		[
+			"G:/onnxruntime-chrisd/build/_deps/abseil_cpp-src/CMake/AbseilHelpers.cmake",
+			"G:/onnxruntime-chrisd/build/_deps/abseil_cpp-src/absl/utility/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 17,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 224,
+				"parent" : 1
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 2,
+			"component" : "Unspecified",
+			"destination" : "lib/pkgconfig",
+			"paths" : 
+			[
+				"G:/onnxruntime-chrisd/build/lib/pkgconfig/absl_utility.pc"
+			],
+			"type" : "file"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "_deps/abseil_cpp-build/absl/utility",
+		"source" : "G:/onnxruntime-chrisd/build/_deps/abseil_cpp-src/absl/utility"
+	}
+}

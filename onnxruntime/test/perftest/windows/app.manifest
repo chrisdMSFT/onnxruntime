@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<assembly manifestVersion="1.0" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3"
+    xmlns:winrtv1="urn:schemas-microsoft-com:winrt.v1" xmlns="urn:schemas-microsoft-com:asm.v1">
+    <asmv3:file name="Microsoft.Windows.AI.MachineLearning.dll">
+        <winrtv1:activatableClass
+            name="Microsoft.Windows.AI.MachineLearning.ExecutionProviderCatalog"
+            threadingModel="both"></winrtv1:activatableClass>
+        <winrtv1:activatableClass name="Microsoft.Windows.AI.MachineLearning.ExecutionProvider"
+            threadingModel="both"></winrtv1:activatableClass>
+        <winrtv1:activatableClass
+            name="Microsoft.Windows.AI.MachineLearning.ExecutionProviderReadyResult"
+            threadingModel="both"></winrtv1:activatableClass>
+    </asmv3:file>
+    <trustInfo xmlns="urn:schemas-microsoft-com:asm.v3">
+        <security>
+            <requestedPrivileges>
+                <requestedExecutionLevel level="asInvoker" uiAccess="false"></requestedExecutionLevel>
+            </requestedPrivileges>
+        </security>
+    </trustInfo>
+</assembly>

@@ -1,0 +1,67 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"install"
+		],
+		"files" : 
+		[
+			"G:/onnxruntime-chrisd/build/_deps/microsoft_wil-src/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 56,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 63,
+				"parent" : 0
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "share/cmake/WIL",
+			"exportName" : "wil_targets",
+			"exportTargets" : 
+			[
+				{
+					"id" : "WIL::@03adca301883b37e9f38",
+					"index" : 0
+				}
+			],
+			"paths" : 
+			[
+				""
+			],
+			"type" : "export"
+		},
+		{
+			"backtrace" : 2,
+			"component" : "Unspecified",
+			"destination" : "include",
+			"paths" : 
+			[
+				"G:/onnxruntime-chrisd/build/_deps/microsoft_wil-src/include/wil"
+			],
+			"type" : "directory"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "_deps/microsoft_wil-build",
+		"source" : "G:/onnxruntime-chrisd/build/_deps/microsoft_wil-src"
+	}
+}

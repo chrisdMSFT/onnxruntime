@@ -1,0 +1,435 @@
+{
+	"archive" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "/machine:x64",
+				"role" : "flags"
+			}
+		]
+	},
+	"artifacts" : 
+	[
+		{
+			"path" : "_deps/onnx-build/Debug/onnx_proto.lib"
+		}
+	],
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_library",
+			"install",
+			"target_link_libraries",
+			"add_custom_command",
+			"relative_protobuf_generate_cpp",
+			"set_property",
+			"set_msvc_c_cpp_compiler_warning_level",
+			"add_compile_options",
+			"include",
+			"target_compile_options",
+			"add_msvc_runtime_flag",
+			"add_compile_definitions",
+			"add_definitions",
+			"target_compile_definitions",
+			"add_onnx_global_defines",
+			"target_include_directories"
+		],
+		"files" : 
+		[
+			"G:/onnxruntime-chrisd/build/_deps/onnx-src/CMakeLists.txt",
+			"CMakeLists.txt",
+			"adjust_global_compile_flags.cmake",
+			"G:/onnxruntime-chrisd/build/_deps/onnx-src/cmake/Utils.cmake",
+			"external/onnxruntime_external_deps.cmake"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 411,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 589,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 446,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 406,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 397,
+				"parent" : 4
+			},
+			{
+				"file" : 1
+			},
+			{
+				"command" : 6,
+				"file" : 1,
+				"line" : 318,
+				"parent" : 6
+			},
+			{
+				"command" : 5,
+				"file" : 1,
+				"line" : 308,
+				"parent" : 7
+			},
+			{
+				"command" : 8,
+				"file" : 1,
+				"line" : 433,
+				"parent" : 6
+			},
+			{
+				"file" : 2,
+				"parent" : 9
+			},
+			{
+				"command" : 7,
+				"file" : 2,
+				"line" : 142,
+				"parent" : 10
+			},
+			{
+				"command" : 7,
+				"file" : 0,
+				"line" : 120,
+				"parent" : 0
+			},
+			{
+				"command" : 7,
+				"file" : 0,
+				"line" : 121,
+				"parent" : 0
+			},
+			{
+				"command" : 10,
+				"file" : 0,
+				"line" : 501,
+				"parent" : 0
+			},
+			{
+				"command" : 9,
+				"file" : 3,
+				"line" : 8,
+				"parent" : 14
+			},
+			{
+				"command" : 8,
+				"file" : 1,
+				"line" : 573,
+				"parent" : 6
+			},
+			{
+				"file" : 4,
+				"parent" : 16
+			},
+			{
+				"command" : 11,
+				"file" : 4,
+				"line" : 354,
+				"parent" : 17
+			},
+			{
+				"command" : 12,
+				"file" : 2,
+				"line" : 180,
+				"parent" : 10
+			},
+			{
+				"command" : 12,
+				"file" : 2,
+				"line" : 178,
+				"parent" : 10
+			},
+			{
+				"command" : 14,
+				"file" : 0,
+				"line" : 452,
+				"parent" : 0
+			},
+			{
+				"command" : 13,
+				"file" : 3,
+				"line" : 16,
+				"parent" : 21
+			},
+			{
+				"command" : 13,
+				"file" : 3,
+				"line" : 13,
+				"parent" : 21
+			},
+			{
+				"command" : 13,
+				"file" : 3,
+				"line" : 20,
+				"parent" : 21
+			},
+			{
+				"command" : 15,
+				"file" : 0,
+				"line" : 453,
+				"parent" : 0
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "/DWIN32 /D_WINDOWS /EHsc /Zc:__cplusplus /EHsc /wd26812 -DEIGEN_HAS_C99_MATH /EHsc /wd26812 /Ob0 /Od /RTC1 -std:c++17 -MDd -Zi"
+				},
+				{
+					"backtrace" : 8,
+					"fragment" : "/W3"
+				},
+				{
+					"backtrace" : 11,
+					"fragment" : "/GR"
+				},
+				{
+					"backtrace" : 12,
+					"fragment" : "/MP"
+				},
+				{
+					"backtrace" : 12,
+					"fragment" : "/utf-8"
+				},
+				{
+					"backtrace" : 12,
+					"fragment" : "/nologo"
+				},
+				{
+					"backtrace" : 13,
+					"fragment" : "/wd5287"
+				},
+				{
+					"backtrace" : 13,
+					"fragment" : "/Zc:lambda"
+				},
+				{
+					"backtrace" : 15,
+					"fragment" : "/MDd"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 18,
+					"define" : "CPUINFO_SUPPORTED"
+				},
+				{
+					"backtrace" : 19,
+					"define" : "EIGEN_HAS_CONSTEXPR"
+				},
+				{
+					"backtrace" : 19,
+					"define" : "EIGEN_HAS_CXX11_ATOMIC"
+				},
+				{
+					"backtrace" : 19,
+					"define" : "EIGEN_HAS_CXX11_MATH"
+				},
+				{
+					"backtrace" : 19,
+					"define" : "EIGEN_HAS_VARIADIC_TEMPLATES"
+				},
+				{
+					"backtrace" : 20,
+					"define" : "EIGEN_MPL2_ONLY"
+				},
+				{
+					"backtrace" : 19,
+					"define" : "EIGEN_STRONG_INLINE=inline"
+				},
+				{
+					"backtrace" : 22,
+					"define" : "ONNX_ML=1"
+				},
+				{
+					"backtrace" : 23,
+					"define" : "ONNX_NAMESPACE=onnx"
+				},
+				{
+					"backtrace" : 24,
+					"define" : "ONNX_USE_LITE_PROTO=1"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 25,
+					"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src"
+				},
+				{
+					"backtrace" : 25,
+					"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-build"
+				},
+				{
+					"backtrace" : 3,
+					"path" : "G:/onnxruntime-chrisd/build/_deps/protobuf-src/src"
+				}
+			],
+			"language" : "CXX",
+			"languageStandard" : 
+			{
+				"backtraces" : 
+				[
+					1
+				],
+				"standard" : "17"
+			},
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2
+			]
+		}
+	],
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 3,
+			"id" : "libprotobuf-lite::@ae0d5a95a4776c73bb4e"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "protoc::@ae0d5a95a4776c73bb4e"
+		},
+		{
+			"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df"
+		}
+	],
+	"id" : "onnx_proto::@59fb6457570dc9f0863e",
+	"install" : 
+	{
+		"destinations" : 
+		[
+			{
+				"backtrace" : 2,
+				"path" : "lib"
+			}
+		],
+		"prefix" : 
+		{
+			"path" : "C:/Program Files/onnxruntime"
+		}
+	},
+	"name" : "onnx_proto",
+	"nameOnDisk" : "onnx_proto.lib",
+	"paths" : 
+	{
+		"build" : "_deps/onnx-build",
+		"source" : "G:/onnxruntime-chrisd/build/_deps/onnx-src"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2
+			]
+		},
+		{
+			"name" : "CMake Rules",
+			"sourceIndexes" : 
+			[
+				3,
+				4,
+				5,
+				6,
+				7,
+				8
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"isGenerated" : true,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-build/onnx/onnx-ml.pb.cc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"isGenerated" : true,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-build/onnx/onnx-operators-ml.pb.cc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"isGenerated" : true,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-build/onnx/onnx-data.pb.cc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "G:/onnxruntime-chrisd/build/CMakeFiles/0fd32d870524af25944de611a040182c/onnx-ml.pb.cc.rule",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "G:/onnxruntime-chrisd/build/CMakeFiles/0fd32d870524af25944de611a040182c/onnx-operators-ml.pb.cc.rule",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "G:/onnxruntime-chrisd/build/CMakeFiles/0fd32d870524af25944de611a040182c/onnx-data.pb.cc.rule",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "G:/onnxruntime-chrisd/build/CMakeFiles/0fd32d870524af25944de611a040182c/onnx-ml.proto.rule",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "G:/onnxruntime-chrisd/build/CMakeFiles/0fd32d870524af25944de611a040182c/onnx-operators-ml.proto.rule",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "G:/onnxruntime-chrisd/build/CMakeFiles/0fd32d870524af25944de611a040182c/onnx-data.proto.rule",
+			"sourceGroupIndex" : 1
+		}
+	],
+	"type" : "STATIC_LIBRARY"
+}

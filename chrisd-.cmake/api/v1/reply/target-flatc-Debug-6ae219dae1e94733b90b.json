@@ -1,0 +1,845 @@
+{
+	"artifacts" : 
+	[
+		{
+			"path" : "_deps/flatbuffers-build/Debug/flatc.exe"
+		},
+		{
+			"path" : "_deps/flatbuffers-build/Debug/flatc.pdb"
+		}
+	],
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_executable",
+			"install",
+			"set_property",
+			"set_msvc_c_cpp_compiler_warning_level",
+			"add_compile_options",
+			"include",
+			"target_link_libraries",
+			"add_compile_definitions",
+			"add_definitions",
+			"include_directories"
+		],
+		"files" : 
+		[
+			"G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/CMakeLists.txt",
+			"CMakeLists.txt",
+			"adjust_global_compile_flags.cmake",
+			"external/onnxruntime_external_deps.cmake"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 445,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 636,
+				"parent" : 0
+			},
+			{
+				"file" : 1
+			},
+			{
+				"command" : 3,
+				"file" : 1,
+				"line" : 318,
+				"parent" : 3
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 308,
+				"parent" : 4
+			},
+			{
+				"command" : 5,
+				"file" : 1,
+				"line" : 433,
+				"parent" : 3
+			},
+			{
+				"file" : 2,
+				"parent" : 6
+			},
+			{
+				"command" : 4,
+				"file" : 2,
+				"line" : 142,
+				"parent" : 7
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 450,
+				"parent" : 0
+			},
+			{
+				"command" : 5,
+				"file" : 1,
+				"line" : 573,
+				"parent" : 3
+			},
+			{
+				"file" : 3,
+				"parent" : 10
+			},
+			{
+				"command" : 7,
+				"file" : 3,
+				"line" : 354,
+				"parent" : 11
+			},
+			{
+				"command" : 8,
+				"file" : 2,
+				"line" : 180,
+				"parent" : 7
+			},
+			{
+				"command" : 8,
+				"file" : 2,
+				"line" : 178,
+				"parent" : 7
+			},
+			{
+				"command" : 8,
+				"file" : 0,
+				"line" : 112,
+				"parent" : 0
+			},
+			{
+				"command" : 9,
+				"file" : 0,
+				"line" : 321,
+				"parent" : 0
+			},
+			{
+				"command" : 9,
+				"file" : 0,
+				"line" : 322,
+				"parent" : 0
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "/DWIN32 /D_WINDOWS /EHsc /Zc:__cplusplus /EHsc /wd26812 -DEIGEN_HAS_C99_MATH /Ob0 /Od /RTC1 -std:c++17 -MDd -Zi"
+				},
+				{
+					"backtrace" : 5,
+					"fragment" : "/W3"
+				},
+				{
+					"backtrace" : 8,
+					"fragment" : "/GR"
+				},
+				{
+					"backtrace" : 9,
+					"fragment" : "/W4"
+				},
+				{
+					"backtrace" : 9,
+					"fragment" : "/wd4512"
+				},
+				{
+					"backtrace" : 9,
+					"fragment" : "/wd4316"
+				},
+				{
+					"backtrace" : 9,
+					"fragment" : "/wd4456"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 12,
+					"define" : "CPUINFO_SUPPORTED"
+				},
+				{
+					"backtrace" : 13,
+					"define" : "EIGEN_HAS_CONSTEXPR"
+				},
+				{
+					"backtrace" : 13,
+					"define" : "EIGEN_HAS_CXX11_ATOMIC"
+				},
+				{
+					"backtrace" : 13,
+					"define" : "EIGEN_HAS_CXX11_MATH"
+				},
+				{
+					"backtrace" : 13,
+					"define" : "EIGEN_HAS_VARIADIC_TEMPLATES"
+				},
+				{
+					"backtrace" : 14,
+					"define" : "EIGEN_MPL2_ONLY"
+				},
+				{
+					"backtrace" : 13,
+					"define" : "EIGEN_STRONG_INLINE=inline"
+				},
+				{
+					"backtrace" : 15,
+					"define" : "FLATBUFFERS_LOCALE_INDEPENDENT=1"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 16,
+					"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/include"
+				},
+				{
+					"backtrace" : 17,
+					"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/grpc"
+				}
+			],
+			"language" : "CXX",
+			"languageStandard" : 
+			{
+				"backtraces" : 
+				[
+					9
+				],
+				"standard" : "17"
+			},
+			"sourceIndexes" : 
+			[
+				27,
+				28,
+				29,
+				30,
+				31,
+				32,
+				33,
+				34,
+				35,
+				36,
+				37,
+				38,
+				39,
+				40,
+				41,
+				42,
+				43,
+				44,
+				45,
+				46,
+				47,
+				48,
+				49,
+				52,
+				53,
+				60,
+				62,
+				63,
+				64,
+				65,
+				68,
+				70,
+				72,
+				74,
+				76,
+				78
+			]
+		}
+	],
+	"dependencies" : 
+	[
+		{
+			"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df"
+		}
+	],
+	"id" : "flatc::@62cadad892676421df77",
+	"install" : 
+	{
+		"destinations" : 
+		[
+			{
+				"backtrace" : 2,
+				"path" : "bin"
+			}
+		],
+		"prefix" : 
+		{
+			"path" : "C:/Program Files/onnxruntime"
+		}
+	},
+	"link" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "/DWIN32 /D_WINDOWS /EHsc /Zc:__cplusplus /EHsc /wd26812 -DEIGEN_HAS_C99_MATH /Ob0 /Od /RTC1 -MDd -Zi",
+				"role" : "flags"
+			},
+			{
+				"fragment" : "/machine:x64 /debug /INCREMENTAL",
+				"role" : "flags"
+			},
+			{
+				"fragment" : "/subsystem:console",
+				"role" : "flags"
+			},
+			{
+				"fragment" : "kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib",
+				"role" : "libraries"
+			}
+		],
+		"language" : "CXX"
+	},
+	"name" : "flatc",
+	"nameOnDisk" : "flatc.exe",
+	"paths" : 
+	{
+		"build" : "_deps/flatbuffers-build",
+		"source" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Header Files",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14,
+				15,
+				16,
+				17,
+				18,
+				19,
+				20,
+				21,
+				22,
+				23,
+				24,
+				25,
+				26,
+				50,
+				51,
+				54,
+				55,
+				56,
+				57,
+				58,
+				59,
+				61,
+				66,
+				67,
+				69,
+				71,
+				73,
+				75,
+				77
+			]
+		},
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				27,
+				28,
+				29,
+				30,
+				31,
+				32,
+				33,
+				34,
+				35,
+				36,
+				37,
+				38,
+				39,
+				40,
+				41,
+				42,
+				43,
+				44,
+				45,
+				46,
+				47,
+				48,
+				49,
+				52,
+				53,
+				60,
+				62,
+				63,
+				64,
+				65,
+				68,
+				70,
+				72,
+				74,
+				76,
+				78
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/include/flatbuffers/allocator.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/include/flatbuffers/array.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/include/flatbuffers/base.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/include/flatbuffers/buffer.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/include/flatbuffers/buffer_ref.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/include/flatbuffers/default_allocator.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/include/flatbuffers/detached_buffer.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/include/flatbuffers/code_generator.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/include/flatbuffers/file_manager.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/include/flatbuffers/flatbuffer_builder.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/include/flatbuffers/flatbuffers.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/include/flatbuffers/flexbuffers.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/include/flatbuffers/flex_flat_util.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/include/flatbuffers/hash.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/include/flatbuffers/idl.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/include/flatbuffers/minireflect.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/include/flatbuffers/reflection.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/include/flatbuffers/reflection_generated.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/include/flatbuffers/registry.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/include/flatbuffers/stl_emulation.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/include/flatbuffers/string.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/include/flatbuffers/struct.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/include/flatbuffers/table.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/include/flatbuffers/util.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/include/flatbuffers/vector.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/include/flatbuffers/vector_downward.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/include/flatbuffers/verifier.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/src/idl_parser.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/src/idl_gen_text.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/src/reflection.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/src/util.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/src/idl_gen_binary.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/src/idl_gen_cpp.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/src/idl_gen_csharp.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/src/idl_gen_dart.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/src/idl_gen_kotlin.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/src/idl_gen_go.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/src/idl_gen_java.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/src/idl_gen_ts.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/src/idl_gen_php.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/src/idl_gen_python.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/src/idl_gen_lobster.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/src/idl_gen_rust.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/src/idl_gen_fbs.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/src/idl_gen_grpc.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/src/idl_gen_json_schema.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/src/idl_gen_swift.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/src/file_name_saving_file_manager.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/src/file_binary_writer.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/src/file_writer.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/src/idl_namer.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/src/namer.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/src/flatc.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/src/flatc_main.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/src/bfbs_gen.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/src/bfbs_gen_lua.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/src/bfbs_gen_nim.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/src/bfbs_namer.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/include/flatbuffers/code_generators.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/src/binary_annotator.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/src/binary_annotator.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/src/annotated_binary_text_gen.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/src/annotated_binary_text_gen.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/src/bfbs_gen_lua.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/src/bfbs_gen_nim.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/src/code_generators.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/grpc/src/compiler/schema_interface.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/grpc/src/compiler/cpp_generator.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/grpc/src/compiler/cpp_generator.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/grpc/src/compiler/go_generator.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/grpc/src/compiler/go_generator.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/grpc/src/compiler/java_generator.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/grpc/src/compiler/java_generator.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/grpc/src/compiler/python_generator.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/grpc/src/compiler/python_generator.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/grpc/src/compiler/swift_generator.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/grpc/src/compiler/swift_generator.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/grpc/src/compiler/ts_generator.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/grpc/src/compiler/ts_generator.cc",
+			"sourceGroupIndex" : 1
+		}
+	],
+	"type" : "EXECUTABLE"
+}

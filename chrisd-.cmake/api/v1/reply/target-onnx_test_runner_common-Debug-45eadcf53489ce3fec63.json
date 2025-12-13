@@ -1,0 +1,1033 @@
+{
+	"archive" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "/machine:x64",
+				"role" : "flags"
+			}
+		]
+	},
+	"artifacts" : 
+	[
+		{
+			"path" : "Debug/onnx_test_runner_common.lib"
+		}
+	],
+	"backtrace" : 4,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_library",
+			"onnxruntime_add_static_library",
+			"include",
+			"add_dependencies",
+			"set_property",
+			"set_msvc_c_cpp_compiler_warning_level",
+			"target_compile_options",
+			"onnxruntime_set_compile_flags",
+			"onnxruntime_configure_target",
+			"add_compile_definitions",
+			"target_compile_definitions",
+			"onnxruntime_add_include_to_target",
+			"add_definitions",
+			"include_directories",
+			"target_include_directories",
+			"target_sources"
+		],
+		"files" : 
+		[
+			"CMakeLists.txt",
+			"onnxruntime_unittests.cmake",
+			"external/onnxruntime_external_deps.cmake",
+			"adjust_global_compile_flags.cmake"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 1733,
+				"parent" : 0
+			},
+			{
+				"file" : 1,
+				"parent" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 914,
+				"parent" : 2
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 1226,
+				"parent" : 3
+			},
+			{
+				"command" : 3,
+				"file" : 1,
+				"line" : 928,
+				"parent" : 2
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 1343,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 308,
+				"parent" : 6
+			},
+			{
+				"command" : 8,
+				"file" : 0,
+				"line" : 1227,
+				"parent" : 3
+			},
+			{
+				"command" : 7,
+				"file" : 0,
+				"line" : 1191,
+				"parent" : 8
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 1105,
+				"parent" : 9
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 1105,
+				"parent" : 9
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 1109,
+				"parent" : 9
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 1105,
+				"parent" : 9
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 1105,
+				"parent" : 9
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 1105,
+				"parent" : 9
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 1105,
+				"parent" : 9
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 1105,
+				"parent" : 9
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 1109,
+				"parent" : 9
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 1105,
+				"parent" : 9
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 1105,
+				"parent" : 9
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 1105,
+				"parent" : 9
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 1105,
+				"parent" : 9
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 1105,
+				"parent" : 9
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 1105,
+				"parent" : 9
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 1118,
+				"parent" : 9
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 1119,
+				"parent" : 9
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 1123,
+				"parent" : 9
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 1124,
+				"parent" : 9
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 1128,
+				"parent" : 9
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 1129,
+				"parent" : 9
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 1162,
+				"parent" : 9
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 1162,
+				"parent" : 9
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 1162,
+				"parent" : 9
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 1162,
+				"parent" : 9
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 1162,
+				"parent" : 9
+			},
+			{
+				"command" : 6,
+				"file" : 1,
+				"line" : 1387,
+				"parent" : 2
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 573,
+				"parent" : 0
+			},
+			{
+				"file" : 2,
+				"parent" : 37
+			},
+			{
+				"command" : 9,
+				"file" : 2,
+				"line" : 354,
+				"parent" : 38
+			},
+			{
+				"command" : 11,
+				"file" : 0,
+				"line" : 1025,
+				"parent" : 9
+			},
+			{
+				"command" : 10,
+				"file" : 0,
+				"line" : 1273,
+				"parent" : 40
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 433,
+				"parent" : 0
+			},
+			{
+				"file" : 3,
+				"parent" : 42
+			},
+			{
+				"command" : 12,
+				"file" : 3,
+				"line" : 180,
+				"parent" : 43
+			},
+			{
+				"command" : 12,
+				"file" : 3,
+				"line" : 178,
+				"parent" : 43
+			},
+			{
+				"command" : 10,
+				"file" : 0,
+				"line" : 1049,
+				"parent" : 9
+			},
+			{
+				"command" : 10,
+				"file" : 0,
+				"line" : 1114,
+				"parent" : 9
+			},
+			{
+				"command" : 11,
+				"file" : 1,
+				"line" : 925,
+				"parent" : 2
+			},
+			{
+				"command" : 10,
+				"file" : 0,
+				"line" : 1273,
+				"parent" : 48
+			},
+			{
+				"command" : 10,
+				"file" : 0,
+				"line" : 1116,
+				"parent" : 9
+			},
+			{
+				"command" : 10,
+				"file" : 0,
+				"line" : 1273,
+				"parent" : 48
+			},
+			{
+				"command" : 10,
+				"file" : 0,
+				"line" : 1032,
+				"parent" : 9
+			},
+			{
+				"command" : 13,
+				"file" : 0,
+				"line" : 1347,
+				"parent" : 0
+			},
+			{
+				"command" : 14,
+				"file" : 0,
+				"line" : 1272,
+				"parent" : 40
+			},
+			{
+				"command" : 14,
+				"file" : 0,
+				"line" : 1196,
+				"parent" : 8
+			},
+			{
+				"command" : 14,
+				"file" : 0,
+				"line" : 1272,
+				"parent" : 48
+			},
+			{
+				"command" : 14,
+				"file" : 0,
+				"line" : 1272,
+				"parent" : 48
+			},
+			{
+				"command" : 14,
+				"file" : 0,
+				"line" : 1272,
+				"parent" : 48
+			},
+			{
+				"command" : 14,
+				"file" : 0,
+				"line" : 1272,
+				"parent" : 48
+			},
+			{
+				"command" : 14,
+				"file" : 0,
+				"line" : 1272,
+				"parent" : 48
+			},
+			{
+				"command" : 14,
+				"file" : 0,
+				"line" : 1272,
+				"parent" : 48
+			},
+			{
+				"command" : 14,
+				"file" : 0,
+				"line" : 1272,
+				"parent" : 48
+			},
+			{
+				"command" : 15,
+				"file" : 0,
+				"line" : 1274,
+				"parent" : 48
+			},
+			{
+				"command" : 15,
+				"file" : 0,
+				"line" : 1274,
+				"parent" : 48
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "/DWIN32 /D_WINDOWS /EHsc /Zc:__cplusplus /EHsc /wd26812 -DEIGEN_HAS_C99_MATH /Ob0 /Od /RTC1 -std:c++17 -MDd -Zi"
+				},
+				{
+					"backtrace" : 7,
+					"fragment" : "/GR"
+				},
+				{
+					"backtrace" : 7,
+					"fragment" : "/W4"
+				},
+				{
+					"backtrace" : 10,
+					"fragment" : "/external:IG:\\onnxruntime-chrisd\\build\\_deps\\microsoft_wil-src\\include"
+				},
+				{
+					"backtrace" : 11,
+					"fragment" : "/external:IG:\\onnxruntime-chrisd\\build\\_deps\\nlohmann_json-src\\include\\"
+				},
+				{
+					"backtrace" : 12,
+					"fragment" : "/external:Ionnxruntime_external_lib_include_dirs-NOTFOUND"
+				},
+				{
+					"backtrace" : 13,
+					"fragment" : "/external:IG:\\onnxruntime-chrisd\\build\\_deps\\onnx-src"
+				},
+				{
+					"backtrace" : 14,
+					"fragment" : "/external:IG:\\onnxruntime-chrisd\\build\\_deps\\onnx-build"
+				},
+				{
+					"backtrace" : 15,
+					"fragment" : "/external:IG:\\onnxruntime-chrisd\\build\\_deps\\protobuf-src\\src"
+				},
+				{
+					"backtrace" : 16,
+					"fragment" : "/external:IG:\\onnxruntime-chrisd\\build\\_deps\\re2-src"
+				},
+				{
+					"backtrace" : 17,
+					"fragment" : "/external:IG:\\onnxruntime-chrisd\\build\\_deps\\mp11-src\\include"
+				},
+				{
+					"backtrace" : 18,
+					"fragment" : "/external:IG:\\onnxruntime-chrisd\\build\\_deps\\safeint-src"
+				},
+				{
+					"backtrace" : 19,
+					"fragment" : "/external:IG:\\onnxruntime-chrisd\\build\\_deps\\flatbuffers-src\\include"
+				},
+				{
+					"backtrace" : 20,
+					"fragment" : "/external:IG:\\onnxruntime-chrisd\\build\\_deps\\gsl-src\\include"
+				},
+				{
+					"backtrace" : 21,
+					"fragment" : "/external:IG:\\onnxruntime-chrisd\\build\\_deps\\abseil_cpp-src"
+				},
+				{
+					"backtrace" : 22,
+					"fragment" : "/external:IG:\\onnxruntime-chrisd\\build\\_deps\\date-src\\include"
+				},
+				{
+					"backtrace" : 23,
+					"fragment" : "/external:IG:\\onnxruntime-chrisd\\build\\_deps\\eigen3-src"
+				},
+				{
+					"backtrace" : 24,
+					"fragment" : "/external:IG:\\onnxruntime-chrisd\\build\\_deps\\pytorch_cpuinfo-src\\include"
+				},
+				{
+					"backtrace" : 25,
+					"fragment" : "/utf-8"
+				},
+				{
+					"backtrace" : 26,
+					"fragment" : "/sdl"
+				},
+				{
+					"backtrace" : 27,
+					"fragment" : "/experimental:external"
+				},
+				{
+					"backtrace" : 28,
+					"fragment" : "/external:W0"
+				},
+				{
+					"backtrace" : 29,
+					"fragment" : "/external:IG:/onnxruntime-chrisd/cmake"
+				},
+				{
+					"backtrace" : 30,
+					"fragment" : "/external:IG:/onnxruntime-chrisd/build"
+				},
+				{
+					"backtrace" : 31,
+					"fragment" : "/wd4251"
+				},
+				{
+					"backtrace" : 32,
+					"fragment" : "/wd4201"
+				},
+				{
+					"backtrace" : 33,
+					"fragment" : "/wd4324"
+				},
+				{
+					"backtrace" : 34,
+					"fragment" : "/wd5054"
+				},
+				{
+					"backtrace" : 35,
+					"fragment" : "/w15038"
+				},
+				{
+					"backtrace" : 36,
+					"fragment" : "-D_CRT_SECURE_NO_WARNINGS"
+				},
+				{
+					"fragment" : "-WX"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 39,
+					"define" : "CPUINFO_SUPPORTED"
+				},
+				{
+					"backtrace" : 41,
+					"define" : "CPUINFO_SUPPORTED_PLATFORM=1"
+				},
+				{
+					"backtrace" : 44,
+					"define" : "EIGEN_HAS_CONSTEXPR"
+				},
+				{
+					"backtrace" : 44,
+					"define" : "EIGEN_HAS_CXX11_ATOMIC"
+				},
+				{
+					"backtrace" : 44,
+					"define" : "EIGEN_HAS_CXX11_MATH"
+				},
+				{
+					"backtrace" : 44,
+					"define" : "EIGEN_HAS_VARIADIC_TEMPLATES"
+				},
+				{
+					"backtrace" : 45,
+					"define" : "EIGEN_MPL2_ONLY"
+				},
+				{
+					"backtrace" : 44,
+					"define" : "EIGEN_STRONG_INLINE=inline"
+				},
+				{
+					"backtrace" : 46,
+					"define" : "EIGEN_USE_THREADS"
+				},
+				{
+					"backtrace" : 47,
+					"define" : "NOGDI"
+				},
+				{
+					"backtrace" : 47,
+					"define" : "NOMINMAX"
+				},
+				{
+					"backtrace" : 49,
+					"define" : "ONLY_C_LOCALE=0"
+				},
+				{
+					"backtrace" : 50,
+					"define" : "ONNXRUNTIME_ENABLE_MEMLEAK_CHECK"
+				},
+				{
+					"backtrace" : 51,
+					"define" : "ONNX_ML=1"
+				},
+				{
+					"backtrace" : 51,
+					"define" : "ONNX_NAMESPACE=onnx"
+				},
+				{
+					"backtrace" : 51,
+					"define" : "ONNX_USE_LITE_PROTO=1"
+				},
+				{
+					"backtrace" : 52,
+					"define" : "ORT_ENABLE_STREAM"
+				},
+				{
+					"backtrace" : 47,
+					"define" : "PLATFORM_WINDOWS"
+				},
+				{
+					"backtrace" : 47,
+					"define" : "_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS"
+				},
+				{
+					"backtrace" : 47,
+					"define" : "_USE_MATH_DEFINES"
+				},
+				{
+					"backtrace" : 51,
+					"define" : "__ONNX_NO_DOC_STRINGS"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 53,
+					"path" : "G:/onnxruntime-chrisd/include/onnxruntime"
+				},
+				{
+					"backtrace" : 53,
+					"path" : "G:/onnxruntime-chrisd/include/onnxruntime/core/session"
+				},
+				{
+					"backtrace" : 54,
+					"path" : "G:/onnxruntime-chrisd/build/_deps/pytorch_cpuinfo-src/include"
+				},
+				{
+					"backtrace" : 55,
+					"path" : "G:/onnxruntime-chrisd/build"
+				},
+				{
+					"backtrace" : 55,
+					"path" : "G:/onnxruntime-chrisd/onnxruntime"
+				},
+				{
+					"backtrace" : 56,
+					"path" : "G:/onnxruntime-chrisd/build/_deps/safeint-src"
+				},
+				{
+					"backtrace" : 56,
+					"path" : "G:/onnxruntime-chrisd/build/_deps/gsl-src/include"
+				},
+				{
+					"backtrace" : 56,
+					"path" : "G:/onnxruntime-chrisd/build/_deps/abseil_cpp-src"
+				},
+				{
+					"backtrace" : 56,
+					"path" : "G:/onnxruntime-chrisd/build/_deps/date-src/include"
+				},
+				{
+					"backtrace" : 57,
+					"path" : "G:/onnxruntime-chrisd/onnxruntime/test/util/include"
+				},
+				{
+					"backtrace" : 58,
+					"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-src"
+				},
+				{
+					"backtrace" : 58,
+					"path" : "G:/onnxruntime-chrisd/build/_deps/onnx-build"
+				},
+				{
+					"backtrace" : 58,
+					"path" : "G:/onnxruntime-chrisd/build/_deps/protobuf-src/src"
+				},
+				{
+					"backtrace" : 59,
+					"path" : "G:/onnxruntime-chrisd/build/_deps/re2-src"
+				},
+				{
+					"backtrace" : 60,
+					"path" : "G:/onnxruntime-chrisd/build/_deps/flatbuffers-src/include"
+				},
+				{
+					"backtrace" : 61,
+					"path" : "G:/onnxruntime-chrisd/build/_deps/mp11-src/include"
+				},
+				{
+					"backtrace" : 62,
+					"path" : "G:/onnxruntime-chrisd/build/_deps/eigen3-src"
+				}
+			],
+			"language" : "CXX",
+			"languageStandard" : 
+			{
+				"backtraces" : 
+				[
+					4
+				],
+				"standard" : "17"
+			},
+			"sourceIndexes" : 
+			[
+				1,
+				3,
+				5,
+				8,
+				10,
+				13,
+				16,
+				19,
+				21,
+				23,
+				25,
+				27
+			]
+		}
+	],
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 5,
+			"id" : "onnx_test_data_proto::@6890427a1f51a3e7e1df"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "flatbuffers::@62cadad892676421df77"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "onnx_proto::@59fb6457570dc9f0863e"
+		},
+		{
+			"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df"
+		}
+	],
+	"folder" : 
+	{
+		"name" : "ONNXRuntimeTest"
+	},
+	"id" : "onnx_test_runner_common::@6890427a1f51a3e7e1df",
+	"name" : "onnx_test_runner_common",
+	"nameOnDisk" : "onnx_test_runner_common.lib",
+	"paths" : 
+	{
+		"build" : ".",
+		"source" : "."
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Header Files",
+			"sourceIndexes" : 
+			[
+				0,
+				2,
+				4,
+				6,
+				7,
+				9,
+				11,
+				12,
+				14,
+				15,
+				17,
+				18,
+				20,
+				22,
+				24,
+				26,
+				28,
+				31,
+				32,
+				33,
+				34,
+				35
+			]
+		},
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				1,
+				3,
+				5,
+				8,
+				10,
+				13,
+				16,
+				19,
+				21,
+				23,
+				25,
+				27
+			]
+		},
+		{
+			"name" : "",
+			"sourceIndexes" : 
+			[
+				29,
+				30,
+				36
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/test/onnx/OrtValueList.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/test/onnx/TestCase.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/test/onnx/TestCase.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/test/onnx/TestCaseResult.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/test/onnx/TestCaseResult.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/test/onnx/TestResultStat.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/test/onnx/TestResultStat.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/test/onnx/callables.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/test/onnx/callback.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/test/onnx/callback.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/test/onnx/dataitem_request.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/test/onnx/dataitem_request.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/test/onnx/fnmatch_simple.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/test/onnx/heap_buffer.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/test/onnx/heap_buffer.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/test/onnx/mem_buffer.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/test/onnx/onnx_model_info.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/test/onnx/onnx_model_info.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/test/onnx/onnxruntime_event.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/test/onnx/pb_helper.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/test/onnx/pb_helper.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/test/onnx/tensorprotoutils.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/test/onnx/tensorprotoutils.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/test/onnx/testcase_driver.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/test/onnx/testcase_driver.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/test/onnx/testcase_request.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/test/onnx/testcase_request.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/test/onnx/testenv.cc",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "G:/onnxruntime-chrisd/onnxruntime/test/onnx/testenv.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 63,
+			"path" : "external/abseil-cpp.natvis",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 63,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/gsl-src/GSL.natvis",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 63,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/date-src/include/date/date.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 63,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/date-src/include/date/solar_hijri.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 63,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/date-src/include/date/islamic.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 63,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/date-src/include/date/iso_week.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 63,
+			"path" : "G:/onnxruntime-chrisd/build/_deps/date-src/include/date/julian.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 64,
+			"path" : "onnxruntime_framework.natvis",
+			"sourceGroupIndex" : 2
+		}
+	],
+	"type" : "STATIC_LIBRARY"
+}

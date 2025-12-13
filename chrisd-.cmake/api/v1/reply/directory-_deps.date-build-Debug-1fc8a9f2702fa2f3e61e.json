@@ -1,0 +1,84 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"install"
+		],
+		"files" : 
+		[
+			"G:/onnxruntime-chrisd/build/_deps/date-src/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 171,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 196,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 200,
+				"parent" : 0
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "include/date",
+			"paths" : 
+			[
+				"G:/onnxruntime-chrisd/build/_deps/date-src/include/date/date.h"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 2,
+			"component" : "Unspecified",
+			"destination" : "CMake",
+			"exportName" : "dateConfig",
+			"exportTargets" : 
+			[
+				{
+					"id" : "date::@41ca283b52a2b2d109e5",
+					"index" : 0
+				}
+			],
+			"paths" : 
+			[
+				""
+			],
+			"type" : "export"
+		},
+		{
+			"backtrace" : 3,
+			"component" : "Unspecified",
+			"destination" : "CMake",
+			"paths" : 
+			[
+				"G:/onnxruntime-chrisd/build/_deps/date-src/cmake/dateConfig.cmake",
+				"G:/onnxruntime-chrisd/build/_deps/date-build/dateConfigVersion.cmake"
+			],
+			"type" : "file"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "_deps/date-build",
+		"source" : "G:/onnxruntime-chrisd/build/_deps/date-src"
+	}
+}

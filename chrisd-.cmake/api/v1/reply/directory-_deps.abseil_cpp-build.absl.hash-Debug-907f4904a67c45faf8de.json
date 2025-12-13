@@ -1,0 +1,172 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"INSTALL",
+			"absl_cc_library",
+			"install"
+		],
+		"files" : 
+		[
+			"G:/onnxruntime-chrisd/build/_deps/abseil_cpp-src/CMake/AbseilHelpers.cmake",
+			"G:/onnxruntime-chrisd/build/_deps/abseil_cpp-src/absl/hash/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 17,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 224,
+				"parent" : 1
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 349,
+				"parent" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 129,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 224,
+				"parent" : 4
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 349,
+				"parent" : 4
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 157,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 224,
+				"parent" : 7
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 349,
+				"parent" : 7
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 175,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 224,
+				"parent" : 10
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 2,
+			"component" : "Unspecified",
+			"destination" : "lib/pkgconfig",
+			"paths" : 
+			[
+				"G:/onnxruntime-chrisd/build/lib/pkgconfig/absl_hash.pc"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 3,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"_deps/abseil_cpp-build/absl/hash/Debug/absl_hash.lib"
+			],
+			"targetId" : "hash::@9b910e87353eb23c0901",
+			"targetIndex" : 64,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 5,
+			"component" : "Unspecified",
+			"destination" : "lib/pkgconfig",
+			"paths" : 
+			[
+				"G:/onnxruntime-chrisd/build/lib/pkgconfig/absl_city.pc"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 6,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"_deps/abseil_cpp-build/absl/hash/Debug/absl_city.lib"
+			],
+			"targetId" : "city::@9b910e87353eb23c0901",
+			"targetIndex" : 19,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 8,
+			"component" : "Unspecified",
+			"destination" : "lib/pkgconfig",
+			"paths" : 
+			[
+				"G:/onnxruntime-chrisd/build/lib/pkgconfig/absl_low_level_hash.pc"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 9,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"_deps/abseil_cpp-build/absl/hash/Debug/absl_low_level_hash.lib"
+			],
+			"targetId" : "low_level_hash::@9b910e87353eb23c0901",
+			"targetIndex" : 87,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 11,
+			"component" : "Unspecified",
+			"destination" : "lib/pkgconfig",
+			"paths" : 
+			[
+				"G:/onnxruntime-chrisd/build/lib/pkgconfig/absl_weakly_mixed_integer.pc"
+			],
+			"type" : "file"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "_deps/abseil_cpp-build/absl/hash",
+		"source" : "G:/onnxruntime-chrisd/build/_deps/abseil_cpp-src/absl/hash"
+	}
+}

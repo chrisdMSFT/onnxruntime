@@ -1,0 +1,114 @@
+{
+	"backtrace" : 8,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_library",
+			"add_cppwinrt_projection",
+			"find_package",
+			"include"
+		],
+		"files" : 
+		[
+			"G:/onnxruntime-chrisd/build/_deps/cmakenugetpackage-src/build/cmake/microsoft.windows.cppwinrt-config.cmake",
+			"G:/onnxruntime-chrisd/build/_deps/cmakenugetpackage-src/build/cmake/microsoft.windowsappsdk.ml-config.cmake",
+			"onnxruntime_unittests.cmake",
+			"CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 3
+			},
+			{
+				"command" : 3,
+				"file" : 3,
+				"line" : 1733,
+				"parent" : 0
+			},
+			{
+				"file" : 2,
+				"parent" : 1
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 1481,
+				"parent" : 2
+			},
+			{
+				"file" : 1,
+				"parent" : 3
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 24,
+				"parent" : 4
+			},
+			{
+				"file" : 0,
+				"parent" : 5
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 200,
+				"parent" : 6
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 158,
+				"parent" : 7
+			}
+		]
+	},
+	"dependencies" : 
+	[
+		{
+			"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df"
+		}
+	],
+	"id" : "Microsoft.Windows.CppWinRT::@6890427a1f51a3e7e1df",
+	"name" : "Microsoft.Windows.CppWinRT",
+	"paths" : 
+	{
+		"build" : ".",
+		"source" : "."
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		},
+		{
+			"name" : "CMake Rules",
+			"sourceIndexes" : 
+			[
+				1
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 8,
+			"isGenerated" : true,
+			"path" : "G:/onnxruntime-chrisd/build/__cppwinrt/Microsoft.Windows.CppWinRT/output.log",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "G:/onnxruntime-chrisd/build/CMakeFiles/e1397ad70bf523b11a49d4d2246907bb/output.log.rule",
+			"sourceGroupIndex" : 1
+		}
+	],
+	"type" : "INTERFACE_LIBRARY"
+}

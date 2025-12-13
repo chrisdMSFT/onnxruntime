@@ -1,0 +1,150 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"INSTALL",
+			"absl_cc_library",
+			"install"
+		],
+		"files" : 
+		[
+			"G:/onnxruntime-chrisd/build/_deps/abseil_cpp-src/CMake/AbseilHelpers.cmake",
+			"G:/onnxruntime-chrisd/build/_deps/abseil_cpp-src/absl/synchronization/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 18,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 224,
+				"parent" : 1
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 349,
+				"parent" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 37,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 224,
+				"parent" : 4
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 349,
+				"parent" : 4
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 69,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 224,
+				"parent" : 7
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 349,
+				"parent" : 7
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 2,
+			"component" : "Unspecified",
+			"destination" : "lib/pkgconfig",
+			"paths" : 
+			[
+				"G:/onnxruntime-chrisd/build/lib/pkgconfig/absl_graphcycles_internal.pc"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 3,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"_deps/abseil_cpp-build/absl/synchronization/Release/absl_graphcycles_internal.lib"
+			],
+			"targetId" : "graphcycles_internal::@a1dbec9fadd4142423ea",
+			"targetIndex" : 61,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 5,
+			"component" : "Unspecified",
+			"destination" : "lib/pkgconfig",
+			"paths" : 
+			[
+				"G:/onnxruntime-chrisd/build/lib/pkgconfig/absl_kernel_timeout_internal.pc"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 6,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"_deps/abseil_cpp-build/absl/synchronization/Release/absl_kernel_timeout_internal.lib"
+			],
+			"targetId" : "kernel_timeout_internal::@a1dbec9fadd4142423ea",
+			"targetIndex" : 67,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 8,
+			"component" : "Unspecified",
+			"destination" : "lib/pkgconfig",
+			"paths" : 
+			[
+				"G:/onnxruntime-chrisd/build/lib/pkgconfig/absl_synchronization.pc"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 9,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"_deps/abseil_cpp-build/absl/synchronization/Release/absl_synchronization.lib"
+			],
+			"targetId" : "synchronization::@a1dbec9fadd4142423ea",
+			"targetIndex" : 150,
+			"type" : "target"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "_deps/abseil_cpp-build/absl/synchronization",
+		"source" : "G:/onnxruntime-chrisd/build/_deps/abseil_cpp-src/absl/synchronization"
+	}
+}

@@ -1,0 +1,136 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"INSTALL",
+			"absl_cc_library",
+			"install"
+		],
+		"files" : 
+		[
+			"G:/onnxruntime-chrisd/build/_deps/abseil_cpp-src/CMake/AbseilHelpers.cmake",
+			"G:/onnxruntime-chrisd/build/_deps/abseil_cpp-src/absl/numeric/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 17,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 224,
+				"parent" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 46,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 224,
+				"parent" : 3
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 349,
+				"parent" : 3
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 84,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 224,
+				"parent" : 6
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 94,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 224,
+				"parent" : 8
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 2,
+			"component" : "Unspecified",
+			"destination" : "lib/pkgconfig",
+			"paths" : 
+			[
+				"G:/onnxruntime-chrisd/build/lib/pkgconfig/absl_bits.pc"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 4,
+			"component" : "Unspecified",
+			"destination" : "lib/pkgconfig",
+			"paths" : 
+			[
+				"G:/onnxruntime-chrisd/build/lib/pkgconfig/absl_int128.pc"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 5,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"_deps/abseil_cpp-build/absl/numeric/Release/absl_int128.lib"
+			],
+			"targetId" : "int128::@1220ce8925b613a29c62",
+			"targetIndex" : 66,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 7,
+			"component" : "Unspecified",
+			"destination" : "lib/pkgconfig",
+			"paths" : 
+			[
+				"G:/onnxruntime-chrisd/build/lib/pkgconfig/absl_numeric.pc"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 9,
+			"component" : "Unspecified",
+			"destination" : "lib/pkgconfig",
+			"paths" : 
+			[
+				"G:/onnxruntime-chrisd/build/lib/pkgconfig/absl_numeric_representation.pc"
+			],
+			"type" : "file"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "_deps/abseil_cpp-build/absl/numeric",
+		"source" : "G:/onnxruntime-chrisd/build/_deps/abseil_cpp-src/absl/numeric"
+	}
+}

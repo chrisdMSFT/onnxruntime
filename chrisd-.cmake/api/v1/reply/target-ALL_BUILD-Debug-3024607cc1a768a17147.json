@@ -1,0 +1,40 @@
+{
+	"backtrace" : 0,
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : 
+		[
+			"G:/onnxruntime-chrisd/build/_deps/re2-src/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			}
+		]
+	},
+	"dependencies" : 
+	[
+		{
+			"id" : "re2::@8091ef369240a0bad874"
+		},
+		{
+			"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df"
+		}
+	],
+	"folder" : 
+	{
+		"name" : "CMakePredefinedTargets"
+	},
+	"id" : "ALL_BUILD::@8091ef369240a0bad874",
+	"isGeneratorProvided" : true,
+	"name" : "ALL_BUILD",
+	"paths" : 
+	{
+		"build" : "_deps/re2-build",
+		"source" : "G:/onnxruntime-chrisd/build/_deps/re2-src"
+	},
+	"sources" : [],
+	"type" : "UTILITY"
+}

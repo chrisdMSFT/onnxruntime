@@ -1,0 +1,111 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"INSTALL"
+		],
+		"files" : 
+		[
+			"G:/onnxruntime-chrisd/build/_deps/pytorch_cpuinfo-src/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 328,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 331,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 337,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 928,
+				"parent" : 0
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "share/cpuinfo",
+			"paths" : 
+			[
+				"G:/onnxruntime-chrisd/build/_deps/pytorch_cpuinfo-build/cpuinfo-config.cmake"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 2,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"_deps/pytorch_cpuinfo-build/MinSizeRel/cpuinfo.lib"
+			],
+			"targetId" : "cpuinfo::@24d739ede7b8a2cb4fba",
+			"targetIndex" : 27,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 2,
+			"component" : "Unspecified",
+			"destination" : "include",
+			"paths" : 
+			[
+				"G:/onnxruntime-chrisd/build/_deps/pytorch_cpuinfo-src/include/cpuinfo.h"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 3,
+			"component" : "Unspecified",
+			"destination" : "share/cpuinfo",
+			"exportName" : "cpuinfo-targets",
+			"exportTargets" : 
+			[
+				{
+					"id" : "cpuinfo::@24d739ede7b8a2cb4fba",
+					"index" : 27
+				}
+			],
+			"paths" : 
+			[
+				""
+			],
+			"type" : "export"
+		},
+		{
+			"backtrace" : 4,
+			"component" : "Unspecified",
+			"destination" : "lib/pkgconfig",
+			"paths" : 
+			[
+				"G:/onnxruntime-chrisd/build/_deps/pytorch_cpuinfo-build/libcpuinfo.pc"
+			],
+			"type" : "file"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "_deps/pytorch_cpuinfo-build",
+		"source" : "G:/onnxruntime-chrisd/build/_deps/pytorch_cpuinfo-src"
+	}
+}

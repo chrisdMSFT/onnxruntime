@@ -1,0 +1,234 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"INSTALL",
+			"absl_cc_library",
+			"install"
+		],
+		"files" : 
+		[
+			"G:/onnxruntime-chrisd/build/_deps/abseil_cpp-src/CMake/AbseilHelpers.cmake",
+			"G:/onnxruntime-chrisd/build/_deps/abseil_cpp-src/absl/crc/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 16,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 224,
+				"parent" : 1
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 349,
+				"parent" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 32,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 224,
+				"parent" : 4
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 349,
+				"parent" : 4
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 55,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 224,
+				"parent" : 7
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 349,
+				"parent" : 7
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 97,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 224,
+				"parent" : 10
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 109,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 224,
+				"parent" : 12
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 150,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 224,
+				"parent" : 14
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 349,
+				"parent" : 14
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 2,
+			"component" : "Unspecified",
+			"destination" : "lib/pkgconfig",
+			"paths" : 
+			[
+				"G:/onnxruntime-chrisd/build/lib/pkgconfig/absl_crc_cpu_detect.pc"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 3,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"_deps/abseil_cpp-build/absl/crc/Debug/absl_crc_cpu_detect.lib"
+			],
+			"targetId" : "crc_cpu_detect::@6d1d60f19ea6cadf4aea",
+			"targetIndex" : 31,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 5,
+			"component" : "Unspecified",
+			"destination" : "lib/pkgconfig",
+			"paths" : 
+			[
+				"G:/onnxruntime-chrisd/build/lib/pkgconfig/absl_crc_internal.pc"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 6,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"_deps/abseil_cpp-build/absl/crc/Debug/absl_crc_internal.lib"
+			],
+			"targetId" : "crc_internal::@6d1d60f19ea6cadf4aea",
+			"targetIndex" : 32,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 8,
+			"component" : "Unspecified",
+			"destination" : "lib/pkgconfig",
+			"paths" : 
+			[
+				"G:/onnxruntime-chrisd/build/lib/pkgconfig/absl_crc32c.pc"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 9,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"_deps/abseil_cpp-build/absl/crc/Debug/absl_crc32c.lib"
+			],
+			"targetId" : "crc32c::@6d1d60f19ea6cadf4aea",
+			"targetIndex" : 29,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 11,
+			"component" : "Unspecified",
+			"destination" : "lib/pkgconfig",
+			"paths" : 
+			[
+				"G:/onnxruntime-chrisd/build/lib/pkgconfig/absl_non_temporal_arm_intrinsics.pc"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 13,
+			"component" : "Unspecified",
+			"destination" : "lib/pkgconfig",
+			"paths" : 
+			[
+				"G:/onnxruntime-chrisd/build/lib/pkgconfig/absl_non_temporal_memcpy.pc"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 15,
+			"component" : "Unspecified",
+			"destination" : "lib/pkgconfig",
+			"paths" : 
+			[
+				"G:/onnxruntime-chrisd/build/lib/pkgconfig/absl_crc_cord_state.pc"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 16,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"_deps/abseil_cpp-build/absl/crc/Debug/absl_crc_cord_state.lib"
+			],
+			"targetId" : "crc_cord_state::@6d1d60f19ea6cadf4aea",
+			"targetIndex" : 30,
+			"type" : "target"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "_deps/abseil_cpp-build/absl/crc",
+		"source" : "G:/onnxruntime-chrisd/build/_deps/abseil_cpp-src/absl/crc"
+	}
+}

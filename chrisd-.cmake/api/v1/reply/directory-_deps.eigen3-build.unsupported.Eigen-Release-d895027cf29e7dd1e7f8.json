@@ -1,0 +1,78 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"install"
+		],
+		"files" : 
+		[
+			"G:/onnxruntime-chrisd/build/_deps/eigen3-src/unsupported/Eigen/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 24,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 29,
+				"parent" : 0
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 1,
+			"component" : "Devel",
+			"destination" : "include/eigen3/unsupported/Eigen",
+			"paths" : 
+			[
+				"G:/onnxruntime-chrisd/build/_deps/eigen3-src/unsupported/Eigen/AdolcForward",
+				"G:/onnxruntime-chrisd/build/_deps/eigen3-src/unsupported/Eigen/AlignedVector3",
+				"G:/onnxruntime-chrisd/build/_deps/eigen3-src/unsupported/Eigen/ArpackSupport",
+				"G:/onnxruntime-chrisd/build/_deps/eigen3-src/unsupported/Eigen/AutoDiff",
+				"G:/onnxruntime-chrisd/build/_deps/eigen3-src/unsupported/Eigen/BVH",
+				"G:/onnxruntime-chrisd/build/_deps/eigen3-src/unsupported/Eigen/EulerAngles",
+				"G:/onnxruntime-chrisd/build/_deps/eigen3-src/unsupported/Eigen/FFT",
+				"G:/onnxruntime-chrisd/build/_deps/eigen3-src/unsupported/Eigen/IterativeSolvers",
+				"G:/onnxruntime-chrisd/build/_deps/eigen3-src/unsupported/Eigen/KroneckerProduct",
+				"G:/onnxruntime-chrisd/build/_deps/eigen3-src/unsupported/Eigen/LevenbergMarquardt",
+				"G:/onnxruntime-chrisd/build/_deps/eigen3-src/unsupported/Eigen/MatrixFunctions",
+				"G:/onnxruntime-chrisd/build/_deps/eigen3-src/unsupported/Eigen/MPRealSupport",
+				"G:/onnxruntime-chrisd/build/_deps/eigen3-src/unsupported/Eigen/NNLS",
+				"G:/onnxruntime-chrisd/build/_deps/eigen3-src/unsupported/Eigen/NonLinearOptimization",
+				"G:/onnxruntime-chrisd/build/_deps/eigen3-src/unsupported/Eigen/NumericalDiff",
+				"G:/onnxruntime-chrisd/build/_deps/eigen3-src/unsupported/Eigen/OpenGLSupport",
+				"G:/onnxruntime-chrisd/build/_deps/eigen3-src/unsupported/Eigen/Polynomials",
+				"G:/onnxruntime-chrisd/build/_deps/eigen3-src/unsupported/Eigen/SparseExtra",
+				"G:/onnxruntime-chrisd/build/_deps/eigen3-src/unsupported/Eigen/SpecialFunctions",
+				"G:/onnxruntime-chrisd/build/_deps/eigen3-src/unsupported/Eigen/Splines"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 2,
+			"component" : "Devel",
+			"destination" : "include/eigen3/unsupported/Eigen",
+			"paths" : 
+			[
+				"G:/onnxruntime-chrisd/build/_deps/eigen3-src/unsupported/Eigen/src"
+			],
+			"type" : "directory"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "_deps/eigen3-build/unsupported/Eigen",
+		"source" : "G:/onnxruntime-chrisd/build/_deps/eigen3-src/unsupported/Eigen"
+	}
+}

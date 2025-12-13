@@ -1,0 +1,514 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"INSTALL",
+			"absl_cc_library",
+			"install"
+		],
+		"files" : 
+		[
+			"G:/onnxruntime-chrisd/build/_deps/abseil_cpp-src/CMake/AbseilHelpers.cmake",
+			"G:/onnxruntime-chrisd/build/_deps/abseil_cpp-src/absl/flags/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 18,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 224,
+				"parent" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 34,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 224,
+				"parent" : 3
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 349,
+				"parent" : 3
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 55,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 224,
+				"parent" : 6
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 349,
+				"parent" : 6
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 77,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 224,
+				"parent" : 9
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 349,
+				"parent" : 9
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 99,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 224,
+				"parent" : 12
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 349,
+				"parent" : 12
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 116,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 224,
+				"parent" : 15
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 349,
+				"parent" : 15
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 136,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 224,
+				"parent" : 18
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 349,
+				"parent" : 18
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 154,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 224,
+				"parent" : 21
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 349,
+				"parent" : 21
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 179,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 224,
+				"parent" : 24
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 349,
+				"parent" : 24
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 206,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 224,
+				"parent" : 27
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 228,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 224,
+				"parent" : 29
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 349,
+				"parent" : 29
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 253,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 224,
+				"parent" : 32
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 349,
+				"parent" : 32
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 274,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 224,
+				"parent" : 35
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 349,
+				"parent" : 35
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 2,
+			"component" : "Unspecified",
+			"destination" : "lib/pkgconfig",
+			"paths" : 
+			[
+				"G:/onnxruntime-chrisd/build/lib/pkgconfig/absl_flags_path_util.pc"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 4,
+			"component" : "Unspecified",
+			"destination" : "lib/pkgconfig",
+			"paths" : 
+			[
+				"G:/onnxruntime-chrisd/build/lib/pkgconfig/absl_flags_program_name.pc"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 5,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"_deps/abseil_cpp-build/absl/flags/RelWithDebInfo/absl_flags_program_name.lib"
+			],
+			"targetId" : "flags_program_name::@9cf8d36eb874758e84c5",
+			"targetIndex" : 53,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 7,
+			"component" : "Unspecified",
+			"destination" : "lib/pkgconfig",
+			"paths" : 
+			[
+				"G:/onnxruntime-chrisd/build/lib/pkgconfig/absl_flags_config.pc"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 8,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"_deps/abseil_cpp-build/absl/flags/RelWithDebInfo/absl_flags_config.lib"
+			],
+			"targetId" : "flags_config::@9cf8d36eb874758e84c5",
+			"targetIndex" : 48,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 10,
+			"component" : "Unspecified",
+			"destination" : "lib/pkgconfig",
+			"paths" : 
+			[
+				"G:/onnxruntime-chrisd/build/lib/pkgconfig/absl_flags_marshalling.pc"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 11,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"_deps/abseil_cpp-build/absl/flags/RelWithDebInfo/absl_flags_marshalling.lib"
+			],
+			"targetId" : "flags_marshalling::@9cf8d36eb874758e84c5",
+			"targetIndex" : 50,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 13,
+			"component" : "Unspecified",
+			"destination" : "lib/pkgconfig",
+			"paths" : 
+			[
+				"G:/onnxruntime-chrisd/build/lib/pkgconfig/absl_flags_commandlineflag_internal.pc"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 14,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"_deps/abseil_cpp-build/absl/flags/RelWithDebInfo/absl_flags_commandlineflag_internal.lib"
+			],
+			"targetId" : "flags_commandlineflag_internal::@9cf8d36eb874758e84c5",
+			"targetIndex" : 47,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 16,
+			"component" : "Unspecified",
+			"destination" : "lib/pkgconfig",
+			"paths" : 
+			[
+				"G:/onnxruntime-chrisd/build/lib/pkgconfig/absl_flags_commandlineflag.pc"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 17,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"_deps/abseil_cpp-build/absl/flags/RelWithDebInfo/absl_flags_commandlineflag.lib"
+			],
+			"targetId" : "flags_commandlineflag::@9cf8d36eb874758e84c5",
+			"targetIndex" : 46,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 19,
+			"component" : "Unspecified",
+			"destination" : "lib/pkgconfig",
+			"paths" : 
+			[
+				"G:/onnxruntime-chrisd/build/lib/pkgconfig/absl_flags_private_handle_accessor.pc"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 20,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"_deps/abseil_cpp-build/absl/flags/RelWithDebInfo/absl_flags_private_handle_accessor.lib"
+			],
+			"targetId" : "flags_private_handle_accessor::@9cf8d36eb874758e84c5",
+			"targetIndex" : 52,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 22,
+			"component" : "Unspecified",
+			"destination" : "lib/pkgconfig",
+			"paths" : 
+			[
+				"G:/onnxruntime-chrisd/build/lib/pkgconfig/absl_flags_reflection.pc"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 23,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"_deps/abseil_cpp-build/absl/flags/RelWithDebInfo/absl_flags_reflection.lib"
+			],
+			"targetId" : "flags_reflection::@9cf8d36eb874758e84c5",
+			"targetIndex" : 54,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 25,
+			"component" : "Unspecified",
+			"destination" : "lib/pkgconfig",
+			"paths" : 
+			[
+				"G:/onnxruntime-chrisd/build/lib/pkgconfig/absl_flags_internal.pc"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 26,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"_deps/abseil_cpp-build/absl/flags/RelWithDebInfo/absl_flags_internal.lib"
+			],
+			"targetId" : "flags_internal::@9cf8d36eb874758e84c5",
+			"targetIndex" : 49,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 28,
+			"component" : "Unspecified",
+			"destination" : "lib/pkgconfig",
+			"paths" : 
+			[
+				"G:/onnxruntime-chrisd/build/lib/pkgconfig/absl_flags.pc"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 30,
+			"component" : "Unspecified",
+			"destination" : "lib/pkgconfig",
+			"paths" : 
+			[
+				"G:/onnxruntime-chrisd/build/lib/pkgconfig/absl_flags_usage_internal.pc"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 31,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"_deps/abseil_cpp-build/absl/flags/RelWithDebInfo/absl_flags_usage_internal.lib"
+			],
+			"targetId" : "flags_usage_internal::@9cf8d36eb874758e84c5",
+			"targetIndex" : 56,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 33,
+			"component" : "Unspecified",
+			"destination" : "lib/pkgconfig",
+			"paths" : 
+			[
+				"G:/onnxruntime-chrisd/build/lib/pkgconfig/absl_flags_usage.pc"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 34,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"_deps/abseil_cpp-build/absl/flags/RelWithDebInfo/absl_flags_usage.lib"
+			],
+			"targetId" : "flags_usage::@9cf8d36eb874758e84c5",
+			"targetIndex" : 55,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 36,
+			"component" : "Unspecified",
+			"destination" : "lib/pkgconfig",
+			"paths" : 
+			[
+				"G:/onnxruntime-chrisd/build/lib/pkgconfig/absl_flags_parse.pc"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 37,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"_deps/abseil_cpp-build/absl/flags/RelWithDebInfo/absl_flags_parse.lib"
+			],
+			"targetId" : "flags_parse::@9cf8d36eb874758e84c5",
+			"targetIndex" : 51,
+			"type" : "target"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "_deps/abseil_cpp-build/absl/flags",
+		"source" : "G:/onnxruntime-chrisd/build/_deps/abseil_cpp-src/absl/flags"
+	}
+}

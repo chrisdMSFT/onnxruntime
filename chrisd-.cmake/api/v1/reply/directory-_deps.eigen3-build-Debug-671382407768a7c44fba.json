@@ -1,0 +1,100 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"install"
+		],
+		"files" : 
+		[
+			"G:/onnxruntime-chrisd/build/_deps/eigen3-src/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 198,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 209,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 250,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 252,
+				"parent" : 0
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 1,
+			"component" : "Devel",
+			"destination" : "include/eigen3",
+			"paths" : 
+			[
+				"G:/onnxruntime-chrisd/build/_deps/eigen3-src/signature_of_eigen3_matrix_library"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 2,
+			"component" : "Devel",
+			"destination" : "include/eigen3",
+			"paths" : 
+			[
+				"G:/onnxruntime-chrisd/build/_deps/eigen3-src/Eigen"
+			],
+			"type" : "directory"
+		},
+		{
+			"backtrace" : 3,
+			"component" : "Unspecified",
+			"destination" : "share/eigen3/cmake",
+			"exportName" : "Eigen3Targets",
+			"exportTargets" : 
+			[
+				{
+					"id" : "eigen::@a7f6cda76e36d828b47e",
+					"index" : 0
+				}
+			],
+			"paths" : 
+			[
+				""
+			],
+			"type" : "export"
+		},
+		{
+			"backtrace" : 4,
+			"component" : "Unspecified",
+			"destination" : "share/eigen3/cmake",
+			"paths" : 
+			[
+				"G:/onnxruntime-chrisd/build/_deps/eigen3-build/Eigen3Config.cmake",
+				"G:/onnxruntime-chrisd/build/_deps/eigen3-build/Eigen3ConfigVersion.cmake"
+			],
+			"type" : "file"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "_deps/eigen3-build",
+		"source" : "G:/onnxruntime-chrisd/build/_deps/eigen3-src"
+	}
+}
