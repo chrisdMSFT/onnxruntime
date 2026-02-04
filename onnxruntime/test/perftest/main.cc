@@ -133,11 +133,15 @@ int wmain(int argc, wchar_t* argv[]) {
     });
   }
 
+  std::cout << "retval: " << retval << std::endl;
+
   std::cout << "Shutting down Protobuf library..." << std::endl;
   ::google::protobuf::ShutdownProtobufLibrary();
 
   std::cout << "Uninitializing WinML bootstrap..." << std::endl;
   WinAppSDK_WinMLUninitialize();
+
+  std::cout << "~fin~" << std::endl;
 
   return retval;
 }
