@@ -40,6 +40,7 @@ ABSL_FLAG(std::string, F, "",
           " -f \"dimension_denotation1:override_value1 dimension_denotation2 : override_value2... \". Override value must > 0.");
 ABSL_FLAG(std::string, m, "duration", "Specifies the test mode. Value could be 'duration' or 'times'.");
 ABSL_FLAG(std::string, e, "cpu", "Specifies the provider 'cpu','cuda','dnnl','tensorrt', 'nvtensorrtrtx', 'openvino', 'dml', 'acl', 'nnapi', 'coreml', 'qnn', 'snpe', 'rocm', 'migraphx', 'xnnpack', 'vitisai' or 'webgpu'.");
+
 ABSL_FLAG(size_t, r, DefaultPerformanceTestConfig().run_config.repeated_times, "Specifies the repeated times if running in 'times' test mode.");
 ABSL_FLAG(size_t, t, DefaultPerformanceTestConfig().run_config.duration_in_seconds, "Specifies the seconds to run for 'duration' mode.");
 ABSL_FLAG(std::string, p, "", "Specifies the profile name to enable profiling and dump the profile data to the file.");
@@ -160,22 +161,27 @@ ABSL_FLAG(bool, n, DefaultPerformanceTestConfig().run_config.exit_after_session_
 ABSL_FLAG(bool, l, DefaultPerformanceTestConfig().model_info.load_via_path, "Provides file as binary in memory by using fopen before session creation.");
 ABSL_FLAG(bool, g, DefaultPerformanceTestConfig().run_config.enable_cuda_io_binding, "[TensorRT RTX | TensorRT | CUDA] Enables tensor input and output bindings on CUDA before session run.");
 ABSL_FLAG(bool, X, DefaultPerformanceTestConfig().run_config.use_extensions, "Registers custom ops from onnxruntime-extensions.");
+
 ABSL_FLAG(std::string, plugin_ep_libs, "",
           "Specifies a list of plugin execution provider (EP) registration names and their corresponding shared libraries to register.\n"
           "[Usage]: --plugin_ep_libs \"plugin_ep_name_1|plugin_ep_1.dll plugin_ep_name_2|plugin_ep_2.dll ... \"");
+
 ABSL_FLAG(std::string, plugin_eps, "", "Specifies a semicolon-separated list of plugin execution providers (EPs) to use.");
+
 ABSL_FLAG(std::string, plugin_ep_options, "",
           "Specifies provider options for each EP listed in --plugin_eps. Options (key-value pairs) for each EP are separated by space and EPs are separated by semicolons.\n"
           "[Usage]: --plugin_ep_options \"ep_1_option_1_key|ep_1_option_1_value ...;ep_2_option_1_key|ep_2_option_1_value ...;... \" or \n"
           "--plugin_ep_options \";ep_2_option_1_key|ep_2_option_1_value ...;... \" or \n"
           "--plugin_ep_options \"ep_1_option_1_key|ep_1_option_1_value ...;;ep_3_option_1_key|ep_3_option_1_value ...;... \"");
+
 ABSL_FLAG(bool, list_ep_devices, false, "Prints all available device indices and their properties (including metadata). This option makes the program exit early without performing inference.\n");
 ABSL_FLAG(std::string, select_ep_devices, "", "Specifies a semicolon-separated list of device indices to add to the session and run with.");
 ABSL_FLAG(bool, h, false, "Print program usage.");
 
 #ifdef BUILD_WINAPPSDK_PERF_TEST
 
-ABSL_FLAG(std::string, winappsdk_version, "1.8", "The major.minor version used in the PackageFamilyName, e.g. 1.7 will bind to Microsoft.WindowsAppRuntime.1.7_8wekyb3d8bbwe\n");
+ABSL_FLAG(std::string, winappsdk_version, "", "The major.minor version used in the PackageFamilyName, e.g. 1.7 will bind to Microsoft.WindowsAppRuntime.1.7_8wekyb3d8bbwe\n");
+ABSL_FLAG(std::vector<std::string>, winappsdk_register_provider, {}, "Register provider if empty, or register only the providers listed with exact match. Use --list_ep_devices to get the EP names, e.g. OpenVINOExecutionProvider");
 ABSL_FLAG(std::string, required_device_type, "", "Specifies the device type, e.g. cpu, gpu, npu.");
 
 #endif
@@ -489,6 +495,12 @@ bool CommandLineParser::ParseArguments(PerformanceTestConfig& test_config, int a
   }
 
 #ifdef BUILD_WINAPPSDK_PERF_TEST
+
+  // --winappsdk_register_provider
+  {
+    test_config.winappsdk_register_provider = absl::GetFlag(FLAGS_winappsdk_register_provider);
+  }
+
   // --required_device_type
   {
     const auto& required_device_type = absl::GetFlag(FLAGS_required_device_type);
@@ -502,8 +514,7 @@ bool CommandLineParser::ParseArguments(PerformanceTestConfig& test_config, int a
         test_config.required_device_type = OrtHardwareDeviceType::OrtHardwareDeviceType_GPU;
       } else if (required_device_type == "npu") {
         test_config.required_device_type = OrtHardwareDeviceType::OrtHardwareDeviceType_NPU;
-      }
-      else {
+      } else {
         return false;
       }
     }
@@ -516,7 +527,7 @@ bool CommandLineParser::ParseArguments(PerformanceTestConfig& test_config, int a
       return false;
     }
 
-    test_config.winappsdk_version  = winappsdk_version;
+    test_config.winappsdk_version = winappsdk_version;
   }
 
 #endif
