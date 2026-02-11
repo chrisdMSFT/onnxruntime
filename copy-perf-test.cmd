@@ -1,18 +1,14 @@
 @echo off
 REM Script to copy winappsdk_onnxruntime_perf_test.exe and .pdb to OneDrive with date-commitish folder pattern
-REM Usage: copy_perf_test.bat [BuildType] [SourceDir] [ExeDir]
-REM Example: copy_perf_test.bat Release ".\build\Release" bin
+REM Usage: copy_perf_test.bat [BuildType]
+REM Example: copy_perf_test.bat RelWithDebInfo
 
 setlocal enabledelayedexpansion
 
 set BuildType=%1
-if "!BuildType!"=="" set BuildType=Release
+if "!BuildType!"=="" set BuildType=RelWithDebInfo
 
-set SourceDir=%2
-if "!SourceDir!"=="" set SourceDir=.\build\Release
-
-set ExeDir=%3
-if "!ExeDir!"=="" set ExeDir=bin
+set SourceDir=build\!BuildType!
 
 REM Get the current date in YYMMDD format
 for /f "tokens=2-4 delims=/ " %%a in ('date /t') do (
@@ -39,8 +35,8 @@ set DestBase=C:\Users\chrisd\OneDrive - Microsoft\winappsdk_onnxruntime_perf_tes
 set DestFolder=!DestBase!\!FolderName!
 
 REM Verify source files exist
-set ExePath=!SourceDir!\!ExeDir!\winappsdk_onnxruntime_perf_test.exe
-set PdbPath=!SourceDir!\!ExeDir!\winappsdk_onnxruntime_perf_test.pdb
+set ExePath=!SourceDir!\winappsdk_onnxruntime_perf_test.exe
+set PdbPath=!SourceDir!\winappsdk_onnxruntime_perf_test.pdb
 
 if not exist "!ExePath!" (
     echo Error: Executable not found: !ExePath!
