@@ -17,7 +17,6 @@ const OrtApi* g_ort = NULL;
 
 int real_main(int argc, wchar_t* argv[]) {
 
-
   perftest::PerformanceTestConfig test_config;
   if (!perftest::CommandLineParser::ParseArguments(test_config, argc, argv)) {
     fprintf(stderr, "%s", "See 'onnxruntime_perf_test --help'.");
@@ -32,7 +31,9 @@ int real_main(int argc, wchar_t* argv[]) {
   }
 
   // Initialize WinAppSDK, WinML and EP Providers.
-  WinAppSDK_WinMLInitializeMLAndRegisterAllProviders(test_config.winappsdk_version.c_str());
+  WinAppSDK_WinMLInitializeMLAndRegisterAllProviders(
+    test_config.winappsdk_version.c_str(),
+    test_config.winappsdk_register_provider);
 
   // Initialize ONNX Runtime API
   std::cout << "ONNX Runtime C++ API version: " << ORT_API_VERSION << std::endl;

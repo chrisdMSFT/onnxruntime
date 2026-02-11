@@ -6,8 +6,8 @@
 #include <core/session/onnxruntime_c_api.h>
 #include <core/session/onnxruntime_cxx_api.h>
 
-// #include <vector>
-
+#include <vector>
+#include <algorithm>
 #include <string>
 #include <locale>
 #include <codecvt>
@@ -48,8 +48,6 @@ static wchar_t* g_packageDependencyId = nullptr;
 static HRESULT g_initializationResult = E_NOT_VALID_STATE;
 static PACKAGEDEPENDENCY_CONTEXT g_packageContext = nullptr;
 
-void WinAppSDK_FindAndRegisterAllProviders();
-
 static inline bool IsRunningOnArm64()
 {
 #if defined(_M_ARM64EC) || defined(_M_ARM64)
@@ -79,6 +77,7 @@ static inline PackageDependencyProcessorArchitectures GetPackageDependencyProces
 }
 
 static std::wstring g_expectedFrameworkFamilyName;
+static std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> g_to_wstring_converter;
 
 HRESULT WinAppSDK_WinMLInitialize(const char* const winappsdk_version)
 {
@@ -87,10 +86,8 @@ HRESULT WinAppSDK_WinMLInitialize(const char* const winappsdk_version)
         return g_initializationResult;
     }
 
-    std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> to_wstring_converter;
-
     std::wstring packageFamilyName = L"Microsoft.WindowsAppRuntime." +
-        to_wstring_converter.from_bytes(winappsdk_version)
+        g_to_wstring_converter.from_bytes(winappsdk_version)
         + L"_8wekyb3d8bbwe";
 
     std::wcout << "[WinAppSDK] package_family_name:" << packageFamilyName << std::endl;
@@ -141,40 +138,6 @@ HRESULT WinAppSDK_WinMLInitialize(const char* const winappsdk_version)
     }
 
     return g_initializationResult;
-}
-
-void WinAppSDK_WinMLInitializeMLAndRegisterAllProviders(const char* const winappsdk_version)
-{
-    HRESULT hr = WinAppSDK_WinMLInitialize(winappsdk_version);
-    if (FAILED(hr))
-    {
-        throw winrt::hresult_error(hr);
-    }
-
-    WinAppSDK_FindAndRegisterAllProviders();
-}
-
-void WinAppSDK_WinMLUninitialize()
-{
-    if (g_packageDependencyId)
-    {
-        ::HeapFree(::GetProcessHeap(), 0, g_packageDependencyId);
-        g_packageDependencyId = nullptr;
-    }
-
-    if (g_packageFullName)
-    {
-        ::HeapFree(::GetProcessHeap(), 0, g_packageFullName);
-        g_packageFullName = nullptr;
-    }
-
-    if (g_packageContext)
-    {
-        ::RemovePackageDependency(g_packageContext);
-        g_packageContext = nullptr;
-    }
-
-    g_initializationResult = E_NOT_VALID_STATE;
 }
 
 extern "C" const OrtApiBase* __cdecl OrtGetApiBase() noexcept
@@ -267,21 +230,71 @@ const char* execution_provider_ready_state_string[] = {
     "NotReady",
     "NotPresent"};
 
-void WinAppSDK_FindAndRegisterAllProviders()
+void WinAppSDK_FindAndRegisterAllProviders(const std::vector<std::string>& provider_list)
 {
+    std::cout << "[WinAppSDK] WinAppSDK_FindAndRegisterAllProviders" << std::endl;
+
     auto catalog = winrt::Microsoft::Windows::AI::MachineLearning::ExecutionProviderCatalog::GetDefault();
 
     auto providers = catalog.FindAllProviders();
     for (const auto& provider : providers) {
-        std::wcout << "[WinAppSDK] Provider: " << provider.Name().c_str();
+        std::string provider_name = g_to_wstring_converter.to_bytes(provider.Name().c_str());
+
+        // If provider_list is not empty, only register providers that match
+        if (!provider_list.empty()) {
+            // Check if this provider is in the list
+            auto it = std::find(provider_list.begin(), provider_list.end(), provider_name);
+            if (it == provider_list.end()) {
+                std::cout << "[WinAppSDK] Skipping provider: " << provider_name << std::endl;
+                continue;
+            }
+        }
+
+        std::cout << "[WinAppSDK] Provider: " << provider_name;
         auto readyState = provider.ReadyState();
-        std::wcout << "[WinAppSDK]  Ready state: " << execution_provider_ready_state_string[static_cast<int>(readyState)] << std::endl;
+        std::cout << "[WinAppSDK]  Ready state: " << execution_provider_ready_state_string[static_cast<int>(readyState)] << std::endl;
 
         auto ensure_ready_result = provider.EnsureReadyAsync().get();
-        std::wcout << "[WinAppSDK]  ensure_ready_result:" << ensure_ready_result_string[static_cast<int>(ensure_ready_result.Status())];
-        std::wcout << " DiagnosticText:" << ensure_ready_result.DiagnosticText().c_str() << std::endl;
+        std::cout << "[WinAppSDK]  ensure_ready_result:" << ensure_ready_result_string[static_cast<int>(ensure_ready_result.Status())];
+        // std::cout << " DiagnosticText:" << g_to_wstring_converter.to_bytes(ensure_ready_result.DiagnosticText()) << std::endl;
 
         auto registration_result = provider.TryRegister();
-        std::wcout << "[WinAppSDK]  registration_result:" << (registration_result ? "true" : "false") << std::endl;
+        std::cout << "[WinAppSDK]  registration_result:" << (registration_result ? "true" : "false") << std::endl;
     }
+}
+
+void WinAppSDK_WinMLInitializeMLAndRegisterAllProviders(
+    const char* const winappsdk_version,
+    const std::vector<std::string>& provider_list)
+{
+    HRESULT hr = WinAppSDK_WinMLInitialize(winappsdk_version);
+    if (FAILED(hr))
+    {
+        throw winrt::hresult_error(hr);
+    }
+
+    WinAppSDK_FindAndRegisterAllProviders(provider_list);
+}
+
+void WinAppSDK_WinMLUninitialize()
+{
+    if (g_packageDependencyId)
+    {
+        ::HeapFree(::GetProcessHeap(), 0, g_packageDependencyId);
+        g_packageDependencyId = nullptr;
+    }
+
+    if (g_packageFullName)
+    {
+        ::HeapFree(::GetProcessHeap(), 0, g_packageFullName);
+        g_packageFullName = nullptr;
+    }
+
+    if (g_packageContext)
+    {
+        ::RemovePackageDependency(g_packageContext);
+        g_packageContext = nullptr;
+    }
+
+    g_initializationResult = E_NOT_VALID_STATE;
 }
