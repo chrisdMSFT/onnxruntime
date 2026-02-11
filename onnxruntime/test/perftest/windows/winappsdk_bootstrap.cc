@@ -6,8 +6,6 @@
 #include <core/session/onnxruntime_c_api.h>
 #include <core/session/onnxruntime_cxx_api.h>
 
-#include <vector>
-#include <algorithm>
 #include <string>
 #include <locale>
 #include <codecvt>
