@@ -25,6 +25,10 @@ if(NOT CPPWINRT_VERSION)
   message(FATAL_ERROR "Requires CPPWINRT_VERSION to be set")
 endif()
 
+if(NOT CPPWINRT_VERSION MATCHES "^[0-9]+\\.[0-9]+\\.[0-9]+(\\.[0-9]+)?(-[a-zA-Z0-9]+)?$")
+  message(FATAL_ERROR "CPPWINRT_VERSION '${CPPWINRT_VERSION}' does not look like a valid version (expected X.Y.Z[.W][-tag])")
+endif()
+
 message(STATUS "Using CPPWINRT_VERSION: ${CPPWINRT_VERSION}")
 
 # [WinAppSDK]  Fetch and setup all the WinAppSDK dependencies

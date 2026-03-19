@@ -86,18 +86,20 @@ OnnxRuntimeTestSession::OnnxRuntimeTestSession(Ort::Env& env, std::random_device
   // Select EP devices by provided device index
   // if (performance_test_config.has_required_device_type) {
 
-  for (int index = 0; index < ep_devices.size(); ++index) {
+  for (size_t index = 0; index < ep_devices.size(); ++index) {
     Ort::ConstEpDevice& device = ep_devices[index];
 
-    fprintf(stdout, "[WinML EP] EP Device [Index: %d, Name: %s]\n", static_cast<int>(index), device.EpName());
+    fprintf(stdout, "[WinML EP] EP Device [Index: %zu, Name: %s]\n", index, device.EpName());
 
-    if (device.Device().Type() == performance_test_config.required_device_type && performance_test_config.machine_config.provider_type_name == device.EpName()) {
+    if ((!performance_test_config.has_required_device_type ||
+         device.Device().Type() == performance_test_config.required_device_type) &&
+        performance_test_config.machine_config.provider_type_name == device.EpName()) {
       added_ep_devices[device.EpName()].push_back(device);
       provider_name_.append(device.EpName());
       provider_name_.append("|");
       ep_list.push_back(device.EpName());
 
-      fprintf(stdout, "[WinML EP] EP Device [Index: %d, Name: %s] has been added to session.\n", index, device.EpName());
+      fprintf(stdout, "[WinML EP] EP Device [Index: %zu, Name: %s] has been added to session.\n", index, device.EpName());
     }
   }
 
@@ -141,7 +143,6 @@ OnnxRuntimeTestSession::OnnxRuntimeTestSession(Ort::Env& env, std::random_device
     session_options.AppendExecutionProvider_V2(env, devices, ep_options_map[ep]);
   }
 
-  provider_name_ = performance_test_config.machine_config.provider_type_name;
   std::unordered_map<std::string, std::string> provider_options;
 
   if (performance_test_config.run_config.enable_cpu_mem_arena) {

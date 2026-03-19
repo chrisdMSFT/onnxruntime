@@ -184,7 +184,10 @@ extern "C" const OrtApiBase* __cdecl OrtGetApiBase() noexcept
             return nullptr;
         }
 
-        // Build path to onnxruntime.dll and load it
+        // Build path to onnxruntime.dll and load it.
+        // Note: The module is intentionally never freed — ORT API function pointers
+        // returned by OrtGetApiBase() point into this DLL and must remain valid for
+        // the lifetime of the process.
         std::wstring onnxRuntimePath = std::wstring(frameworkPackagePath) + L"\\onnxruntime.dll";
         HMODULE onnxruntimeModule = LoadLibraryExW(onnxRuntimePath.c_str(), nullptr, LOAD_WITH_ALTERED_SEARCH_PATH);
         if (!onnxruntimeModule)
