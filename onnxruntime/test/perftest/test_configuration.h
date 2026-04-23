@@ -94,6 +94,16 @@ struct PerformanceTestConfig {
   std::string selected_ep_device_indices;
   std::vector<std::pair<std::string, std::string>> filter_ep_device_kv_pairs;
   bool list_available_ep_devices = false;
+
+#ifdef BUILD_WINAPPSDK_PERF_TEST
+
+  std::string winappsdk_version;
+  std::vector<std::string> winappsdk_register_provider;
+
+  bool has_required_device_type = false;
+  OrtHardwareDeviceType required_device_type = OrtHardwareDeviceType::OrtHardwareDeviceType_CPU;
+
+  #endif
 };
 
 }  // namespace perftest
