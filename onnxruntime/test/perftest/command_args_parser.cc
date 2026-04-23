@@ -185,15 +185,19 @@ ABSL_FLAG(bool, n, DefaultPerformanceTestConfig().run_config.exit_after_session_
 ABSL_FLAG(bool, l, DefaultPerformanceTestConfig().model_info.load_via_path, "Provides file as binary in memory by using fopen before session creation.");
 ABSL_FLAG(bool, g, DefaultPerformanceTestConfig().run_config.enable_cuda_io_binding, "[TensorRT RTX | TensorRT | CUDA] Enables tensor input and output bindings on CUDA before session run.");
 ABSL_FLAG(bool, X, DefaultPerformanceTestConfig().run_config.use_extensions, "Registers custom ops from onnxruntime-extensions.");
+
 ABSL_FLAG(std::string, plugin_ep_libs, "",
           "Specifies a list of plugin execution provider (EP) registration names and their corresponding shared libraries to register.\n"
           "[Usage]: --plugin_ep_libs \"plugin_ep_name_1|plugin_ep_1.dll plugin_ep_name_2|plugin_ep_2.dll ... \"");
+
 ABSL_FLAG(std::string, plugin_eps, "", "Specifies a semicolon-separated list of plugin execution providers (EPs) to use.");
+
 ABSL_FLAG(std::string, plugin_ep_options, "",
           "Specifies provider options for each EP listed in --plugin_eps. Options (key-value pairs) for each EP are separated by space and EPs are separated by semicolons.\n"
           "[Usage]: --plugin_ep_options \"ep_1_option_1_key|ep_1_option_1_value ...;ep_2_option_1_key|ep_2_option_1_value ...;... \" or \n"
           "--plugin_ep_options \";ep_2_option_1_key|ep_2_option_1_value ...;... \" or \n"
           "--plugin_ep_options \"ep_1_option_1_key|ep_1_option_1_value ...;;ep_3_option_1_key|ep_3_option_1_value ...;... \"");
+
 ABSL_FLAG(bool, list_ep_devices, false, "Prints all available device indices and their properties (including metadata). This option makes the program exit early without performing inference.\n");
 ABSL_FLAG(std::string, select_ep_devices, "", "Specifies a semicolon-separated list of device indices to add to the session and run with.");
 ABSL_FLAG(std::string, filter_ep_devices, "",
@@ -207,6 +211,14 @@ ABSL_FLAG(std::string, compile_model_path, "model_ctx.onnx", "The compiled model
 ABSL_FLAG(bool, compile_binary_embed, DefaultPerformanceTestConfig().run_config.compile_binary_embed, "Embed binary blob within EP context node");
 ABSL_FLAG(bool, compile_only, DefaultPerformanceTestConfig().run_config.compile_only, "Only compile EP context model without running it");
 ABSL_FLAG(bool, h, false, "Print program usage.");
+
+#ifdef BUILD_WINAPPSDK_PERF_TEST
+
+ABSL_FLAG(std::string, winappsdk_version, "1.8", "The major.minor version used in the PackageFamilyName, e.g. 1.7 will bind to Microsoft.WindowsAppRuntime.1.7_8wekyb3d8bbwe\n");
+ABSL_FLAG(std::vector<std::string>, winappsdk_register_provider, {}, "Register provider if empty, or register only the providers listed with exact match. Use --list_ep_devices to get the EP names, e.g. OpenVINOExecutionProvider");
+ABSL_FLAG(std::string, required_device_type, "", "Specifies the device type, e.g. cpu, gpu, npu.");
+
+#endif
 
 namespace onnxruntime {
 namespace perftest {
@@ -546,12 +558,6 @@ bool CommandLineParser::ParseArguments(PerformanceTestConfig& test_config, int a
     if (!plugin_ep_options.empty()) test_config.run_config.ep_runtime_config_string = ToPathString(plugin_ep_options);
   }
 
-  // --list_ep_devices
-  if (absl::GetFlag(FLAGS_list_ep_devices)) {
-    test_config.list_available_ep_devices = true;
-    return true;
-  }
-
   // --select_ep_devices
   {
     const auto& select_ep_devices = absl::GetFlag(FLAGS_select_ep_devices);
@@ -574,6 +580,33 @@ bool CommandLineParser::ParseArguments(PerformanceTestConfig& test_config, int a
     }
   }
 
+#ifdef BUILD_WINAPPSDK_PERF_TEST
+
+  // --winappsdk_register_provider
+  {
+    test_config.winappsdk_register_provider = absl::GetFlag(FLAGS_winappsdk_register_provider);
+  }
+
+  // --required_device_type
+  {
+    const auto& required_device_type = absl::GetFlag(FLAGS_required_device_type);
+
+    if (!required_device_type.empty()) {
+      test_config.has_required_device_type = true;
+
+      if (required_device_type == "cpu") {
+        test_config.required_device_type = OrtHardwareDeviceType::OrtHardwareDeviceType_CPU;
+      } else if (required_device_type == "gpu") {
+        test_config.required_device_type = OrtHardwareDeviceType::OrtHardwareDeviceType_GPU;
+      } else if (required_device_type == "npu") {
+        test_config.required_device_type = OrtHardwareDeviceType::OrtHardwareDeviceType_NPU;
+      }
+      else {
+        return false;
+      }
+    }
+  }
+
   // --compile_ep_context
   test_config.run_config.compile_ep_context = absl::GetFlag(FLAGS_compile_ep_context);
 
@@ -586,6 +619,24 @@ bool CommandLineParser::ParseArguments(PerformanceTestConfig& test_config, int a
 
   // --compile_only
   test_config.run_config.compile_only = absl::GetFlag(FLAGS_compile_only);
+
+  // --winappsdk_version
+  {
+    const auto& winappsdk_version = absl::GetFlag(FLAGS_winappsdk_version);
+    if (winappsdk_version.empty()) {
+      return false;
+    }
+
+    test_config.winappsdk_version = winappsdk_version;
+  }
+
+#endif
+
+  // --list_ep_devices
+  if (absl::GetFlag(FLAGS_list_ep_devices)) {
+    test_config.list_available_ep_devices = true;
+    return true;
+  }
 
   if (positional.size() == 2) {
     test_config.model_info.model_file_path = ToPathString(positional[1]);
