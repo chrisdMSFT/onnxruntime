@@ -1447,8 +1447,9 @@ if (NOT onnxruntime_ENABLE_TRAINING_TORCH_INTEROP)
     file(GLOB onnxruntime_perf_test_src CONFIGURE_DEPENDS
       ${onnxruntime_perf_test_src_patterns}
       )
-    # WinAppSDK bootstrap is only used by the winappsdk_onnxruntime_perf_test target.
+    # WinML standalone files are only used by the winappsdk_onnxruntime_perf_test target.
     list(FILTER onnxruntime_perf_test_src EXCLUDE REGEX ".*/winappsdk_bootstrap\\.(cc|h)$")
+    list(FILTER onnxruntime_perf_test_src EXCLUDE REGEX ".*/winml_standalone\\.(cc|h)$")
     onnxruntime_add_executable(onnxruntime_perf_test ${onnxruntime_perf_test_src} ${ONNXRUNTIME_ROOT}/core/platform/path_lib.cc)
 
     # ABSL_FLAGS_STRIP_NAMES is set to 1 by default to disable flag registration when building for Android, iPhone, and "embedded devices".
