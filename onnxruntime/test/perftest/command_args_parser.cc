@@ -212,9 +212,8 @@ ABSL_FLAG(bool, compile_binary_embed, DefaultPerformanceTestConfig().run_config.
 ABSL_FLAG(bool, compile_only, DefaultPerformanceTestConfig().run_config.compile_only, "Only compile EP context model without running it");
 ABSL_FLAG(bool, h, false, "Print program usage.");
 
-#ifdef BUILD_WINAPPSDK_PERF_TEST
+#ifdef BUILD_WINML_STANDALONE_PERF_TEST
 
-ABSL_FLAG(std::string, winappsdk_version, "1.8", "The major.minor version used in the PackageFamilyName, e.g. 1.7 will bind to Microsoft.WindowsAppRuntime.1.7_8wekyb3d8bbwe\n");
 ABSL_FLAG(std::vector<std::string>, winappsdk_register_provider, {}, "Register provider if empty, or register only the providers listed with exact match. Use --list_ep_devices to get the EP names, e.g. OpenVINOExecutionProvider");
 ABSL_FLAG(std::string, required_device_type, "", "Specifies the device type, e.g. cpu, gpu, npu.");
 
@@ -580,7 +579,7 @@ bool CommandLineParser::ParseArguments(PerformanceTestConfig& test_config, int a
     }
   }
 
-#ifdef BUILD_WINAPPSDK_PERF_TEST
+#ifdef BUILD_WINML_STANDALONE_PERF_TEST
 
   // --winappsdk_register_provider
   {
@@ -619,16 +618,6 @@ bool CommandLineParser::ParseArguments(PerformanceTestConfig& test_config, int a
 
   // --compile_only
   test_config.run_config.compile_only = absl::GetFlag(FLAGS_compile_only);
-
-  // --winappsdk_version
-  {
-    const auto& winappsdk_version = absl::GetFlag(FLAGS_winappsdk_version);
-    if (winappsdk_version.empty()) {
-      return false;
-    }
-
-    test_config.winappsdk_version = winappsdk_version;
-  }
 
 #endif
 

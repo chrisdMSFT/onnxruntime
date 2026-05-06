@@ -21,17 +21,7 @@ if(onnxruntime_USE_CUDA OR onnxruntime_USE_NV OR onnxruntime_USE_TENSORRT)
   message(FATAL_ERROR "Unexpected - CUDA/NV/TensorRT usage in winappsdk_onnxruntime_perf_test")
 endif()
 
-if(NOT CPPWINRT_VERSION)
-  message(FATAL_ERROR "Requires CPPWINRT_VERSION to be set")
-endif()
-
-if(NOT CPPWINRT_VERSION MATCHES "^[0-9]+\\.[0-9]+\\.[0-9]+(\\.[0-9]+)?(-[a-zA-Z0-9]+)?$")
-  message(FATAL_ERROR "CPPWINRT_VERSION '${CPPWINRT_VERSION}' does not look like a valid version (expected X.Y.Z[.W][-tag])")
-endif()
-
-message(STATUS "Using CPPWINRT_VERSION: ${CPPWINRT_VERSION}")
-
-# [WinAppSDK]  Fetch and setup all the WinAppSDK dependencies
+# [WinML Standalone] Fetch NuGet helper and download standalone WinML package
 include(FetchContent)
 
 FetchContent_Declare(
@@ -44,17 +34,14 @@ FetchContent_MakeAvailable(NuGetCMakePackage)
 
 add_nuget_packages(
   PACKAGES
-  Microsoft.Windows.CppWinRT ${CPPWINRT_VERSION}
-  Microsoft.Windows.ImplementationLibrary 1.0.250325.1
-  Microsoft.WindowsAppSDK.Runtime 2.0.0-experimental3
-  Microsoft.WindowsAppSDK.Foundation 2.0.8-experimental
-  Microsoft.WindowsAppSDK.InteractiveExperiences 1.8.251104001
-  Microsoft.WindowsAppSDK.ML 2.0.44-experimental
+  Microsoft.Windows.AI.MachineLearning 2.0.297-preview
+  PRERELEASE ON
 )
 
-find_package(Microsoft.WindowsAppSDK.ML CONFIG REQUIRED)
-find_package(Microsoft.Windows.ImplementationLibrary CONFIG REQUIRED)
-
+# Point find_package to the NuGet package's CMake config
+get_property(_winml_nuget_location GLOBAL PROPERTY "NUGET_LOCATION-MICROSOFT_WINDOWS_AI_MACHINELEARNING")
+set(microsoft.windows.ai.machinelearning_DIR "${_winml_nuget_location}/build/cmake" CACHE PATH "" FORCE)
+find_package(microsoft.windows.ai.machinelearning CONFIG REQUIRED)
 
 #-------------------------------------------------------------------------------
 
@@ -73,6 +60,9 @@ file(GLOB winappsdk_onnxruntime_perf_test_src CONFIGURE_DEPENDS
   ${winappsdk_onnxruntime_perf_test_src_patterns}
 )
 
+# Exclude the old WinAppSDK bootstrap file (replaced by winml_standalone.cc)
+list(FILTER winappsdk_onnxruntime_perf_test_src EXCLUDE REGEX "winappsdk_bootstrap\\.(cc|h)$")
+
 # EXE
 onnxruntime_add_executable(winappsdk_onnxruntime_perf_test
   ${winappsdk_onnxruntime_perf_test_src}
@@ -89,19 +79,14 @@ target_include_directories(winappsdk_onnxruntime_perf_test PRIVATE ${onnx_test_r
 target_compile_definitions(winappsdk_onnxruntime_perf_test
   PRIVATE
   ORT_API_MANUAL_INIT
-  BUILD_WINAPPSDK_PERF_TEST
-  MICROSOFT_WINDOWSAPPSDK_ML_DISABLE_AUTOINITIALIZE
+  BUILD_WINML_STANDALONE_PERF_TEST
 )
 
-# ORT_API_MANUAL_INIT must be consistent across all linked objects (enforced by
-# #pragma detect_mismatch in onnxruntime_cxx_api.h). Propagate it to the
-# static libraries we link against.
+# ORT_API_MANUAL_INIT must be consistent across all linked objects
 target_compile_definitions(onnx_test_runner_common PRIVATE ORT_API_MANUAL_INIT)
 target_compile_definitions(onnxruntime_test_utils PRIVATE ORT_API_MANUAL_INIT)
 
-# ABSL_FLAGS_STRIP_NAMES is set to 1 by default to disable flag registration when building for Android, iPhone, and "embedded devices".
-# See the issue: https://github.com/abseil/abseil-cpp/issues/1875
-# We set it to 0 for all builds to be able to use ABSL flags for onnxruntime_perf_test.
+# ABSL_FLAGS_STRIP_NAMES
 target_compile_definitions(winappsdk_onnxruntime_perf_test PRIVATE ABSL_FLAGS_STRIP_NAMES=0)
 
 target_link_libraries(winappsdk_onnxruntime_perf_test
@@ -117,11 +102,20 @@ target_link_libraries(winappsdk_onnxruntime_perf_test
 
   Threads::Threads
 
-  Microsoft.Windows.CppWinRT
-  Microsoft.Windows.ImplementationLibrary
-  Microsoft.WindowsAppSDK.Foundation
-  Microsoft.WindowsAppSDK.ML
+  WindowsML::Api
+)
 
-  # Microsoft.WindowsAppSDK.ML_Framework # Not needed, as target provides it's own custom implementaiton.
-  onecoreuap.lib # but you need this for the appmodel APIs.
+# Copy runtime DLLs to build output so the EXE can run in-place
+add_custom_command(TARGET winappsdk_onnxruntime_perf_test POST_BUILD
+  COMMAND ${CMAKE_COMMAND} -E copy_if_different
+    $<TARGET_PROPERTY:WindowsML::Api,IMPORTED_LOCATION>
+    "$<TARGET_FILE_DIR:winappsdk_onnxruntime_perf_test>"
+  COMMAND ${CMAKE_COMMAND} -E copy_if_different
+    "${WINML_BINARY_DIR}/onnxruntime.dll"
+    "$<TARGET_FILE_DIR:winappsdk_onnxruntime_perf_test>"
+  COMMAND ${CMAKE_COMMAND} -E copy_if_different
+    "${WINML_BINARY_DIR}/DirectML.dll"
+    "$<TARGET_FILE_DIR:winappsdk_onnxruntime_perf_test>"
+  VERBATIM
+  COMMENT "Copying WinML runtime DLLs (Microsoft.Windows.AI.MachineLearning.dll, onnxruntime.dll, DirectML.dll)"
 )
