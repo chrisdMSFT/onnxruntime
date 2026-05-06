@@ -60,9 +60,6 @@ file(GLOB winml_standalone_perf_test_src CONFIGURE_DEPENDS
   ${winml_standalone_perf_test_src_patterns}
 )
 
-# Exclude the old WinAppSDK bootstrap file (replaced by winml_standalone.cc)
-list(FILTER winml_standalone_perf_test_src EXCLUDE REGEX "winappsdk_bootstrap\\.(cc|h)$")
-
 # EXE
 onnxruntime_add_executable(winml_standalone_perf_test
   ${winml_standalone_perf_test_src}

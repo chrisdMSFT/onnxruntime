@@ -1448,7 +1448,6 @@ if (NOT onnxruntime_ENABLE_TRAINING_TORCH_INTEROP)
       ${onnxruntime_perf_test_src_patterns}
       )
     # WinML standalone files are only used by the winml_standalone_perf_test target.
-    list(FILTER onnxruntime_perf_test_src EXCLUDE REGEX ".*/winappsdk_bootstrap\\.(cc|h)$")
     list(FILTER onnxruntime_perf_test_src EXCLUDE REGEX ".*/winml_standalone\\.(cc|h)$")
     onnxruntime_add_executable(onnxruntime_perf_test ${onnxruntime_perf_test_src} ${ONNXRUNTIME_ROOT}/core/platform/path_lib.cc)
 
