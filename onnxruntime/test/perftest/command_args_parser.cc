@@ -214,7 +214,7 @@ ABSL_FLAG(bool, h, false, "Print program usage.");
 
 #ifdef BUILD_WINML_STANDALONE_PERF_TEST
 
-ABSL_FLAG(std::vector<std::string>, winappsdk_register_provider, {}, "Register provider if empty, or register only the providers listed with exact match. Use --list_ep_devices to get the EP names, e.g. OpenVINOExecutionProvider");
+ABSL_FLAG(std::vector<std::string>, winml_register_provider, {}, "Register provider if empty, or register only the providers listed with exact match. Use --list_ep_devices to get the EP names, e.g. OpenVINOExecutionProvider");
 ABSL_FLAG(std::string, required_device_type, "", "Specifies the device type, e.g. cpu, gpu, npu.");
 
 #endif
@@ -581,9 +581,9 @@ bool CommandLineParser::ParseArguments(PerformanceTestConfig& test_config, int a
 
 #ifdef BUILD_WINML_STANDALONE_PERF_TEST
 
-  // --winappsdk_register_provider
+  // --winml_register_provider
   {
-    test_config.winappsdk_register_provider = absl::GetFlag(FLAGS_winappsdk_register_provider);
+    test_config.winml_register_provider = absl::GetFlag(FLAGS_winml_register_provider);
   }
 
   // --required_device_type

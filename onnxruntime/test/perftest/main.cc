@@ -44,6 +44,10 @@ int real_main(int argc, char* argv[]) {
   // Try the compile-time version first, then fall back to older versions.
   {
     const OrtApiBase* api_base = OrtGetApiBase();
+    if (api_base == nullptr) {
+      fprintf(stderr, "[WinML Standalone] Failed to get OrtApiBase (onnxruntime.dll not found or failed to load).\n");
+      return -1;
+    }
     g_ort = api_base->GetApi(ORT_API_VERSION);
     if (g_ort == nullptr) {
       for (uint32_t v = ORT_API_VERSION - 1; v >= 1; --v) {
@@ -87,7 +91,7 @@ int real_main(int argc, char* argv[]) {
 
 #ifdef BUILD_WINML_STANDALONE_PERF_TEST
   // Initialize WinML standalone and register EP providers.
-  WinML_InitializeAndRegisterAllProviders(env, test_config.winappsdk_register_provider);
+  WinML_InitializeAndRegisterAllProviders(env, test_config.winml_register_provider);
   std::cout << "ONNX Runtime C++ API version: " << ORT_API_VERSION << std::endl;
 
   // Cleanup WinML on scope exit (must happen before env destruction)

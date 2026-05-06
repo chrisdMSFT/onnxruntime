@@ -97,7 +97,7 @@ struct PerformanceTestConfig {
 
 #ifdef BUILD_WINML_STANDALONE_PERF_TEST
 
-  std::vector<std::string> winappsdk_register_provider;
+  std::vector<std::string> winml_register_provider;
 
   bool has_required_device_type = false;
   OrtHardwareDeviceType required_device_type = OrtHardwareDeviceType::OrtHardwareDeviceType_CPU;

@@ -1,24 +1,24 @@
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License.
 
-if(NOT onnxruntime_BUILD_WINAPPSDK_PERF_TEST)
-  message(FATAL_ERROR "onnxruntime_BUILD_WINAPPSDK_PERF_TEST is OFF")
+if(NOT onnxruntime_BUILD_WINML_STANDALONE_PERF_TEST)
+  message(FATAL_ERROR "onnxruntime_BUILD_WINML_STANDALONE_PERF_TEST is OFF")
 endif()
 
 if(NOT WIN32)
-  message(FATAL_ERROR "winappsdk_onnxruntime_perf_test is only supported on Windows")
+  message(FATAL_ERROR "winml_standalone_perf_test is only supported on Windows")
 endif()
 
 if(NOT MSVC)
-  message(FATAL_ERROR "winappsdk_onnxruntime_perf_test is only supported with MSVC")
+  message(FATAL_ERROR "winml_standalone_perf_test is only supported with MSVC")
 endif()
 
 if(NOT onnxruntime_BUILD_SHARED_LIB)
-  message(FATAL_ERROR "winappsdk_onnxruntime_perf_test requires onnxruntime_BUILD_SHARED_LIB to be ON")
+  message(FATAL_ERROR "winml_standalone_perf_test requires onnxruntime_BUILD_SHARED_LIB to be ON")
 endif()
 
 if(onnxruntime_USE_CUDA OR onnxruntime_USE_NV OR onnxruntime_USE_TENSORRT)
-  message(FATAL_ERROR "Unexpected - CUDA/NV/TensorRT usage in winappsdk_onnxruntime_perf_test")
+  message(FATAL_ERROR "Unexpected - CUDA/NV/TensorRT usage in winml_standalone_perf_test")
 endif()
 
 # [WinML Standalone] Fetch NuGet helper and download standalone WinML package
@@ -46,37 +46,37 @@ find_package(microsoft.windows.ai.machinelearning CONFIG REQUIRED)
 #-------------------------------------------------------------------------------
 
 # Source files
-set(winappsdk_onnxruntime_perf_test_src_dir ${TEST_SRC_DIR}/perftest)
+set(winml_standalone_perf_test_src_dir ${TEST_SRC_DIR}/perftest)
 
-set(winappsdk_onnxruntime_perf_test_src_patterns
-  "${winappsdk_onnxruntime_perf_test_src_dir}/*.cc"
-  "${winappsdk_onnxruntime_perf_test_src_dir}/*.h")
+set(winml_standalone_perf_test_src_patterns
+  "${winml_standalone_perf_test_src_dir}/*.cc"
+  "${winml_standalone_perf_test_src_dir}/*.h")
 
-list(APPEND winappsdk_onnxruntime_perf_test_src_patterns
-  "${winappsdk_onnxruntime_perf_test_src_dir}/windows/*.cc"
-  "${winappsdk_onnxruntime_perf_test_src_dir}/windows/*.h")
+list(APPEND winml_standalone_perf_test_src_patterns
+  "${winml_standalone_perf_test_src_dir}/windows/*.cc"
+  "${winml_standalone_perf_test_src_dir}/windows/*.h")
 
-file(GLOB winappsdk_onnxruntime_perf_test_src CONFIGURE_DEPENDS
-  ${winappsdk_onnxruntime_perf_test_src_patterns}
+file(GLOB winml_standalone_perf_test_src CONFIGURE_DEPENDS
+  ${winml_standalone_perf_test_src_patterns}
 )
 
 # Exclude the old WinAppSDK bootstrap file (replaced by winml_standalone.cc)
-list(FILTER winappsdk_onnxruntime_perf_test_src EXCLUDE REGEX "winappsdk_bootstrap\\.(cc|h)$")
+list(FILTER winml_standalone_perf_test_src EXCLUDE REGEX "winappsdk_bootstrap\\.(cc|h)$")
 
 # EXE
-onnxruntime_add_executable(winappsdk_onnxruntime_perf_test
-  ${winappsdk_onnxruntime_perf_test_src}
-  ${winappsdk_onnxruntime_perf_test_src_dir}/windows/app.manifest
+onnxruntime_add_executable(winml_standalone_perf_test
+  ${winml_standalone_perf_test_src}
+  ${winml_standalone_perf_test_src_dir}/windows/app.manifest
   ${ONNXRUNTIME_ROOT}/core/platform/path_lib.cc
 )
 
-target_compile_options(winappsdk_onnxruntime_perf_test PRIVATE ${disabled_warnings})
+target_compile_options(winml_standalone_perf_test PRIVATE ${disabled_warnings})
 
-target_include_directories(winappsdk_onnxruntime_perf_test PRIVATE ${onnx_test_runner_src_dir} ${ONNXRUNTIME_ROOT}
+target_include_directories(winml_standalone_perf_test PRIVATE ${onnx_test_runner_src_dir} ${ONNXRUNTIME_ROOT}
   ${onnxruntime_graph_header} ${onnxruntime_exec_src_dir}
   ${CMAKE_CURRENT_BINARY_DIR})
 
-target_compile_definitions(winappsdk_onnxruntime_perf_test
+target_compile_definitions(winml_standalone_perf_test
   PRIVATE
   ORT_API_MANUAL_INIT
   BUILD_WINML_STANDALONE_PERF_TEST
@@ -87,9 +87,9 @@ target_compile_definitions(onnx_test_runner_common PRIVATE ORT_API_MANUAL_INIT)
 target_compile_definitions(onnxruntime_test_utils PRIVATE ORT_API_MANUAL_INIT)
 
 # ABSL_FLAGS_STRIP_NAMES
-target_compile_definitions(winappsdk_onnxruntime_perf_test PRIVATE ABSL_FLAGS_STRIP_NAMES=0)
+target_compile_definitions(winml_standalone_perf_test PRIVATE ABSL_FLAGS_STRIP_NAMES=0)
 
-target_link_libraries(winappsdk_onnxruntime_perf_test
+target_link_libraries(winml_standalone_perf_test
   PRIVATE
   onnx_test_runner_common
   onnxruntime_test_utils
@@ -106,16 +106,16 @@ target_link_libraries(winappsdk_onnxruntime_perf_test
 )
 
 # Copy runtime DLLs to build output so the EXE can run in-place
-add_custom_command(TARGET winappsdk_onnxruntime_perf_test POST_BUILD
+add_custom_command(TARGET winml_standalone_perf_test POST_BUILD
   COMMAND ${CMAKE_COMMAND} -E copy_if_different
     $<TARGET_PROPERTY:WindowsML::Api,IMPORTED_LOCATION>
-    "$<TARGET_FILE_DIR:winappsdk_onnxruntime_perf_test>"
+    "$<TARGET_FILE_DIR:winml_standalone_perf_test>"
   COMMAND ${CMAKE_COMMAND} -E copy_if_different
     "${WINML_BINARY_DIR}/onnxruntime.dll"
-    "$<TARGET_FILE_DIR:winappsdk_onnxruntime_perf_test>"
+    "$<TARGET_FILE_DIR:winml_standalone_perf_test>"
   COMMAND ${CMAKE_COMMAND} -E copy_if_different
     "${WINML_BINARY_DIR}/DirectML.dll"
-    "$<TARGET_FILE_DIR:winappsdk_onnxruntime_perf_test>"
+    "$<TARGET_FILE_DIR:winml_standalone_perf_test>"
   VERBATIM
   COMMENT "Copying WinML runtime DLLs (Microsoft.Windows.AI.MachineLearning.dll, onnxruntime.dll, DirectML.dll)"
 )

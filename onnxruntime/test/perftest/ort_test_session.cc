@@ -95,7 +95,7 @@ OnnxRuntimeTestSession::OnnxRuntimeTestSession(Ort::Env& env, std::random_device
 #ifdef BUILD_WINML_STANDALONE_PERF_TEST
   // ----------------------------------------------------------------------
   if (!performance_test_config.selected_ep_device_indices.empty()) {
-    ORT_THROW("[ERROR] [WinAppSDK]: selected_ep_device_indices is not supported.");
+    ORT_THROW("[ERROR] [WinML Standalone]: selected_ep_device_indices is not supported.");
   }
 
   provider_name_ = performance_test_config.machine_config.provider_type_name;
@@ -117,7 +117,7 @@ OnnxRuntimeTestSession::OnnxRuntimeTestSession(Ort::Env& env, std::random_device
       provider_name_.append("|");
       ep_list.push_back(device.EpName());
 
-      fprintf(stdout, "[WinAppSDK] EP Device [Index: %zu, Name: %s] added to session.\n",
+      fprintf(stdout, "[WinML Standalone] EP Device [Index: %zu, Name: %s] added to session.\n",
               index, device.EpName());
     }
   }
@@ -154,7 +154,7 @@ OnnxRuntimeTestSession::OnnxRuntimeTestSession(Ort::Env& env, std::random_device
     session_options.AppendExecutionProvider_V2(env, devices, ep_options_map[ep]);
   }
 
-  fprintf(stdout, "[WinAppSDK] provider_names: %s\n", provider_name_.c_str());
+  fprintf(stdout, "[WinML Standalone] provider_names: %s\n", provider_name_.c_str());
 #else
   // Add EP devices if any (created by plugin EP)
   if (!performance_test_config.registered_plugin_eps.empty()) {
