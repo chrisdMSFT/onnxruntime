@@ -13,6 +13,10 @@
 #include "strings_helper.h"
 #include <google/protobuf/stubs/common.h>
 
+#ifdef BUILD_STANDALONE_WINML_PERF_TEST
+#include "windows/standalone_winml_bootstrap.h"
+#endif
+
 using namespace onnxruntime;
 const OrtApi* g_ort = NULL;
 
@@ -25,6 +29,18 @@ int real_main(int argc, wchar_t* argv[]) {
 int real_main(int argc, char* argv[]) {
 #endif
   g_ort = OrtGetApiBase()->GetApi(ORT_API_VERSION);
+#ifdef ORT_API_MANUAL_INIT
+  // Initialize the C++ API's global g_api so the inline wrappers in
+  // onnxruntime_cxx_api.h (Ort::GetApi(), Ort::Status, etc.) can find the
+  // OrtApi pointer. Required because cmake/standalone_winml_perf_test.cmake
+  // defines ORT_API_MANUAL_INIT for every translation unit that links into
+  // standalone_winml_perf_test.
+  if (g_ort == nullptr) {
+    fprintf(stderr, "OrtGetApiBase()->GetApi(%d) returned null\n", ORT_API_VERSION);
+    return -1;
+  }
+  Ort::InitApi(g_ort);
+#endif
   perftest::PerformanceTestConfig test_config;
   if (!perftest::CommandLineParser::ParseArguments(test_config, argc, argv)) {
     fprintf(stderr, "%s", "See 'onnxruntime_perf_test --help'.");
@@ -65,11 +81,37 @@ int real_main(int argc, char* argv[]) {
     }
   });
 
+#ifdef BUILD_STANDALONE_WINML_PERF_TEST
+  // Discover & register EPs via the standalone Microsoft.Windows.AI.MachineLearning
+  // runtime (WinMLEpCatalog* flat-C API). Must run AFTER env is constructed
+  // (registration is env-scoped) and BEFORE any session is created.
+  perftest::StandaloneWinML_RegisterAllProviders(env, g_ort, test_config);
+
+  // gsl::finally is LIFO: declaring this AFTER the existing
+  // unregister_plugin_eps_at_scope_exit ensures our cleanup runs first. Our
+  // cleanup also strips its EP names from test_config.registered_plugin_eps
+  // and test_config.machine_config.plugin_provider_type_list, so the existing
+  // generic cleanup (which iterates registered_plugin_eps) does NOT see and
+  // try to double-unregister WinML-discovered EPs.
+  auto standalone_winml_unregister_at_scope_exit = gsl::finally([&]() {
+    perftest::StandaloneWinML_UnregisterAllProviders(env, g_ort, test_config);  // never throws
+  });
+
+  std::cout << "-------------------------------------------" << std::endl;
+  std::cout << "[StandaloneWinML] provider_type_name: " << test_config.machine_config.provider_type_name << std::endl;
+  std::cout << "[StandaloneWinML] has_required_device_type: " << test_config.has_required_device_type << std::endl;
+  std::cout << "[StandaloneWinML] required_device_type: " << test_config.required_device_type << std::endl;
+  std::wcout << L"[StandaloneWinML] model_file_path: " << test_config.model_info.model_file_path << std::endl;
+  std::cout << "-------------------------------------------" << std::endl;
+#endif
+
   if (test_config.list_available_ep_devices) {
     perftest::utils::ListEpDevices(env);
+#ifndef BUILD_STANDALONE_WINML_PERF_TEST
     if (test_config.registered_plugin_eps.empty()) {
       fprintf(stdout, "No plugin execution provider libraries are registered. Please specify them using \"--plugin_ep_libs\"; otherwise, only CPU may be available.\n");
     }
+#endif
     return 0;
   }
 

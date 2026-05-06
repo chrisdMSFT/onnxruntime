@@ -101,6 +101,72 @@ OnnxRuntimeTestSession::OnnxRuntimeTestSession(Ort::Env& env, std::random_device
       run_config_entries_(performance_test_config.run_config.run_config_entries) {
   Ort::SessionOptions session_options;
 
+#ifdef BUILD_STANDALONE_WINML_PERF_TEST
+  // ----------------------------------------------------------------------
+  // Standalone WinML plugin-EP path: select EP devices via env.GetEpDevices()
+  // (filtered by --required_device_type and provider_type_name from -e), then
+  // register them with AppendExecutionProvider_V2. The legacy per-EP cascade
+  // below is intentionally compiled out for this target — the standalone
+  // Microsoft.Windows.AI.MachineLearning runtime owns EP discovery /
+  // registration via WinMLEpCatalog.
+  // ----------------------------------------------------------------------
+  if (!performance_test_config.selected_ep_device_indices.empty()) {
+    ORT_THROW("[ERROR] [StandaloneWinML]: selected_ep_device_indices is not supported.");
+  }
+
+  provider_name_ = performance_test_config.machine_config.provider_type_name;
+
+  std::vector<Ort::ConstEpDevice> ep_devices = env.GetEpDevices();
+  std::vector<std::string> ep_list = performance_test_config.machine_config.plugin_provider_type_list;
+
+  std::unordered_map<std::string, std::vector<Ort::ConstEpDevice>> added_ep_devices;
+
+  for (size_t index = 0; index < ep_devices.size(); ++index) {
+    Ort::ConstEpDevice& device = ep_devices[index];
+
+    if ((!performance_test_config.has_required_device_type ||
+         device.Device().Type() == performance_test_config.required_device_type) &&
+        performance_test_config.machine_config.provider_type_name == device.EpName()) {
+      added_ep_devices[device.EpName()].push_back(device);
+      provider_name_.append(device.EpName());
+      provider_name_.append("|");
+      ep_list.push_back(device.EpName());
+
+      fprintf(stdout, "[StandaloneWinML] EP Device [Index: %zu, Name: %s] added to session.\n",
+              index, device.EpName());
+    }
+  }
+
+  if (added_ep_devices.empty()) {
+    ORT_THROW("[ERROR] [StandaloneWinML]: No matching EP devices found.");
+  }
+
+  std::string ep_option_string = ToUTF8String(performance_test_config.run_config.ep_runtime_config_string);
+
+  std::vector<std::unordered_map<std::string, std::string>> ep_options_list;
+  ParseEpOptions(ep_option_string, ep_options_list);
+
+  if (ep_options_list.size() < ep_list.size()) {
+    for (size_t i = ep_options_list.size(); i < ep_list.size(); ++i) {
+      ep_options_list.emplace_back();
+    }
+  } else if (ep_options_list.size() > ep_list.size()) {
+    ORT_THROW("[ERROR] [StandaloneWinML]: Too many EP provider option lists provided.");
+  }
+
+  std::unordered_map<std::string, std::unordered_map<std::string, std::string>> ep_options_map;
+  for (size_t i = 0; i < ep_list.size(); ++i) {
+    ep_options_map.emplace(ep_list[i], ep_options_list[i]);
+  }
+
+  for (auto& ep_and_devices : added_ep_devices) {
+    auto& ep = ep_and_devices.first;
+    auto& devices = ep_and_devices.second;
+    session_options.AppendExecutionProvider_V2(env, devices, ep_options_map[ep]);
+  }
+
+  fprintf(stdout, "[StandaloneWinML] provider_names: %s\n", provider_name_.c_str());
+#else
   // Add EP devices if any (created by plugin EP)
   if (!performance_test_config.registered_plugin_eps.empty()) {
     perftest::utils::AppendPluginExecutionProviders(env, session_options, performance_test_config);
@@ -622,6 +688,7 @@ select from 'TF8', 'TF16', 'UINT8', 'FLOAT', 'ITENSOR'. \n)");
              provider_name_ != onnxruntime::kOpenVINOExecutionProvider) {
     ORT_THROW("This backend is not included in perf test runner.\n");
   }
+#endif  // BUILD_STANDALONE_WINML_PERF_TEST
 
   if (performance_test_config.run_config.enable_cpu_mem_arena)
     session_options.EnableCpuMemArena();

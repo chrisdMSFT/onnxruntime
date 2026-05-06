@@ -216,6 +216,12 @@ ABSL_FLAG(bool, compile_binary_embed, DefaultPerformanceTestConfig().run_config.
 ABSL_FLAG(bool, compile_only, DefaultPerformanceTestConfig().run_config.compile_only, "Only compile EP context model without running it");
 ABSL_FLAG(bool, h, false, "Print program usage.");
 
+#ifdef BUILD_STANDALONE_WINML_PERF_TEST
+ABSL_FLAG(std::string, required_device_type, "",
+          "[StandaloneWinML only] Filters EP devices added to the session by hardware device type. "
+          "One of: cpu, gpu, npu. Empty (default) means no device-type filter.");
+#endif
+
 namespace onnxruntime {
 namespace perftest {
 
@@ -612,6 +618,27 @@ bool CommandLineParser::ParseArguments(PerformanceTestConfig& test_config, int a
 
   // --compile_only
   test_config.run_config.compile_only = absl::GetFlag(FLAGS_compile_only);
+
+#ifdef BUILD_STANDALONE_WINML_PERF_TEST
+  // --required_device_type
+  {
+    const auto& required_device_type = absl::GetFlag(FLAGS_required_device_type);
+    if (!required_device_type.empty()) {
+      test_config.has_required_device_type = true;
+      if (required_device_type == "cpu") {
+        test_config.required_device_type = OrtHardwareDeviceType::OrtHardwareDeviceType_CPU;
+      } else if (required_device_type == "gpu") {
+        test_config.required_device_type = OrtHardwareDeviceType::OrtHardwareDeviceType_GPU;
+      } else if (required_device_type == "npu") {
+        test_config.required_device_type = OrtHardwareDeviceType::OrtHardwareDeviceType_NPU;
+      } else {
+        fprintf(stderr, "Unrecognized --required_device_type='%s'. Valid: cpu | gpu | npu\n",
+                required_device_type.c_str());
+        return false;
+      }
+    }
+  }
+#endif
 
   if (positional.size() == 2) {
     test_config.model_info.model_file_path = ToPathString(positional[1]);

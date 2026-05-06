@@ -1487,12 +1487,26 @@ if (NOT onnxruntime_ENABLE_TRAINING_TORCH_INTEROP)
     file(GLOB onnxruntime_perf_test_src CONFIGURE_DEPENDS
       ${onnxruntime_perf_test_src_patterns}
       )
+    # The standalone_winml_perf_test bootstrap source is only used by the
+    # standalone_winml_perf_test target; exclude it from the regular perf test.
+    list(FILTER onnxruntime_perf_test_src EXCLUDE REGEX ".*/standalone_winml_bootstrap\\.(cc|h)$")
     onnxruntime_add_executable(onnxruntime_perf_test ${onnxruntime_perf_test_src} ${ONNXRUNTIME_ROOT}/core/platform/path_lib.cc)
 
     # ABSL_FLAGS_STRIP_NAMES is set to 1 by default to disable flag registration when building for Android, iPhone, and "embedded devices".
     # See the issue: https://github.com/abseil/abseil-cpp/issues/1875
     # We set it to 0 for all builds to be able to use ABSL flags for onnxruntime_perf_test.
     target_compile_definitions(onnxruntime_perf_test PRIVATE ABSL_FLAGS_STRIP_NAMES=0)
+    if (onnxruntime_BUILD_STANDALONE_WINML_PERF_TEST)
+      # ORT_API_MANUAL_INIT must be consistent across all linked objects (enforced by
+      # #pragma detect_mismatch in onnxruntime_cxx_api.h). The standalone_winml_perf_test
+      # target propagates ORT_API_MANUAL_INIT to onnx_test_runner_common and
+      # onnxruntime_test_utils so it must also be set here for onnxruntime_perf_test
+      # which links those same static libs. main.cc gates Ort::InitApi(g_ort) on
+      # this define so behavior is unchanged when the option is OFF.
+      target_compile_definitions(onnxruntime_perf_test PRIVATE ORT_API_MANUAL_INIT)
+      target_compile_definitions(onnx_test_runner_common PRIVATE ORT_API_MANUAL_INIT)
+      target_compile_definitions(onnxruntime_test_utils PRIVATE ORT_API_MANUAL_INIT)
+    endif()
 
     if(MSVC)
       target_compile_options(onnxruntime_perf_test PRIVATE "$<$<COMPILE_LANGUAGE:CUDA>:SHELL:--compiler-options /utf-8>"

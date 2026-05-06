@@ -101,6 +101,13 @@ option(onnxruntime_USE_PREINSTALLED_EIGEN "Use pre-installed EIGEN. Need to prov
 option(onnxruntime_BUILD_BENCHMARKS "Build ONNXRuntime micro-benchmarks" OFF)
 option(onnxruntime_USE_VSINPU "Build with VSINPU support" OFF)
 
+# Standalone WinML perf test (Windows-only). Loads ORT through the standalone
+# Microsoft.Windows.AI.MachineLearning runtime (flat-C WinMLEpCatalog* API)
+# instead of linking ORT directly. See standalone_winml_perf_test_proposal.md.
+option(onnxruntime_BUILD_STANDALONE_WINML_PERF_TEST "Build standalone_winml_perf_test" OFF)
+set(WINML_PACKAGE_VERSION "2.0.297-preview" CACHE STRING
+    "Version of the Microsoft.Windows.AI.MachineLearning NuGet package to fetch for standalone_winml_perf_test.")
+
 cmake_dependent_option(onnxruntime_USE_FLASH_ATTENTION "Build flash attention kernel for scaled dot product attention" ON "onnxruntime_USE_CUDA" OFF)
 option(onnxruntime_USE_LEAN_ATTENTION "Build lean attention kernel for scaled dot product attention" OFF)
 cmake_dependent_option(onnxruntime_USE_MEMORY_EFFICIENT_ATTENTION "Build memory efficient attention kernel for scaled dot product attention" ON "onnxruntime_USE_CUDA" OFF)
@@ -1735,6 +1742,18 @@ endif()
 
 if (onnxruntime_BUILD_WINML_TESTS)
   list(APPEND ONNXRUNTIME_CMAKE_FILES winml_unittests)
+endif()
+
+# Standalone WinML perf test (Windows-only). Reuses onnxruntime_perf_test sources +
+# onnx_test_runner_common / onnxruntime_test_utils, so unit tests must be enabled.
+if (onnxruntime_BUILD_STANDALONE_WINML_PERF_TEST)
+  if (NOT onnxruntime_BUILD_UNIT_TESTS)
+    message(FATAL_ERROR "onnxruntime_BUILD_STANDALONE_WINML_PERF_TEST requires onnxruntime_BUILD_UNIT_TESTS to be ON")
+  endif()
+  if (NOT onnxruntime_BUILD_SHARED_LIB)
+    message(FATAL_ERROR "onnxruntime_BUILD_STANDALONE_WINML_PERF_TEST requires onnxruntime_BUILD_SHARED_LIB to be ON")
+  endif()
+  list(APPEND ONNXRUNTIME_CMAKE_FILES standalone_winml_perf_test)
 endif()
 
 # onnxruntime_training depends on onnxruntime_unittests since onnxruntime_training.cmake uses a variable `TEST_SRC_DIR`

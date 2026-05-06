@@ -100,6 +100,14 @@ struct PerformanceTestConfig {
   std::string selected_ep_device_indices;
   std::vector<std::pair<std::string, std::string>> filter_ep_device_kv_pairs;
   bool list_available_ep_devices = false;
+
+#ifdef BUILD_STANDALONE_WINML_PERF_TEST
+  // --required_device_type filter: when set, only EP devices whose hardware
+  // type matches `required_device_type` are added to the session.
+  // Defaults to CPU but is unused unless `has_required_device_type` is true.
+  bool has_required_device_type = false;
+  OrtHardwareDeviceType required_device_type = OrtHardwareDeviceType::OrtHardwareDeviceType_CPU;
+#endif
 };
 
 }  // namespace perftest

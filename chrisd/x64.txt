@@ -1,0 +1,74 @@
+[StandaloneWinML] WinML catalog enumerated 3 providers
+[StandaloneWinML]   provider: OpenVINOExecutionProvider  initial readyState=NotReady  certification=Certified
+[StandaloneWinML]     post-EnsureReady readyState=Ready
+[StandaloneWinML]     registering 'OpenVINOExecutionProvider' from 'C:\Program Files\WindowsApps\MicrosoftCorporationII.WinML.Intel.OpenVINO.EP.1.8_1.8.79.0_x64__8wekyb3d8bbwe\ExecutionProvider\onnxruntime_providers_openvino_plugin.dll'
+[StandaloneWinML]     registered OK
+[StandaloneWinML]   provider: NvTensorRTRTXExecutionProvider  initial readyState=NotReady  certification=Certified
+[StandaloneWinML]     post-EnsureReady readyState=Ready
+[StandaloneWinML]     registering 'NvTensorRTRTXExecutionProvider' from 'C:\Program Files\WindowsApps\MicrosoftCorporationII.WinML.NVIDIA.TRT-RTX.EP.2_0.0.33.0_x64__8wekyb3d8bbwe\ExecutionProvider\onnxruntime_providers_nv_tensorrt_rtx.dll'
+[StandaloneWinML]     registered OK
+[StandaloneWinML]   provider: WinMLCGExecutionProvider  initial readyState=NotReady  certification=Uncertified
+[StandaloneWinML]     post-EnsureReady readyState=Ready
+[StandaloneWinML]     registering 'WinMLCGExecutionProvider' from 'C:\Program Files\WindowsApps\WindowsWorkload.EP.Microsoft.WinMLCG.2_0.1.16.0_x64__8wekyb3d8bbwe\ExecutionProvider\WinMLCGEp.dll'
+[StandaloneWinML]     registered OK
+[StandaloneWinML] RegisterAllProviders: 3 of 3 providers registered
+-------------------------------------------
+[StandaloneWinML] provider_type_name: CPUExecutionProvider
+[StandaloneWinML] has_required_device_type: 0
+[StandaloneWinML] required_device_type: 0
+[StandaloneWinML] model_file_path: 
+-------------------------------------------
+===== device id 0 ======
+name: CPUExecutionProvider
+vendor: Microsoft
+metadata:
+  version: 1.27.0
+
+===== device id 1 ======
+name: OpenVINOExecutionProvider
+vendor: Intel
+metadata:
+  AVAILABLE_DEVICES: 
+  version: 1.4.0+63a77bc
+  DEVICE_ARCHITECTURE: intel64
+  RANGE_FOR_STREAMS: 1 32
+  DEVICE_TYPE: integrated
+  RANGE_FOR_ASYNC_INFER_REQUESTS: 1 1 1
+  EXECUTION_DEVICES: CPU
+  FULL_DEVICE_NAME: Intel(R) Core(TM) i9-14900K
+  ov_device: CPU
+  OPTIMIZATION_CAPABILITIES: FP32 INT8 BIN EXPORT_IMPORT
+  library_path: C:\Program Files\WindowsApps\MicrosoftCorporationII.WinML.Intel.OpenVINO.EP.1.8_1.8.79.0_x64__8wekyb3d8bbwe\ExecutionProvider\onnxruntime_providers_openvino_plugin.dll
+
+===== device id 2 ======
+name: OpenVINOExecutionProvider.AUTO
+vendor: Intel
+metadata:
+  AVAILABLE_DEVICES: 
+  version: 1.4.0+63a77bc
+  DEVICE_ARCHITECTURE: intel64
+  RANGE_FOR_STREAMS: 1 32
+  DEVICE_TYPE: integrated
+  RANGE_FOR_ASYNC_INFER_REQUESTS: 1 1 1
+  EXECUTION_DEVICES: CPU
+  FULL_DEVICE_NAME: Intel(R) Core(TM) i9-14900K
+  ov_meta_device: AUTO
+  ov_device: CPU
+  OPTIMIZATION_CAPABILITIES: FP32 INT8 BIN EXPORT_IMPORT
+  library_path: C:\Program Files\WindowsApps\MicrosoftCorporationII.WinML.Intel.OpenVINO.EP.1.8_1.8.79.0_x64__8wekyb3d8bbwe\ExecutionProvider\onnxruntime_providers_openvino_plugin.dll
+
+===== device id 3 ======
+name: NvTensorRTRTXExecutionProvider
+vendor: NVIDIA
+metadata:
+  version: 0.1.0
+  library_path: C:\Program Files\WindowsApps\MicrosoftCorporationII.WinML.NVIDIA.TRT-RTX.EP.2_0.0.33.0_x64__8wekyb3d8bbwe\ExecutionProvider\onnxruntime_providers_nv_tensorrt_rtx.dll
+
+===== device id 4 ======
+name: WinMLCGExecutionProvider
+vendor: Microsoft
+metadata:
+  version: 0.1.0
+  backend: dxgml
+  library_path: C:\Program Files\WindowsApps\WindowsWorkload.EP.Microsoft.WinMLCG.2_0.1.16.0_x64__8wekyb3d8bbwe\ExecutionProvider\WinMLCGEp.dll
+
