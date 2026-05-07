@@ -10,8 +10,8 @@
 #include <filesystem>
 #include <vector>
 #include <algorithm>
-#include <cassert>
 #include <cstring>
+#include <stdexcept>
 
 #include <windows.h>
 #include <WinMLEpCatalog.h>
@@ -19,9 +19,6 @@
 #ifndef BUILD_WINML_STANDALONE_PERF_TEST
 #error "This file should only be compiled when BUILD_WINML_STANDALONE_PERF_TEST is ON"
 #endif
-
-static WinMLEpCatalogHandle g_ep_catalog = nullptr;
-static std::vector<std::string> g_registered_providers;
 
 // ===========================================================================
 // LINK-ORDER WARNING:
@@ -71,13 +68,11 @@ extern "C" const OrtApiBase* __cdecl OrtGetApiBase() noexcept
     return s_ortApiBase;
 }
 
-void WinML_InitializeAndRegisterAllProviders(Ort::Env& env, const std::vector<std::string>& provider_filter)
+WinMLStandaloneRegistration::WinMLStandaloneRegistration(
+    Ort::Env& env,
+    const std::vector<std::string>& provider_filter)
+    : env_(env)
 {
-    // Must be called exactly once per process before WinML_Uninitialize.
-    // Re-init without an intervening uninit would leak the previous catalog
-    // handle and silently append to g_registered_providers.
-    assert(!g_ep_catalog && "WinML_InitializeAndRegisterAllProviders called twice without WinML_Uninitialize");
-
     std::cout << "[WinML Standalone] Discovering and registering EPs..." << std::endl;
 
     WinMLEpCatalogHandle catalog = nullptr;
@@ -89,14 +84,20 @@ void WinML_InitializeAndRegisterAllProviders(Ort::Env& env, const std::vector<st
         throw std::runtime_error("WinMLEpCatalogCreate failed");
     }
 
-    g_ep_catalog = catalog;
+    // Take ownership of the catalog before any further fallible work, so
+    // Cleanup() in the catch block below releases it on partial-construction
+    // failure (the destructor will NOT run if this constructor throws).
+    catalog_ = catalog;
+
+    try
+    {
 
     struct EnumContext {
         const std::vector<std::string>* filter;
         Ort::Env* env;
         std::vector<std::string>* registered;
     };
-    EnumContext ctx{ &provider_filter, &env, &g_registered_providers };
+    EnumContext ctx{ &provider_filter, &env_, &registered_ };
 
     HRESULT enumHr = WinMLEpCatalogEnumProviders(catalog,
         [](WinMLEpHandle ep, const WinMLEpInfo* info, void* context) -> BOOL {
@@ -238,8 +239,8 @@ void WinML_InitializeAndRegisterAllProviders(Ort::Env& env, const std::vector<st
         std::vector<std::string> missing;
         for (const auto& requested : provider_filter)
         {
-            if (std::find(g_registered_providers.begin(), g_registered_providers.end(), requested)
-                == g_registered_providers.end())
+            if (std::find(registered_.begin(), registered_.end(), requested)
+                == registered_.end())
             {
                 missing.push_back(requested);
             }
@@ -252,28 +253,45 @@ void WinML_InitializeAndRegisterAllProviders(Ort::Env& env, const std::vector<st
             throw std::runtime_error(msg);
         }
     }
+
+    } // try
+    catch (...)
+    {
+        // Constructor failure: the destructor will not run, so we have to
+        // unregister any providers we already registered and release the
+        // catalog handle here before the exception propagates.
+        Cleanup();
+        throw;
+    }
 }
 
-void WinML_Uninitialize(Ort::Env& env)
+WinMLStandaloneRegistration::~WinMLStandaloneRegistration()
 {
-    // Unregister EP libraries
-    for (const auto& path : g_registered_providers)
+    Cleanup();
+}
+
+void WinMLStandaloneRegistration::Cleanup() noexcept
+{
+    // Unregister EP libraries (best-effort; never throw out of here so we
+    // remain safe to call from the destructor and the constructor's catch
+    // block).
+    for (const auto& path : registered_)
     {
         try
         {
-            env.UnregisterExecutionProviderLibrary(path.c_str());
+            env_.UnregisterExecutionProviderLibrary(path.c_str());
         }
         catch (...)
         {
-            // Best-effort cleanup
+            // Best-effort cleanup.
         }
     }
-    g_registered_providers.clear();
+    registered_.clear();
 
-    // Release the EP catalog
-    if (g_ep_catalog)
+    // Release the EP catalog.
+    if (catalog_)
     {
-        WinMLEpCatalogRelease(g_ep_catalog);
-        g_ep_catalog = nullptr;
+        WinMLEpCatalogRelease(static_cast<WinMLEpCatalogHandle>(catalog_));
+        catalog_ = nullptr;
     }
 }

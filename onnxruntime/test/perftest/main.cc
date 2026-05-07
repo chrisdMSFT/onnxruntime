@@ -10,9 +10,9 @@
 #include "strings_helper.h"
 #include <google/protobuf/stubs/common.h>
 
+#include <gsl/util>
 #ifdef BUILD_WINML_STANDALONE_PERF_TEST
 #include "windows/winml_standalone.h"
-#include <gsl/util>
 #endif
 
 using namespace onnxruntime;
@@ -91,17 +91,14 @@ int real_main(int argc, char* argv[]) {
   }
 
 #ifdef BUILD_WINML_STANDALONE_PERF_TEST
-  // Initialize WinML standalone and register EP providers.
-  WinML_InitializeAndRegisterAllProviders(env, test_config.winml_register_provider);
+  // RAII: registers EP providers via the WinML EP catalog now and
+  // unregisters + releases the catalog at scope exit. Destruction must
+  // happen before `env` is destroyed (the destructor calls
+  // UnregisterExecutionProviderLibrary, which dives through the C API),
+  // so this object is declared on the function stack after `env` is
+  // constructed.
+  WinMLStandaloneRegistration winml_session{env, test_config.winml_register_provider};
   std::cout << "ONNX Runtime C++ API version: " << ORT_API_VERSION << std::endl;
-
-  // Cleanup WinML on scope exit. This must happen before `env` is destroyed,
-  // and also before `g_ort` is reset to nullptr (if that is ever added):
-  // WinML_Uninitialize calls UnregisterExecutionProviderLibrary, which dives
-  // through the C API.
-  auto winml_cleanup_at_scope_exit = gsl::finally([&]() {
-    WinML_Uninitialize(env);
-  });
 
   std::cout << "-------------------------------------------" << std::endl;
   std::cout << "[WinML Standalone] provider_Type_Name:" << test_config.machine_config.provider_type_name << std::endl;
