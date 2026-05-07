@@ -40,8 +40,11 @@ int real_main(int argc, char* argv[]) {
   }
 
 #ifdef BUILD_WINML_STANDALONE_PERF_TEST
-  // The WinML NuGet package may ship an older ORT runtime than the repo headers.
-  // Try the compile-time version first, then fall back to older versions.
+  // We require the runtime to support our compile-time API version (newer is
+  // fine because GetApi(N) returns a v_N-shaped struct that the runtime is
+  // forward-compatible with; older is NOT fine because the v25 headers
+  // describe a struct layout the older runtime never allocated, so any
+  // v25-only call would dereference past the actual struct -> UB).
   {
     const OrtApiBase* api_base = OrtGetApiBase();
     if (api_base == nullptr) {
@@ -50,13 +53,11 @@ int real_main(int argc, char* argv[]) {
     }
     g_ort = api_base->GetApi(ORT_API_VERSION);
     if (g_ort == nullptr) {
-      for (uint32_t v = ORT_API_VERSION - 1; v >= 1; --v) {
-        g_ort = api_base->GetApi(v);
-        if (g_ort != nullptr) {
-          fprintf(stdout, "[WinML Standalone] Using ORT API version %u (compile-time: %d)\n", v, ORT_API_VERSION);
-          break;
-        }
-      }
+      fprintf(stderr,
+              "[WinML Standalone] onnxruntime.dll does not support ORT API version %d. "
+              "Please update the bundled WinML NuGet package or the runtime DLL beside the EXE.\n",
+              ORT_API_VERSION);
+      return -1;
     }
   }
 #else
@@ -94,7 +95,10 @@ int real_main(int argc, char* argv[]) {
   WinML_InitializeAndRegisterAllProviders(env, test_config.winml_register_provider);
   std::cout << "ONNX Runtime C++ API version: " << ORT_API_VERSION << std::endl;
 
-  // Cleanup WinML on scope exit (must happen before env destruction)
+  // Cleanup WinML on scope exit. This must happen before `env` is destroyed,
+  // and also before `g_ort` is reset to nullptr (if that is ever added):
+  // WinML_Uninitialize calls UnregisterExecutionProviderLibrary, which dives
+  // through the C API.
   auto winml_cleanup_at_scope_exit = gsl::finally([&]() {
     WinML_Uninitialize(env);
   });
