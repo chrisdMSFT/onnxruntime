@@ -73,12 +73,12 @@ build step copies the runtime dependencies next to the EXE:
 ### ORT API version contract
 
 The repo headers (`include/onnxruntime/core/session/onnxruntime_c_api.h`)
-define `ORT_API_VERSION` (currently `25`). The bundled NuGet package must
+define `ORT_API_VERSION` (currently `24`). The bundled NuGet package must
 ship an `onnxruntime.dll` that supports **at least** that API version. If
 the runtime is older, the EXE will fail at startup with a clear error
 message rather than silently fall back to an older API surface — falling
 back would risk dereferencing past the runtime's actual struct layout if
-any v25-only API is later called.
+any v24-only API is later called.
 
 If the NuGet package is upgraded to a version that ships a *newer* runtime,
 no source change is required.
@@ -167,30 +167,29 @@ chrisd\b.cmd
 
 ### Run per EP
 
-Each `go-*.cmd` script copies a sample model into `C:\models\in\`, lists the
-available EP devices, then runs a create-cache + run-from-cache pair against
-the named EP. Edit the model path at the top of the script to point at your
-own `.onnx` file.
+The `go-*.cmd` scripts each exercise a different EP. Their behavior varies —
+some stage a model under `C:\models\in\`, list available EP devices, and run
+a create-cache + run-from-cache pair; others are minimal smoke tests. Edit
+the model path at the top of any script to point at your own `.onnx` file.
 
-| Script | Flags it exercises |
+| Script | What it does |
 | --- | --- |
-| `chrisd\go-qnn.cmd` | `-e qnn --required_device_type npu` with `htp_performance_mode` set to both `extreme_power_saver` and `burst`, plus `ep.context_*` caching. |
-| `chrisd\go-openvino.cmd` | `-e openvino --required_device_type npu` with `ep.context_embed_mode|0` external-cache. |
-| `chrisd\go-nvidia-tests.cmd` | `-e nvtensorrtrtx --required_device_type gpu`. |
-| `chrisd\go-all.cmd` | `--list_ep_devices` smoke test. |
-| `chrisd\simple-intel-test-ape.cmd` | Minimal `-e openvino --required_device_type cpu` smoke test. |
-| `chrisd\go.cmd` | Two NVIDIA TensorRT RTX runs — one default, one with `--winml_register_provider NvTensorRTRTXExecutionProvider` to demonstrate selective registration. |
+| `chrisd\go-qnn.cmd` | Stages model, lists EP devices, runs `-e qnn --required_device_type npu` create-cache + run-from-cache pair twice — once with `htp_performance_mode|extreme_power_saver` and once with `htp_performance_mode|burst` (both with `soc_model|60`, `htp_graph_finalization_optimization_mode|3`, and `ep.context_*` caching). |
+| `chrisd\go-openvino.cmd` | Stages model, lists EP devices, runs `-e openvino --required_device_type npu` create-cache + run-from-cache pair with `ep.context_embed_mode|0` external-cache. |
+| `chrisd\go-nvidia-tests.cmd` | Stages model, lists EP devices, runs a single `-e nvtensorrtrtx --required_device_type gpu` inference with `--winml_register_provider NvTensorRTRTXExecutionProvider`. No cache pair. |
+| `chrisd\go-all.cmd` | `--list_ep_devices` smoke test only — no model, no inference. |
+| `chrisd\simple-intel-test-ape.cmd` | Minimal `-e openvino --required_device_type cpu` smoke test against a model under `X:\LocalModels\sdxl\`. |
+| `chrisd\go.cmd` | Two NVIDIA TensorRT RTX runs against an existing `C:\models\in\PSD1.quant.onnx` — one default, one with `--winml_register_provider NvTensorRTRTXExecutionProvider` to demonstrate selective registration. |
 
 ### Misc
 
-* `chrisd\go-cmake-logs.cmd` — re-run CMake configure with logs piped to a
-  file for triage.
+* `chrisd\go-cmake-logs.cmd` — drop CMake File API query stubs under
+  `build\.cmake\api\v1\query\` (`cache-v2`, `cmakeFiles-v1`, `codemodel-v2`,
+  `toolchains-v1`) so the next configure run emits machine-readable build
+  metadata for triage, then opens the query folder.
 * `chrisd\copy-perf-test.cmd [BuildType] [Arch]` — copies the built
   `winml_standalone_perf_test.exe` and its `.pdb` into a dated
   `<date>-<commitish>` folder (handy for archiving builds).
-* `chrisd\help.txt`, `chrisd\target_includes*.txt`, `chrisd\arm.txt`,
-  `chrisd\x64.txt`, `chrisd\target-*.json` — captured `--help`, include
-  graphs, and CMake target dumps kept for reference.
 
 ---
 
