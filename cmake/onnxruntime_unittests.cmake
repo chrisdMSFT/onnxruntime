@@ -1445,12 +1445,17 @@ if (NOT onnxruntime_ENABLE_TRAINING_TORCH_INTEROP)
     file(GLOB onnxruntime_perf_test_src CONFIGURE_DEPENDS
       ${onnxruntime_perf_test_src_patterns}
       )
+    # WinML standalone files are only used by the winml_standalone_perf_test target.
+    list(FILTER onnxruntime_perf_test_src EXCLUDE REGEX ".*/winml_standalone.*\\.(cc|h)$")
     onnxruntime_add_executable(onnxruntime_perf_test ${onnxruntime_perf_test_src} ${ONNXRUNTIME_ROOT}/core/platform/path_lib.cc)
 
     # ABSL_FLAGS_STRIP_NAMES is set to 1 by default to disable flag registration when building for Android, iPhone, and "embedded devices".
     # See the issue: https://github.com/abseil/abseil-cpp/issues/1875
     # We set it to 0 for all builds to be able to use ABSL flags for onnxruntime_perf_test.
-    target_compile_definitions(onnxruntime_perf_test PRIVATE ABSL_FLAGS_STRIP_NAMES=0)
+    # ORT_API_MANUAL_INIT must match the setting on onnx_test_runner_common / onnxruntime_test_utils
+    # (which the winml_standalone_perf_test target also enables on those shared libs); the
+    # #pragma detect_mismatch in onnxruntime_cxx_api.h would otherwise fail to link.
+    target_compile_definitions(onnxruntime_perf_test PRIVATE ABSL_FLAGS_STRIP_NAMES=0 ORT_API_MANUAL_INIT)
 
     if(MSVC)
       target_compile_options(onnxruntime_perf_test PRIVATE "$<$<COMPILE_LANGUAGE:CUDA>:SHELL:--compiler-options /utf-8>"
