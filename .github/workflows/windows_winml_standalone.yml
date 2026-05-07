@@ -1,0 +1,87 @@
+name: Windows WinML Standalone Perf Test (smoke build)
+
+# Smoke-build the opt-in `winml_standalone_perf_test` CMake target so silent
+# breakage gets caught early. This workflow only configures and builds — it
+# does not run the EXE, because that would require NPU/GPU EP devices that
+# GitHub-hosted runners don't have.
+#
+# Uses `windows-latest` (GitHub-hosted) instead of the 1ES self-hosted pools
+# the rest of the windows_*.yml workflows use, because those self-hosted
+# pools are gated to Microsoft's CI infrastructure and won't run on a
+# personal fork. `windows-latest` ships a VS 2022 toolchain that is
+# sufficient for this target.
+
+on:
+  push:
+    branches:
+      - main
+      - rel-*
+      - winml-standalone*
+      - rel-*-winml-standalone
+      - 'user/**'
+    paths:
+      - 'onnxruntime/test/perftest/**'
+      - 'cmake/winml_standalone_perf_test.cmake'
+      - 'cmake/onnxruntime_unittests.cmake'
+      - '.github/workflows/windows_winml_standalone.yml'
+  pull_request:
+    branches:
+      - main
+      - rel-*
+      - 'user/**'
+    paths:
+      - 'onnxruntime/test/perftest/**'
+      - 'cmake/winml_standalone_perf_test.cmake'
+      - 'cmake/onnxruntime_unittests.cmake'
+      - '.github/workflows/windows_winml_standalone.yml'
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && github.ref || github.sha }}
+  cancel-in-progress: true
+
+jobs:
+  smoke_build:
+    name: Configure + build winml_standalone_perf_test (x64 RelWithDebInfo)
+    runs-on: windows-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          submodules: 'none'
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+          architecture: x64
+
+      - name: Set up MSVC (vcvars x64)
+        uses: ilammy/msvc-dev-cmd@v1
+        with:
+          arch: x64
+
+      - name: Configure
+        shell: cmd
+        run: >
+          cmake -B build
+          -G "Visual Studio 17 2022"
+          -A x64
+          -DCMAKE_BUILD_TYPE=RelWithDebInfo
+          -Donnxruntime_BUILD_SHARED_LIB=ON
+          -Donnxruntime_BUILD_UNIT_TESTS=ON
+          -Donnxruntime_BUILD_WINML_STANDALONE_PERF_TEST=ON
+          -Donnxruntime_USE_DML=OFF
+          -Donnxruntime_USE_WINML=OFF
+          cmake
+
+      - name: Build standalone target
+        shell: cmd
+        run: cmake --build build --config RelWithDebInfo --target winml_standalone_perf_test
+
+      - name: Build regular onnxruntime_perf_test (sanity check exclusion)
+        shell: cmd
+        run: cmake --build build --config RelWithDebInfo --target onnxruntime_perf_test
+
+      - name: Verify standalone EXE was produced
+        shell: cmd
+        run: dir build\RelWithDebInfo\winml_standalone_perf_test.exe

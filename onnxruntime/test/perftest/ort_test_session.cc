@@ -62,6 +62,70 @@ OnnxRuntimeTestSession::OnnxRuntimeTestSession(Ort::Env& env, std::random_device
     : rand_engine_(rd()), input_names_(m.GetInputCount()), input_names_str_(m.GetInputCount()), input_length_(m.GetInputCount()) {
   Ort::SessionOptions session_options;
 
+#ifdef BUILD_WINML_STANDALONE_PERF_TEST
+  // ----------------------------------------------------------------------
+  if (!performance_test_config.selected_ep_device_indices.empty()) {
+    ORT_THROW("[ERROR] [WinML Standalone]: selected_ep_device_indices is not supported.");
+  }
+
+  provider_name_ = performance_test_config.machine_config.provider_type_name;
+
+  std::vector<Ort::ConstEpDevice> ep_devices = env.GetEpDevices();
+  std::vector<std::string> ep_list = performance_test_config.machine_config.plugin_provider_type_list;
+
+  // EP -> associated EP devices (All OrtEpDevice instances must be from the same execution provider)
+  std::unordered_map<std::string, std::vector<Ort::ConstEpDevice>> added_ep_devices;
+
+  for (size_t index = 0; index < ep_devices.size(); ++index) {
+    Ort::ConstEpDevice& device = ep_devices[index];
+
+    if ((!performance_test_config.has_required_device_type ||
+         device.Device().Type() == performance_test_config.required_device_type) &&
+        performance_test_config.machine_config.provider_type_name == device.EpName()) {
+      added_ep_devices[device.EpName()].push_back(device);
+      provider_name_.append(device.EpName());
+      provider_name_.append("|");
+      ep_list.push_back(device.EpName());
+
+      fprintf(stdout, "[WinML Standalone] EP Device [Index: %zu, Name: %s] added to session.\n",
+              index, device.EpName());
+    }
+  }
+
+  if (added_ep_devices.empty()) {
+    ORT_THROW("[ERROR] [Plugin EP]: No matching EP devices found.");
+  }
+
+  std::string ep_option_string = ToUTF8String(performance_test_config.run_config.ep_runtime_config_string);
+
+  // EP's associated provider option lists
+  std::vector<std::unordered_map<std::string, std::string>> ep_options_list;
+  ParseEpOptions(ep_option_string, ep_options_list);
+
+  // If the user provided EPs' provider option lists for only the first several EPs,
+  // pad the rest with empty option maps.
+  if (ep_options_list.size() < ep_list.size()) {
+    for (size_t i = ep_options_list.size(); i < ep_list.size(); ++i) {
+      ep_options_list.emplace_back();
+    }
+  } else if (ep_options_list.size() > ep_list.size()) {
+    ORT_THROW("[ERROR] [Plugin EP]: Too many EP provider option lists provided.");
+  }
+
+  // EP -> associated provider options
+  std::unordered_map<std::string, std::unordered_map<std::string, std::string>> ep_options_map;
+  for (size_t i = 0; i < ep_list.size(); ++i) {
+    ep_options_map.emplace(ep_list[i], ep_options_list[i]);
+  }
+
+  for (auto& ep_and_devices : added_ep_devices) {
+    auto& ep = ep_and_devices.first;
+    auto& devices = ep_and_devices.second;
+    session_options.AppendExecutionProvider_V2(env, devices, ep_options_map[ep]);
+  }
+
+  fprintf(stdout, "[WinML Standalone] provider_names: %s\n", provider_name_.c_str());
+#else
   // Add EP devices if any (created by plugin EP)
   if (!performance_test_config.registered_plugin_eps.empty()) {
     std::vector<Ort::ConstEpDevice> ep_devices = env.GetEpDevices();
@@ -612,6 +676,7 @@ select from 'TF8', 'TF16', 'UINT8', 'FLOAT', 'ITENSOR'. \n)");
              provider_name_ != onnxruntime::kOpenVINOExecutionProvider) {
     ORT_THROW("This backend is not included in perf test runner.\n");
   }
+#endif  // BUILD_WINML_STANDALONE_PERF_TEST
 
   if (performance_test_config.run_config.enable_cpu_mem_arena)
     session_options.EnableCpuMemArena();
@@ -703,6 +768,10 @@ select from 'TF8', 'TF16', 'UINT8', 'FLOAT', 'ITENSOR'. \n)");
     }
   }
   if (provider_name_ == onnxruntime::kOpenVINOExecutionProvider) {
+#ifdef BUILD_WINML_STANDALONE_PERF_TEST
+    // OpenVINO is configured via the WinML standalone plugin-EP path above; no extra
+    // session-level setup is needed here.
+#else
 #ifdef USE_OPENVINO
 #ifdef _MSC_VER
     std::string ov_string = ToUTF8String(performance_test_config.run_config.ep_runtime_config_string);
@@ -877,6 +946,7 @@ select from 'TF8', 'TF16', 'UINT8', 'FLOAT', 'ITENSOR'. \n)");
 #else
     ORT_THROW("OpenVINO is not supported in this build\n");
 #endif
+#endif  // BUILD_WINML_STANDALONE_PERF_TEST
   }
 
   if (performance_test_config.run_config.use_extensions) {

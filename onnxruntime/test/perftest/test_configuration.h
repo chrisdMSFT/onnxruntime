@@ -79,6 +79,15 @@ struct PerformanceTestConfig {
   std::vector<std::string> registered_plugin_eps;
   std::string selected_ep_device_indices;
   bool list_available_ep_devices = false;
+
+#ifdef BUILD_WINML_STANDALONE_PERF_TEST
+
+  std::vector<std::string> winml_register_provider;
+
+  bool has_required_device_type = false;
+  OrtHardwareDeviceType required_device_type = OrtHardwareDeviceType::OrtHardwareDeviceType_CPU;
+
+  #endif
 };
 
 }  // namespace perftest
