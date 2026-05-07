@@ -39,9 +39,9 @@ int real_main(int argc, char* argv[]) {
 #ifdef BUILD_WINML_STANDALONE_PERF_TEST
   // We require the runtime to support our compile-time API version (newer is
   // fine because GetApi(N) returns a v_N-shaped struct that the runtime is
-  // forward-compatible with; older is NOT fine because the v25 headers
+  // forward-compatible with; older is NOT fine because the v24 headers
   // describe a struct layout the older runtime never allocated, so any
-  // v25-only call would dereference past the actual struct -> UB).
+  // v24-only call would dereference past the actual struct -> UB).
   {
     const OrtApiBase* api_base = OrtGetApiBase();
     if (api_base == nullptr) {
