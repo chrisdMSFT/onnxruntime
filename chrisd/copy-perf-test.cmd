@@ -1,5 +1,5 @@
 @echo off
-REM Script to copy winappsdk_onnxruntime_perf_test.exe and .pdb to OneDrive with date-commitish folder pattern
+REM Script to copy winml_standalone_perf_test.exe and .pdb to OneDrive with date-commitish folder pattern
 REM Usage: copy_perf_test.bat [BuildType] [Arch]
 REM Example: copy_perf_test.bat RelWithDebInfo x64
 
@@ -41,12 +41,12 @@ REM Create the folder name with pattern: YYMMDD-commitish
 set FolderName=!Date!-!Commit!
 
 REM Define the destination path
-set DestBase=C:\Users\chrisd\OneDrive - Microsoft\winappsdk_onnxruntime_perf_test
+set DestBase=C:\Users\chrisd\OneDrive - Microsoft\winml_standalone_perf_test
 set DestFolder=!DestBase!\!FolderName!\!Arch!
 
 REM Verify source files exist
-set ExePath=!SourceDir!\winappsdk_onnxruntime_perf_test.exe
-set PdbPath=!SourceDir!\winappsdk_onnxruntime_perf_test.pdb
+set ExePath=!SourceDir!\winml_standalone_perf_test.exe
+set PdbPath=!SourceDir!\winml_standalone_perf_test.pdb
 
 if not exist "!ExePath!" (
     echo Error: Executable not found: !ExePath!
@@ -88,8 +88,8 @@ echo Folder: !FolderName!
 echo Arch: !Arch!
 echo Destination: !DestFolder!
 echo Files copied:
-echo   - winappsdk_onnxruntime_perf_test.exe
-echo   - winappsdk_onnxruntime_perf_test.pdb
+echo   - winml_standalone_perf_test.exe
+echo   - winml_standalone_perf_test.pdb
 echo.
 echo Success!
 

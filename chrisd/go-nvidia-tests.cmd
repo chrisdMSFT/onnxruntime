@@ -7,12 +7,12 @@ mkdir C:\models\out
 echo.
 echo "List available EP devices"
 echo.
-build\RelWithDebInfo\winappsdk_onnxruntime_perf_test --list_ep_devices
+build\RelWithDebInfo\winml_standalone_perf_test --list_ep_devices
 
 echo.
 echo "Go NVidia!"
 echo.
-build\RelWithDebInfo\winappsdk_onnxruntime_perf_test --xx NvTensorRTRTXExecutionProvider -e nvtensorrtrtx --required_device_type gpu -t 10 -I "C:\models\in\PSD1.quant.onnx"
+build\RelWithDebInfo\winml_standalone_perf_test --xx NvTensorRTRTXExecutionProvider -e nvtensorrtrtx --required_device_type gpu -t 10 -I "C:\models\in\PSD1.quant.onnx"
 echo.
 
 echo "Done!"

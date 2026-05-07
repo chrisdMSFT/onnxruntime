@@ -92,15 +92,10 @@ OnnxRuntimeTestSession::OnnxRuntimeTestSession(Ort::Env& env, std::random_device
       run_config_entries_(performance_test_config.run_config.run_config_entries) {
   Ort::SessionOptions session_options;
 
-#ifdef BUILD_WINAPPSDK_PERF_TEST
-  // ----------------------------------------------------------------------
-  // WinAppSDK plugin-EP path: select EP devices via env.GetEpDevices() and
-  // register them with AppendExecutionProvider_V2. The legacy per-EP cascade
-  // below is intentionally compiled out for this target because the WinAppSDK
-  // ML runtime owns EP discovery / registration.
+#ifdef BUILD_WINML_STANDALONE_PERF_TEST
   // ----------------------------------------------------------------------
   if (!performance_test_config.selected_ep_device_indices.empty()) {
-    ORT_THROW("[ERROR] [WinAppSDK]: selected_ep_device_indices is not supported.");
+    ORT_THROW("[ERROR] [WinML Standalone]: selected_ep_device_indices is not supported.");
   }
 
   provider_name_ = performance_test_config.machine_config.provider_type_name;
@@ -122,7 +117,7 @@ OnnxRuntimeTestSession::OnnxRuntimeTestSession(Ort::Env& env, std::random_device
       provider_name_.append("|");
       ep_list.push_back(device.EpName());
 
-      fprintf(stdout, "[WinAppSDK] EP Device [Index: %zu, Name: %s] added to session.\n",
+      fprintf(stdout, "[WinML Standalone] EP Device [Index: %zu, Name: %s] added to session.\n",
               index, device.EpName());
     }
   }
@@ -159,7 +154,7 @@ OnnxRuntimeTestSession::OnnxRuntimeTestSession(Ort::Env& env, std::random_device
     session_options.AppendExecutionProvider_V2(env, devices, ep_options_map[ep]);
   }
 
-  fprintf(stdout, "[WinAppSDK] provider_names: %s\n", provider_name_.c_str());
+  fprintf(stdout, "[WinML Standalone] provider_names: %s\n", provider_name_.c_str());
 #else
   // Add EP devices if any (created by plugin EP)
   if (!performance_test_config.registered_plugin_eps.empty()) {
@@ -682,7 +677,7 @@ select from 'TF8', 'TF16', 'UINT8', 'FLOAT', 'ITENSOR'. \n)");
              provider_name_ != onnxruntime::kOpenVINOExecutionProvider) {
     ORT_THROW("This backend is not included in perf test runner.\n");
   }
-#endif  // BUILD_WINAPPSDK_PERF_TEST
+#endif  // BUILD_WINML_STANDALONE_PERF_TEST
 
   if (performance_test_config.run_config.enable_cpu_mem_arena)
     session_options.EnableCpuMemArena();
@@ -785,8 +780,8 @@ select from 'TF8', 'TF16', 'UINT8', 'FLOAT', 'ITENSOR'. \n)");
     }
   }
   if (provider_name_ == onnxruntime::kOpenVINOExecutionProvider) {
-#ifdef BUILD_WINAPPSDK_PERF_TEST
-    // OpenVINO is configured via the WinAppSDK plugin-EP path above; no extra
+#ifdef BUILD_WINML_STANDALONE_PERF_TEST
+    // OpenVINO is configured via the WinML standalone plugin-EP path above; no extra
     // session-level setup is needed here.
 #else
 #ifdef USE_OPENVINO
@@ -963,7 +958,7 @@ select from 'TF8', 'TF16', 'UINT8', 'FLOAT', 'ITENSOR'. \n)");
 #else
     ORT_THROW("OpenVINO is not supported in this build\n");
 #endif
-#endif  // BUILD_WINAPPSDK_PERF_TEST
+#endif  // BUILD_WINML_STANDALONE_PERF_TEST
   }
 
   if (performance_test_config.run_config.use_extensions) {
