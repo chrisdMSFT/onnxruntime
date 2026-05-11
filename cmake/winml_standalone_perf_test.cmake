@@ -34,22 +34,21 @@ FetchContent_MakeAvailable(NuGetCMakePackage)
 
 add_nuget_packages(
   PACKAGES
-  Microsoft.Windows.AI.MachineLearning 2.0.297-preview
-  PRERELEASE ON
+  Microsoft.WindowsAppSDK.ML 1.8.2192
 )
 
 # Point find_package to the NuGet package's CMake config
-get_property(_winml_nuget_location GLOBAL PROPERTY "NUGET_LOCATION-MICROSOFT_WINDOWS_AI_MACHINELEARNING")
-set(microsoft.windows.ai.machinelearning_DIR "${_winml_nuget_location}/build/cmake" CACHE PATH "" FORCE)
-find_package(microsoft.windows.ai.machinelearning CONFIG REQUIRED)
+get_property(_winml_nuget_location GLOBAL PROPERTY "NUGET_LOCATION-MICROSOFT_WINDOWSAPPSDK_ML")
+set(microsoft.windowsappsdk.ml_DIR "${_winml_nuget_location}/build/cmake" CACHE PATH "" FORCE)
+find_package(microsoft.windowsappsdk.ml CONFIG REQUIRED)
 
-# WINML_BINARY_DIR is exported by the microsoft.windows.ai.machinelearning
+# WINML_BINARY_DIR is exported by the microsoft.windowsappsdk.ml
 # CMake config and points at the directory containing the runtime DLLs we
 # copy next to the EXE below. If the package layout drifts, fail loudly at
 # configure time rather than emit a silent post-build copy_if_different that
 # does nothing and leaves the EXE missing onnxruntime.dll at runtime.
 if(NOT WINML_BINARY_DIR)
-  message(FATAL_ERROR "WINML_BINARY_DIR not set by Microsoft.Windows.AI.MachineLearning package")
+  message(FATAL_ERROR "WINML_BINARY_DIR not set by Microsoft.WindowsAppSDK.ML package")
 endif()
 
 #-------------------------------------------------------------------------------
