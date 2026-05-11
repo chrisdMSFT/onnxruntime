@@ -37,21 +37,33 @@ add_nuget_packages(
   Microsoft.WindowsAppSDK.ML 1.8.2192
 )
 
-# Point find_package to the NuGet package's CMake config
+# Point find_package to the NuGet package's own CMake config (microsoft.windows.ai.machinelearning-config.cmake).
+# This avoids the NuGetCMakePackage helper's microsoft.windowsappsdk.ml-config.cmake which pulls in
+# CppWinRT projections, Foundation, Runtime, and InteractiveExperiences — none of which are needed here.
 get_property(_winml_nuget_location GLOBAL PROPERTY "NUGET_LOCATION-MICROSOFT_WINDOWSAPPSDK_ML")
-set(microsoft.windowsappsdk.ml_DIR "${_winml_nuget_location}/build/cmake" CACHE PATH "" FORCE)
-find_package(microsoft.windowsappsdk.ml CONFIG REQUIRED)
+set(microsoft.windows.ai.machinelearning_DIR "${_winml_nuget_location}/build/cmake" CACHE PATH "" FORCE)
+find_package(microsoft.windows.ai.machinelearning CONFIG REQUIRED)
 
-# WINML_BINARY_DIR is exported by the microsoft.windowsappsdk.ml
-# CMake config and points at the directory containing the runtime DLLs we
-# copy next to the EXE below. If the package layout drifts, fail loudly at
-# configure time rather than emit a silent post-build copy_if_different that
-# does nothing and leaves the EXE missing onnxruntime.dll at runtime.
-if(NOT WINML_BINARY_DIR)
-  message(FATAL_ERROR "WINML_BINARY_DIR not set by Microsoft.WindowsAppSDK.ML package")
+# WINML_BINARY_DIR: use the same platform-detection logic as the package config
+if(CMAKE_GENERATOR MATCHES "^Visual Studio")
+  set(_winml_platform ${CMAKE_GENERATOR_PLATFORM})
+else()
+  set(_winml_proc ${CMAKE_SYSTEM_PROCESSOR})
+  if(_winml_proc STREQUAL "")
+    set(_winml_proc ${CMAKE_HOST_PROCESSOR})
+  endif()
+  if(_winml_proc STREQUAL "AMD64")
+    set(_winml_platform "x64")
+  elseif(_winml_proc STREQUAL "ARM64")
+    set(_winml_platform "arm64")
+  endif()
 endif()
 
-#-------------------------------------------------------------------------------
+set(WINML_BINARY_DIR "${_winml_nuget_location}/runtimes-framework/win-${_winml_platform}/native")
+
+if(NOT EXISTS "${WINML_BINARY_DIR}")
+  message(FATAL_ERROR "WINML_BINARY_DIR does not exist: ${WINML_BINARY_DIR}")
+endif()
 
 # Source files
 set(winml_standalone_perf_test_src_dir ${TEST_SRC_DIR}/perftest)
@@ -107,13 +119,13 @@ target_link_libraries(winml_standalone_perf_test
 
   Threads::Threads
 
-  WindowsML::Api
+  WindowsML::WindowsML
 )
 
 # Copy runtime DLLs to build output so the EXE can run in-place
 add_custom_command(TARGET winml_standalone_perf_test POST_BUILD
   COMMAND ${CMAKE_COMMAND} -E copy_if_different
-    $<TARGET_PROPERTY:WindowsML::Api,IMPORTED_LOCATION>
+    "${WINML_BINARY_DIR}/Microsoft.Windows.AI.MachineLearning.dll"
     "$<TARGET_FILE_DIR:winml_standalone_perf_test>"
   COMMAND ${CMAKE_COMMAND} -E copy_if_different
     "${WINML_BINARY_DIR}/onnxruntime.dll"
@@ -127,3 +139,4 @@ add_custom_command(TARGET winml_standalone_perf_test POST_BUILD
   VERBATIM
   COMMENT "Copying WinML runtime DLLs (Microsoft.Windows.AI.MachineLearning.dll, onnxruntime.dll, onnxruntime_providers_shared.dll, DirectML.dll)"
 )
+
