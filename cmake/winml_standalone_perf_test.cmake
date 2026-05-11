@@ -120,8 +120,11 @@ add_custom_command(TARGET winml_standalone_perf_test POST_BUILD
     "${WINML_BINARY_DIR}/onnxruntime.dll"
     "$<TARGET_FILE_DIR:winml_standalone_perf_test>"
   COMMAND ${CMAKE_COMMAND} -E copy_if_different
+    "${WINML_BINARY_DIR}/onnxruntime_providers_shared.dll"
+    "$<TARGET_FILE_DIR:winml_standalone_perf_test>"
+  COMMAND ${CMAKE_COMMAND} -E copy_if_different
     "${WINML_BINARY_DIR}/DirectML.dll"
     "$<TARGET_FILE_DIR:winml_standalone_perf_test>"
   VERBATIM
-  COMMENT "Copying WinML runtime DLLs (Microsoft.Windows.AI.MachineLearning.dll, onnxruntime.dll, DirectML.dll)"
+  COMMENT "Copying WinML runtime DLLs (Microsoft.Windows.AI.MachineLearning.dll, onnxruntime.dll, onnxruntime_providers_shared.dll, DirectML.dll)"
 )
