@@ -272,20 +272,23 @@ WinMLStandaloneRegistration::~WinMLStandaloneRegistration()
 
 void WinMLStandaloneRegistration::Cleanup() noexcept
 {
-    // Unregister EP libraries (best-effort; never throw out of here so we
-    // remain safe to call from the destructor and the constructor's catch
-    // block).
-    for (const auto& path : registered_)
-    {
-        try
-        {
-            env_.UnregisterExecutionProviderLibrary(path.c_str());
-        }
-        catch (...)
-        {
-            // Best-effort cleanup.
-        }
-    }
+    // TODO: Re-enable UnregisterExecutionProviderLibrary once we drop ORT 1.23 support.
+    //
+    // UnregisterExecutionProviderLibrary causes an access violation (0xC0000005) when
+    // running against ORT 1.23 DLL at runtime. ORT 1.24 fixes this.
+    // Since this tool runs once and exits, process teardown handles DLL cleanup.
+    //
+    // for (const auto& path : registered_)
+    // {
+    //     try
+    //     {
+    //         env_.UnregisterExecutionProviderLibrary(path.c_str());
+    //     }
+    //     catch (...)
+    //     {
+    //         // Best-effort cleanup.
+    //     }
+    // }
     registered_.clear();
 
     // Release the EP catalog.
