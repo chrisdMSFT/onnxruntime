@@ -95,7 +95,8 @@ int real_main(int argc, char* argv[]) {
   // so this object is declared on the function stack after `env` is
   // constructed.
   WinMLStandaloneRegistration winml_session{env, test_config.winml_register_provider};
-  std::cout << "ONNX Runtime C++ API version: " << ORT_API_VERSION << std::endl;
+  std::cout << "ONNX Runtime version (runtime DLL): " << Ort::GetVersionString() << std::endl;
+  std::cout << "ONNX Runtime API version (compile-time headers): " << ORT_API_VERSION << std::endl;
 
   std::cout << "-------------------------------------------" << std::endl;
   std::cout << "[WinML Standalone] provider_Type_Name:" << test_config.machine_config.provider_type_name << std::endl;
