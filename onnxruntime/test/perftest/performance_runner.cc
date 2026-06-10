@@ -113,13 +113,15 @@ void PerformanceResult::DumpToFile(const std::basic_string<ORTCHAR_T>& path, boo
       ostream << "Min Latency: " << sorted_time[0] << " s\n";
       ostream << "Max Latency: " << sorted_time[total - 1] << " s\n";
       ostream << "P50 Latency: " << sorted_time[n50] << " s\n";
+      if (f_extended_stats) {
+        ostream << "P75 Latency: " << sorted_time[n75] << " s\n";
+      }
       ostream << "P90 Latency: " << sorted_time[n90] << " s\n";
       ostream << "P95 Latency: " << sorted_time[n95] << " s\n";
       ostream << "P99 Latency: " << sorted_time[n99] << " s\n";
       ostream << "P999 Latency: " << sorted_time[n999] << " s";
       if (f_extended_stats) {
         ostream << "\nMean Latency: " << mean << " s\n";
-        ostream << "P75 Latency: " << sorted_time[n75] << " s\n";
         ostream << "Std Dev Latency: " << std_dev << " s";
       }
       ostream << std::endl;

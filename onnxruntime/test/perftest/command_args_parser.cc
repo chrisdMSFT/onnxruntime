@@ -149,7 +149,7 @@ ABSL_FLAG(std::string, R, "", "Allows user to register custom op by .so or .dll 
 ABSL_FLAG(bool, A, DefaultPerformanceTestConfig().run_config.enable_cpu_mem_arena, "Disables memory arena.");
 ABSL_FLAG(bool, M, DefaultPerformanceTestConfig().run_config.enable_memory_pattern, "Disables memory pattern.");
 ABSL_FLAG(bool, s, DefaultPerformanceTestConfig().run_config.f_dump_statistics, "Shows statistics result, like P75, P90. If no result_file provided this defaults to on.");
-ABSL_FLAG(bool, es, DefaultPerformanceTestConfig().run_config.f_enable_extended_stats, "Shows extended statistics result (mean, P75, std deviation). Requires -s to be enabled.");
+ABSL_FLAG(bool, es, DefaultPerformanceTestConfig().run_config.f_enable_extended_stats, "Shows extended statistics result (P75, mean, std deviation). Requires -s to be enabled.");
 ABSL_FLAG(bool, v, DefaultPerformanceTestConfig().run_config.f_verbose, "Shows verbose information.");
 ABSL_FLAG(bool, I, DefaultPerformanceTestConfig().run_config.generate_model_input_binding, "Generates tensor input binding. Free dimensions are treated as 1 unless overridden using -f.");
 ABSL_FLAG(bool, P, false, "Uses parallel executor instead of sequential executor.");

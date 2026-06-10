@@ -28,7 +28,7 @@ Options:
 
 	-s: Show statistics result, like P50, P90, P95, P99, P999.
 
-	-es: Show extended statistics result (mean, P75, standard deviation). Requires -s to be enabled.
+	-es: Show extended statistics result (P75, mean, standard deviation). Requires -s to be enabled.
 
 	-t: [seconds_to_run]: Specifies the seconds to run for 'duration' mode. Default:600.
 
@@ -72,6 +72,6 @@ __Sample output__ from the tool will look something like this:
 
 With `-s -es`, additional extended statistics are also shown:
 
+    P75 Latency is 0.0593241sec
 	Mean Latency is 0.0588053sec
-	P75 Latency is 0.0593241sec
 	Std Dev Latency is 0.0010234sec
