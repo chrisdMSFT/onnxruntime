@@ -69,9 +69,3 @@ __Sample output__ from the tool will look something like this:
 	P95 Latency is 0.0605676sec
 	P99 Latency is 0.0619517sec
 	P999 Latency is 0.0623472sec
-
-With `-s -es`, additional extended statistics are also shown:
-
-    P75 Latency is 0.0593241sec
-	Mean Latency is 0.0588053sec
-	Std Dev Latency is 0.0010234sec
