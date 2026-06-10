@@ -7,7 +7,9 @@
 #endif
 
 #include "performance_runner.h"
+#include <cmath>
 #include <iostream>
+#include <numeric>
 
 #include "TestCase.h"
 #include "utils.h"
@@ -54,7 +56,8 @@ Eigen::ThreadPoolInterface* GetDefaultThreadPool(const onnxruntime::Env& env) {
 namespace onnxruntime {
 namespace perftest {
 
-void PerformanceResult::DumpToFile(const std::basic_string<ORTCHAR_T>& path, bool f_include_statistics) const {
+void PerformanceResult::DumpToFile(const std::basic_string<ORTCHAR_T>& path, bool f_include_statistics,
+                                    bool f_extended_stats) const {
   bool have_file = !path.empty();
   std::ofstream outfile;
 
@@ -92,6 +95,20 @@ void PerformanceResult::DumpToFile(const std::basic_string<ORTCHAR_T>& path, boo
 
     std::sort(sorted_time.begin(), sorted_time.end());
 
+    double mean = 0.0;
+    double std_dev = 0.0;
+    size_t n75 = 0;
+    if (f_extended_stats) {
+      n75 = static_cast<size_t>(total * 0.75);
+      mean = std::accumulate(sorted_time.begin(), sorted_time.end(), 0.0) / static_cast<double>(total);
+      double variance = 0.0;
+      for (double t : sorted_time) {
+        double diff = t - mean;
+        variance += diff * diff;
+      }
+      std_dev = std::sqrt(variance / static_cast<double>(total));
+    }
+
     auto output_stats = [&](std::ostream& ostream) {
       ostream << "Min Latency: " << sorted_time[0] << " s\n";
       ostream << "Max Latency: " << sorted_time[total - 1] << " s\n";
@@ -99,7 +116,13 @@ void PerformanceResult::DumpToFile(const std::basic_string<ORTCHAR_T>& path, boo
       ostream << "P90 Latency: " << sorted_time[n90] << " s\n";
       ostream << "P95 Latency: " << sorted_time[n95] << " s\n";
       ostream << "P99 Latency: " << sorted_time[n99] << " s\n";
-      ostream << "P999 Latency: " << sorted_time[n999] << " s" << std::endl;
+      ostream << "P999 Latency: " << sorted_time[n999] << " s";
+      if (f_extended_stats) {
+        ostream << "\nMean Latency: " << mean << " s\n";
+        ostream << "P75 Latency: " << sorted_time[n75] << " s\n";
+        ostream << "Std Dev Latency: " << std_dev << " s";
+      }
+      ostream << std::endl;
     };
 
     if (have_file) {
