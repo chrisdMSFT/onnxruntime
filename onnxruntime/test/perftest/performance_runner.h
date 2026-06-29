@@ -36,7 +36,8 @@ struct PerformanceResult {
   std::vector<double> time_costs;
   std::string model_name;
 
-  void DumpToFile(const std::basic_string<ORTCHAR_T>& path, bool f_include_statistics = false) const;
+  void DumpToFile(const std::basic_string<ORTCHAR_T>& path, bool f_include_statistics = false,
+                  bool f_extended_stats = false) const;
 };
 
 class PerformanceRunner {
@@ -52,7 +53,8 @@ class PerformanceRunner {
 
   inline void SerializeResult() const {
     performance_result_.DumpToFile(performance_test_config_.model_info.result_file_path,
-                                   performance_test_config_.run_config.f_dump_statistics);
+                                   performance_test_config_.run_config.f_dump_statistics,
+                                   performance_test_config_.run_config.f_enable_extended_stats);
   }
   ORT_DISALLOW_COPY_ASSIGNMENT_AND_MOVE(PerformanceRunner);
 
