@@ -4,7 +4,7 @@ A Windows-only variant of `onnxruntime_perf_test` that loads ONNX Runtime via
 the standalone Windows ML flat-C `WinMLEpCatalog` API from the
 [`Microsoft.Windows.AI.MachineLearning`](https://www.nuget.org/packages/Microsoft.Windows.AI.MachineLearning)
 NuGet package. Execution-provider plugins (QNN, OpenVINO, NVIDIA TensorRT
-RTX, Vitis AI, …) are discovered and registered through the catalog at
+RTX, AMDGPU, Vitis AI, …) are discovered and registered through the catalog at
 runtime instead of being linked into ORT directly.
 
 The EXE has no dependency on the WindowsAppSDK bootstrap or WinRT activation,
@@ -137,6 +137,14 @@ build\RelWithDebInfo\winml_standalone_perf_test.exe ^
 ```cmd
 build\RelWithDebInfo\winml_standalone_perf_test.exe ^
   -e nvtensorrtrtx --required_device_type gpu ^
+  -t 10 -I "C:\models\in\model.onnx"
+```
+
+### AMD GPU
+
+```cmd
+build\RelWithDebInfo\winml_standalone_perf_test.exe ^
+  -e amdgpu --required_device_type gpu ^
   -t 10 -I "C:\models\in\model.onnx"
 ```
 
