@@ -22,7 +22,7 @@ the directory contains:
 | `Microsoft.Windows.AI.MachineLearning.dll`    | `Microsoft.Windows.AI.MachineLearning` NuGet (`WindowsML::Api` import target) | `$<TARGET_PROPERTY:WindowsML::Api,IMPORTED_LOCATION>` → `copy_if_different`.       |
 | `onnxruntime.dll`                             | Same NuGet, `${WINML_BINARY_DIR}/onnxruntime.dll`              | `copy_if_different`.                                                              |
 | `DirectML.dll`                                | Same NuGet, `${WINML_BINARY_DIR}/DirectML.dll`                 | `copy_if_different`.                                                              |
-| Per-EP libraries (e.g. QNN, OpenVINO, NV TensorRT RTX) | Their own NuGet install location, discovered at runtime by the WinML EP catalog | **NOT** copied next to the EXE. Loaded via `WinMLEpGetLibraryPath` + `Ort::Env::RegisterExecutionProviderLibrary` from wherever WinML installed them. |
+| Per-EP libraries (e.g. QNN, OpenVINO, NV TensorRT RTX, AMDGPU) | Their own NuGet install location, discovered at runtime by the WinML EP catalog | **NOT** copied next to the EXE. Loaded via `WinMLEpGetLibraryPath` + `Ort::Env::RegisterExecutionProviderLibrary` from wherever WinML installed them. |
 
 `WINML_BINARY_DIR` is exported by the
 `microsoft.windows.ai.machinelearning` CMake config from the WinML NuGet
