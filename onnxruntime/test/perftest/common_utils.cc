@@ -13,14 +13,47 @@ namespace onnxruntime {
 namespace perftest {
 namespace utils {
 
+#ifdef BUILD_WINML_STANDALONE_PERF_TEST
+namespace {
+// Lowercase spelling so the output is directly usable as --required_device_type.
+const char* HardwareDeviceTypeToString(OrtHardwareDeviceType type) {
+  switch (type) {
+    case OrtHardwareDeviceType_CPU:
+      return "cpu";
+    case OrtHardwareDeviceType_GPU:
+      return "gpu";
+    case OrtHardwareDeviceType_NPU:
+      return "npu";
+    default:
+      return "unknown";
+  }
+}
+}  // namespace
+#endif
+
 void ListEpDevices(const Ort::Env& env) {
   std::vector<Ort::ConstEpDevice> ep_devices = env.GetEpDevices();
 
   for (size_t i = 0; i < ep_devices.size(); ++i) {
     auto device = ep_devices[i];
-    std::string device_info_msg = "===== device id " + std::to_string(i) + " ======\n";
+
+    std::string device_info_msg = "===== ";
+#ifdef BUILD_WINML_STANDALONE_PERF_TEST
+    device_info_msg += "device index ";
+#else
+    device_info_msg += "device id ";
+#endif
+    device_info_msg += std::to_string(i) + " ======\n";
+
     device_info_msg += "name: " + std::string(device.EpName()) + "\n";
     device_info_msg += "vendor: " + std::string(device.EpVendor()) + "\n";
+
+#ifdef BUILD_WINML_STANDALONE_PERF_TEST
+    auto hardware_device = device.Device();
+    device_info_msg += "type: " + std::string(HardwareDeviceTypeToString(hardware_device.Type())) + "\n";
+    device_info_msg += "device_id: " + std::to_string(hardware_device.DeviceId()) + "\n";
+    device_info_msg += "vendor_id: " + std::to_string(hardware_device.VendorId()) + "\n";
+#endif
 
     auto metadata = device.EpMetadata();
     std::unordered_map<std::string, std::string> metadata_entries = metadata.GetKeyValuePairs();

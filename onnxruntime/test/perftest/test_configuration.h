@@ -88,6 +88,12 @@ struct PerformanceTestConfig {
   bool has_required_device_type = false;
   OrtHardwareDeviceType required_device_type = OrtHardwareDeviceType::OrtHardwareDeviceType_CPU;
 
+  bool has_required_device_id = false;
+  uint32_t required_device_id = 0;
+
+  bool has_required_vendor_id = false;
+  uint32_t required_vendor_id = 0;
+
   #endif
 };
 

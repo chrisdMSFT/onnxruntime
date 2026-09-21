@@ -102,6 +102,10 @@ int real_main(int argc, char* argv[]) {
   std::cout << "[WinML Standalone] provider_Type_Name:" << test_config.machine_config.provider_type_name << std::endl;
   std::cout << "[WinML Standalone] has_Required_Device_Type:" << test_config.has_required_device_type << std::endl;
   std::cout << "[WinML Standalone] required_Device_Type:" << test_config.required_device_type << std::endl;
+  std::cout << "[WinML Standalone] has_Required_Device_Id:" << test_config.has_required_device_id << std::endl;
+  std::cout << "[WinML Standalone] required_Device_Id:" << test_config.required_device_id << std::endl;
+  std::cout << "[WinML Standalone] has_Required_Vendor_Id:" << test_config.has_required_vendor_id << std::endl;
+  std::cout << "[WinML Standalone] required_Vendor_Id:" << test_config.required_vendor_id << std::endl;
   std::wcout << L"[WinML Standalone] model_file_path:" << test_config.model_info.model_file_path << std::endl;
   std::cout << "-------------------------------------------" << std::endl;
 #endif
