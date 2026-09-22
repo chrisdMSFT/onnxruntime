@@ -52,7 +52,7 @@ void ListEpDevices(const Ort::Env& env) {
     auto hardware_device = device.Device();
     device_info_msg += "type: " + std::string(HardwareDeviceTypeToString(hardware_device.Type())) + "\n";
     device_info_msg += "device_id: " + std::to_string(hardware_device.DeviceId()) + "\n";
-    device_info_msg += "vendor_id: " + std::to_string(hardware_device.VendorId()) + "\n";
+    device_info_msg += "hardware_vendor_id: " + std::to_string(hardware_device.VendorId()) + "\n";
 #endif
 
     auto metadata = device.EpMetadata();
