@@ -7,6 +7,7 @@
 #include "utils.h"
 
 #include <string.h>
+#include <charconv>
 #include <iostream>
 #include <sstream>
 #include <string_view>
@@ -186,11 +187,33 @@ ABSL_FLAG(bool, h, false, "Print program usage.");
 
 ABSL_FLAG(std::vector<std::string>, winml_register_provider, {}, "Register provider if empty, or register only the providers listed with exact match. Use --list_ep_devices to get the EP names, e.g. OpenVINOExecutionProvider");
 ABSL_FLAG(std::string, required_device_type, "", "Specifies the device type, e.g. cpu, gpu, npu.");
+ABSL_FLAG(std::string, required_device_id, "",
+          "Specifies the hardware device ID to run on, in decimal. "
+          "Use --list_ep_devices to discover available values.");
+ABSL_FLAG(std::string, required_vendor_id, "",
+          "Specifies the hardware vendor ID to run on, in decimal. "
+          "Use --list_ep_devices to discover available values.");
 
 #endif
 
 namespace onnxruntime {
 namespace perftest {
+
+#ifdef BUILD_WINML_STANDALONE_PERF_TEST
+
+// Parses a uint32 in decimal. Returns false on non-numeric input,
+// trailing characters, a sign, or a value above UINT32_MAX.
+static bool ParseUint32(const std::string& value, uint32_t& result) {
+  if (value.empty() || value[0] == '-' || value[0] == '+') {
+    return false;
+  }
+
+  const char* const last = value.data() + value.size();
+  const auto [ptr, ec] = std::from_chars(value.data(), last, result);
+  return ec == std::errc{} && ptr == last;
+}
+
+#endif
 
 std::string CustomUsageMessage() {
   std::ostringstream oss;
@@ -528,6 +551,30 @@ bool CommandLineParser::ParseArguments(PerformanceTestConfig& test_config, int a
       else {
         return false;
       }
+    }
+  }
+
+  // --required_device_id
+  {
+    const auto& required_device_id = absl::GetFlag(FLAGS_required_device_id);
+
+    if (!required_device_id.empty()) {
+      if (!ParseUint32(required_device_id, test_config.required_device_id)) {
+        return false;
+      }
+      test_config.has_required_device_id = true;
+    }
+  }
+
+  // --required_vendor_id
+  {
+    const auto& required_vendor_id = absl::GetFlag(FLAGS_required_vendor_id);
+
+    if (!required_vendor_id.empty()) {
+      if (!ParseUint32(required_vendor_id, test_config.required_vendor_id)) {
+        return false;
+      }
+      test_config.has_required_vendor_id = true;
     }
   }
 

@@ -94,6 +94,11 @@ no source change is required.
 | --- | --- | --- |
 | `--winml_register_provider <name[,name…]>` | *(empty: register all)* | Restrict provider registration to the listed EP names (exact match). Get names via `--list_ep_devices` (e.g. `OpenVINOExecutionProvider`). If any requested name fails to register, the EXE will exit non-zero rather than silently fall back to CPU-only. |
 | `--required_device_type <cpu\|gpu\|npu>` | *(unset)* | Only run on a device of the given type. |
+| `--required_device_id <uint32>` | *(unset)* | Only run on the device with the given hardware device ID. Decimal value. Get values via `--list_ep_devices`. |
+| `--required_vendor_id <uint32>` | *(unset)* | Only run on devices with the given hardware vendor ID. Decimal value. Get values via `--list_ep_devices`. |
+
+All four filters (`-e`, `--required_device_type`, `--required_device_id`, `--required_vendor_id`) are
+ANDed together; an omitted filter matches every device.
 
 ### List available EP devices
 

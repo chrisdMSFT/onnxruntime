@@ -81,6 +81,10 @@ OnnxRuntimeTestSession::OnnxRuntimeTestSession(Ort::Env& env, std::random_device
 
     if ((!performance_test_config.has_required_device_type ||
          device.Device().Type() == performance_test_config.required_device_type) &&
+        (!performance_test_config.has_required_device_id ||
+         device.Device().DeviceId() == performance_test_config.required_device_id) &&
+        (!performance_test_config.has_required_vendor_id ||
+         device.Device().VendorId() == performance_test_config.required_vendor_id) &&
         performance_test_config.machine_config.provider_type_name == device.EpName()) {
       added_ep_devices[device.EpName()].push_back(device);
       provider_name_.append(device.EpName());
