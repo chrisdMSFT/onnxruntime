@@ -41,7 +41,8 @@ struct PerformanceResult {
   std::string model_name;
 
   void DumpToFile(const std::basic_string<ORTCHAR_T>& path, bool f_include_statistics = false,
-                  const std::map<std::string, std::vector<std::vector<int64_t>>>& shape_groups = {}) const;
+                  const std::map<std::string, std::vector<std::vector<int64_t>>>& shape_groups = {},
+                  bool f_extended_stats = false) const;
 };
 
 class PerformanceRunner {
@@ -58,7 +59,8 @@ class PerformanceRunner {
   inline void SerializeResult() const {
     performance_result_.DumpToFile(performance_test_config_.model_info.result_file_path,
                                    performance_test_config_.run_config.f_dump_statistics,
-                                   performance_test_config_.run_config.data_shape_groups);
+                                   performance_test_config_.run_config.data_shape_groups,
+                                   performance_test_config_.run_config.f_enable_extended_stats);
   }
   ORT_DISALLOW_COPY_ASSIGNMENT_AND_MOVE(PerformanceRunner);
 

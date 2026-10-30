@@ -1,0 +1,1 @@
+build\RelWithDebInfo\winml_standalone_perf_test.exe --list_ep_devices

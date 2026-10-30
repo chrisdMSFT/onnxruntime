@@ -7,6 +7,7 @@
 #include "utils.h"
 
 #include <string.h>
+#include <charconv>
 #include <iostream>
 #include <sstream>
 #include <string_view>
@@ -57,7 +58,11 @@ ABSL_FLAG(std::string, F, "",
           "[Usage]: -f \"dimension_denotation1:override_value1\" -f \"dimension_denotation2:override_value2\" ...  or"
           " -f \"dimension_denotation1:override_value1 dimension_denotation2 : override_value2... \". Override value must > 0.");
 ABSL_FLAG(std::string, m, "duration", "Specifies the test mode. Value could be 'duration' or 'times'.");
+#ifdef BUILD_WINML_STANDALONE_PERF_TEST
+ABSL_FLAG(std::string, e, "cpu", "Specifies the provider 'cpu','cuda','dnnl','tensorrt', 'nvtensorrtrtx', 'openvino', 'dml', 'acl', 'nnapi', 'coreml', 'qnn', 'snpe', 'migraphx', 'xnnpack', 'vitisai', 'webgpu' or 'amdgpu'.");
+#else
 ABSL_FLAG(std::string, e, "cpu", "Specifies the provider 'cpu','cuda','dnnl','tensorrt', 'nvtensorrtrtx', 'openvino', 'dml', 'acl', 'nnapi', 'coreml', 'qnn', 'snpe', 'migraphx', 'xnnpack', 'vitisai' or 'webgpu'.");
+#endif
 ABSL_FLAG(size_t, r, DefaultPerformanceTestConfig().run_config.repeated_times, "Specifies the repeated times if running in 'times' test mode.");
 ABSL_FLAG(size_t, t, DefaultPerformanceTestConfig().run_config.duration_in_seconds, "Specifies the seconds to run for 'duration' mode.");
 ABSL_FLAG(std::string, p, "", "Specifies the profile name to enable profiling and dump the profile data to the file.");
@@ -174,6 +179,7 @@ ABSL_FLAG(std::string, shrink_arena_between_runs, "", "When arena is enabled cal
 ABSL_FLAG(std::string, enable_cuda_mempool, "", "When cuda is enabled use CudaMempoolArena with params 'pool_release_threshold;bytes_to_keep_on_shrink'");
 ABSL_FLAG(bool, M, !DefaultPerformanceTestConfig().run_config.enable_memory_pattern, "Disables memory pattern.");
 ABSL_FLAG(bool, s, DefaultPerformanceTestConfig().run_config.f_dump_statistics, "Shows statistics result, like P75, P90. If no result_file provided this defaults to on.");
+ABSL_FLAG(bool, es, DefaultPerformanceTestConfig().run_config.f_enable_extended_stats, "Shows extended statistics result (P75, mean, std deviation). Requires -s to be enabled.");
 ABSL_FLAG(bool, v, DefaultPerformanceTestConfig().run_config.f_verbose, "Shows verbose information.");
 ABSL_FLAG(bool, I, DefaultPerformanceTestConfig().run_config.generate_model_input_binding, "Generates tensor input binding. Free dimensions are treated as 1 unless overridden using -f.");
 ABSL_FLAG(bool, P, false, "Uses parallel executor instead of sequential executor.");
@@ -193,15 +199,19 @@ ABSL_FLAG(uint32_t, hold_ms_after_session_creation, DefaultPerformanceTestConfig
 ABSL_FLAG(bool, l, DefaultPerformanceTestConfig().model_info.load_via_path, "Provides file as binary in memory by using fopen before session creation.");
 ABSL_FLAG(bool, g, DefaultPerformanceTestConfig().run_config.enable_cuda_io_binding, "[TensorRT RTX | TensorRT | CUDA] Enables tensor input and output bindings on CUDA before session run.");
 ABSL_FLAG(bool, X, DefaultPerformanceTestConfig().run_config.use_extensions, "Registers custom ops from onnxruntime-extensions.");
+
 ABSL_FLAG(std::string, plugin_ep_libs, "",
           "Specifies a list of plugin execution provider (EP) registration names and their corresponding shared libraries to register.\n"
           "[Usage]: --plugin_ep_libs \"plugin_ep_name_1|plugin_ep_1.dll plugin_ep_name_2|plugin_ep_2.dll ... \"");
+
 ABSL_FLAG(std::string, plugin_eps, "", "Specifies a semicolon-separated list of plugin execution providers (EPs) to use.");
+
 ABSL_FLAG(std::string, plugin_ep_options, "",
           "Specifies provider options for each EP listed in --plugin_eps. Options (key-value pairs) for each EP are separated by space and EPs are separated by semicolons.\n"
           "[Usage]: --plugin_ep_options \"ep_1_option_1_key|ep_1_option_1_value ...;ep_2_option_1_key|ep_2_option_1_value ...;... \" or \n"
           "--plugin_ep_options \";ep_2_option_1_key|ep_2_option_1_value ...;... \" or \n"
           "--plugin_ep_options \"ep_1_option_1_key|ep_1_option_1_value ...;;ep_3_option_1_key|ep_3_option_1_value ...;... \"");
+
 ABSL_FLAG(bool, list_ep_devices, false, "Prints all available device indices and their properties (including metadata). This option makes the program exit early without performing inference.\n");
 ABSL_FLAG(std::string, select_ep_devices, "", "Specifies a semicolon-separated list of device indices to add to the session and run with.");
 ABSL_FLAG(std::string, filter_ep_devices, "",
@@ -227,8 +237,37 @@ ABSL_FLAG(std::string, data_shape, "",
           "All dimension values must be positive integers.");
 ABSL_FLAG(bool, h, false, "Print program usage.");
 
+#ifdef BUILD_WINML_STANDALONE_PERF_TEST
+
+ABSL_FLAG(std::vector<std::string>, winml_register_provider, {}, "Register provider if empty, or register only the providers listed with exact match. Use --list_ep_devices to get the EP names, e.g. OpenVINOExecutionProvider");
+ABSL_FLAG(std::string, required_device_type, "", "Specifies the device type, e.g. cpu, gpu, npu.");
+ABSL_FLAG(std::string, required_device_id, "",
+          "Specifies the hardware device ID to run on, in decimal. "
+          "Use --list_ep_devices to discover available values.");
+ABSL_FLAG(std::string, required_vendor_id, "",
+          "Specifies the hardware vendor ID to run on, in decimal. "
+          "Use --list_ep_devices to discover available values.");
+
+#endif
+
 namespace onnxruntime {
 namespace perftest {
+
+#ifdef BUILD_WINML_STANDALONE_PERF_TEST
+
+// Parses a uint32 in decimal. Returns false on non-numeric input,
+// trailing characters, a sign, or a value above UINT32_MAX.
+static bool ParseUint32(const std::string& value, uint32_t& result) {
+  if (value.empty() || value[0] == '-' || value[0] == '+') {
+    return false;
+  }
+
+  const char* const last = value.data() + value.size();
+  const auto [ptr, ec] = std::from_chars(value.data(), last, result);
+  return ec == std::errc{} && ptr == last;
+}
+
+#endif
 
 std::string CustomUsageMessage() {
   std::ostringstream oss;
@@ -372,6 +411,10 @@ bool CommandLineParser::ParseArguments(PerformanceTestConfig& test_config, int a
         test_config.machine_config.provider_type_name = onnxruntime::kWebGpuExecutionProvider;
       } else if (ep == "nvtensorrtrtx") {
         test_config.machine_config.provider_type_name = onnxruntime::kNvTensorRTRTXExecutionProvider;
+#ifdef BUILD_WINML_STANDALONE_PERF_TEST
+      } else if (ep == "amdgpu") {
+        test_config.machine_config.provider_type_name = onnxruntime::kAMDGPUExecutionProvider;
+#endif
       } else {
         return false;
       }
@@ -414,6 +457,9 @@ bool CommandLineParser::ParseArguments(PerformanceTestConfig& test_config, int a
 
   // -s
   test_config.run_config.f_dump_statistics = absl::GetFlag(FLAGS_s);
+
+  // -es
+  test_config.run_config.f_enable_extended_stats = absl::GetFlag(FLAGS_es);
 
   // -S
   test_config.run_config.random_seed_for_input_data = absl::GetFlag(FLAGS_S);
@@ -592,6 +638,59 @@ bool CommandLineParser::ParseArguments(PerformanceTestConfig& test_config, int a
     const auto& plugin_ep_options = absl::GetFlag(FLAGS_plugin_ep_options);
     if (!plugin_ep_options.empty()) test_config.run_config.ep_runtime_config_string = ToPathString(plugin_ep_options);
   }
+
+#ifdef BUILD_WINML_STANDALONE_PERF_TEST
+
+  // --winml_register_provider
+  {
+    test_config.winml_register_provider = absl::GetFlag(FLAGS_winml_register_provider);
+  }
+
+  // --required_device_type
+  {
+    const auto& required_device_type = absl::GetFlag(FLAGS_required_device_type);
+
+    if (!required_device_type.empty()) {
+      test_config.has_required_device_type = true;
+
+      if (required_device_type == "cpu") {
+        test_config.required_device_type = OrtHardwareDeviceType::OrtHardwareDeviceType_CPU;
+      } else if (required_device_type == "gpu") {
+        test_config.required_device_type = OrtHardwareDeviceType::OrtHardwareDeviceType_GPU;
+      } else if (required_device_type == "npu") {
+        test_config.required_device_type = OrtHardwareDeviceType::OrtHardwareDeviceType_NPU;
+      }
+      else {
+        return false;
+      }
+    }
+  }
+
+  // --required_device_id
+  {
+    const auto& required_device_id = absl::GetFlag(FLAGS_required_device_id);
+
+    if (!required_device_id.empty()) {
+      if (!ParseUint32(required_device_id, test_config.required_device_id)) {
+        return false;
+      }
+      test_config.has_required_device_id = true;
+    }
+  }
+
+  // --required_vendor_id
+  {
+    const auto& required_vendor_id = absl::GetFlag(FLAGS_required_vendor_id);
+
+    if (!required_vendor_id.empty()) {
+      if (!ParseUint32(required_vendor_id, test_config.required_vendor_id)) {
+        return false;
+      }
+      test_config.has_required_vendor_id = true;
+    }
+  }
+
+#endif
 
   // --list_ep_devices
   if (absl::GetFlag(FLAGS_list_ep_devices)) {

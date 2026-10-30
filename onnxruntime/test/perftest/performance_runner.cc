@@ -7,7 +7,9 @@
 #endif
 
 #include "performance_runner.h"
+#include <cmath>
 #include <iostream>
+#include <numeric>
 
 #include "TestCase.h"
 #include "strings_helper.h"
@@ -56,7 +58,8 @@ namespace onnxruntime {
 namespace perftest {
 
 void PerformanceResult::DumpToFile(const std::basic_string<ORTCHAR_T>& path, bool f_include_statistics,
-                                   const std::map<std::string, std::vector<std::vector<int64_t>>>& shape_groups) const {
+                                   const std::map<std::string, std::vector<std::vector<int64_t>>>& shape_groups,
+                                    bool f_extended_stats) const {
   bool have_file = !path.empty();
   std::ofstream outfile;
 
@@ -94,14 +97,36 @@ void PerformanceResult::DumpToFile(const std::basic_string<ORTCHAR_T>& path, boo
 
     std::sort(sorted_time.begin(), sorted_time.end());
 
+    double mean = 0.0;
+    double std_dev = 0.0;
+    size_t n75 = 0;
+    if (f_extended_stats) {
+      n75 = static_cast<size_t>(total * 0.75);
+      mean = std::accumulate(sorted_time.begin(), sorted_time.end(), 0.0) / static_cast<double>(total);
+      double variance = 0.0;
+      for (double t : sorted_time) {
+        double diff = t - mean;
+        variance += diff * diff;
+      }
+      std_dev = std::sqrt(variance / static_cast<double>(total));
+    }
+
     auto output_stats = [&](std::ostream& ostream) {
       ostream << "Min Latency: " << sorted_time[0] << " s\n";
       ostream << "Max Latency: " << sorted_time[total - 1] << " s\n";
       ostream << "P50 Latency: " << sorted_time[n50] << " s\n";
+      if (f_extended_stats) {
+        ostream << "P75 Latency: " << sorted_time[n75] << " s\n";
+      }
       ostream << "P90 Latency: " << sorted_time[n90] << " s\n";
       ostream << "P95 Latency: " << sorted_time[n95] << " s\n";
       ostream << "P99 Latency: " << sorted_time[n99] << " s\n";
-      ostream << "P999 Latency: " << sorted_time[n999] << " s" << std::endl;
+      ostream << "P999 Latency: " << sorted_time[n999] << " s";
+      if (f_extended_stats) {
+        ostream << "\nMean Latency: " << mean << " s\n";
+        ostream << "Std Dev Latency: " << std_dev << " s";
+      }
+      ostream << std::endl;
     };
 
     if (have_file) {
@@ -323,7 +348,7 @@ static std::unique_ptr<TestModelInfo> CreateModelInfo(const PerformanceTestConfi
     return TestModelInfo::LoadOrtModel(performance_test_config_.model_info.model_file_path.c_str());
   }
 
-  ORT_NOT_IMPLEMENTED(ToUTF8String(file_path), " is not supported");
+  ORT_NOT_IMPLEMENTED("[model_file_path]", ToUTF8String(file_path), " is not supported");
 }
 
 PerformanceRunner::PerformanceRunner(Ort::Env& env, const PerformanceTestConfig& test_config, std::random_device& rd)

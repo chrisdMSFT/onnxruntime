@@ -47,6 +47,7 @@ struct RunConfig {
   size_t duration_in_seconds{600};
   size_t concurrent_session_runs{1};
   bool f_dump_statistics{false};
+  bool f_enable_extended_stats{false};
   int random_seed_for_input_data{-1};
   bool f_verbose{false};
   bool enable_memory_pattern{true};
@@ -103,6 +104,21 @@ struct PerformanceTestConfig {
   std::vector<std::pair<std::string, std::string>> filter_ep_device_kv_pairs;
   bool list_available_ep_devices = false;
   bool plugin_ep_force_cpu_allocator = false;
+
+#ifdef BUILD_WINML_STANDALONE_PERF_TEST
+
+  std::vector<std::string> winml_register_provider;
+
+  bool has_required_device_type = false;
+  OrtHardwareDeviceType required_device_type = OrtHardwareDeviceType::OrtHardwareDeviceType_CPU;
+
+  bool has_required_device_id = false;
+  uint32_t required_device_id = 0;
+
+  bool has_required_vendor_id = false;
+  uint32_t required_vendor_id = 0;
+
+  #endif
 };
 
 }  // namespace perftest

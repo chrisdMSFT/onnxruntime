@@ -26,7 +26,9 @@ Options:
 
 	-r: [repeated_times]: Specifies the repeated times if running in 'times' test mode.Default:1000.
 
-	-s: Show statistics result, like P75, P90.
+	-s: Show statistics result, like P50, P90, P95, P99, P999.
+
+	-es: Show extended statistics result (P75, mean, standard deviation). Requires -s to be enabled.
 
 	-t: [seconds_to_run]: Specifies the seconds to run for 'duration' mode. Default:600.
 
@@ -66,4 +68,4 @@ __Sample output__ from the tool will look something like this:
 	P90 Latency is 0.0599845sec
 	P95 Latency is 0.0605676sec
 	P99 Latency is 0.0619517sec
-	P999 Latency is 0.0623472se
+	P999 Latency is 0.0623472sec
